@@ -29,6 +29,14 @@ import org.eclipse.fennec.model.collection.CollectionPackage;
  */
 public class CollectionEPackageConfigurator implements EPackageConfigurator {
 	
+	/**
+	 * The fingerprint of this model version, computed from the <code>.ecore</code> at build
+	 * time. It identifies the model content, not the artifact - see the <code>emf.fingerprint</code>
+	 * service property.
+	 * @generated
+	 */
+	public static final String FINGERPRINT = "fp1:fdf49e790be21f416a0dd2dd39ccbb1ead52e8f4240d2dd042e9d95a457c69b3";
+
 	private CollectionPackage ePackage;
 
 	protected CollectionEPackageConfigurator(CollectionPackage ePackage){
@@ -66,6 +74,7 @@ public class CollectionEPackageConfigurator implements EPackageConfigurator {
 		properties.put(EMFNamespaces.EMF_MODEL_REGISTRATION, EMFNamespaces.MODEL_REGISTRATION_PROVIDED);
 		properties.put(EMFNamespaces.EMF_MODEL_FILE_EXT, "collection");
 		properties.put(EMFNamespaces.EMF_MODEL_VERSION, "2.2");
+		properties.put(EMFNamespaces.EMF_MODEL_FINGERPRINT, FINGERPRINT);
 		return properties;
 	}
 }

@@ -29,6 +29,14 @@ import org.eclipse.fennec.model.pushstream.PushStreamPackage;
  */
 public class PushStreamEPackageConfigurator implements EPackageConfigurator {
 	
+	/**
+	 * The fingerprint of this model version, computed from the <code>.ecore</code> at build
+	 * time. It identifies the model content, not the artifact - see the <code>emf.fingerprint</code>
+	 * service property.
+	 * @generated
+	 */
+	public static final String FINGERPRINT = "fp1:34bc8ff95977f164ac00cd73e495f7b0bdfcd1ac1d77cba9dd9f1cd8457a1f4c";
+
 	private PushStreamPackage ePackage;
 
 	protected PushStreamEPackageConfigurator(PushStreamPackage ePackage){
@@ -66,6 +74,7 @@ public class PushStreamEPackageConfigurator implements EPackageConfigurator {
 		properties.put(EMFNamespaces.EMF_MODEL_REGISTRATION, EMFNamespaces.MODEL_REGISTRATION_PROVIDED);
 		properties.put(EMFNamespaces.EMF_MODEL_FILE_EXT, "pushstream");
 		properties.put(EMFNamespaces.EMF_MODEL_VERSION, "1.2");
+		properties.put(EMFNamespaces.EMF_MODEL_FINGERPRINT, FINGERPRINT);
 		return properties;
 	}
 }

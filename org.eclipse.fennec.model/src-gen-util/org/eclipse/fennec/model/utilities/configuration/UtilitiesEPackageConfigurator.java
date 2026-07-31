@@ -29,6 +29,14 @@ import org.eclipse.fennec.model.utilities.UtilitiesPackage;
  */
 public class UtilitiesEPackageConfigurator implements EPackageConfigurator {
 	
+	/**
+	 * The fingerprint of this model version, computed from the <code>.ecore</code> at build
+	 * time. It identifies the model content, not the artifact - see the <code>emf.fingerprint</code>
+	 * service property.
+	 * @generated
+	 */
+	public static final String FINGERPRINT = "fp1:62322a9e1fd6a563d065b61b9564130bec5d7f3aad7a828f765eced05a73472b";
+
 	private UtilitiesPackage ePackage;
 
 	protected UtilitiesEPackageConfigurator(UtilitiesPackage ePackage){
@@ -66,6 +74,7 @@ public class UtilitiesEPackageConfigurator implements EPackageConfigurator {
 		properties.put(EMFNamespaces.EMF_MODEL_REGISTRATION, EMFNamespaces.MODEL_REGISTRATION_PROVIDED);
 		properties.put(EMFNamespaces.EMF_MODEL_FILE_EXT, "utilities");
 		properties.put(EMFNamespaces.EMF_MODEL_VERSION, "2.2");
+		properties.put(EMFNamespaces.EMF_MODEL_FINGERPRINT, FINGERPRINT);
 		return properties;
 	}
 }

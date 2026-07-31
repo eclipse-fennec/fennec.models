@@ -38,7 +38,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = PushStreamPackage.eNS_URI, genModel = "/model/pushstream.genmodel", genModelSourceLocations = {"model/pushstream.genmodel","org.eclipse.fennec.model/model/pushstream.genmodel"}, ecore = "/model/pushstream.ecore", ecoreSourceLocations = "/model/pushstream.ecore")
+@EPackage(uri = PushStreamPackage.eNS_URI, fingerprint = "fp1:34bc8ff95977f164ac00cd73e495f7b0bdfcd1ac1d77cba9dd9f1cd8457a1f4c", genModel = "/model/pushstream.genmodel", genModelSourceLocations = {"model/pushstream.genmodel","org.eclipse.fennec.model/model/pushstream.genmodel"}, ecore = "/model/pushstream.ecore", ecoreSourceLocations = "/model/pushstream.ecore")
 public interface PushStreamPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
