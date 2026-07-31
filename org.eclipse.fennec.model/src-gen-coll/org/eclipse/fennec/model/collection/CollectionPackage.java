@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = CollectionPackage.eNS_URI, genModel = "/model/collections.genmodel", genModelSourceLocations = {"model/collections.genmodel","org.eclipse.fennec.model/model/collections.genmodel"}, ecore = "/model/collections.ecore", ecoreSourceLocations = "/model/collections.ecore")
+@EPackage(uri = CollectionPackage.eNS_URI, fingerprint = "fp1:fdf49e790be21f416a0dd2dd39ccbb1ead52e8f4240d2dd042e9d95a457c69b3", genModel = "/model/collections.genmodel", genModelSourceLocations = {"model/collections.genmodel","org.eclipse.fennec.model/model/collections.genmodel"}, ecore = "/model/collections.ecore", ecoreSourceLocations = "/model/collections.ecore")
 public interface CollectionPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
