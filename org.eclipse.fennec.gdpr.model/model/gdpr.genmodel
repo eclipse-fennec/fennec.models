@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.gdpr.model/src" modelPluginID="org.eclipse.fennec.gdpr.model"
+    modelName="gdpr" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>gdpr.ecore</foreignModel>
+  <genPackages prefix="GDPR" basePackage="org.eclipse.fennec.model" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="gdpr.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gdpr.ecore#//DivisionLevel">
+      <genEnumLiterals ecoreEnumLiteral="gdpr.ecore#//DivisionLevel/CHAPTER"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr.ecore#//DivisionLevel/SECTION"/>
+    </genEnums>
+    <genClasses ecoreClass="gdpr.ecore#//LegalAct">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/celex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/consolidatedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/formexSchema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/closingFormula"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalAct/citations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//LegalAct/recitals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//LegalAct/divisions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//LegalAct/definitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//LegalAct/crossReferences"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gdpr.ecore#//Citable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Citable/citationId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//Citable/cites"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//Citable/citedBy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gdpr.ecore#//LegalUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalUnit/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalUnit/sourceRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//LegalUnit/modifiedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//LegalUnit/footnotes"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Recital">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Recital/number"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Article">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Article/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Article/heading"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Article/paragraphs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Article/points"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Paragraph/number"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Paragraph/points"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Point/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Point/points"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//Point/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Division">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Division/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Division/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Division/heading"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Division/divisions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr.ecore#//Division/articles"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Definition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Definition/term"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Definition/number"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//Definition/definedIn"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//CrossReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//CrossReference/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/rawText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/targetCitationId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gdpr.ecore#//CrossReference/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/resolved"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/relative"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/external"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//CrossReference/instrument"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr.ecore#//Footnote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Footnote/noteId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr.ecore#//Footnote/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
