@@ -99,6 +99,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return createCombinationKindFromString(eDataType, initialValue);
 			case GDPRReportPackage.REQUEST_STATUS_TYPE:
 				return createRequestStatusTypeFromString(eDataType, initialValue);
+			case GDPRReportPackage.GDPR_REPORT_ORIGIN:
+				return createGdprReportOriginFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +126,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return convertCombinationKindToString(eDataType, instanceValue);
 			case GDPRReportPackage.REQUEST_STATUS_TYPE:
 				return convertRequestStatusTypeToString(eDataType, instanceValue);
+			case GDPRReportPackage.GDPR_REPORT_ORIGIN:
+				return convertGdprReportOriginToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -345,6 +349,26 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	 * @generated
 	 */
 	public String convertRequestStatusTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GdprReportOrigin createGdprReportOriginFromString(EDataType eDataType, String initialValue) {
+		GdprReportOrigin result = GdprReportOrigin.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGdprReportOriginToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

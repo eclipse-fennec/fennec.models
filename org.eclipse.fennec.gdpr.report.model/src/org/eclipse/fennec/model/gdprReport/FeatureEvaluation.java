@@ -37,6 +37,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getRelevanceLevel <em>Relevance Level</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getFindings <em>Findings</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations <em>Part Of Combinations</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPurpose <em>Purpose</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation()
@@ -229,5 +230,30 @@ public interface FeatureEvaluation extends EObject {
 	 * @generated
 	 */
 	EList<CombinationFinding> getPartOfCombinations();
+
+	/**
+	 * Returns the value of the '<em><b>Purpose</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The reason for storing this particular feature. This field should be always entered by a human.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Purpose</em>' attribute.
+	 * @see #setPurpose(String)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation_Purpose()
+	 * @model
+	 * @generated
+	 */
+	String getPurpose();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPurpose <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Purpose</em>' attribute.
+	 * @see #getPurpose()
+	 * @generated
+	 */
+	void setPurpose(String value);
 
 } // FeatureEvaluation

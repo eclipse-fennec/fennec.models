@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.gdpr.report.history.model/src" modelPluginID="org.eclipse.fennec.gdpr.report.history.model"
+    modelName="gdpr-report-history" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>gdpr-report-history.ecore</foreignModel>
+  <genPackages prefix="GDPRReportHistory" basePackage="org.eclipse.fennec.model" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="gdpr-report-history.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gdpr-report-history.ecore#//RevisionOrigin">
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/AI_AGENT"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/HUMAN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gdpr-report-history.ecore#//ChangeKind">
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//ChangeKind/UNCHANGED"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//ChangeKind/ADDED"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//ChangeKind/MODIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//ChangeKind/REMOVED"/>
+    </genEnums>
+    <genClasses ecoreClass="gdpr-report-history.ecore#//GdprReportHistory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectNsURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/modelFingerprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/rebuiltAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/revisionCount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/revisions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/evaluations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/changes"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr-report-history.ecore#//ReportRevision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/revisionNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/reportId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/modelFingerprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/generatedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/generatedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/origin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/corpusCelex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/corpusConsolidatedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/findingCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/changeCount"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr-report-history.ecore#//EvaluationRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/revisionNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/classifierId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/classifierName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/classifierUriFragment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/featureId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/featureName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/featureUriFragment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/relevanceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/rationale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/recommendation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/citations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/changeKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/purpose"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr-report-history.ecore#//ChangeRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/revisionNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/changedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/changedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/classifierId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/featureId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/field"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/changeKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/oldValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/newValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
