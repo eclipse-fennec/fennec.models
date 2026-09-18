@@ -49,6 +49,7 @@ import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl#getRelevanceLevel <em>Relevance Level</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl#getFindings <em>Findings</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl#getPartOfCombinations <em>Part Of Combinations</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl#getPurpose <em>Purpose</em>}</li>
  * </ul>
  *
  * @generated
@@ -193,6 +194,26 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<CombinationFinding> partOfCombinations;
+
+	/**
+	 * The default value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PURPOSE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPurpose()
+	 * @generated
+	 * @ordered
+	 */
+	protected String purpose = PURPOSE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -382,6 +403,29 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getPurpose() {
+		return purpose;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPurpose(String newPurpose) {
+		String oldPurpose = purpose;
+		purpose = newPurpose;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.FEATURE_EVALUATION__PURPOSE, oldPurpose, purpose));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -432,6 +476,8 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 				return getFindings();
 			case GDPRReportPackage.FEATURE_EVALUATION__PART_OF_COMBINATIONS:
 				return getPartOfCombinations();
+			case GDPRReportPackage.FEATURE_EVALUATION__PURPOSE:
+				return getPurpose();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -471,6 +517,9 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 				getPartOfCombinations().clear();
 				getPartOfCombinations().addAll((Collection<? extends CombinationFinding>)newValue);
 				return;
+			case GDPRReportPackage.FEATURE_EVALUATION__PURPOSE:
+				setPurpose((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -507,6 +556,9 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportPackage.FEATURE_EVALUATION__PART_OF_COMBINATIONS:
 				getPartOfCombinations().clear();
 				return;
+			case GDPRReportPackage.FEATURE_EVALUATION__PURPOSE:
+				setPurpose(PURPOSE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -535,6 +587,8 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 				return findings != null && !findings.isEmpty();
 			case GDPRReportPackage.FEATURE_EVALUATION__PART_OF_COMBINATIONS:
 				return partOfCombinations != null && !partOfCombinations.isEmpty();
+			case GDPRReportPackage.FEATURE_EVALUATION__PURPOSE:
+				return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -561,6 +615,8 @@ public class FeatureEvaluationImpl extends MinimalEObjectImpl.Container implemen
 		result.append(many);
 		result.append(", relevanceLevel: ");
 		result.append(relevanceLevel);
+		result.append(", purpose: ");
+		result.append(purpose);
 		result.append(')');
 		return result.toString();
 	}

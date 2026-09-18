@@ -16,6 +16,11 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Root of a GDPR review of one Ecore metamodel. Exactly one instance per review run. It records what was reviewed (subject), which revision of the legal text the evidence was quoted from (corpus), one ClassifierEvaluation per examined classifier, and any cross-classifier combination findings."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reportId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The unique identifier for this report"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Human readable title of the review, e.g. 'GDPR review of clinic 1.0.0'."/>
@@ -58,6 +63,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disclaimer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Statement of what the report is and is not. It is decision support for a data protection officer: it flags features needing human review and must not assert compliance or non-compliance."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//GdprReportOrigin">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The origin of the report, namely whether it was redacted by an AI agent or by a human"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -190,6 +200,11 @@
         eType="#//CombinationFinding" transient="true" derived="true" eOpposite="#//CombinationFinding/features">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the feature to the combination instead."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reason for storing this particular feature. This field should be always entered by a human."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -558,5 +573,10 @@
         <details key="documentation" value="The run was still unfinished after the allowed number of continuations and was given up on. Whatever it had recorded was never sealed, so there is no report; raising the ceiling or reviewing a smaller model is the way forward."/>
       </eAnnotations>
     </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GdprReportOrigin">
+    <eLiterals name="UNKNOWN"/>
+    <eLiterals name="AI_AGENT" value="1"/>
+    <eLiterals name="HUMAN" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

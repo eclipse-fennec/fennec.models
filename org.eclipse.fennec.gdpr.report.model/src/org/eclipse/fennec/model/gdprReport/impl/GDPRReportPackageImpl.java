@@ -30,6 +30,7 @@ import org.eclipse.fennec.model.gdprReport.Finding;
 import org.eclipse.fennec.model.gdprReport.GDPRReportFactory;
 import org.eclipse.fennec.model.gdprReport.GDPRReportPackage;
 import org.eclipse.fennec.model.gdprReport.GdprReport;
+import org.eclipse.fennec.model.gdprReport.GdprReportOrigin;
 import org.eclipse.fennec.model.gdprReport.GdprRequestStatus;
 import org.eclipse.fennec.model.gdprReport.LegalCorpusRef;
 import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
@@ -149,6 +150,13 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	private EEnum requestStatusTypeEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gdprReportOriginEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -224,7 +232,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReport_Name() {
+	public EAttribute getGdprReport_ReportId() {
 		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -234,7 +242,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReport_GeneratedAt() {
+	public EAttribute getGdprReport_Name() {
 		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -244,7 +252,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReport_GeneratedBy() {
+	public EAttribute getGdprReport_GeneratedAt() {
 		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -254,8 +262,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EReference getGdprReport_Subject() {
-		return (EReference)gdprReportEClass.getEStructuralFeatures().get(3);
+	public EAttribute getGdprReport_GeneratedBy() {
+		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -264,7 +272,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EReference getGdprReport_Corpus() {
+	public EReference getGdprReport_Subject() {
 		return (EReference)gdprReportEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -274,7 +282,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EReference getGdprReport_ClassifierEvaluation() {
+	public EReference getGdprReport_Corpus() {
 		return (EReference)gdprReportEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -284,7 +292,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EReference getGdprReport_Combinations() {
+	public EReference getGdprReport_ClassifierEvaluation() {
 		return (EReference)gdprReportEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -294,8 +302,28 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EReference getGdprReport_Combinations() {
+		return (EReference)gdprReportEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getGdprReport_Disclaimer() {
-		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGdprReport_Origin() {
+		return (EAttribute)gdprReportEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -546,6 +574,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	@Override
 	public EReference getFeatureEvaluation_PartOfCombinations() {
 		return (EReference)featureEvaluationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFeatureEvaluation_Purpose() {
+		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -924,6 +962,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EEnum getGdprReportOrigin() {
+		return gdprReportOriginEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GDPRReportFactory getGDPRReportFactory() {
 		return (GDPRReportFactory)getEFactoryInstance();
 	}
@@ -948,6 +996,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 
 		// Create classes and their features
 		gdprReportEClass = createEClass(GDPR_REPORT);
+		createEAttribute(gdprReportEClass, GDPR_REPORT__REPORT_ID);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__NAME);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__GENERATED_AT);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__GENERATED_BY);
@@ -956,6 +1005,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEReference(gdprReportEClass, GDPR_REPORT__CLASSIFIER_EVALUATION);
 		createEReference(gdprReportEClass, GDPR_REPORT__COMBINATIONS);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__DISCLAIMER);
+		createEAttribute(gdprReportEClass, GDPR_REPORT__ORIGIN);
 
 		subjectModelEClass = createEClass(SUBJECT_MODEL);
 		createEAttribute(subjectModelEClass, SUBJECT_MODEL__NAME);
@@ -985,6 +1035,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__RELEVANCE_LEVEL);
 		createEReference(featureEvaluationEClass, FEATURE_EVALUATION__FINDINGS);
 		createEReference(featureEvaluationEClass, FEATURE_EVALUATION__PART_OF_COMBINATIONS);
+		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__PURPOSE);
 
 		findingEClass = createEClass(FINDING);
 		createEAttribute(findingEClass, FINDING__ID);
@@ -1028,6 +1079,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		detectionSignalEEnum = createEEnum(DETECTION_SIGNAL);
 		combinationKindEEnum = createEEnum(COMBINATION_KIND);
 		requestStatusTypeEEnum = createEEnum(REQUEST_STATUS_TYPE);
+		gdprReportOriginEEnum = createEEnum(GDPR_REPORT_ORIGIN);
 	}
 
 	/**
@@ -1062,6 +1114,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gdprReportEClass, GdprReport.class, "GdprReport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGdprReport_ReportId(), ecorePackage.getEString(), "reportId", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_Name(), ecorePackage.getEString(), "name", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_GeneratedAt(), ecorePackage.getEString(), "generatedAt", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_GeneratedBy(), ecorePackage.getEString(), "generatedBy", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1070,6 +1123,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEReference(getGdprReport_ClassifierEvaluation(), this.getClassifierEvaluation(), null, "classifierEvaluation", null, 0, -1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReport_Combinations(), this.getCombinationFinding(), null, "combinations", null, 0, -1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_Disclaimer(), ecorePackage.getEString(), "disclaimer", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprReport_Origin(), this.getGdprReportOrigin(), "origin", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subjectModelEClass, SubjectModel.class, "SubjectModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSubjectModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1099,6 +1153,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getFeatureEvaluation_RelevanceLevel(), this.getRelevanceLevelType(), "relevanceLevel", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeatureEvaluation_Findings(), this.getFinding(), null, "findings", null, 0, -1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeatureEvaluation_PartOfCombinations(), this.getCombinationFinding(), this.getCombinationFinding_Features(), "partOfCombinations", null, 0, -1, FeatureEvaluation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeatureEvaluation_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(findingEClass, Finding.class, "Finding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFinding_Id(), ecorePackage.getEString(), "id", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1183,6 +1238,11 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.FAILED);
 		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.EXHAUSTED);
 
+		initEEnum(gdprReportOriginEEnum, GdprReportOrigin.class, "GdprReportOrigin");
+		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.UNKNOWN);
+		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.AI_AGENT);
+		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.HUMAN);
+
 		// Create resource
 		createResource(eNS_URI);
 
@@ -1234,6 +1294,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "Root of a GDPR review of one Ecore metamodel. Exactly one instance per review run. It records what was reviewed (subject), which revision of the legal text the evidence was quoted from (corpus), one ClassifierEvaluation per examined classifier, and any cross-classifier combination findings."
 		   });
 		addAnnotation
+		  (getGdprReport_ReportId(),
+		   source,
+		   new String[] {
+			   "documentation", "The unique identifier for this report"
+		   });
+		addAnnotation
 		  (getGdprReport_Name(),
 		   source,
 		   new String[] {
@@ -1280,6 +1346,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "Statement of what the report is and is not. It is decision support for a data protection officer: it flags features needing human review and must not assert compliance or non-compliance."
+		   });
+		addAnnotation
+		  (getGdprReport_Origin(),
+		   source,
+		   new String[] {
+			   "documentation", "The origin of the report, namely whether it was redacted by an AI agent or by a human"
 		   });
 		addAnnotation
 		  (subjectModelEClass,
@@ -1430,6 +1502,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the feature to the combination instead."
+		   });
+		addAnnotation
+		  (getFeatureEvaluation_Purpose(),
+		   source,
+		   new String[] {
+			   "documentation", "The reason for storing this particular feature. This field should be always entered by a human."
 		   });
 		addAnnotation
 		  (findingEClass,
