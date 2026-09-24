@@ -10,10 +10,6 @@
  */
 package org.eclipse.fennec.model.gdprReport;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
-
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -29,14 +25,10 @@ import org.osgi.annotation.versioning.ProviderType;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getUriFragment <em>Uri Fragment</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#isMany <em>Many</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getRelevanceLevel <em>Relevance Level</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getFindings <em>Findings</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations <em>Part Of Combinations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPurpose <em>Purpose</em>}</li>
  * </ul>
  *
@@ -45,57 +37,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-public interface FeatureEvaluation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Required and unique within the report. CombinationFinding points here, so it must be stable across reruns. Use classifier.feature, e.g. 'Patient.street'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation_Id()
-	 * @model id="true"
-	 * @generated
-	 */
-	String getId();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Feature name exactly as it appears in the reviewed model.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface FeatureEvaluation extends Evaluation {
 	/**
 	 * Returns the value of the '<em><b>Uri Fragment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -198,38 +140,6 @@ public interface FeatureEvaluation extends EObject {
 	 * @generated
 	 */
 	void setRelevanceLevel(RelevanceLevelType value);
-
-	/**
-	 * Returns the value of the '<em><b>Findings</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.fennec.model.gdprReport.Finding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Findings about this feature on its own. Findings that need other features belong in a CombinationFinding.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Findings</em>' containment reference list.
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation_Findings()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Finding> getFindings();
-
-	/**
-	 * Returns the value of the '<em><b>Part Of Combinations</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.fennec.model.gdprReport.CombinationFinding}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.fennec.model.gdprReport.CombinationFinding#getFeatures <em>Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the feature to the combination instead.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Part Of Combinations</em>' reference list.
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFeatureEvaluation_PartOfCombinations()
-	 * @see org.eclipse.fennec.model.gdprReport.CombinationFinding#getFeatures
-	 * @model opposite="features" transient="true" derived="true"
-	 * @generated
-	 */
-	EList<CombinationFinding> getPartOfCombinations();
 
 	/**
 	 * Returns the value of the '<em><b>Purpose</b></em>' attribute.

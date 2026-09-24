@@ -39,7 +39,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:698d60694fccada712d46721416328a5bbbe62fe5a45ef97ee44a3fe578d96ae", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
+@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:e18b13dbf86f4d11a13cb09ff1e8c9183459a9e8782202934b455076e8b383c7", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
 public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -138,13 +138,13 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int GDPR_REPORT__CORPUS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Classifier Evaluation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT__CLASSIFIER_EVALUATION = 6;
+	int GDPR_REPORT__EVALUATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Combinations</b></em>' containment reference list.
@@ -192,68 +192,50 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int GDPR_REPORT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.SubjectModelImpl <em>Subject Model</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.SubjectImpl <em>Subject</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.model.gdprReport.impl.SubjectModelImpl
-	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getSubjectModel()
+	 * @see org.eclipse.fennec.model.gdprReport.impl.SubjectImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getSubject()
 	 * @generated
 	 */
-	int SUBJECT_MODEL = 1;
+	int SUBJECT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_MODEL__NAME = 0;
+	int SUBJECT__SUBJECT_FINGERPRINT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ns URI</b></em>' attribute.
+	 * The feature id for the '<em><b>Report Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_MODEL__NS_URI = 1;
+	int SUBJECT__REPORT_ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Ns Prefix</b></em>' attribute.
+	 * The number of structural features of the '<em>Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_MODEL__NS_PREFIX = 2;
+	int SUBJECT_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Model Fingerprint</b></em>' attribute.
+	 * The number of operations of the '<em>Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_MODEL__MODEL_FINGERPRINT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Subject Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBJECT_MODEL_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Subject Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBJECT_MODEL_OPERATION_COUNT = 0;
+	int SUBJECT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.LegalCorpusRefImpl <em>Legal Corpus Ref</em>}' class.
@@ -320,6 +302,70 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int LEGAL_CORPUS_REF_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.EvaluationImpl <em>Evaluation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.impl.EvaluationImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getEvaluation()
+	 * @generated
+	 */
+	int EVALUATION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Findings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__FINDINGS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Combinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__PART_OF_COMBINATIONS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Evaluation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Evaluation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.ClassifierEvaluationImpl <em>Classifier Evaluation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,7 +382,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_EVALUATION__ID = 0;
+	int CLASSIFIER_EVALUATION__ID = EVALUATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -345,25 +391,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_EVALUATION__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Uri Fragment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASSIFIER_EVALUATION__URI_FRAGMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Feature Evaluation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASSIFIER_EVALUATION__FEATURE_EVALUATION = 3;
+	int CLASSIFIER_EVALUATION__NAME = EVALUATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Findings</b></em>' containment reference list.
@@ -372,7 +400,34 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_EVALUATION__FINDINGS = 4;
+	int CLASSIFIER_EVALUATION__FINDINGS = EVALUATION__FINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Combinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_EVALUATION__PART_OF_COMBINATIONS = EVALUATION__PART_OF_COMBINATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Uri Fragment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_EVALUATION__URI_FRAGMENT = EVALUATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Feature Evaluation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_EVALUATION__FEATURE_EVALUATION = EVALUATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Classifier Evaluation</em>' class.
@@ -381,7 +436,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_EVALUATION_FEATURE_COUNT = 5;
+	int CLASSIFIER_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Classifier Evaluation</em>' class.
@@ -390,7 +445,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_EVALUATION_OPERATION_COUNT = 0;
+	int CLASSIFIER_EVALUATION_OPERATION_COUNT = EVALUATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl <em>Feature Evaluation</em>}' class.
@@ -409,7 +464,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION__ID = 0;
+	int FEATURE_EVALUATION__ID = EVALUATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -418,43 +473,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Uri Fragment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_EVALUATION__URI_FRAGMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_EVALUATION__TYPE_NAME = 3;
-
-	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_EVALUATION__MANY = 4;
-
-	/**
-	 * The feature id for the '<em><b>Relevance Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_EVALUATION__RELEVANCE_LEVEL = 5;
+	int FEATURE_EVALUATION__NAME = EVALUATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Findings</b></em>' containment reference list.
@@ -463,7 +482,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION__FINDINGS = 6;
+	int FEATURE_EVALUATION__FINDINGS = EVALUATION__FINDINGS;
 
 	/**
 	 * The feature id for the '<em><b>Part Of Combinations</b></em>' reference list.
@@ -472,7 +491,43 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION__PART_OF_COMBINATIONS = 7;
+	int FEATURE_EVALUATION__PART_OF_COMBINATIONS = EVALUATION__PART_OF_COMBINATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Uri Fragment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_EVALUATION__URI_FRAGMENT = EVALUATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_EVALUATION__TYPE_NAME = EVALUATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_EVALUATION__MANY = EVALUATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Relevance Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_EVALUATION__RELEVANCE_LEVEL = EVALUATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Purpose</b></em>' attribute.
@@ -481,7 +536,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION__PURPOSE = 8;
+	int FEATURE_EVALUATION__PURPOSE = EVALUATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Feature Evaluation</em>' class.
@@ -490,7 +545,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION_FEATURE_COUNT = 9;
+	int FEATURE_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Feature Evaluation</em>' class.
@@ -499,7 +554,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_EVALUATION_OPERATION_COUNT = 0;
+	int FEATURE_EVALUATION_OPERATION_COUNT = EVALUATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl <em>Finding</em>}' class.
@@ -593,13 +648,22 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int FINDING__EVIDENCE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Diagnostic Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING__DIAGNOSTIC_ID = 9;
+
+	/**
 	 * The number of structural features of the '<em>Finding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FINDING_FEATURE_COUNT = 9;
+	int FINDING_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Finding</em>' class.
@@ -700,6 +764,15 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @ordered
 	 */
 	int COMBINATION_FINDING__EVIDENCE = FINDING__EVIDENCE;
+
+	/**
+	 * The feature id for the '<em><b>Diagnostic Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINATION_FINDING__DIAGNOSTIC_ID = FINDING__DIAGNOSTIC_ID;
 
 	/**
 	 * The feature id for the '<em><b>Combination Kind</b></em>' attribute.
@@ -821,22 +894,13 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int GDPR_REQUEST_STATUS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Model Fingerprint</b></em>' attribute.
+	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__MODEL_FINGERPRINT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Ns URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GDPR_REQUEST_STATUS__NS_URI = 1;
+	int GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Batch Id</b></em>' attribute.
@@ -845,7 +909,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__BATCH_ID = 2;
+	int GDPR_REQUEST_STATUS__BATCH_ID = 1;
 
 	/**
 	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
@@ -854,7 +918,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__CUSTOM_ID = 3;
+	int GDPR_REQUEST_STATUS__CUSTOM_ID = 2;
 
 	/**
 	 * The feature id for the '<em><b>Report Id</b></em>' attribute.
@@ -863,7 +927,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__REPORT_ID = 4;
+	int GDPR_REQUEST_STATUS__REPORT_ID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -872,7 +936,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__STATUS = 5;
+	int GDPR_REQUEST_STATUS__STATUS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Submitted At</b></em>' attribute.
@@ -881,7 +945,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__SUBMITTED_AT = 6;
+	int GDPR_REQUEST_STATUS__SUBMITTED_AT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Ended At</b></em>' attribute.
@@ -890,7 +954,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__ENDED_AT = 7;
+	int GDPR_REQUEST_STATUS__ENDED_AT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -899,7 +963,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__MESSAGE = 8;
+	int GDPR_REQUEST_STATUS__MESSAGE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Continuation Count</b></em>' attribute.
@@ -908,7 +972,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__CONTINUATION_COUNT = 9;
+	int GDPR_REQUEST_STATUS__CONTINUATION_COUNT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Output Tokens</b></em>' attribute.
@@ -917,7 +981,16 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REQUEST_STATUS__OUTPUT_TOKENS = 10;
+	int GDPR_REQUEST_STATUS__OUTPUT_TOKENS = 9;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GDPR_REQUEST_STATUS__LANGUAGE = 10;
 
 	/**
 	 * The number of structural features of the '<em>Gdpr Request Status</em>' class.
@@ -938,6 +1011,306 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int GDPR_REQUEST_STATUS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.PackageSubjectImpl <em>Package Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.impl.PackageSubjectImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getPackageSubject()
+	 * @generated
+	 */
+	int PACKAGE_SUBJECT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT__SUBJECT_FINGERPRINT = SUBJECT__SUBJECT_FINGERPRINT;
+
+	/**
+	 * The feature id for the '<em><b>Report Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT__REPORT_ID = SUBJECT__REPORT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT__NAME = SUBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT__NS_URI = SUBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Ns Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT__NS_PREFIX = SUBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Package Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT_FEATURE_COUNT = SUBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Package Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_SUBJECT_OPERATION_COUNT = SUBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.TransformationSubjectImpl <em>Transformation Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.impl.TransformationSubjectImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getTransformationSubject()
+	 * @generated
+	 */
+	int TRANSFORMATION_SUBJECT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__SUBJECT_FINGERPRINT = SUBJECT__SUBJECT_FINGERPRINT;
+
+	/**
+	 * The feature id for the '<em><b>Report Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__REPORT_ID = SUBJECT__REPORT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__QUALIFIED_NAME = SUBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__LANGUAGE = SUBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Fingerprint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__SOURCE_FINGERPRINT = SUBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__SOURCE_PACKAGES = SUBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Target Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT__TARGET_PACKAGES = SUBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Transformation Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT_FEATURE_COUNT = SUBJECT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Transformation Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_SUBJECT_OPERATION_COUNT = SUBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.FlowEvaluationImpl <em>Flow Evaluation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.impl.FlowEvaluationImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFlowEvaluation()
+	 * @generated
+	 */
+	int FLOW_EVALUATION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__ID = EVALUATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__NAME = EVALUATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Findings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__FINDINGS = EVALUATION__FINDINGS;
+
+	/**
+	 * The feature id for the '<em><b>Part Of Combinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__PART_OF_COMBINATIONS = EVALUATION__PART_OF_COMBINATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__MAPPING = EVALUATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__SOURCE_NS_URI = EVALUATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Feature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__SOURCE_FEATURE = EVALUATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__TARGET_NS_URI = EVALUATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Target Feature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__TARGET_FEATURE = EVALUATION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Flow Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__FLOW_KIND = EVALUATION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Relevance Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__RELEVANCE_LEVEL = EVALUATION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Purpose</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION__PURPOSE = EVALUATION_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Flow Evaluation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Flow Evaluation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVALUATION_OPERATION_COUNT = EVALUATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,7 +1318,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getDataCategory()
 	 * @generated
 	 */
-	int DATA_CATEGORY = 9;
+	int DATA_CATEGORY = 13;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.RelevanceLevelType <em>Relevance Level Type</em>}' enum.
@@ -955,7 +1328,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getRelevanceLevelType()
 	 * @generated
 	 */
-	int RELEVANCE_LEVEL_TYPE = 10;
+	int RELEVANCE_LEVEL_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.ConfidenceType <em>Confidence Type</em>}' enum.
@@ -965,7 +1338,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getConfidenceType()
 	 * @generated
 	 */
-	int CONFIDENCE_TYPE = 11;
+	int CONFIDENCE_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.DetectionSignal <em>Detection Signal</em>}' enum.
@@ -975,7 +1348,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getDetectionSignal()
 	 * @generated
 	 */
-	int DETECTION_SIGNAL = 12;
+	int DETECTION_SIGNAL = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.CombinationKind <em>Combination Kind</em>}' enum.
@@ -985,7 +1358,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getCombinationKind()
 	 * @generated
 	 */
-	int COMBINATION_KIND = 13;
+	int COMBINATION_KIND = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.RequestStatusType <em>Request Status Type</em>}' enum.
@@ -995,7 +1368,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getRequestStatusType()
 	 * @generated
 	 */
-	int REQUEST_STATUS_TYPE = 14;
+	int REQUEST_STATUS_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.GdprReportOrigin <em>Gdpr Report Origin</em>}' enum.
@@ -1005,7 +1378,17 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getGdprReportOrigin()
 	 * @generated
 	 */
-	int GDPR_REPORT_ORIGIN = 15;
+	int GDPR_REPORT_ORIGIN = 19;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.FlowKind <em>Flow Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.FlowKind
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFlowKind()
+	 * @generated
+	 */
+	int FLOW_KIND = 20;
 
 
 	/**
@@ -1085,15 +1468,15 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EReference getGdprReport_Corpus();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.GdprReport#getClassifierEvaluation <em>Classifier Evaluation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.GdprReport#getEvaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Classifier Evaluation</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.GdprReport#getClassifierEvaluation()
+	 * @return the meta object for the containment reference list '<em>Evaluation</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.GdprReport#getEvaluation()
 	 * @see #getGdprReport()
 	 * @generated
 	 */
-	EReference getGdprReport_ClassifierEvaluation();
+	EReference getGdprReport_Evaluation();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.GdprReport#getCombinations <em>Combinations</em>}'.
@@ -1129,58 +1512,36 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getGdprReport_Origin();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.SubjectModel <em>Subject Model</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.Subject <em>Subject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Subject Model</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel
+	 * @return the meta object for class '<em>Subject</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Subject
 	 * @generated
 	 */
-	EClass getSubjectModel();
+	EClass getSubject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.SubjectModel#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Subject#getSubjectFingerprint <em>Subject Fingerprint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel#getName()
-	 * @see #getSubjectModel()
+	 * @return the meta object for the attribute '<em>Subject Fingerprint</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Subject#getSubjectFingerprint()
+	 * @see #getSubject()
 	 * @generated
 	 */
-	EAttribute getSubjectModel_Name();
+	EAttribute getSubject_SubjectFingerprint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.SubjectModel#getNsURI <em>Ns URI</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Subject#getReportId <em>Report Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ns URI</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel#getNsURI()
-	 * @see #getSubjectModel()
+	 * @return the meta object for the attribute '<em>Report Id</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Subject#getReportId()
+	 * @see #getSubject()
 	 * @generated
 	 */
-	EAttribute getSubjectModel_NsURI();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.SubjectModel#getNsPrefix <em>Ns Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ns Prefix</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel#getNsPrefix()
-	 * @see #getSubjectModel()
-	 * @generated
-	 */
-	EAttribute getSubjectModel_NsPrefix();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.SubjectModel#getModelFingerprint <em>Model Fingerprint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model Fingerprint</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel#getModelFingerprint()
-	 * @see #getSubjectModel()
-	 * @generated
-	 */
-	EAttribute getSubjectModel_ModelFingerprint();
+	EAttribute getSubject_ReportId();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.LegalCorpusRef <em>Legal Corpus Ref</em>}'.
@@ -1247,28 +1608,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EClass getClassifierEvaluation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getId()
-	 * @see #getClassifierEvaluation()
-	 * @generated
-	 */
-	EAttribute getClassifierEvaluation_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getName()
-	 * @see #getClassifierEvaluation()
-	 * @generated
-	 */
-	EAttribute getClassifierEvaluation_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getUriFragment <em>Uri Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1291,17 +1630,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EReference getClassifierEvaluation_FeatureEvaluation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getFindings <em>Findings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Findings</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getFindings()
-	 * @see #getClassifierEvaluation()
-	 * @generated
-	 */
-	EReference getClassifierEvaluation_Findings();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation <em>Feature Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1310,28 +1638,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EClass getFeatureEvaluation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getId()
-	 * @see #getFeatureEvaluation()
-	 * @generated
-	 */
-	EAttribute getFeatureEvaluation_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getName()
-	 * @see #getFeatureEvaluation()
-	 * @generated
-	 */
-	EAttribute getFeatureEvaluation_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getUriFragment <em>Uri Fragment</em>}'.
@@ -1376,28 +1682,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EAttribute getFeatureEvaluation_RelevanceLevel();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getFindings <em>Findings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Findings</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getFindings()
-	 * @see #getFeatureEvaluation()
-	 * @generated
-	 */
-	EReference getFeatureEvaluation_Findings();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations <em>Part Of Combinations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Part Of Combinations</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations()
-	 * @see #getFeatureEvaluation()
-	 * @generated
-	 */
-	EReference getFeatureEvaluation_PartOfCombinations();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPurpose <em>Purpose</em>}'.
@@ -1520,6 +1804,17 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EReference getFinding_Evidence();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Finding#getDiagnosticId <em>Diagnostic Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diagnostic Id</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Finding#getDiagnosticId()
+	 * @see #getFinding()
+	 * @generated
+	 */
+	EAttribute getFinding_DiagnosticId();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.CombinationFinding <em>Combination Finding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1627,26 +1922,15 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EClass getGdprRequestStatus();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getModelFingerprint <em>Model Fingerprint</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getSubjectFingerprint <em>Subject Fingerprint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model Fingerprint</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getModelFingerprint()
+	 * @return the meta object for the attribute '<em>Subject Fingerprint</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getSubjectFingerprint()
 	 * @see #getGdprRequestStatus()
 	 * @generated
 	 */
-	EAttribute getGdprRequestStatus_ModelFingerprint();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getNsURI <em>Ns URI</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ns URI</em>'.
-	 * @see org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getNsURI()
-	 * @see #getGdprRequestStatus()
-	 * @generated
-	 */
-	EAttribute getGdprRequestStatus_NsURI();
+	EAttribute getGdprRequestStatus_SubjectFingerprint();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getBatchId <em>Batch Id</em>}'.
@@ -1748,6 +2032,277 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getGdprRequestStatus_OutputTokens();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getLanguage()
+	 * @see #getGdprRequestStatus()
+	 * @generated
+	 */
+	EAttribute getGdprRequestStatus_Language();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.PackageSubject <em>Package Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package Subject</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.PackageSubject
+	 * @generated
+	 */
+	EClass getPackageSubject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.PackageSubject#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.PackageSubject#getName()
+	 * @see #getPackageSubject()
+	 * @generated
+	 */
+	EAttribute getPackageSubject_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.PackageSubject#getNsURI <em>Ns URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ns URI</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.PackageSubject#getNsURI()
+	 * @see #getPackageSubject()
+	 * @generated
+	 */
+	EAttribute getPackageSubject_NsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.PackageSubject#getNsPrefix <em>Ns Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ns Prefix</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.PackageSubject#getNsPrefix()
+	 * @see #getPackageSubject()
+	 * @generated
+	 */
+	EAttribute getPackageSubject_NsPrefix();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.Evaluation <em>Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Evaluation</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation
+	 * @generated
+	 */
+	EClass getEvaluation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Evaluation#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation#getId()
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	EAttribute getEvaluation_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Evaluation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation#getName()
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	EAttribute getEvaluation_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.Evaluation#getFindings <em>Findings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Findings</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation#getFindings()
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	EReference getEvaluation_Findings();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.model.gdprReport.Evaluation#getPartOfCombinations <em>Part Of Combinations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Part Of Combinations</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation#getPartOfCombinations()
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	EReference getEvaluation_PartOfCombinations();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject <em>Transformation Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transformation Subject</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject
+	 * @generated
+	 */
+	EClass getTransformationSubject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject#getQualifiedName <em>Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualified Name</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject#getQualifiedName()
+	 * @see #getTransformationSubject()
+	 * @generated
+	 */
+	EAttribute getTransformationSubject_QualifiedName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject#getLanguage()
+	 * @see #getTransformationSubject()
+	 * @generated
+	 */
+	EAttribute getTransformationSubject_Language();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject#getSourceFingerprint <em>Source Fingerprint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Fingerprint</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject#getSourceFingerprint()
+	 * @see #getTransformationSubject()
+	 * @generated
+	 */
+	EAttribute getTransformationSubject_SourceFingerprint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject#getSourcePackages <em>Source Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Source Packages</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject#getSourcePackages()
+	 * @see #getTransformationSubject()
+	 * @generated
+	 */
+	EReference getTransformationSubject_SourcePackages();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject#getTargetPackages <em>Target Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Target Packages</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject#getTargetPackages()
+	 * @see #getTransformationSubject()
+	 * @generated
+	 */
+	EReference getTransformationSubject_TargetPackages();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation <em>Flow Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flow Evaluation</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation
+	 * @generated
+	 */
+	EClass getFlowEvaluation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getMapping <em>Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapping</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getMapping()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_Mapping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getSourceNsURI <em>Source Ns URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Ns URI</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getSourceNsURI()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_SourceNsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getSourceFeature <em>Source Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Feature</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getSourceFeature()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_SourceFeature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getTargetNsURI <em>Target Ns URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Ns URI</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getTargetNsURI()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_TargetNsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getTargetFeature <em>Target Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Feature</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getTargetFeature()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_TargetFeature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getFlowKind <em>Flow Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Flow Kind</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getFlowKind()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_FlowKind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getRelevanceLevel <em>Relevance Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relevance Level</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getRelevanceLevel()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_RelevanceLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation#getPurpose <em>Purpose</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Purpose</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation#getPurpose()
+	 * @see #getFlowEvaluation()
+	 * @generated
+	 */
+	EAttribute getFlowEvaluation_Purpose();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1816,6 +2371,16 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EEnum getGdprReportOrigin();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.gdprReport.FlowKind <em>Flow Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Flow Kind</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowKind
+	 * @generated
+	 */
+	EEnum getFlowKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1899,12 +2464,12 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EReference GDPR_REPORT__CORPUS = eINSTANCE.getGdprReport_Corpus();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier Evaluation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Evaluation</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GDPR_REPORT__CLASSIFIER_EVALUATION = eINSTANCE.getGdprReport_ClassifierEvaluation();
+		EReference GDPR_REPORT__EVALUATION = eINSTANCE.getGdprReport_Evaluation();
 
 		/**
 		 * The meta object literal for the '<em><b>Combinations</b></em>' containment reference list feature.
@@ -1931,46 +2496,30 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute GDPR_REPORT__ORIGIN = eINSTANCE.getGdprReport_Origin();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.SubjectModelImpl <em>Subject Model</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.SubjectImpl <em>Subject</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.fennec.model.gdprReport.impl.SubjectModelImpl
-		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getSubjectModel()
+		 * @see org.eclipse.fennec.model.gdprReport.impl.SubjectImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getSubject()
 		 * @generated
 		 */
-		EClass SUBJECT_MODEL = eINSTANCE.getSubjectModel();
+		EClass SUBJECT = eINSTANCE.getSubject();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Subject Fingerprint</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SUBJECT_MODEL__NAME = eINSTANCE.getSubjectModel_Name();
+		EAttribute SUBJECT__SUBJECT_FINGERPRINT = eINSTANCE.getSubject_SubjectFingerprint();
 
 		/**
-		 * The meta object literal for the '<em><b>Ns URI</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Report Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SUBJECT_MODEL__NS_URI = eINSTANCE.getSubjectModel_NsURI();
-
-		/**
-		 * The meta object literal for the '<em><b>Ns Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SUBJECT_MODEL__NS_PREFIX = eINSTANCE.getSubjectModel_NsPrefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Model Fingerprint</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SUBJECT_MODEL__MODEL_FINGERPRINT = eINSTANCE.getSubjectModel_ModelFingerprint();
+		EAttribute SUBJECT__REPORT_ID = eINSTANCE.getSubject_ReportId();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.LegalCorpusRefImpl <em>Legal Corpus Ref</em>}' class.
@@ -2025,22 +2574,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EClass CLASSIFIER_EVALUATION = eINSTANCE.getClassifierEvaluation();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLASSIFIER_EVALUATION__ID = eINSTANCE.getClassifierEvaluation_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLASSIFIER_EVALUATION__NAME = eINSTANCE.getClassifierEvaluation_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Uri Fragment</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2057,14 +2590,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EReference CLASSIFIER_EVALUATION__FEATURE_EVALUATION = eINSTANCE.getClassifierEvaluation_FeatureEvaluation();
 
 		/**
-		 * The meta object literal for the '<em><b>Findings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASSIFIER_EVALUATION__FINDINGS = eINSTANCE.getClassifierEvaluation_Findings();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.FeatureEvaluationImpl <em>Feature Evaluation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2073,22 +2598,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EClass FEATURE_EVALUATION = eINSTANCE.getFeatureEvaluation();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE_EVALUATION__ID = eINSTANCE.getFeatureEvaluation_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE_EVALUATION__NAME = eINSTANCE.getFeatureEvaluation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Uri Fragment</b></em>' attribute feature.
@@ -2121,22 +2630,6 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EAttribute FEATURE_EVALUATION__RELEVANCE_LEVEL = eINSTANCE.getFeatureEvaluation_RelevanceLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Findings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE_EVALUATION__FINDINGS = eINSTANCE.getFeatureEvaluation_Findings();
-
-		/**
-		 * The meta object literal for the '<em><b>Part Of Combinations</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE_EVALUATION__PART_OF_COMBINATIONS = eINSTANCE.getFeatureEvaluation_PartOfCombinations();
 
 		/**
 		 * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
@@ -2229,6 +2722,14 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EReference FINDING__EVIDENCE = eINSTANCE.getFinding_Evidence();
 
 		/**
+		 * The meta object literal for the '<em><b>Diagnostic Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING__DIAGNOSTIC_ID = eINSTANCE.getFinding_DiagnosticId();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.CombinationFindingImpl <em>Combination Finding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2315,20 +2816,12 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EClass GDPR_REQUEST_STATUS = eINSTANCE.getGdprRequestStatus();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Fingerprint</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Subject Fingerprint</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GDPR_REQUEST_STATUS__MODEL_FINGERPRINT = eINSTANCE.getGdprRequestStatus_ModelFingerprint();
-
-		/**
-		 * The meta object literal for the '<em><b>Ns URI</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GDPR_REQUEST_STATUS__NS_URI = eINSTANCE.getGdprRequestStatus_NsURI();
+		EAttribute GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT = eINSTANCE.getGdprRequestStatus_SubjectFingerprint();
 
 		/**
 		 * The meta object literal for the '<em><b>Batch Id</b></em>' attribute feature.
@@ -2403,6 +2896,214 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute GDPR_REQUEST_STATUS__OUTPUT_TOKENS = eINSTANCE.getGdprRequestStatus_OutputTokens();
 
 		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GDPR_REQUEST_STATUS__LANGUAGE = eINSTANCE.getGdprRequestStatus_Language();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.PackageSubjectImpl <em>Package Subject</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.impl.PackageSubjectImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getPackageSubject()
+		 * @generated
+		 */
+		EClass PACKAGE_SUBJECT = eINSTANCE.getPackageSubject();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE_SUBJECT__NAME = eINSTANCE.getPackageSubject_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Ns URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE_SUBJECT__NS_URI = eINSTANCE.getPackageSubject_NsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Ns Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE_SUBJECT__NS_PREFIX = eINSTANCE.getPackageSubject_NsPrefix();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.EvaluationImpl <em>Evaluation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.impl.EvaluationImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getEvaluation()
+		 * @generated
+		 */
+		EClass EVALUATION = eINSTANCE.getEvaluation();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION__ID = eINSTANCE.getEvaluation_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION__NAME = eINSTANCE.getEvaluation_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Findings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVALUATION__FINDINGS = eINSTANCE.getEvaluation_Findings();
+
+		/**
+		 * The meta object literal for the '<em><b>Part Of Combinations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVALUATION__PART_OF_COMBINATIONS = eINSTANCE.getEvaluation_PartOfCombinations();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.TransformationSubjectImpl <em>Transformation Subject</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.impl.TransformationSubjectImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getTransformationSubject()
+		 * @generated
+		 */
+		EClass TRANSFORMATION_SUBJECT = eINSTANCE.getTransformationSubject();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION_SUBJECT__QUALIFIED_NAME = eINSTANCE.getTransformationSubject_QualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION_SUBJECT__LANGUAGE = eINSTANCE.getTransformationSubject_Language();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Fingerprint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION_SUBJECT__SOURCE_FINGERPRINT = eINSTANCE.getTransformationSubject_SourceFingerprint();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSFORMATION_SUBJECT__SOURCE_PACKAGES = eINSTANCE.getTransformationSubject_SourcePackages();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSFORMATION_SUBJECT__TARGET_PACKAGES = eINSTANCE.getTransformationSubject_TargetPackages();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.FlowEvaluationImpl <em>Flow Evaluation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.impl.FlowEvaluationImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFlowEvaluation()
+		 * @generated
+		 */
+		EClass FLOW_EVALUATION = eINSTANCE.getFlowEvaluation();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapping</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__MAPPING = eINSTANCE.getFlowEvaluation_Mapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Ns URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__SOURCE_NS_URI = eINSTANCE.getFlowEvaluation_SourceNsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Feature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__SOURCE_FEATURE = eINSTANCE.getFlowEvaluation_SourceFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Ns URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__TARGET_NS_URI = eINSTANCE.getFlowEvaluation_TargetNsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Feature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__TARGET_FEATURE = eINSTANCE.getFlowEvaluation_TargetFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Flow Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__FLOW_KIND = eINSTANCE.getFlowEvaluation_FlowKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Relevance Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__RELEVANCE_LEVEL = eINSTANCE.getFlowEvaluation_RelevanceLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_EVALUATION__PURPOSE = eINSTANCE.getFlowEvaluation_Purpose();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2471,6 +3172,16 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EEnum GDPR_REPORT_ORIGIN = eINSTANCE.getGdprReportOrigin();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.FlowKind <em>Flow Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.FlowKind
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFlowKind()
+		 * @generated
+		 */
+		EEnum FLOW_KIND = eINSTANCE.getFlowKind();
 
 	}
 

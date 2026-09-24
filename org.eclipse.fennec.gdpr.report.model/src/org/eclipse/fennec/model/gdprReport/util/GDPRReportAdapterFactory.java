@@ -80,8 +80,8 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 				return createGdprReportAdapter();
 			}
 			@Override
-			public Adapter caseSubjectModel(SubjectModel object) {
-				return createSubjectModelAdapter();
+			public Adapter caseSubject(Subject object) {
+				return createSubjectAdapter();
 			}
 			@Override
 			public Adapter caseLegalCorpusRef(LegalCorpusRef object) {
@@ -110,6 +110,22 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGdprRequestStatus(GdprRequestStatus object) {
 				return createGdprRequestStatusAdapter();
+			}
+			@Override
+			public Adapter casePackageSubject(PackageSubject object) {
+				return createPackageSubjectAdapter();
+			}
+			@Override
+			public Adapter caseEvaluation(Evaluation object) {
+				return createEvaluationAdapter();
+			}
+			@Override
+			public Adapter caseTransformationSubject(TransformationSubject object) {
+				return createTransformationSubjectAdapter();
+			}
+			@Override
+			public Adapter caseFlowEvaluation(FlowEvaluation object) {
+				return createFlowEvaluationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -146,16 +162,16 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.SubjectModel <em>Subject Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.Subject <em>Subject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.fennec.model.gdprReport.SubjectModel
+	 * @see org.eclipse.fennec.model.gdprReport.Subject
 	 * @generated
 	 */
-	public Adapter createSubjectModelAdapter() {
+	public Adapter createSubjectAdapter() {
 		return null;
 	}
 
@@ -254,6 +270,62 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGdprRequestStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.PackageSubject <em>Package Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.gdprReport.PackageSubject
+	 * @generated
+	 */
+	public Adapter createPackageSubjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.Evaluation <em>Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation
+	 * @generated
+	 */
+	public Adapter createEvaluationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.TransformationSubject <em>Transformation Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.gdprReport.TransformationSubject
+	 * @generated
+	 */
+	public Adapter createTransformationSubjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.FlowEvaluation <em>Flow Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.gdprReport.FlowEvaluation
+	 * @generated
+	 */
+	public Adapter createFlowEvaluationAdapter() {
 		return null;
 	}
 

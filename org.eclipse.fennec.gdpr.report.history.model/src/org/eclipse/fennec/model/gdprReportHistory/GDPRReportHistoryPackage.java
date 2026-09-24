@@ -44,7 +44,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:f783e1eee0985c74b22ac304a1918408473d41068643f5a2195ad8e73f2485f1", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
+@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:164babcbdbbeb9e47c04b6dd7f5dee7d59ea6c956aedac677e3ef466f0014b06", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
 public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -98,31 +98,22 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	int GDPR_REPORT_HISTORY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Subject Ns URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GDPR_REPORT_HISTORY__SUBJECT_NS_URI = 1;
-
-	/**
 	 * The feature id for the '<em><b>Subject Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__SUBJECT_NAME = 2;
+	int GDPR_REPORT_HISTORY__SUBJECT_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Model Fingerprint</b></em>' attribute.
+	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__MODEL_FINGERPRINT = 3;
+	int GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Rebuilt At</b></em>' attribute.
@@ -131,7 +122,7 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__REBUILT_AT = 4;
+	int GDPR_REPORT_HISTORY__REBUILT_AT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Revision Count</b></em>' attribute.
@@ -140,7 +131,7 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__REVISION_COUNT = 5;
+	int GDPR_REPORT_HISTORY__REVISION_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Revisions</b></em>' containment reference list.
@@ -149,7 +140,7 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__REVISIONS = 6;
+	int GDPR_REPORT_HISTORY__REVISIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Evaluations</b></em>' containment reference list.
@@ -158,7 +149,7 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__EVALUATIONS = 7;
+	int GDPR_REPORT_HISTORY__EVALUATIONS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Changes</b></em>' containment reference list.
@@ -167,7 +158,16 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__CHANGES = 8;
+	int GDPR_REPORT_HISTORY__CHANGES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GDPR_REPORT_HISTORY__LANGUAGE = 8;
 
 	/**
 	 * The number of structural features of the '<em>Gdpr Report History</em>' class.
@@ -629,17 +629,6 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	EAttribute getGdprReportHistory_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectNsURI <em>Subject Ns URI</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Subject Ns URI</em>'.
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectNsURI()
-	 * @see #getGdprReportHistory()
-	 * @generated
-	 */
-	EAttribute getGdprReportHistory_SubjectNsURI();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectName <em>Subject Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -651,15 +640,15 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	EAttribute getGdprReportHistory_SubjectName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getModelFingerprint <em>Model Fingerprint</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model Fingerprint</em>'.
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getModelFingerprint()
+	 * @return the meta object for the attribute '<em>Subject Fingerprint</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint()
 	 * @see #getGdprReportHistory()
 	 * @generated
 	 */
-	EAttribute getGdprReportHistory_ModelFingerprint();
+	EAttribute getGdprReportHistory_SubjectFingerprint();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRebuiltAt <em>Rebuilt At</em>}'.
@@ -715,6 +704,17 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 */
 	EReference getGdprReportHistory_Changes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage()
+	 * @see #getGdprReportHistory()
+	 * @generated
+	 */
+	EAttribute getGdprReportHistory_Language();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReportHistory.ReportRevision <em>Report Revision</em>}'.
@@ -1193,14 +1193,6 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		EAttribute GDPR_REPORT_HISTORY__NAME = eINSTANCE.getGdprReportHistory_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Subject Ns URI</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GDPR_REPORT_HISTORY__SUBJECT_NS_URI = eINSTANCE.getGdprReportHistory_SubjectNsURI();
-
-		/**
 		 * The meta object literal for the '<em><b>Subject Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1209,12 +1201,12 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		EAttribute GDPR_REPORT_HISTORY__SUBJECT_NAME = eINSTANCE.getGdprReportHistory_SubjectName();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Fingerprint</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Subject Fingerprint</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GDPR_REPORT_HISTORY__MODEL_FINGERPRINT = eINSTANCE.getGdprReportHistory_ModelFingerprint();
+		EAttribute GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT = eINSTANCE.getGdprReportHistory_SubjectFingerprint();
 
 		/**
 		 * The meta object literal for the '<em><b>Rebuilt At</b></em>' attribute feature.
@@ -1255,6 +1247,14 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		 * @generated
 		 */
 		EReference GDPR_REPORT_HISTORY__CHANGES = eINSTANCE.getGdprReportHistory_Changes();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GDPR_REPORT_HISTORY__LANGUAGE = eINSTANCE.getGdprReportHistory_Language();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReportHistory.impl.ReportRevisionImpl <em>Report Revision</em>}' class.

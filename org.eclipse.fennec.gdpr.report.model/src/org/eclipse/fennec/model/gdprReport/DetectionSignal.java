@@ -134,7 +134,20 @@ public enum DetectionSignal implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FEATURE_COMBINATION(7, "FEATURE_COMBINATION", "FEATURE_COMBINATION");
+	FEATURE_COMBINATION(7, "FEATURE_COMBINATION", "FEATURE_COMBINATION"),
+
+	/**
+	 * The '<em><b>TRANSFORMATION FLOW</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The finding arises from what a transformation does with the feature rather than from the feature itself: the compiled unit was read, and the value was followed to where it is written. Expect this on a FlowEvaluation.
+	 * <!-- end-model-doc -->
+	 * @see #TRANSFORMATION_FLOW_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TRANSFORMATION_FLOW(8, "TRANSFORMATION_FLOW", "TRANSFORMATION_FLOW");
 
 	/**
 	 * The '<em><b>FEATURE NAME</b></em>' literal value.
@@ -249,6 +262,20 @@ public enum DetectionSignal implements Enumerator {
 	public static final int FEATURE_COMBINATION_VALUE = 7;
 
 	/**
+	 * The '<em><b>TRANSFORMATION FLOW</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The finding arises from what a transformation does with the feature rather than from the feature itself: the compiled unit was read, and the value was followed to where it is written. Expect this on a FlowEvaluation.
+	 * <!-- end-model-doc -->
+	 * @see #TRANSFORMATION_FLOW
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TRANSFORMATION_FLOW_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Detection Signal</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +291,7 @@ public enum DetectionSignal implements Enumerator {
 			DOCUMENTATION_ANNOTATION,
 			CONTAINMENT_CONTEXT,
 			FEATURE_COMBINATION,
+			TRANSFORMATION_FLOW,
 		};
 
 	/**
@@ -328,6 +356,7 @@ public enum DetectionSignal implements Enumerator {
 			case DOCUMENTATION_ANNOTATION_VALUE: return DOCUMENTATION_ANNOTATION;
 			case CONTAINMENT_CONTEXT_VALUE: return CONTAINMENT_CONTEXT;
 			case FEATURE_COMBINATION_VALUE: return FEATURE_COMBINATION;
+			case TRANSFORMATION_FLOW_VALUE: return TRANSFORMATION_FLOW;
 		}
 		return null;
 	}

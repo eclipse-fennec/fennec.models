@@ -66,7 +66,6 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GDPRReportPackage.GDPR_REPORT: return createGdprReport();
-			case GDPRReportPackage.SUBJECT_MODEL: return createSubjectModel();
 			case GDPRReportPackage.LEGAL_CORPUS_REF: return createLegalCorpusRef();
 			case GDPRReportPackage.CLASSIFIER_EVALUATION: return createClassifierEvaluation();
 			case GDPRReportPackage.FEATURE_EVALUATION: return createFeatureEvaluation();
@@ -74,6 +73,9 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 			case GDPRReportPackage.COMBINATION_FINDING: return createCombinationFinding();
 			case GDPRReportPackage.EVIDENCE: return createEvidence();
 			case GDPRReportPackage.GDPR_REQUEST_STATUS: return createGdprRequestStatus();
+			case GDPRReportPackage.PACKAGE_SUBJECT: return createPackageSubject();
+			case GDPRReportPackage.TRANSFORMATION_SUBJECT: return createTransformationSubject();
+			case GDPRReportPackage.FLOW_EVALUATION: return createFlowEvaluation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -101,6 +103,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return createRequestStatusTypeFromString(eDataType, initialValue);
 			case GDPRReportPackage.GDPR_REPORT_ORIGIN:
 				return createGdprReportOriginFromString(eDataType, initialValue);
+			case GDPRReportPackage.FLOW_KIND:
+				return createFlowKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -128,6 +132,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return convertRequestStatusTypeToString(eDataType, instanceValue);
 			case GDPRReportPackage.GDPR_REPORT_ORIGIN:
 				return convertGdprReportOriginToString(eDataType, instanceValue);
+			case GDPRReportPackage.FLOW_KIND:
+				return convertFlowKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -142,17 +148,6 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	public GdprReport createGdprReport() {
 		GdprReportImpl gdprReport = new GdprReportImpl();
 		return gdprReport;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SubjectModel createSubjectModel() {
-		SubjectModelImpl subjectModel = new SubjectModelImpl();
-		return subjectModel;
 	}
 
 	/**
@@ -230,6 +225,39 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	public GdprRequestStatus createGdprRequestStatus() {
 		GdprRequestStatusImpl gdprRequestStatus = new GdprRequestStatusImpl();
 		return gdprRequestStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PackageSubject createPackageSubject() {
+		PackageSubjectImpl packageSubject = new PackageSubjectImpl();
+		return packageSubject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TransformationSubject createTransformationSubject() {
+		TransformationSubjectImpl transformationSubject = new TransformationSubjectImpl();
+		return transformationSubject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FlowEvaluation createFlowEvaluation() {
+		FlowEvaluationImpl flowEvaluation = new FlowEvaluationImpl();
+		return flowEvaluation;
 	}
 
 	/**
@@ -369,6 +397,26 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	 * @generated
 	 */
 	public String convertGdprReportOriginToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowKind createFlowKindFromString(EDataType eDataType, String initialValue) {
+		FlowKind result = FlowKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFlowKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

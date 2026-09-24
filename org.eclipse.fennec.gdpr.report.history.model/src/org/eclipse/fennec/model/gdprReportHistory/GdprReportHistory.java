@@ -30,14 +30,14 @@ import org.osgi.annotation.versioning.ProviderType;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectNsURI <em>Subject Ns URI</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectName <em>Subject Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getModelFingerprint <em>Model Fingerprint</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRebuiltAt <em>Rebuilt At</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRevisionCount <em>Revision Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRevisions <em>Revisions</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getEvaluations <em>Evaluations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getChanges <em>Changes</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory()
@@ -72,31 +72,6 @@ public interface GdprReportHistory extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Subject Ns URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Namespace URI of the reviewed EPackage. Always set: it is what makes the document identifiable independently of any fingerprint.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject Ns URI</em>' attribute.
-	 * @see #setSubjectNsURI(String)
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_SubjectNsURI()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getSubjectNsURI();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectNsURI <em>Subject Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject Ns URI</em>' attribute.
-	 * @see #getSubjectNsURI()
-	 * @generated
-	 */
-	void setSubjectNsURI(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Subject Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,29 +97,29 @@ public interface GdprReportHistory extends EObject {
 	void setSubjectName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Fingerprint</b></em>' attribute.
+	 * Returns the value of the '<em><b>Subject Fingerprint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The subject revision this history is about, when the history is keyed per fingerprint. Left unset when one document spans several revisions of the same nsURI - every revision carries its own fingerprint, so both groupings work without a model change.
+	 * The subject revision this history is about, when the history is keyed per fingerprint. 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Model Fingerprint</em>' attribute.
-	 * @see #setModelFingerprint(String)
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_ModelFingerprint()
+	 * @return the value of the '<em>Subject Fingerprint</em>' attribute.
+	 * @see #setSubjectFingerprint(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_SubjectFingerprint()
 	 * @model
 	 * @generated
 	 */
-	String getModelFingerprint();
+	String getSubjectFingerprint();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getModelFingerprint <em>Model Fingerprint</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Fingerprint</em>' attribute.
-	 * @see #getModelFingerprint()
+	 * @param value the new value of the '<em>Subject Fingerprint</em>' attribute.
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 */
-	void setModelFingerprint(String value);
+	void setSubjectFingerprint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Rebuilt At</b></em>' attribute.
@@ -240,5 +215,27 @@ public interface GdprReportHistory extends EObject {
 	 * @generated
 	 */
 	EList<ChangeRow> getChanges();
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see #setLanguage(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_Language()
+	 * @model
+	 * @generated
+	 */
+	String getLanguage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(String value);
 
 } // GdprReportHistory

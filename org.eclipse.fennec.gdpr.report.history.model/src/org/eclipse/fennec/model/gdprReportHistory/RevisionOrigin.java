@@ -69,7 +69,17 @@ public enum RevisionOrigin implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HUMAN(2, "HUMAN", "HUMAN");
+	HUMAN(2, "HUMAN", "HUMAN"),
+
+	/**
+	 * The '<em><b>STATIC ANALYSIS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATIC_ANALYSIS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STATIC_ANALYSIS(3, "STATIC_ANALYSIS", "STATIC_ANALYSIS");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -114,6 +124,17 @@ public enum RevisionOrigin implements Enumerator {
 	public static final int HUMAN_VALUE = 2;
 
 	/**
+	 * The '<em><b>STATIC ANALYSIS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATIC_ANALYSIS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATIC_ANALYSIS_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Revision Origin</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,6 +145,7 @@ public enum RevisionOrigin implements Enumerator {
 			UNKNOWN,
 			AI_AGENT,
 			HUMAN,
+			STATIC_ANALYSIS,
 		};
 
 	/**
@@ -183,6 +205,7 @@ public enum RevisionOrigin implements Enumerator {
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case AI_AGENT_VALUE: return AI_AGENT;
 			case HUMAN_VALUE: return HUMAN;
+			case STATIC_ANALYSIS_VALUE: return STATIC_ANALYSIS;
 		}
 		return null;
 	}

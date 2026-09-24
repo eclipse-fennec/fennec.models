@@ -23,6 +23,9 @@ import org.osgi.annotation.versioning.ProviderType;
  * A representation of the literals of the enumeration '<em><b>Gdpr Report Origin</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * What formed the judgements a report carries. It is not provenance trivia: a finding weighs differently depending on whether a person, an agent or a program arrived at it, and a report that cannot say which cannot be weighed at all.
+ * <!-- end-model-doc -->
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprReportOrigin()
  * @model
  * @generated
@@ -57,7 +60,20 @@ public enum GdprReportOrigin implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HUMAN(2, "HUMAN", "HUMAN");
+	HUMAN(2, "HUMAN", "HUMAN"),
+
+	/**
+	 * The '<em><b>STATIC ANALYSIS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Derived by a program from artefacts that were already reviewed - no agent and no person formed the judgement. A static analysis quotes no law of its own: its evidence is carried over from the review it rests on, so a finding here is only ever as good as that review.
+	 * <!-- end-model-doc -->
+	 * @see #STATIC_ANALYSIS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STATIC_ANALYSIS(3, "STATIC_ANALYSIS", "STATIC_ANALYSIS");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -93,6 +109,20 @@ public enum GdprReportOrigin implements Enumerator {
 	public static final int HUMAN_VALUE = 2;
 
 	/**
+	 * The '<em><b>STATIC ANALYSIS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Derived by a program from artefacts that were already reviewed - no agent and no person formed the judgement. A static analysis quotes no law of its own: its evidence is carried over from the review it rests on, so a finding here is only ever as good as that review.
+	 * <!-- end-model-doc -->
+	 * @see #STATIC_ANALYSIS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATIC_ANALYSIS_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Gdpr Report Origin</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +133,7 @@ public enum GdprReportOrigin implements Enumerator {
 			UNKNOWN,
 			AI_AGENT,
 			HUMAN,
+			STATIC_ANALYSIS,
 		};
 
 	/**
@@ -162,6 +193,7 @@ public enum GdprReportOrigin implements Enumerator {
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case AI_AGENT_VALUE: return AI_AGENT;
 			case HUMAN_VALUE: return HUMAN;
+			case STATIC_ANALYSIS_VALUE: return STATIC_ANALYSIS;
 		}
 		return null;
 	}

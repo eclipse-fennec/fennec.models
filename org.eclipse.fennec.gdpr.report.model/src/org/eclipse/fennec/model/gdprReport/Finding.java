@@ -38,6 +38,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getRationale <em>Rationale</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getRecommendation <em>Recommendation</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getEvidence <em>Evidence</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getDiagnosticId <em>Diagnostic Id</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFinding()
@@ -251,5 +252,30 @@ public interface Finding extends EObject {
 	 * @generated
 	 */
 	EList<Evidence> getEvidence();
+
+	/**
+	 * Returns the value of the '<em><b>Diagnostic Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference to the diagnostic this finding corresponds to, so that a later review of the same artefact updates the diagnostic already raised instead of raising a second one for the same problem. Leave it unset on a finding that no diagnostic was raised for.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Diagnostic Id</em>' attribute.
+	 * @see #setDiagnosticId(String)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFinding_DiagnosticId()
+	 * @model
+	 * @generated
+	 */
+	String getDiagnosticId();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.Finding#getDiagnosticId <em>Diagnostic Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Diagnostic Id</em>' attribute.
+	 * @see #getDiagnosticId()
+	 * @generated
+	 */
+	void setDiagnosticId(String value);
 
 } // Finding

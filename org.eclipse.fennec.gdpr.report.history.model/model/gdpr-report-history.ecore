@@ -22,20 +22,14 @@
         <details key="documentation" value="Human readable title of the document, e.g. 'GDPR review history of clinic 1.0.0'."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjectNsURI" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Namespace URI of the reviewed EPackage. Always set: it is what makes the document identifiable independently of any fingerprint."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Name of the reviewed EPackage, as it appears in the model."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelFingerprint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjectFingerprint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The subject revision this history is about, when the history is keyed per fingerprint. Left unset when one document spans several revisions of the same nsURI - every revision carries its own fingerprint, so both groupings work without a model change."/>
+        <details key="documentation" value="The subject revision this history is about, when the history is keyed per fingerprint. "/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rebuiltAt" lowerBound="1"
@@ -67,6 +61,7 @@
         <details key="documentation" value="The diff, one row per field that actually differs from the preceding revision. Renders as the third sheet and is the reason this document exists: the change kind on an evaluation row says THAT something changed, these rows say WHAT."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReportRevision">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -286,6 +281,7 @@
         <details key="documentation" value="A person corrected an earlier revision."/>
       </eAnnotations>
     </eLiterals>
+    <eLiterals name="STATIC_ANALYSIS" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ChangeKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
