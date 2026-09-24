@@ -24,18 +24,23 @@ import org.eclipse.fennec.model.gdprReport.CombinationKind;
 import org.eclipse.fennec.model.gdprReport.ConfidenceType;
 import org.eclipse.fennec.model.gdprReport.DataCategory;
 import org.eclipse.fennec.model.gdprReport.DetectionSignal;
+import org.eclipse.fennec.model.gdprReport.Evaluation;
 import org.eclipse.fennec.model.gdprReport.Evidence;
 import org.eclipse.fennec.model.gdprReport.FeatureEvaluation;
 import org.eclipse.fennec.model.gdprReport.Finding;
+import org.eclipse.fennec.model.gdprReport.FlowEvaluation;
+import org.eclipse.fennec.model.gdprReport.FlowKind;
 import org.eclipse.fennec.model.gdprReport.GDPRReportFactory;
 import org.eclipse.fennec.model.gdprReport.GDPRReportPackage;
 import org.eclipse.fennec.model.gdprReport.GdprReport;
 import org.eclipse.fennec.model.gdprReport.GdprReportOrigin;
 import org.eclipse.fennec.model.gdprReport.GdprRequestStatus;
 import org.eclipse.fennec.model.gdprReport.LegalCorpusRef;
+import org.eclipse.fennec.model.gdprReport.PackageSubject;
 import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
 import org.eclipse.fennec.model.gdprReport.RequestStatusType;
-import org.eclipse.fennec.model.gdprReport.SubjectModel;
+import org.eclipse.fennec.model.gdprReport.Subject;
+import org.eclipse.fennec.model.gdprReport.TransformationSubject;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +61,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass subjectModelEClass = null;
+	private EClass subjectEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,6 +117,34 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass packageSubjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evaluationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transformationSubjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flowEvaluationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dataCategoryEEnum = null;
 
 	/**
@@ -155,6 +188,13 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	private EEnum gdprReportOriginEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum flowKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -292,7 +332,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EReference getGdprReport_ClassifierEvaluation() {
+	public EReference getGdprReport_Evaluation() {
 		return (EReference)gdprReportEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -332,8 +372,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EClass getSubjectModel() {
-		return subjectModelEClass;
+	public EClass getSubject() {
+		return subjectEClass;
 	}
 
 	/**
@@ -342,8 +382,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSubjectModel_Name() {
-		return (EAttribute)subjectModelEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSubject_SubjectFingerprint() {
+		return (EAttribute)subjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -352,28 +392,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSubjectModel_NsURI() {
-		return (EAttribute)subjectModelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSubjectModel_NsPrefix() {
-		return (EAttribute)subjectModelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSubjectModel_ModelFingerprint() {
-		return (EAttribute)subjectModelEClass.getEStructuralFeatures().get(3);
+	public EAttribute getSubject_ReportId() {
+		return (EAttribute)subjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -442,7 +462,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getClassifierEvaluation_Id() {
+	public EAttribute getClassifierEvaluation_UriFragment() {
 		return (EAttribute)classifierEvaluationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -452,38 +472,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getClassifierEvaluation_Name() {
-		return (EAttribute)classifierEvaluationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getClassifierEvaluation_UriFragment() {
-		return (EAttribute)classifierEvaluationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getClassifierEvaluation_FeatureEvaluation() {
-		return (EReference)classifierEvaluationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getClassifierEvaluation_Findings() {
-		return (EReference)classifierEvaluationEClass.getEStructuralFeatures().get(4);
+		return (EReference)classifierEvaluationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -502,7 +492,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeatureEvaluation_Id() {
+	public EAttribute getFeatureEvaluation_UriFragment() {
 		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -512,7 +502,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeatureEvaluation_Name() {
+	public EAttribute getFeatureEvaluation_TypeName() {
 		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -522,7 +512,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeatureEvaluation_UriFragment() {
+	public EAttribute getFeatureEvaluation_Many() {
 		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -532,7 +522,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeatureEvaluation_TypeName() {
+	public EAttribute getFeatureEvaluation_RelevanceLevel() {
 		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -542,48 +532,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeatureEvaluation_Many() {
-		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getFeatureEvaluation_RelevanceLevel() {
-		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getFeatureEvaluation_Findings() {
-		return (EReference)featureEvaluationEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getFeatureEvaluation_PartOfCombinations() {
-		return (EReference)featureEvaluationEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getFeatureEvaluation_Purpose() {
-		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)featureEvaluationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -692,6 +642,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFinding_DiagnosticId() {
+		return (EAttribute)findingEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCombinationFinding() {
 		return combinationFindingEClass;
 	}
@@ -792,7 +752,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_ModelFingerprint() {
+	public EAttribute getGdprRequestStatus_SubjectFingerprint() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -802,7 +762,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_NsURI() {
+	public EAttribute getGdprRequestStatus_BatchId() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -812,7 +772,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_BatchId() {
+	public EAttribute getGdprRequestStatus_CustomId() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -822,7 +782,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_CustomId() {
+	public EAttribute getGdprRequestStatus_ReportId() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -832,7 +792,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_ReportId() {
+	public EAttribute getGdprRequestStatus_Status() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -842,7 +802,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_Status() {
+	public EAttribute getGdprRequestStatus_SubmittedAt() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -852,7 +812,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_SubmittedAt() {
+	public EAttribute getGdprRequestStatus_EndedAt() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -862,7 +822,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_EndedAt() {
+	public EAttribute getGdprRequestStatus_Message() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -872,7 +832,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_Message() {
+	public EAttribute getGdprRequestStatus_ContinuationCount() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -882,7 +842,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_ContinuationCount() {
+	public EAttribute getGdprRequestStatus_OutputTokens() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -892,8 +852,248 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprRequestStatus_OutputTokens() {
+	public EAttribute getGdprRequestStatus_Language() {
 		return (EAttribute)gdprRequestStatusEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPackageSubject() {
+		return packageSubjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackageSubject_Name() {
+		return (EAttribute)packageSubjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackageSubject_NsURI() {
+		return (EAttribute)packageSubjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackageSubject_NsPrefix() {
+		return (EAttribute)packageSubjectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEvaluation() {
+		return evaluationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluation_Id() {
+		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluation_Name() {
+		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEvaluation_Findings() {
+		return (EReference)evaluationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEvaluation_PartOfCombinations() {
+		return (EReference)evaluationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTransformationSubject() {
+		return transformationSubjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformationSubject_QualifiedName() {
+		return (EAttribute)transformationSubjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformationSubject_Language() {
+		return (EAttribute)transformationSubjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformationSubject_SourceFingerprint() {
+		return (EAttribute)transformationSubjectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTransformationSubject_SourcePackages() {
+		return (EReference)transformationSubjectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTransformationSubject_TargetPackages() {
+		return (EReference)transformationSubjectEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getFlowEvaluation() {
+		return flowEvaluationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_Mapping() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_SourceNsURI() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_SourceFeature() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_TargetNsURI() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_TargetFeature() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_FlowKind() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_RelevanceLevel() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFlowEvaluation_Purpose() {
+		return (EAttribute)flowEvaluationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -972,6 +1172,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EEnum getFlowKind() {
+		return flowKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GDPRReportFactory getGDPRReportFactory() {
 		return (GDPRReportFactory)getEFactoryInstance();
 	}
@@ -1002,16 +1212,14 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(gdprReportEClass, GDPR_REPORT__GENERATED_BY);
 		createEReference(gdprReportEClass, GDPR_REPORT__SUBJECT);
 		createEReference(gdprReportEClass, GDPR_REPORT__CORPUS);
-		createEReference(gdprReportEClass, GDPR_REPORT__CLASSIFIER_EVALUATION);
+		createEReference(gdprReportEClass, GDPR_REPORT__EVALUATION);
 		createEReference(gdprReportEClass, GDPR_REPORT__COMBINATIONS);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__DISCLAIMER);
 		createEAttribute(gdprReportEClass, GDPR_REPORT__ORIGIN);
 
-		subjectModelEClass = createEClass(SUBJECT_MODEL);
-		createEAttribute(subjectModelEClass, SUBJECT_MODEL__NAME);
-		createEAttribute(subjectModelEClass, SUBJECT_MODEL__NS_URI);
-		createEAttribute(subjectModelEClass, SUBJECT_MODEL__NS_PREFIX);
-		createEAttribute(subjectModelEClass, SUBJECT_MODEL__MODEL_FINGERPRINT);
+		subjectEClass = createEClass(SUBJECT);
+		createEAttribute(subjectEClass, SUBJECT__SUBJECT_FINGERPRINT);
+		createEAttribute(subjectEClass, SUBJECT__REPORT_ID);
 
 		legalCorpusRefEClass = createEClass(LEGAL_CORPUS_REF);
 		createEAttribute(legalCorpusRefEClass, LEGAL_CORPUS_REF__CELEX);
@@ -1020,21 +1228,14 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(legalCorpusRefEClass, LEGAL_CORPUS_REF__FORMEX_SCHEMA);
 
 		classifierEvaluationEClass = createEClass(CLASSIFIER_EVALUATION);
-		createEAttribute(classifierEvaluationEClass, CLASSIFIER_EVALUATION__ID);
-		createEAttribute(classifierEvaluationEClass, CLASSIFIER_EVALUATION__NAME);
 		createEAttribute(classifierEvaluationEClass, CLASSIFIER_EVALUATION__URI_FRAGMENT);
 		createEReference(classifierEvaluationEClass, CLASSIFIER_EVALUATION__FEATURE_EVALUATION);
-		createEReference(classifierEvaluationEClass, CLASSIFIER_EVALUATION__FINDINGS);
 
 		featureEvaluationEClass = createEClass(FEATURE_EVALUATION);
-		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__ID);
-		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__NAME);
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__URI_FRAGMENT);
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__TYPE_NAME);
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__MANY);
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__RELEVANCE_LEVEL);
-		createEReference(featureEvaluationEClass, FEATURE_EVALUATION__FINDINGS);
-		createEReference(featureEvaluationEClass, FEATURE_EVALUATION__PART_OF_COMBINATIONS);
 		createEAttribute(featureEvaluationEClass, FEATURE_EVALUATION__PURPOSE);
 
 		findingEClass = createEClass(FINDING);
@@ -1047,6 +1248,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(findingEClass, FINDING__RATIONALE);
 		createEAttribute(findingEClass, FINDING__RECOMMENDATION);
 		createEReference(findingEClass, FINDING__EVIDENCE);
+		createEAttribute(findingEClass, FINDING__DIAGNOSTIC_ID);
 
 		combinationFindingEClass = createEClass(COMBINATION_FINDING);
 		createEAttribute(combinationFindingEClass, COMBINATION_FINDING__COMBINATION_KIND);
@@ -1060,8 +1262,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(evidenceEClass, EVIDENCE__SOURCE_REF);
 
 		gdprRequestStatusEClass = createEClass(GDPR_REQUEST_STATUS);
-		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__MODEL_FINGERPRINT);
-		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__NS_URI);
+		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT);
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__BATCH_ID);
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__CUSTOM_ID);
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__REPORT_ID);
@@ -1071,6 +1272,35 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__MESSAGE);
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__CONTINUATION_COUNT);
 		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__OUTPUT_TOKENS);
+		createEAttribute(gdprRequestStatusEClass, GDPR_REQUEST_STATUS__LANGUAGE);
+
+		packageSubjectEClass = createEClass(PACKAGE_SUBJECT);
+		createEAttribute(packageSubjectEClass, PACKAGE_SUBJECT__NAME);
+		createEAttribute(packageSubjectEClass, PACKAGE_SUBJECT__NS_URI);
+		createEAttribute(packageSubjectEClass, PACKAGE_SUBJECT__NS_PREFIX);
+
+		evaluationEClass = createEClass(EVALUATION);
+		createEAttribute(evaluationEClass, EVALUATION__ID);
+		createEAttribute(evaluationEClass, EVALUATION__NAME);
+		createEReference(evaluationEClass, EVALUATION__FINDINGS);
+		createEReference(evaluationEClass, EVALUATION__PART_OF_COMBINATIONS);
+
+		transformationSubjectEClass = createEClass(TRANSFORMATION_SUBJECT);
+		createEAttribute(transformationSubjectEClass, TRANSFORMATION_SUBJECT__QUALIFIED_NAME);
+		createEAttribute(transformationSubjectEClass, TRANSFORMATION_SUBJECT__LANGUAGE);
+		createEAttribute(transformationSubjectEClass, TRANSFORMATION_SUBJECT__SOURCE_FINGERPRINT);
+		createEReference(transformationSubjectEClass, TRANSFORMATION_SUBJECT__SOURCE_PACKAGES);
+		createEReference(transformationSubjectEClass, TRANSFORMATION_SUBJECT__TARGET_PACKAGES);
+
+		flowEvaluationEClass = createEClass(FLOW_EVALUATION);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__MAPPING);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__SOURCE_NS_URI);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__SOURCE_FEATURE);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__TARGET_NS_URI);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__TARGET_FEATURE);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__FLOW_KIND);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__RELEVANCE_LEVEL);
+		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__PURPOSE);
 
 		// Create enums
 		dataCategoryEEnum = createEEnum(DATA_CATEGORY);
@@ -1080,6 +1310,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		combinationKindEEnum = createEEnum(COMBINATION_KIND);
 		requestStatusTypeEEnum = createEEnum(REQUEST_STATUS_TYPE);
 		gdprReportOriginEEnum = createEEnum(GDPR_REPORT_ORIGIN);
+		flowKindEEnum = createEEnum(FLOW_KIND);
 	}
 
 	/**
@@ -1110,7 +1341,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		classifierEvaluationEClass.getESuperTypes().add(this.getEvaluation());
+		featureEvaluationEClass.getESuperTypes().add(this.getEvaluation());
 		combinationFindingEClass.getESuperTypes().add(this.getFinding());
+		packageSubjectEClass.getESuperTypes().add(this.getSubject());
+		transformationSubjectEClass.getESuperTypes().add(this.getSubject());
+		flowEvaluationEClass.getESuperTypes().add(this.getEvaluation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gdprReportEClass, GdprReport.class, "GdprReport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1118,18 +1354,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getGdprReport_Name(), ecorePackage.getEString(), "name", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_GeneratedAt(), ecorePackage.getEString(), "generatedAt", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_GeneratedBy(), ecorePackage.getEString(), "generatedBy", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGdprReport_Subject(), this.getSubjectModel(), null, "subject", null, 1, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGdprReport_Subject(), this.getSubject(), null, "subject", null, 1, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReport_Corpus(), this.getLegalCorpusRef(), null, "corpus", null, 1, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGdprReport_ClassifierEvaluation(), this.getClassifierEvaluation(), null, "classifierEvaluation", null, 0, -1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGdprReport_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, -1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReport_Combinations(), this.getCombinationFinding(), null, "combinations", null, 0, -1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_Disclaimer(), ecorePackage.getEString(), "disclaimer", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReport_Origin(), this.getGdprReportOrigin(), "origin", null, 0, 1, GdprReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(subjectModelEClass, SubjectModel.class, "SubjectModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSubjectModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SubjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSubjectModel_NsURI(), ecorePackage.getEString(), "nsURI", null, 1, 1, SubjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSubjectModel_NsPrefix(), ecorePackage.getEString(), "nsPrefix", null, 0, 1, SubjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSubjectModel_ModelFingerprint(), ecorePackage.getEString(), "modelFingerprint", null, 1, 1, SubjectModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(subjectEClass, Subject.class, "Subject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSubject_SubjectFingerprint(), ecorePackage.getEString(), "subjectFingerprint", null, 1, 1, Subject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubject_ReportId(), ecorePackage.getEString(), "reportId", null, 0, 1, Subject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(legalCorpusRefEClass, LegalCorpusRef.class, "LegalCorpusRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLegalCorpusRef_Celex(), ecorePackage.getEString(), "celex", null, 0, 1, LegalCorpusRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1138,21 +1372,14 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getLegalCorpusRef_FormexSchema(), ecorePackage.getEString(), "formexSchema", null, 0, 1, LegalCorpusRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classifierEvaluationEClass, ClassifierEvaluation.class, "ClassifierEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClassifierEvaluation_Id(), ecorePackage.getEString(), "id", null, 0, 1, ClassifierEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClassifierEvaluation_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClassifierEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClassifierEvaluation_UriFragment(), ecorePackage.getEString(), "uriFragment", null, 0, 1, ClassifierEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClassifierEvaluation_FeatureEvaluation(), this.getFeatureEvaluation(), null, "featureEvaluation", null, 0, -1, ClassifierEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClassifierEvaluation_Findings(), this.getFinding(), null, "findings", null, 0, -1, ClassifierEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureEvaluationEClass, FeatureEvaluation.class, "FeatureEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeatureEvaluation_Id(), ecorePackage.getEString(), "id", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFeatureEvaluation_Name(), ecorePackage.getEString(), "name", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeatureEvaluation_UriFragment(), ecorePackage.getEString(), "uriFragment", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeatureEvaluation_TypeName(), ecorePackage.getEString(), "typeName", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeatureEvaluation_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeatureEvaluation_RelevanceLevel(), this.getRelevanceLevelType(), "relevanceLevel", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFeatureEvaluation_Findings(), this.getFinding(), null, "findings", null, 0, -1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFeatureEvaluation_PartOfCombinations(), this.getCombinationFinding(), this.getCombinationFinding_Features(), "partOfCombinations", null, 0, -1, FeatureEvaluation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeatureEvaluation_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, FeatureEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(findingEClass, Finding.class, "Finding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1165,10 +1392,11 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getFinding_Rationale(), ecorePackage.getEString(), "rationale", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFinding_Recommendation(), ecorePackage.getEString(), "recommendation", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFinding_Evidence(), this.getEvidence(), null, "evidence", null, 1, -1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFinding_DiagnosticId(), ecorePackage.getEString(), "diagnosticId", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(combinationFindingEClass, CombinationFinding.class, "CombinationFinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCombinationFinding_CombinationKind(), this.getCombinationKind(), "combinationKind", null, 0, 1, CombinationFinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCombinationFinding_Features(), this.getFeatureEvaluation(), this.getFeatureEvaluation_PartOfCombinations(), "features", null, 2, -1, CombinationFinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCombinationFinding_Features(), this.getEvaluation(), this.getEvaluation_PartOfCombinations(), "features", null, 2, -1, CombinationFinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evidenceEClass, Evidence.class, "Evidence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvidence_CitationId(), ecorePackage.getEString(), "citationId", null, 1, 1, Evidence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1178,8 +1406,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getEvidence_SourceRef(), ecorePackage.getEString(), "sourceRef", null, 0, 1, Evidence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gdprRequestStatusEClass, GdprRequestStatus.class, "GdprRequestStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGdprRequestStatus_ModelFingerprint(), ecorePackage.getEString(), "modelFingerprint", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGdprRequestStatus_NsURI(), ecorePackage.getEString(), "nsURI", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprRequestStatus_SubjectFingerprint(), ecorePackage.getEString(), "subjectFingerprint", null, 1, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_BatchId(), ecorePackage.getEString(), "batchId", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_CustomId(), ecorePackage.getEString(), "customId", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_ReportId(), ecorePackage.getEString(), "reportId", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1189,6 +1416,35 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getGdprRequestStatus_Message(), ecorePackage.getEString(), "message", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_ContinuationCount(), ecorePackage.getEInt(), "continuationCount", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_OutputTokens(), ecorePackage.getEInt(), "outputTokens", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprRequestStatus_Language(), ecorePackage.getEString(), "language", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(packageSubjectEClass, PackageSubject.class, "PackageSubject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPackageSubject_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackageSubject_NsURI(), ecorePackage.getEString(), "nsURI", null, 1, 1, PackageSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackageSubject_NsPrefix(), ecorePackage.getEString(), "nsPrefix", null, 0, 1, PackageSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(evaluationEClass, Evaluation.class, "Evaluation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEvaluation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvaluation_Findings(), this.getFinding(), null, "findings", null, 0, -1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvaluation_PartOfCombinations(), this.getCombinationFinding(), this.getCombinationFinding_Features(), "partOfCombinations", null, 0, -1, Evaluation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(transformationSubjectEClass, TransformationSubject.class, "TransformationSubject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransformationSubject_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 1, 1, TransformationSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformationSubject_Language(), ecorePackage.getEString(), "language", null, 0, 1, TransformationSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformationSubject_SourceFingerprint(), ecorePackage.getEString(), "sourceFingerprint", null, 0, 1, TransformationSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformationSubject_SourcePackages(), this.getPackageSubject(), null, "sourcePackages", null, 0, -1, TransformationSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransformationSubject_TargetPackages(), this.getPackageSubject(), null, "targetPackages", null, 0, -1, TransformationSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flowEvaluationEClass, FlowEvaluation.class, "FlowEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFlowEvaluation_Mapping(), ecorePackage.getEString(), "mapping", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_SourceNsURI(), ecorePackage.getEString(), "sourceNsURI", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_SourceFeature(), ecorePackage.getEString(), "sourceFeature", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_TargetNsURI(), ecorePackage.getEString(), "targetNsURI", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_TargetFeature(), ecorePackage.getEString(), "targetFeature", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_FlowKind(), this.getFlowKind(), "flowKind", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_RelevanceLevel(), this.getRelevanceLevelType(), "relevanceLevel", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowEvaluation_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataCategoryEEnum, DataCategory.class, "DataCategory");
@@ -1225,6 +1481,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		addEEnumLiteral(detectionSignalEEnum, DetectionSignal.DOCUMENTATION_ANNOTATION);
 		addEEnumLiteral(detectionSignalEEnum, DetectionSignal.CONTAINMENT_CONTEXT);
 		addEEnumLiteral(detectionSignalEEnum, DetectionSignal.FEATURE_COMBINATION);
+		addEEnumLiteral(detectionSignalEEnum, DetectionSignal.TRANSFORMATION_FLOW);
 
 		initEEnum(combinationKindEEnum, CombinationKind.class, "CombinationKind");
 		addEEnumLiteral(combinationKindEEnum, CombinationKind.QUASI_IDENTIFIER_SET);
@@ -1242,6 +1499,14 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.UNKNOWN);
 		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.AI_AGENT);
 		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.HUMAN);
+		addEEnumLiteral(gdprReportOriginEEnum, GdprReportOrigin.STATIC_ANALYSIS);
+
+		initEEnum(flowKindEEnum, FlowKind.class, "FlowKind");
+		addEEnumLiteral(flowKindEEnum, FlowKind.DIRECT);
+		addEEnumLiteral(flowKindEEnum, FlowKind.EXPRESSION);
+		addEEnumLiteral(flowKindEEnum, FlowKind.CONCATENATION);
+		addEEnumLiteral(flowKindEEnum, FlowKind.AGGREGATION);
+		addEEnumLiteral(flowKindEEnum, FlowKind.OPAQUE);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1291,7 +1556,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		  (gdprReportEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Root of a GDPR review of one Ecore metamodel. Exactly one instance per review run. It records what was reviewed (subject), which revision of the legal text the evidence was quoted from (corpus), one ClassifierEvaluation per examined classifier, and any cross-classifier combination findings."
+			   "documentation", "Root of a GDPR review of one artefact - an Ecore metamodel, or a compiled model transformation. Exactly one instance per review run. It records what was reviewed (subject), which revision of the legal text the evidence was quoted from (corpus), one Evaluation per thing examined, and any findings that arise from several of them together."
 		   });
 		addAnnotation
 		  (getGdprReport_ReportId(),
@@ -1321,7 +1586,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		  (getGdprReport_Subject(),
 		   source,
 		   new String[] {
-			   "documentation", "Required. The metamodel that was reviewed, including the fingerprint that pins the exact revision."
+			   "documentation", "Required. What was reviewed, including the fingerprint that pins the exact revision: a PackageSubject for a metamodel, a TransformationSubject for a compiled transformation. Everything else the review rests on is recorded inside it."
 		   });
 		addAnnotation
 		  (getGdprReport_Corpus(),
@@ -1330,16 +1595,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "Required. Which revision of the legal text the quotes came from. Without it a quote cannot be verified later."
 		   });
 		addAnnotation
-		  (getGdprReport_ClassifierEvaluation(),
+		  (getGdprReport_Evaluation(),
 		   source,
 		   new String[] {
-			   "documentation", "One entry per classifier that was examined. Add an entry even when nothing was found, so a reader can distinguish \'examined and clean\' from \'never examined\'."
+			   "documentation", "One entry per thing that was examined: a ClassifierEvaluation per classifier in a metamodel review, a FlowEvaluation per source-to-target path in a transformation review. Add an entry even when nothing was found, so a reader can distinguish \'examined and clean\' from \'never examined\'."
 		   });
 		addAnnotation
 		  (getGdprReport_Combinations(),
 		   source,
 		   new String[] {
-			   "documentation", "Findings that arise from two or more features together. They are held here, not under a ClassifierEvaluation, because a combination may span several classifiers and would otherwise need an arbitrary owner."
+			   "documentation", "Findings that arise from two or more evaluations together: several features that identify a person only in combination, or several flows meeting in one target field. They are held here, not under the evaluations themselves, because a combination may span several classifiers and would otherwise need an arbitrary owner."
 		   });
 		addAnnotation
 		  (getGdprReport_Disclaimer(),
@@ -1354,34 +1619,22 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "The origin of the report, namely whether it was redacted by an AI agent or by a human"
 		   });
 		addAnnotation
-		  (subjectModelEClass,
+		  (subjectEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Identity of the reviewed metamodel, precise enough to tell whether a later version is still the same model."
+			   "documentation", "Identity of what was reviewed, precise enough to tell whether a later revision is still the same artefact. Subclassed per kind of artefact: PackageSubject for an Ecore metamodel, TransformationSubject for a compiled model transformation. A report has exactly one subject; everything else the review rests on is recorded inside that subject."
 		   });
 		addAnnotation
-		  (getSubjectModel_Name(),
+		  (getSubject_SubjectFingerprint(),
 		   source,
 		   new String[] {
-			   "documentation", "The reviewed EPackage\'s name attribute."
+			   "documentation", "Required. Fingerprint of the exact revision that was reviewed. It is the identity of the review: a review is of content, not of a location, so the same bytes reached by any route are the same subject. The scheme depends on what is under review - fp1 for an EPackage, m2x1 for a compiled transformation unit - so two fingerprints are only comparable between subjects of the same kind. Compute it; never invent or copy one."
 		   });
 		addAnnotation
-		  (getSubjectModel_NsURI(),
+		  (getSubject_ReportId(),
 		   source,
 		   new String[] {
-			   "documentation", "Required. The reviewed EPackage\'s nsURI, copied verbatim. This is the primary identity of what was reviewed."
-		   });
-		addAnnotation
-		  (getSubjectModel_NsPrefix(),
-		   source,
-		   new String[] {
-			   "documentation", "The reviewed EPackage\'s nsPrefix."
-		   });
-		addAnnotation
-		  (getSubjectModel_ModelFingerprint(),
-		   source,
-		   new String[] {
-			   "documentation", "Required. Hex digest identifying this exact revision of the model, so a later run can tell whether the model really changed. Compute it; never invent or copy one."
+			   "documentation", "The report that reviewed this subject, as the object id that report is stored under. Set it on a subject that is named inside another report as something that review rests on: it is the provenance of every carried-over finding, and without it a reader cannot check a quote against the review that produced it. Leave it unset on a report\'s own subject - the owning report already identifies itself - and leave it unset when no review of this revision exists, saying so in a finding, because an unreviewed source makes the analysis incomplete rather than clean."
 		   });
 		addAnnotation
 		  (legalCorpusRefEClass,
@@ -1420,18 +1673,6 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "The result of examining one classifier (EClass or EEnum) of the reviewed model."
 		   });
 		addAnnotation
-		  (getClassifierEvaluation_Id(),
-		   source,
-		   new String[] {
-			   "documentation", "Required and unique within the report. Stable key, so references survive reordering. Use the classifier name, e.g. \'Patient\'."
-		   });
-		addAnnotation
-		  (getClassifierEvaluation_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Classifier name exactly as it appears in the reviewed model."
-		   });
-		addAnnotation
 		  (getClassifierEvaluation_UriFragment(),
 		   source,
 		   new String[] {
@@ -1444,28 +1685,10 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "One entry per structural feature examined, including features where nothing was found."
 		   });
 		addAnnotation
-		  (getClassifierEvaluation_Findings(),
-		   source,
-		   new String[] {
-			   "documentation", "Findings about the classifier itself rather than one of its features, e.g. a class named Patient making everything it contains health-adjacent."
-		   });
-		addAnnotation
 		  (featureEvaluationEClass,
 		   source,
 		   new String[] {
 			   "documentation", "The result of examining one structural feature."
-		   });
-		addAnnotation
-		  (getFeatureEvaluation_Id(),
-		   source,
-		   new String[] {
-			   "documentation", "Required and unique within the report. CombinationFinding points here, so it must be stable across reruns. Use classifier.feature, e.g. \'Patient.street\'."
-		   });
-		addAnnotation
-		  (getFeatureEvaluation_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Feature name exactly as it appears in the reviewed model."
 		   });
 		addAnnotation
 		  (getFeatureEvaluation_UriFragment(),
@@ -1490,18 +1713,6 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "Highest relevance among this feature\'s findings. Set NONE when the feature was examined and nothing was found; that is different from leaving it unset."
-		   });
-		addAnnotation
-		  (getFeatureEvaluation_Findings(),
-		   source,
-		   new String[] {
-			   "documentation", "Findings about this feature on its own. Findings that need other features belong in a CombinationFinding."
-		   });
-		addAnnotation
-		  (getFeatureEvaluation_PartOfCombinations(),
-		   source,
-		   new String[] {
-			   "documentation", "Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the feature to the combination instead."
 		   });
 		addAnnotation
 		  (getFeatureEvaluation_Purpose(),
@@ -1570,6 +1781,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "Required, at least one. A finding without legal evidence is an opinion and must not be produced."
 		   });
 		addAnnotation
+		  (getFinding_DiagnosticId(),
+		   source,
+		   new String[] {
+			   "documentation", "Reference to the diagnostic this finding corresponds to, so that a later review of the same artefact updates the diagnostic already raised instead of raising a second one for the same problem. Leave it unset on a finding that no diagnostic was raised for."
+		   });
+		addAnnotation
 		  (combinationFindingEClass,
 		   source,
 		   new String[] {
@@ -1585,7 +1802,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		  (getCombinationFinding_Features(),
 		   source,
 		   new String[] {
-			   "documentation", "The features that together create the risk. At least two, and they may belong to different classifiers. Reference existing FeatureEvaluation entries rather than creating new ones. resolveProxies is false because a combination only ever points at FeatureEvaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived."
+			   "documentation", "The evaluations that together create the risk. At least two, and they may belong to different classifiers. In a review of a metamodel these are FeatureEvaluations; in a review of a transformation they are FlowEvaluations, which is how several fields merged into one target field are recorded as one combination. Reference existing entries rather than creating new ones. resolveProxies is false because a combination only ever points at evaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived."
 		   });
 		addAnnotation
 		  (evidenceEClass,
@@ -1810,6 +2027,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "The finding arises from several features together rather than any one of them. Expect this on a CombinationFinding."
 		   });
 		addAnnotation
+		  (detectionSignalEEnum.getELiterals().get(8),
+		   source,
+		   new String[] {
+			   "documentation", "The finding arises from what a transformation does with the feature rather than from the feature itself: the compiled unit was read, and the value was followed to where it is written. Expect this on a FlowEvaluation."
+		   });
+		addAnnotation
 		  (combinationKindEEnum,
 		   source,
 		   new String[] {
@@ -1843,19 +2066,13 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		  (gdprRequestStatusEClass,
 		   source,
 		   new String[] {
-			   "documentation", "The record of one review request for one model revision: that it was asked for, what is carrying it out, and how it ended. It exists from the moment the request is accepted, which a GdprReport does not - a report is only written when a review succeeds, so a run that is still going or that failed leaves no report at all. Anything deciding whether to ask for a review has to consult this rather than the report, or a run already in flight is paid for twice and a run that failed is re-tried on every trigger forever. One instance per reviewed model revision, keyed by modelFingerprint."
+			   "documentation", "The record of one review request for one model revision: that it was asked for, what is carrying it out, and how it ended. It exists from the moment the request is accepted, which a GdprReport does not - a report is only written when a review succeeds, so a run that is still going or that failed leaves no report at all. Anything deciding whether to ask for a review has to consult this rather than the report, or a run already in flight is paid for twice and a run that failed is re-tried on every trigger forever. One instance per reviewed revision per language, keyed by subjectFingerprint and language together: a review runs in one language from start to seal, so the English and the German review of one revision are independent runs with their own batch, their own findings and their own record, and neither answers for the other."
 		   });
 		addAnnotation
-		  (getGdprRequestStatus_ModelFingerprint(),
+		  (getGdprRequestStatus_SubjectFingerprint(),
 		   source,
 		   new String[] {
-			   "documentation", "The revision of the model under review, in the same form SubjectModel records it. This is the identity of the record: the review is of content, not of a location, so the same bytes reached by any route are the same review and must not be paid for again."
-		   });
-		addAnnotation
-		  (getGdprRequestStatus_NsURI(),
-		   source,
-		   new String[] {
-			   "documentation", "Namespace URI of the reviewed model, so a record is legible without resolving the fingerprint first. Not the identity - a namespace can hold more than one revision."
+			   "documentation", "The revision of the subject under review, in the same form Subject records it. This is the identity of the record: the review is of content, not of a location, so the same bytes reached by any route are the same review and must not be paid for again."
 		   });
 		addAnnotation
 		  (getGdprRequestStatus_BatchId(),
@@ -1912,6 +2129,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 			   "documentation", "Tokens generated across the run, where the provider reports them. The only record of what an individual review cost."
 		   });
 		addAnnotation
+		  (getGdprRequestStatus_Language(),
+		   source,
+		   new String[] {
+			   "documentation", "The language version of the regulation this review ran against, e.g. EN or DE - the language of its corpus, of the quotes it carries and of the report it produces. It is half the identity of the record, beside subjectFingerprint, and the model leaves it optional only because EMF has no way to say otherwise: a record that does not name its language is either filed where another language will look for it, or makes one language an unnamed default that nothing downstream can see. Both end as a review that is never submitted because something else claimed to have done it. Set it always."
+		   });
+		addAnnotation
 		  (requestStatusTypeEEnum,
 		   source,
 		   new String[] {
@@ -1940,6 +2163,198 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "The run was still unfinished after the allowed number of continuations and was given up on. Whatever it had recorded was never sealed, so there is no report; raising the ceiling or reviewing a smaller model is the way forward."
+		   });
+		addAnnotation
+		  (gdprReportOriginEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "What formed the judgements a report carries. It is not provenance trivia: a finding weighs differently depending on whether a person, an agent or a program arrived at it, and a report that cannot say which cannot be weighed at all."
+		   });
+		addAnnotation
+		  (gdprReportOriginEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "Derived by a program from artefacts that were already reviewed - no agent and no person formed the judgement. A static analysis quotes no law of its own: its evidence is carried over from the review it rests on, so a finding here is only ever as good as that review."
+		   });
+		addAnnotation
+		  (packageSubjectEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Identity of one revision of one EPackage. It is the subject of a metamodel review, and it is also how a TransformationSubject names a metamodel the unit was compiled against - the same class in both places, because what identifies a package does not change with the reason it is being named. It records what the package is, never whether anyone reviewed it: that is what reportId on Subject is for."
+		   });
+		addAnnotation
+		  (getPackageSubject_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The reviewed EPackage\'s name attribute."
+		   });
+		addAnnotation
+		  (getPackageSubject_NsURI(),
+		   source,
+		   new String[] {
+			   "documentation", "Required. The reviewed EPackage\'s nsURI, copied verbatim. It says which model this is; subjectFingerprint says which revision, and a carried-over finding is matched on the two together. A namespace alone is not an identity - it can hold more than one revision."
+		   });
+		addAnnotation
+		  (getPackageSubject_NsPrefix(),
+		   source,
+		   new String[] {
+			   "documentation", "The reviewed EPackage\'s nsPrefix."
+		   });
+		addAnnotation
+		  (evaluationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "One thing that was examined, together with what was found on it. What that thing is depends on the review: a metamodel review examines classifiers and their features, a transformation review examines the paths along which values travel. Record an entry even when nothing was found, so a reader can tell \'examined and clean\' from \'never examined\'."
+		   });
+		addAnnotation
+		  (getEvaluation_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Required and unique within the report. CombinationFinding points here, so it must be stable across reruns. For a classifier or a feature use classifier.feature, e.g. \'Patient.street\'. For a flow use mapping:source->target, e.g. \'toContact:Patient.diagnosis->Contact.comment\', which is derivable from the compiled unit and therefore the same on every rerun."
+		   });
+		addAnnotation
+		  (getEvaluation_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Name of what was examined, exactly as it appears in the reviewed artefact: a classifier or feature name in a metamodel review, a readable label for the path in a transformation review."
+		   });
+		addAnnotation
+		  (getEvaluation_Findings(),
+		   source,
+		   new String[] {
+			   "documentation", "Findings about this one evaluation on its own - the classifier rather than any of its features, the feature itself, or this single flow. Findings that only arise from several evaluations together belong in a CombinationFinding."
+		   });
+		addAnnotation
+		  (getEvaluation_PartOfCombinations(),
+		   source,
+		   new String[] {
+			   "documentation", "Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the evaluation to the combination instead."
+		   });
+		addAnnotation
+		  (transformationSubjectEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Identity of a reviewed model transformation: which compiled unit was examined, and which revisions of which metamodels it was compiled against, split by whether the unit reads them or writes them. subjectFingerprint here is the m2x1 fingerprint of the compiled unit; it covers a compiled program rather than an EPackage, so it is never comparable with a package fingerprint. A transformation is reviewed for what it does to data that the metamodel reviews already classified, so the packages it names are not decoration - they are where the findings come from."
+		   });
+		addAnnotation
+		  (getTransformationSubject_QualifiedName(),
+		   source,
+		   new String[] {
+			   "documentation", "Required. The unit\'s qualified name as the transformation declares it, e.g. clinic2contacts."
+		   });
+		addAnnotation
+		  (getTransformationSubject_Language(),
+		   source,
+		   new String[] {
+			   "documentation", "The transformation language the unit was compiled from, e.g. qvto. A later analyser for another language writes its own value here rather than a second subject type."
+		   });
+		addAnnotation
+		  (getTransformationSubject_SourceFingerprint(),
+		   source,
+		   new String[] {
+			   "documentation", "Fingerprint of the source text the unit was compiled from (m2x1 scheme), for tracing a report back to the file a developer edited."
+		   });
+		addAnnotation
+		  (getTransformationSubject_SourcePackages(),
+		   source,
+		   new String[] {
+			   "documentation", "The metamodels this unit reads, each pinned to the exact revision: an entry\'s subjectFingerprint is the key of the review whose findings this report carries over, and its reportId points at that review. Take these from the compiled unit\'s own manifest, never from the source text: the manifest records what the compiler actually resolved. A model the unit declares inout belongs here and in targetPackages both, as two entries with the same nsURI and fingerprint. List a package even when no review of it exists, and say so in a finding - an unreviewed source makes the analysis incomplete rather than clean."
+		   });
+		addAnnotation
+		  (getTransformationSubject_TargetPackages(),
+		   source,
+		   new String[] {
+			   "documentation", "The metamodels this unit writes, recorded exactly as sourcePackages is, and taken from the same manifest. A target model\'s own review, where there is one, may disagree with what the flows put into it - that disagreement is a finding, not an error. A model the unit declares inout belongs here and in sourcePackages both."
+		   });
+		addAnnotation
+		  (flowEvaluationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The result of examining one path along which a transformation moves a value: one source feature reaching one target feature, in one mapping. A metamodel review asks what a field holds; a transformation review asks where what it holds ends up, so the unit of evaluation is the pair rather than the field. Several sources reaching the same target field are several FlowEvaluations, tied together by one CombinationFinding."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_Mapping(),
+		   source,
+		   new String[] {
+			   "documentation", "Name of the mapping or helper the assignment sits in, e.g. toContact. A transformation has no line numbers to quote once compiled, so this is the coarsest address a developer can act on."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_SourceNsURI(),
+		   source,
+		   new String[] {
+			   "documentation", "nsURI of the metamodel the source feature belongs to. Two source models can carry the same fragment, so the fragment alone does not identify a feature."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_SourceFeature(),
+		   source,
+		   new String[] {
+			   "documentation", "EMF fragment of the feature that is read, e.g. //Patient/diagnosis. It matches the uriFragment of a FeatureEvaluation in that metamodel\'s own review, which is how a finding here inherits its category and its evidence."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_TargetNsURI(),
+		   source,
+		   new String[] {
+			   "documentation", "nsURI of the metamodel the target feature belongs to."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_TargetFeature(),
+		   source,
+		   new String[] {
+			   "documentation", "EMF fragment of the feature that is written, e.g. //Contact/comment."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_FlowKind(),
+		   source,
+		   new String[] {
+			   "documentation", "How the value travels. It is part of the assessment, not decoration: a value copied into a typed field keeps its classification, while the same value concatenated into free text does not."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_RelevanceLevel(),
+		   source,
+		   new String[] {
+			   "documentation", "Highest relevance among this flow\'s findings. Set NONE when the flow was examined and nothing was found; that is different from leaving it unset."
+		   });
+		addAnnotation
+		  (getFlowEvaluation_Purpose(),
+		   source,
+		   new String[] {
+			   "documentation", "Why this value is carried into the target model. A purpose stated for the source field does not answer it: the transformation is a new processing, and this field is where a human answers for it. Always entered by a human."
+		   });
+		addAnnotation
+		  (flowKindEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "How a transformation moves a value from a source feature to a target feature. Choose the most specific value the compiled unit supports."
+		   });
+		addAnnotation
+		  (flowKindEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "The source feature is assigned to the target feature unchanged. The target holds the same data and inherits the source\'s classification."
+		   });
+		addAnnotation
+		  (flowKindEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "The value is computed from the source feature, but from that feature alone, e.g. trimmed, cased or reformatted. Still the same data unless the expression is shown to remove the link to the person."
+		   });
+		addAnnotation
+		  (flowKindEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "The value is joined with others into one string. The target field can no longer be classified, minimised or erased per source field, which is usually the point of the finding rather than a detail of it."
+		   });
+		addAnnotation
+		  (flowKindEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "The value is folded over a collection, e.g. counted, summed or joined across many objects. The result may say less about one person - or more, if the fold is a profile."
+		   });
+		addAnnotation
+		  (flowKindEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "The value passes through something the analyser does not follow: a blackbox operation, an imported library, a late resolution or an intermediate property. Record the flow as opaque rather than dropping it - silence would be read as \'nothing happens here\'."
 		   });
 	}
 

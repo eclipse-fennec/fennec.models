@@ -41,14 +41,14 @@ import org.eclipse.fennec.model.gdprReportHistory.ReportRevision;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectNsURI <em>Subject Ns URI</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectName <em>Subject Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getModelFingerprint <em>Model Fingerprint</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRebuiltAt <em>Rebuilt At</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRevisionCount <em>Revision Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRevisions <em>Revisions</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getEvaluations <em>Evaluations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getChanges <em>Changes</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,26 +75,6 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSubjectNsURI() <em>Subject Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectNsURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SUBJECT_NS_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSubjectNsURI() <em>Subject Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectNsURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected String subjectNsURI = SUBJECT_NS_URI_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSubjectName() <em>Subject Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,24 +95,24 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	protected String subjectName = SUBJECT_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModelFingerprint() <em>Model Fingerprint</em>}' attribute.
+	 * The default value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelFingerprint()
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MODEL_FINGERPRINT_EDEFAULT = null;
+	protected static final String SUBJECT_FINGERPRINT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelFingerprint() <em>Model Fingerprint</em>}' attribute.
+	 * The cached value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelFingerprint()
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 * @ordered
 	 */
-	protected String modelFingerprint = MODEL_FINGERPRINT_EDEFAULT;
+	protected String subjectFingerprint = SUBJECT_FINGERPRINT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRebuiltAt() <em>Rebuilt At</em>}' attribute.
@@ -205,6 +185,26 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<ChangeRow> changes;
 
 	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LANGUAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String language = LANGUAGE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -252,29 +252,6 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public String getSubjectNsURI() {
-		return subjectNsURI;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSubjectNsURI(String newSubjectNsURI) {
-		String oldSubjectNsURI = subjectNsURI;
-		subjectNsURI = newSubjectNsURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NS_URI, oldSubjectNsURI, subjectNsURI));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getSubjectName() {
 		return subjectName;
 	}
@@ -298,8 +275,8 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public String getModelFingerprint() {
-		return modelFingerprint;
+	public String getSubjectFingerprint() {
+		return subjectFingerprint;
 	}
 
 	/**
@@ -308,11 +285,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setModelFingerprint(String newModelFingerprint) {
-		String oldModelFingerprint = modelFingerprint;
-		modelFingerprint = newModelFingerprint;
+	public void setSubjectFingerprint(String newSubjectFingerprint) {
+		String oldSubjectFingerprint = subjectFingerprint;
+		subjectFingerprint = newSubjectFingerprint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__MODEL_FINGERPRINT, oldModelFingerprint, modelFingerprint));
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT, oldSubjectFingerprint, subjectFingerprint));
 	}
 
 	/**
@@ -406,6 +383,29 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public String getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLanguage(String newLanguage) {
+		String oldLanguage = language;
+		language = newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE, oldLanguage, language));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REVISIONS:
@@ -428,12 +428,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				return getName();
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NS_URI:
-				return getSubjectNsURI();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				return getSubjectName();
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__MODEL_FINGERPRINT:
-				return getModelFingerprint();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
+				return getSubjectFingerprint();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				return getRebuiltAt();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REVISION_COUNT:
@@ -444,6 +442,8 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				return getEvaluations();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				return getChanges();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -460,14 +460,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				setName((String)newValue);
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NS_URI:
-				setSubjectNsURI((String)newValue);
-				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				setSubjectName((String)newValue);
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__MODEL_FINGERPRINT:
-				setModelFingerprint((String)newValue);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
+				setSubjectFingerprint((String)newValue);
 				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				setRebuiltAt((String)newValue);
@@ -487,6 +484,9 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				getChanges().clear();
 				getChanges().addAll((Collection<? extends ChangeRow>)newValue);
 				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
+				setLanguage((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -502,14 +502,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NS_URI:
-				setSubjectNsURI(SUBJECT_NS_URI_EDEFAULT);
-				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				setSubjectName(SUBJECT_NAME_EDEFAULT);
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__MODEL_FINGERPRINT:
-				setModelFingerprint(MODEL_FINGERPRINT_EDEFAULT);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
+				setSubjectFingerprint(SUBJECT_FINGERPRINT_EDEFAULT);
 				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				setRebuiltAt(REBUILT_AT_EDEFAULT);
@@ -526,6 +523,9 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				getChanges().clear();
 				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -540,12 +540,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NS_URI:
-				return SUBJECT_NS_URI_EDEFAULT == null ? subjectNsURI != null : !SUBJECT_NS_URI_EDEFAULT.equals(subjectNsURI);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				return SUBJECT_NAME_EDEFAULT == null ? subjectName != null : !SUBJECT_NAME_EDEFAULT.equals(subjectName);
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__MODEL_FINGERPRINT:
-				return MODEL_FINGERPRINT_EDEFAULT == null ? modelFingerprint != null : !MODEL_FINGERPRINT_EDEFAULT.equals(modelFingerprint);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
+				return SUBJECT_FINGERPRINT_EDEFAULT == null ? subjectFingerprint != null : !SUBJECT_FINGERPRINT_EDEFAULT.equals(subjectFingerprint);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				return REBUILT_AT_EDEFAULT == null ? rebuiltAt != null : !REBUILT_AT_EDEFAULT.equals(rebuiltAt);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REVISION_COUNT:
@@ -556,6 +554,8 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				return evaluations != null && !evaluations.isEmpty();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				return changes != null && !changes.isEmpty();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
+				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -572,16 +572,16 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", subjectNsURI: ");
-		result.append(subjectNsURI);
 		result.append(", subjectName: ");
 		result.append(subjectName);
-		result.append(", modelFingerprint: ");
-		result.append(modelFingerprint);
+		result.append(", subjectFingerprint: ");
+		result.append(subjectFingerprint);
 		result.append(", rebuiltAt: ");
 		result.append(rebuiltAt);
 		result.append(", revisionCount: ");
 		result.append(revisionCount);
+		result.append(", language: ");
+		result.append(language);
 		result.append(')');
 		return result.toString();
 	}

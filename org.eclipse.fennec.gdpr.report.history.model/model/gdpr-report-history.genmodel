@@ -12,6 +12,7 @@
       <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/UNKNOWN"/>
       <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/AI_AGENT"/>
       <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/HUMAN"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//RevisionOrigin/STATIC_ANALYSIS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="gdpr-report-history.ecore#//ChangeKind">
       <genEnumLiterals ecoreEnumLiteral="gdpr-report-history.ecore#//ChangeKind/UNCHANGED"/>
@@ -21,14 +22,14 @@
     </genEnums>
     <genClasses ecoreClass="gdpr-report-history.ecore#//GdprReportHistory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectNsURI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/modelFingerprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectFingerprint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/rebuiltAt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/revisionCount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/revisions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/evaluations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/changes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/language"/>
     </genClasses>
     <genClasses ecoreClass="gdpr-report-history.ecore#//ReportRevision">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ReportRevision/revisionNumber"/>

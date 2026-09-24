@@ -42,15 +42,6 @@ public interface GDPRReportFactory extends EFactory {
 	GdprReport createGdprReport();
 
 	/**
-	 * Returns a new object of class '<em>Subject Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subject Model</em>'.
-	 * @generated
-	 */
-	SubjectModel createSubjectModel();
-
-	/**
 	 * Returns a new object of class '<em>Legal Corpus Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,6 +103,33 @@ public interface GDPRReportFactory extends EFactory {
 	 * @generated
 	 */
 	GdprRequestStatus createGdprRequestStatus();
+
+	/**
+	 * Returns a new object of class '<em>Package Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package Subject</em>'.
+	 * @generated
+	 */
+	PackageSubject createPackageSubject();
+
+	/**
+	 * Returns a new object of class '<em>Transformation Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation Subject</em>'.
+	 * @generated
+	 */
+	TransformationSubject createTransformationSubject();
+
+	/**
+	 * Returns a new object of class '<em>Flow Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flow Evaluation</em>'.
+	 * @generated
+	 */
+	FlowEvaluation createFlowEvaluation();
 
 	/**
 	 * Returns the package supported by this factory.

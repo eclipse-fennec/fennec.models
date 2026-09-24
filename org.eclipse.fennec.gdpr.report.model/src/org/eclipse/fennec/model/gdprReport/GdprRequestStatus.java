@@ -20,15 +20,14 @@ import org.osgi.annotation.versioning.ProviderType;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The record of one review request for one model revision: that it was asked for, what is carrying it out, and how it ended. It exists from the moment the request is accepted, which a GdprReport does not - a report is only written when a review succeeds, so a run that is still going or that failed leaves no report at all. Anything deciding whether to ask for a review has to consult this rather than the report, or a run already in flight is paid for twice and a run that failed is re-tried on every trigger forever. One instance per reviewed model revision, keyed by modelFingerprint.
+ * The record of one review request for one model revision: that it was asked for, what is carrying it out, and how it ended. It exists from the moment the request is accepted, which a GdprReport does not - a report is only written when a review succeeds, so a run that is still going or that failed leaves no report at all. Anything deciding whether to ask for a review has to consult this rather than the report, or a run already in flight is paid for twice and a run that failed is re-tried on every trigger forever. One instance per reviewed revision per language, keyed by subjectFingerprint and language together: a review runs in one language from start to seal, so the English and the German review of one revision are independent runs with their own batch, their own findings and their own record, and neither answers for the other.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getModelFingerprint <em>Model Fingerprint</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getNsURI <em>Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getBatchId <em>Batch Id</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getCustomId <em>Custom Id</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getReportId <em>Report Id</em>}</li>
@@ -38,6 +37,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getMessage <em>Message</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getContinuationCount <em>Continuation Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getOutputTokens <em>Output Tokens</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus()
@@ -47,54 +47,29 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public interface GdprRequestStatus extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Model Fingerprint</b></em>' attribute.
+	 * Returns the value of the '<em><b>Subject Fingerprint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The revision of the model under review, in the same form SubjectModel records it. This is the identity of the record: the review is of content, not of a location, so the same bytes reached by any route are the same review and must not be paid for again.
+	 * The revision of the subject under review, in the same form Subject records it. This is the identity of the record: the review is of content, not of a location, so the same bytes reached by any route are the same review and must not be paid for again.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Model Fingerprint</em>' attribute.
-	 * @see #setModelFingerprint(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus_ModelFingerprint()
-	 * @model
+	 * @return the value of the '<em>Subject Fingerprint</em>' attribute.
+	 * @see #setSubjectFingerprint(String)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus_SubjectFingerprint()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getModelFingerprint();
+	String getSubjectFingerprint();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getModelFingerprint <em>Model Fingerprint</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getSubjectFingerprint <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Fingerprint</em>' attribute.
-	 * @see #getModelFingerprint()
+	 * @param value the new value of the '<em>Subject Fingerprint</em>' attribute.
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 */
-	void setModelFingerprint(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ns URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Namespace URI of the reviewed model, so a record is legible without resolving the fingerprint first. Not the identity - a namespace can hold more than one revision.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ns URI</em>' attribute.
-	 * @see #setNsURI(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus_NsURI()
-	 * @model
-	 * @generated
-	 */
-	String getNsURI();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getNsURI <em>Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ns URI</em>' attribute.
-	 * @see #getNsURI()
-	 * @generated
-	 */
-	void setNsURI(String value);
+	void setSubjectFingerprint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Batch Id</b></em>' attribute.
@@ -323,5 +298,30 @@ public interface GdprRequestStatus extends EObject {
 	 * @generated
 	 */
 	void setOutputTokens(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The language version of the regulation this review ran against, e.g. EN or DE - the language of its corpus, of the quotes it carries and of the report it produces. It is half the identity of the record, beside subjectFingerprint, and the model leaves it optional only because EMF has no way to say otherwise: a record that does not name its language is either filed where another language will look for it, or makes one language an unnamed default that nothing downstream can see. Both end as a review that is never submitted because something else claimed to have done it. Set it always.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see #setLanguage(String)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus_Language()
+	 * @model
+	 * @generated
+	 */
+	String getLanguage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(String value);
 
 } // GdprRequestStatus

@@ -12,8 +12,6 @@ package org.eclipse.fennec.model.gdprReport;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -29,11 +27,8 @@ import org.osgi.annotation.versioning.ProviderType;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getUriFragment <em>Uri Fragment</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getFeatureEvaluation <em>Feature Evaluation</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getFindings <em>Findings</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getClassifierEvaluation()
@@ -41,57 +36,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-public interface ClassifierEvaluation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Required and unique within the report. Stable key, so references survive reordering. Use the classifier name, e.g. 'Patient'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getClassifierEvaluation_Id()
-	 * @model id="true"
-	 * @generated
-	 */
-	String getId();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Classifier name exactly as it appears in the reviewed model.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getClassifierEvaluation_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.ClassifierEvaluation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface ClassifierEvaluation extends Evaluation {
 	/**
 	 * Returns the value of the '<em><b>Uri Fragment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -131,20 +76,5 @@ public interface ClassifierEvaluation extends EObject {
 	 * @generated
 	 */
 	EList<FeatureEvaluation> getFeatureEvaluation();
-
-	/**
-	 * Returns the value of the '<em><b>Findings</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.fennec.model.gdprReport.Finding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Findings about the classifier itself rather than one of its features, e.g. a class named Patient making everything it contains health-adjacent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Findings</em>' containment reference list.
-	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getClassifierEvaluation_Findings()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Finding> getFindings();
 
 } // ClassifierEvaluation

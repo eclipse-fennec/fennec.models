@@ -29,8 +29,7 @@ import org.eclipse.fennec.model.gdprReport.RequestStatusType;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getModelFingerprint <em>Model Fingerprint</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getNsURI <em>Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getBatchId <em>Batch Id</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getCustomId <em>Custom Id</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getReportId <em>Report Id</em>}</li>
@@ -40,50 +39,31 @@ import org.eclipse.fennec.model.gdprReport.RequestStatusType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getContinuationCount <em>Continuation Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getOutputTokens <em>Output Tokens</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.GdprRequestStatusImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implements GdprRequestStatus {
 	/**
-	 * The default value of the '{@link #getModelFingerprint() <em>Model Fingerprint</em>}' attribute.
+	 * The default value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelFingerprint()
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MODEL_FINGERPRINT_EDEFAULT = null;
+	protected static final String SUBJECT_FINGERPRINT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelFingerprint() <em>Model Fingerprint</em>}' attribute.
+	 * The cached value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelFingerprint()
+	 * @see #getSubjectFingerprint()
 	 * @generated
 	 * @ordered
 	 */
-	protected String modelFingerprint = MODEL_FINGERPRINT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getNsURI() <em>Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNsURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NS_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNsURI() <em>Ns URI</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNsURI()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nsURI = NS_URI_EDEFAULT;
+	protected String subjectFingerprint = SUBJECT_FINGERPRINT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBatchId() <em>Batch Id</em>}' attribute.
@@ -266,6 +246,26 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	protected int outputTokens = OUTPUT_TOKENS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LANGUAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String language = LANGUAGE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -290,8 +290,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public String getModelFingerprint() {
-		return modelFingerprint;
+	public String getSubjectFingerprint() {
+		return subjectFingerprint;
 	}
 
 	/**
@@ -300,34 +300,11 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setModelFingerprint(String newModelFingerprint) {
-		String oldModelFingerprint = modelFingerprint;
-		modelFingerprint = newModelFingerprint;
+	public void setSubjectFingerprint(String newSubjectFingerprint) {
+		String oldSubjectFingerprint = subjectFingerprint;
+		subjectFingerprint = newSubjectFingerprint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.GDPR_REQUEST_STATUS__MODEL_FINGERPRINT, oldModelFingerprint, modelFingerprint));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getNsURI() {
-		return nsURI;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNsURI(String newNsURI) {
-		String oldNsURI = nsURI;
-		nsURI = newNsURI;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.GDPR_REQUEST_STATUS__NS_URI, oldNsURI, nsURI));
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT, oldSubjectFingerprint, subjectFingerprint));
 	}
 
 	/**
@@ -543,12 +520,33 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public String getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLanguage(String newLanguage) {
+		String oldLanguage = language;
+		language = newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE, oldLanguage, language));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__MODEL_FINGERPRINT:
-				return getModelFingerprint();
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__NS_URI:
-				return getNsURI();
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT:
+				return getSubjectFingerprint();
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__BATCH_ID:
 				return getBatchId();
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__CUSTOM_ID:
@@ -567,6 +565,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 				return getContinuationCount();
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS:
 				return getOutputTokens();
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -579,11 +579,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__MODEL_FINGERPRINT:
-				setModelFingerprint((String)newValue);
-				return;
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__NS_URI:
-				setNsURI((String)newValue);
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT:
+				setSubjectFingerprint((String)newValue);
 				return;
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__BATCH_ID:
 				setBatchId((String)newValue);
@@ -612,6 +609,9 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS:
 				setOutputTokens((Integer)newValue);
 				return;
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE:
+				setLanguage((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -624,11 +624,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__MODEL_FINGERPRINT:
-				setModelFingerprint(MODEL_FINGERPRINT_EDEFAULT);
-				return;
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__NS_URI:
-				setNsURI(NS_URI_EDEFAULT);
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT:
+				setSubjectFingerprint(SUBJECT_FINGERPRINT_EDEFAULT);
 				return;
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__BATCH_ID:
 				setBatchId(BATCH_ID_EDEFAULT);
@@ -657,6 +654,9 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS:
 				setOutputTokens(OUTPUT_TOKENS_EDEFAULT);
 				return;
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -669,10 +669,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__MODEL_FINGERPRINT:
-				return MODEL_FINGERPRINT_EDEFAULT == null ? modelFingerprint != null : !MODEL_FINGERPRINT_EDEFAULT.equals(modelFingerprint);
-			case GDPRReportPackage.GDPR_REQUEST_STATUS__NS_URI:
-				return NS_URI_EDEFAULT == null ? nsURI != null : !NS_URI_EDEFAULT.equals(nsURI);
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__SUBJECT_FINGERPRINT:
+				return SUBJECT_FINGERPRINT_EDEFAULT == null ? subjectFingerprint != null : !SUBJECT_FINGERPRINT_EDEFAULT.equals(subjectFingerprint);
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__BATCH_ID:
 				return BATCH_ID_EDEFAULT == null ? batchId != null : !BATCH_ID_EDEFAULT.equals(batchId);
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__CUSTOM_ID:
@@ -691,6 +689,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 				return continuationCount != CONTINUATION_COUNT_EDEFAULT;
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS:
 				return outputTokens != OUTPUT_TOKENS_EDEFAULT;
+			case GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE:
+				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -705,10 +705,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (modelFingerprint: ");
-		result.append(modelFingerprint);
-		result.append(", nsURI: ");
-		result.append(nsURI);
+		result.append(" (subjectFingerprint: ");
+		result.append(subjectFingerprint);
 		result.append(", batchId: ");
 		result.append(batchId);
 		result.append(", customId: ");
@@ -727,6 +725,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 		result.append(continuationCount);
 		result.append(", outputTokens: ");
 		result.append(outputTokens);
+		result.append(", language: ");
+		result.append(language);
 		result.append(')');
 		return result.toString();
 	}

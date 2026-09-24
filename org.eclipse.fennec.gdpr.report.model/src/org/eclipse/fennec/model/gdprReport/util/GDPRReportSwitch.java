@@ -80,9 +80,9 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GDPRReportPackage.SUBJECT_MODEL: {
-				SubjectModel subjectModel = (SubjectModel)theEObject;
-				T result = caseSubjectModel(subjectModel);
+			case GDPRReportPackage.SUBJECT: {
+				Subject subject = (Subject)theEObject;
+				T result = caseSubject(subject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -95,12 +95,14 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 			case GDPRReportPackage.CLASSIFIER_EVALUATION: {
 				ClassifierEvaluation classifierEvaluation = (ClassifierEvaluation)theEObject;
 				T result = caseClassifierEvaluation(classifierEvaluation);
+				if (result == null) result = caseEvaluation(classifierEvaluation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GDPRReportPackage.FEATURE_EVALUATION: {
 				FeatureEvaluation featureEvaluation = (FeatureEvaluation)theEObject;
 				T result = caseFeatureEvaluation(featureEvaluation);
+				if (result == null) result = caseEvaluation(featureEvaluation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +131,33 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GDPRReportPackage.PACKAGE_SUBJECT: {
+				PackageSubject packageSubject = (PackageSubject)theEObject;
+				T result = casePackageSubject(packageSubject);
+				if (result == null) result = caseSubject(packageSubject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GDPRReportPackage.EVALUATION: {
+				Evaluation evaluation = (Evaluation)theEObject;
+				T result = caseEvaluation(evaluation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GDPRReportPackage.TRANSFORMATION_SUBJECT: {
+				TransformationSubject transformationSubject = (TransformationSubject)theEObject;
+				T result = caseTransformationSubject(transformationSubject);
+				if (result == null) result = caseSubject(transformationSubject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GDPRReportPackage.FLOW_EVALUATION: {
+				FlowEvaluation flowEvaluation = (FlowEvaluation)theEObject;
+				T result = caseFlowEvaluation(flowEvaluation);
+				if (result == null) result = caseEvaluation(flowEvaluation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -149,17 +178,17 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Subject Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Subject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Subject Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Subject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSubjectModel(SubjectModel object) {
+	public T caseSubject(Subject object) {
 		return null;
 	}
 
@@ -265,6 +294,66 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGdprRequestStatus(GdprRequestStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package Subject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackageSubject(PackageSubject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evaluation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvaluation(Evaluation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transformation Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transformation Subject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransformationSubject(TransformationSubject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow Evaluation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlowEvaluation(FlowEvaluation object) {
 		return null;
 	}
 

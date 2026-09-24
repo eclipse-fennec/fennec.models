@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.fennec.model.gdprReport.CombinationFinding;
 import org.eclipse.fennec.model.gdprReport.CombinationKind;
-import org.eclipse.fennec.model.gdprReport.FeatureEvaluation;
+import org.eclipse.fennec.model.gdprReport.Evaluation;
 import org.eclipse.fennec.model.gdprReport.GDPRReportPackage;
 
 /**
@@ -73,7 +73,7 @@ public class CombinationFindingImpl extends FindingImpl implements CombinationFi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FeatureEvaluation> features;
+	protected EList<Evaluation> features;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,9 +123,9 @@ public class CombinationFindingImpl extends FindingImpl implements CombinationFi
 	 * @generated
 	 */
 	@Override
-	public EList<FeatureEvaluation> getFeatures() {
+	public EList<Evaluation> getFeatures() {
 		if (features == null) {
-			features = new EObjectWithInverseEList.ManyInverse<FeatureEvaluation>(FeatureEvaluation.class, this, GDPRReportPackage.COMBINATION_FINDING__FEATURES, GDPRReportPackage.FEATURE_EVALUATION__PART_OF_COMBINATIONS);
+			features = new EObjectWithInverseEList.ManyInverse<Evaluation>(Evaluation.class, this, GDPRReportPackage.COMBINATION_FINDING__FEATURES, GDPRReportPackage.EVALUATION__PART_OF_COMBINATIONS);
 		}
 		return features;
 	}
@@ -189,7 +189,7 @@ public class CombinationFindingImpl extends FindingImpl implements CombinationFi
 				return;
 			case GDPRReportPackage.COMBINATION_FINDING__FEATURES:
 				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends FeatureEvaluation>)newValue);
+				getFeatures().addAll((Collection<? extends Evaluation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -67,19 +67,19 @@ public interface CombinationFinding extends Finding {
 
 	/**
 	 * Returns the value of the '<em><b>Features</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations <em>Part Of Combinations</em>}'.
+	 * The list contents are of type {@link org.eclipse.fennec.model.gdprReport.Evaluation}.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.fennec.model.gdprReport.Evaluation#getPartOfCombinations <em>Part Of Combinations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The features that together create the risk. At least two, and they may belong to different classifiers. Reference existing FeatureEvaluation entries rather than creating new ones. resolveProxies is false because a combination only ever points at FeatureEvaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived.
+	 * The evaluations that together create the risk. At least two, and they may belong to different classifiers. In a review of a metamodel these are FeatureEvaluations; in a review of a transformation they are FlowEvaluations, which is how several fields merged into one target field are recorded as one combination. Reference existing entries rather than creating new ones. resolveProxies is false because a combination only ever points at evaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Features</em>' reference list.
 	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getCombinationFinding_Features()
-	 * @see org.eclipse.fennec.model.gdprReport.FeatureEvaluation#getPartOfCombinations
+	 * @see org.eclipse.fennec.model.gdprReport.Evaluation#getPartOfCombinations
 	 * @model opposite="partOfCombinations" resolveProxies="false" lower="2"
 	 * @generated
 	 */
-	EList<FeatureEvaluation> getFeatures();
+	EList<Evaluation> getFeatures();
 
 } // CombinationFinding

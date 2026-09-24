@@ -52,6 +52,7 @@ import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getRationale <em>Rationale</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getRecommendation <em>Recommendation</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getEvidence <em>Evidence</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getDiagnosticId <em>Diagnostic Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -206,6 +207,26 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 	 * @ordered
 	 */
 	protected EList<Evidence> evidence;
+
+	/**
+	 * The default value of the '{@link #getDiagnosticId() <em>Diagnostic Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiagnosticId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DIAGNOSTIC_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDiagnosticId() <em>Diagnostic Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiagnosticId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String diagnosticId = DIAGNOSTIC_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -409,6 +430,29 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 	 * @generated
 	 */
 	@Override
+	public String getDiagnosticId() {
+		return diagnosticId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDiagnosticId(String newDiagnosticId) {
+		String oldDiagnosticId = diagnosticId;
+		diagnosticId = newDiagnosticId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.FINDING__DIAGNOSTIC_ID, oldDiagnosticId, diagnosticId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GDPRReportPackage.FINDING__EVIDENCE:
@@ -443,6 +487,8 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 				return getRecommendation();
 			case GDPRReportPackage.FINDING__EVIDENCE:
 				return getEvidence();
+			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
+				return getDiagnosticId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -486,6 +532,9 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 				getEvidence().clear();
 				getEvidence().addAll((Collection<? extends Evidence>)newValue);
 				return;
+			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
+				setDiagnosticId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -525,6 +574,9 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 			case GDPRReportPackage.FINDING__EVIDENCE:
 				getEvidence().clear();
 				return;
+			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
+				setDiagnosticId(DIAGNOSTIC_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -555,6 +607,8 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 				return RECOMMENDATION_EDEFAULT == null ? recommendation != null : !RECOMMENDATION_EDEFAULT.equals(recommendation);
 			case GDPRReportPackage.FINDING__EVIDENCE:
 				return evidence != null && !evidence.isEmpty();
+			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
+				return DIAGNOSTIC_ID_EDEFAULT == null ? diagnosticId != null : !DIAGNOSTIC_ID_EDEFAULT.equals(diagnosticId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -585,6 +639,8 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 		result.append(rationale);
 		result.append(", recommendation: ");
 		result.append(recommendation);
+		result.append(", diagnosticId: ");
+		result.append(diagnosticId);
 		result.append(')');
 		return result.toString();
 	}
