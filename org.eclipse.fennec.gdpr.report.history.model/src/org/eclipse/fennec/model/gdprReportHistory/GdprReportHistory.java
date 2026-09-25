@@ -37,7 +37,8 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRevisions <em>Revisions</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getEvaluations <em>Evaluations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getChanges <em>Changes</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getReportLanguage <em>Report Language</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectLanguage <em>Subject Language</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory()
@@ -217,25 +218,53 @@ public interface GdprReportHistory extends EObject {
 	EList<ChangeRow> getChanges();
 
 	/**
-	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * Returns the value of the '<em><b>Report Language</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Language</em>' attribute.
-	 * @see #setLanguage(String)
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_Language()
+	 * <!-- begin-model-doc -->
+	 * The language of the gdpr report
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Report Language</em>' attribute.
+	 * @see #setReportLanguage(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_ReportLanguage()
 	 * @model
 	 * @generated
 	 */
-	String getLanguage();
+	String getReportLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getReportLanguage <em>Report Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Language</em>' attribute.
-	 * @see #getLanguage()
+	 * @param value the new value of the '<em>Report Language</em>' attribute.
+	 * @see #getReportLanguage()
 	 * @generated
 	 */
-	void setLanguage(String value);
+	void setReportLanguage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The language of the report subject (e.g. when a qvt transformation qvto, etc)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject Language</em>' attribute.
+	 * @see #setSubjectLanguage(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_SubjectLanguage()
+	 * @model
+	 * @generated
+	 */
+	String getSubjectLanguage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectLanguage <em>Subject Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject Language</em>' attribute.
+	 * @see #getSubjectLanguage()
+	 * @generated
+	 */
+	void setSubjectLanguage(String value);
 
 } // GdprReportHistory

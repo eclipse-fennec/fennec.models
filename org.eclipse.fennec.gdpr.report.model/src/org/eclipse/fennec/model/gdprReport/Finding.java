@@ -258,7 +258,7 @@ public interface Finding extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to the diagnostic this finding corresponds to, so that a later review of the same artefact updates the diagnostic already raised instead of raising a second one for the same problem. Leave it unset on a finding that no diagnostic was raised for.
+	 * The id of the model.atlas Diagnostic this finding was raised as, so that a later review of the same artefact updates that diagnostic instead of raising a second one for the same problem. Diagnostic ids are deterministic - derived from the producer, the code and the target, the producer here being the GDPR review - so the same finding about the same element keeps its id across re-validations and this reference survives without a matching step. It holds the id alone: a diagnostic is addressed from outside by scope, registry, stage, objectId and id, and the first four are those of the object this report is about. Leave it unset on a finding that no diagnostic was raised for.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnostic Id</em>' attribute.
 	 * @see #setDiagnosticId(String)

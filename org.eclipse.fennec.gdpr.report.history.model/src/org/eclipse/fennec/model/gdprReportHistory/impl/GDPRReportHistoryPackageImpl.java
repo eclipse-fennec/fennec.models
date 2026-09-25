@@ -232,8 +232,18 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReportHistory_Language() {
+	public EAttribute getGdprReportHistory_ReportLanguage() {
 		return (EAttribute)gdprReportHistoryEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGdprReportHistory_SubjectLanguage() {
+		return (EAttribute)gdprReportHistoryEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -674,7 +684,8 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		createEReference(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__REVISIONS);
 		createEReference(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__EVALUATIONS);
 		createEReference(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__CHANGES);
-		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__LANGUAGE);
+		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__REPORT_LANGUAGE);
+		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE);
 
 		reportRevisionEClass = createEClass(REPORT_REVISION);
 		createEAttribute(reportRevisionEClass, REPORT_REVISION__REVISION_NUMBER);
@@ -761,7 +772,8 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		initEReference(getGdprReportHistory_Revisions(), this.getReportRevision(), null, "revisions", null, 0, -1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReportHistory_Evaluations(), this.getEvaluationRow(), null, "evaluations", null, 0, -1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReportHistory_Changes(), this.getChangeRow(), null, "changes", null, 0, -1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGdprReportHistory_Language(), ecorePackage.getEString(), "language", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprReportHistory_ReportLanguage(), ecorePackage.getEString(), "reportLanguage", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprReportHistory_SubjectLanguage(), ecorePackage.getEString(), "subjectLanguage", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reportRevisionEClass, ReportRevision.class, "ReportRevision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReportRevision_RevisionNumber(), ecorePackage.getEInt(), "revisionNumber", null, 1, 1, ReportRevision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -915,6 +927,18 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		   source,
 		   new String[] {
 			   "documentation", "The diff, one row per field that actually differs from the preceding revision. Renders as the third sheet and is the reason this document exists: the change kind on an evaluation row says THAT something changed, these rows say WHAT."
+		   });
+		addAnnotation
+		  (getGdprReportHistory_ReportLanguage(),
+		   source,
+		   new String[] {
+			   "documentation", "The language of the gdpr report"
+		   });
+		addAnnotation
+		  (getGdprReportHistory_SubjectLanguage(),
+		   source,
+		   new String[] {
+			   "documentation", "The language of the report subject (e.g. when a qvt transformation qvto, etc)"
 		   });
 		addAnnotation
 		  (reportRevisionEClass,
