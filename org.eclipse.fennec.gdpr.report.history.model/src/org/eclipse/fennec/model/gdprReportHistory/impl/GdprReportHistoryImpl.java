@@ -48,7 +48,8 @@ import org.eclipse.fennec.model.gdprReportHistory.ReportRevision;
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRevisions <em>Revisions</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getEvaluations <em>Evaluations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getChanges <em>Changes</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getReportLanguage <em>Report Language</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectLanguage <em>Subject Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -185,24 +186,44 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<ChangeRow> changes;
 
 	/**
-	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * The default value of the '{@link #getReportLanguage() <em>Report Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLanguage()
+	 * @see #getReportLanguage()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LANGUAGE_EDEFAULT = null;
+	protected static final String REPORT_LANGUAGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * The cached value of the '{@link #getReportLanguage() <em>Report Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLanguage()
+	 * @see #getReportLanguage()
 	 * @generated
 	 * @ordered
 	 */
-	protected String language = LANGUAGE_EDEFAULT;
+	protected String reportLanguage = REPORT_LANGUAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSubjectLanguage() <em>Subject Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUBJECT_LANGUAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSubjectLanguage() <em>Subject Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String subjectLanguage = SUBJECT_LANGUAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -383,8 +404,8 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public String getLanguage() {
-		return language;
+	public String getReportLanguage() {
+		return reportLanguage;
 	}
 
 	/**
@@ -393,11 +414,34 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setLanguage(String newLanguage) {
-		String oldLanguage = language;
-		language = newLanguage;
+	public void setReportLanguage(String newReportLanguage) {
+		String oldReportLanguage = reportLanguage;
+		reportLanguage = newReportLanguage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE, oldLanguage, language));
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REPORT_LANGUAGE, oldReportLanguage, reportLanguage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSubjectLanguage() {
+		return subjectLanguage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSubjectLanguage(String newSubjectLanguage) {
+		String oldSubjectLanguage = subjectLanguage;
+		subjectLanguage = newSubjectLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE, oldSubjectLanguage, subjectLanguage));
 	}
 
 	/**
@@ -442,8 +486,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				return getEvaluations();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				return getChanges();
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
-				return getLanguage();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REPORT_LANGUAGE:
+				return getReportLanguage();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE:
+				return getSubjectLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,8 +530,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				getChanges().clear();
 				getChanges().addAll((Collection<? extends ChangeRow>)newValue);
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
-				setLanguage((String)newValue);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REPORT_LANGUAGE:
+				setReportLanguage((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE:
+				setSubjectLanguage((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -523,8 +572,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				getChanges().clear();
 				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
-				setLanguage(LANGUAGE_EDEFAULT);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REPORT_LANGUAGE:
+				setReportLanguage(REPORT_LANGUAGE_EDEFAULT);
+				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE:
+				setSubjectLanguage(SUBJECT_LANGUAGE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -554,8 +606,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 				return evaluations != null && !evaluations.isEmpty();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__CHANGES:
 				return changes != null && !changes.isEmpty();
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__LANGUAGE:
-				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REPORT_LANGUAGE:
+				return REPORT_LANGUAGE_EDEFAULT == null ? reportLanguage != null : !REPORT_LANGUAGE_EDEFAULT.equals(reportLanguage);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE:
+				return SUBJECT_LANGUAGE_EDEFAULT == null ? subjectLanguage != null : !SUBJECT_LANGUAGE_EDEFAULT.equals(subjectLanguage);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -580,8 +634,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		result.append(rebuiltAt);
 		result.append(", revisionCount: ");
 		result.append(revisionCount);
-		result.append(", language: ");
-		result.append(language);
+		result.append(", reportLanguage: ");
+		result.append(reportLanguage);
+		result.append(", subjectLanguage: ");
+		result.append(subjectLanguage);
 		result.append(')');
 		return result.toString();
 	}

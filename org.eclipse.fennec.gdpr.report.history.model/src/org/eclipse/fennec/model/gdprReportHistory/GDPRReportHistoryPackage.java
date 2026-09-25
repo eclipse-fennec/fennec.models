@@ -44,7 +44,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:164babcbdbbeb9e47c04b6dd7f5dee7d59ea6c956aedac677e3ef466f0014b06", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
+@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:423315f6d0c44b9a64443d29232200bfde4009afd31b8a74c36082b2cfaa0bb5", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
 public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -161,13 +161,22 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	int GDPR_REPORT_HISTORY__CHANGES = 7;
 
 	/**
-	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * The feature id for the '<em><b>Report Language</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__LANGUAGE = 8;
+	int GDPR_REPORT_HISTORY__REPORT_LANGUAGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Subject Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Gdpr Report History</em>' class.
@@ -176,7 +185,7 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY_FEATURE_COUNT = 9;
+	int GDPR_REPORT_HISTORY_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Gdpr Report History</em>' class.
@@ -706,15 +715,26 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	EReference getGdprReportHistory_Changes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage <em>Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getReportLanguage <em>Report Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getLanguage()
+	 * @return the meta object for the attribute '<em>Report Language</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getReportLanguage()
 	 * @see #getGdprReportHistory()
 	 * @generated
 	 */
-	EAttribute getGdprReportHistory_Language();
+	EAttribute getGdprReportHistory_ReportLanguage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectLanguage <em>Subject Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subject Language</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectLanguage()
+	 * @see #getGdprReportHistory()
+	 * @generated
+	 */
+	EAttribute getGdprReportHistory_SubjectLanguage();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReportHistory.ReportRevision <em>Report Revision</em>}'.
@@ -1249,12 +1269,20 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		EReference GDPR_REPORT_HISTORY__CHANGES = eINSTANCE.getGdprReportHistory_Changes();
 
 		/**
-		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Report Language</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GDPR_REPORT_HISTORY__LANGUAGE = eINSTANCE.getGdprReportHistory_Language();
+		EAttribute GDPR_REPORT_HISTORY__REPORT_LANGUAGE = eINSTANCE.getGdprReportHistory_ReportLanguage();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GDPR_REPORT_HISTORY__SUBJECT_LANGUAGE = eINSTANCE.getGdprReportHistory_SubjectLanguage();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReportHistory.impl.ReportRevisionImpl <em>Report Revision</em>}' class.
