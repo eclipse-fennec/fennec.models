@@ -41,8 +41,8 @@ import org.eclipse.fennec.model.gdprReportHistory.ReportRevision;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectIdentifier <em>Subject Identifier</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectName <em>Subject Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRebuiltAt <em>Rebuilt At</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRevisionCount <em>Revision Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.GdprReportHistoryImpl#getRevisions <em>Revisions</em>}</li>
@@ -76,6 +76,26 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getSubjectIdentifier() <em>Subject Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUBJECT_IDENTIFIER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSubjectIdentifier() <em>Subject Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String subjectIdentifier = SUBJECT_IDENTIFIER_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getSubjectName() <em>Subject Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,26 +114,6 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String subjectName = SUBJECT_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectFingerprint()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SUBJECT_FINGERPRINT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSubjectFingerprint() <em>Subject Fingerprint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectFingerprint()
-	 * @generated
-	 * @ordered
-	 */
-	protected String subjectFingerprint = SUBJECT_FINGERPRINT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRebuiltAt() <em>Rebuilt At</em>}' attribute.
@@ -273,6 +273,29 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public String getSubjectIdentifier() {
+		return subjectIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSubjectIdentifier(String newSubjectIdentifier) {
+		String oldSubjectIdentifier = subjectIdentifier;
+		subjectIdentifier = newSubjectIdentifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER, oldSubjectIdentifier, subjectIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getSubjectName() {
 		return subjectName;
 	}
@@ -288,29 +311,6 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		subjectName = newSubjectName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME, oldSubjectName, subjectName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getSubjectFingerprint() {
-		return subjectFingerprint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSubjectFingerprint(String newSubjectFingerprint) {
-		String oldSubjectFingerprint = subjectFingerprint;
-		subjectFingerprint = newSubjectFingerprint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT, oldSubjectFingerprint, subjectFingerprint));
 	}
 
 	/**
@@ -472,10 +472,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				return getName();
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER:
+				return getSubjectIdentifier();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				return getSubjectName();
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
-				return getSubjectFingerprint();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				return getRebuiltAt();
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REVISION_COUNT:
@@ -506,11 +506,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				setName((String)newValue);
 				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER:
+				setSubjectIdentifier((String)newValue);
+				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				setSubjectName((String)newValue);
-				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
-				setSubjectFingerprint((String)newValue);
 				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				setRebuiltAt((String)newValue);
@@ -551,11 +551,11 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER:
+				setSubjectIdentifier(SUBJECT_IDENTIFIER_EDEFAULT);
+				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				setSubjectName(SUBJECT_NAME_EDEFAULT);
-				return;
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
-				setSubjectFingerprint(SUBJECT_FINGERPRINT_EDEFAULT);
 				return;
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				setRebuiltAt(REBUILT_AT_EDEFAULT);
@@ -592,10 +592,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER:
+				return SUBJECT_IDENTIFIER_EDEFAULT == null ? subjectIdentifier != null : !SUBJECT_IDENTIFIER_EDEFAULT.equals(subjectIdentifier);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_NAME:
 				return SUBJECT_NAME_EDEFAULT == null ? subjectName != null : !SUBJECT_NAME_EDEFAULT.equals(subjectName);
-			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT:
-				return SUBJECT_FINGERPRINT_EDEFAULT == null ? subjectFingerprint != null : !SUBJECT_FINGERPRINT_EDEFAULT.equals(subjectFingerprint);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REBUILT_AT:
 				return REBUILT_AT_EDEFAULT == null ? rebuiltAt != null : !REBUILT_AT_EDEFAULT.equals(rebuiltAt);
 			case GDPRReportHistoryPackage.GDPR_REPORT_HISTORY__REVISION_COUNT:
@@ -626,10 +626,10 @@ public class GdprReportHistoryImpl extends MinimalEObjectImpl.Container implemen
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", subjectIdentifier: ");
+		result.append(subjectIdentifier);
 		result.append(", subjectName: ");
 		result.append(subjectName);
-		result.append(", subjectFingerprint: ");
-		result.append(subjectFingerprint);
 		result.append(", rebuiltAt: ");
 		result.append(rebuiltAt);
 		result.append(", revisionCount: ");

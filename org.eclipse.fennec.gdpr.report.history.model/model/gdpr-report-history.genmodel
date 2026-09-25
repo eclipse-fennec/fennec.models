@@ -22,8 +22,8 @@
     </genEnums>
     <genClasses ecoreClass="gdpr-report-history.ecore#//GdprReportHistory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectIdentifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/subjectFingerprint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/rebuiltAt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//GdprReportHistory/revisionCount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report-history.ecore#//GdprReportHistory/revisions"/>

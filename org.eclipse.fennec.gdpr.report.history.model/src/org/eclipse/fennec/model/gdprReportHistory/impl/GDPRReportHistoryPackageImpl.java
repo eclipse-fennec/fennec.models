@@ -162,7 +162,7 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReportHistory_SubjectName() {
+	public EAttribute getGdprReportHistory_SubjectIdentifier() {
 		return (EAttribute)gdprReportHistoryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -172,7 +172,7 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGdprReportHistory_SubjectFingerprint() {
+	public EAttribute getGdprReportHistory_SubjectName() {
 		return (EAttribute)gdprReportHistoryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -677,8 +677,8 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		// Create classes and their features
 		gdprReportHistoryEClass = createEClass(GDPR_REPORT_HISTORY);
 		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__NAME);
+		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER);
 		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__SUBJECT_NAME);
-		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT);
 		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__REBUILT_AT);
 		createEAttribute(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__REVISION_COUNT);
 		createEReference(gdprReportHistoryEClass, GDPR_REPORT_HISTORY__REVISIONS);
@@ -765,8 +765,8 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gdprReportHistoryEClass, GdprReportHistory.class, "GdprReportHistory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGdprReportHistory_Name(), ecorePackage.getEString(), "name", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprReportHistory_SubjectIdentifier(), ecorePackage.getEString(), "subjectIdentifier", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReportHistory_SubjectName(), ecorePackage.getEString(), "subjectName", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGdprReportHistory_SubjectFingerprint(), ecorePackage.getEString(), "subjectFingerprint", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReportHistory_RebuiltAt(), ecorePackage.getEString(), "rebuiltAt", null, 1, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprReportHistory_RevisionCount(), ecorePackage.getEInt(), "revisionCount", null, 0, 1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGdprReportHistory_Revisions(), this.getReportRevision(), null, "revisions", null, 0, -1, GdprReportHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -887,16 +887,16 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 			   "documentation", "Human readable title of the document, e.g. \'GDPR review history of clinic 1.0.0\'."
 		   });
 		addAnnotation
+		  (getGdprReportHistory_SubjectIdentifier(),
+		   source,
+		   new String[] {
+			   "documentation", "The subject identifier this history is about. This can be a nsURI for EPackages, a unique name for qvt compiled units and so on."
+		   });
+		addAnnotation
 		  (getGdprReportHistory_SubjectName(),
 		   source,
 		   new String[] {
-			   "documentation", "Name of the reviewed EPackage, as it appears in the model."
-		   });
-		addAnnotation
-		  (getGdprReportHistory_SubjectFingerprint(),
-		   source,
-		   new String[] {
-			   "documentation", "The subject revision this history is about, when the history is keyed per fingerprint. "
+			   "documentation", "Name of the reviewed subject"
 		   });
 		addAnnotation
 		  (getGdprReportHistory_RebuiltAt(),
