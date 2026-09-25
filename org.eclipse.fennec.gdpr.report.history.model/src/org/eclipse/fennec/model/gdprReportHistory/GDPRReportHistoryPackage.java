@@ -44,7 +44,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:423315f6d0c44b9a64443d29232200bfde4009afd31b8a74c36082b2cfaa0bb5", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
+@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:3b56fef8671b4bfaa7c235d230f31f52d79d51d15bbe1030e5b7cf55097c8d20", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
 public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -98,22 +98,22 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	int GDPR_REPORT_HISTORY__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Subject Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER = 1;
+
+	/**
 	 * The feature id for the '<em><b>Subject Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GDPR_REPORT_HISTORY__SUBJECT_NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Subject Fingerprint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT = 2;
+	int GDPR_REPORT_HISTORY__SUBJECT_NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Rebuilt At</b></em>' attribute.
@@ -638,6 +638,17 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	EAttribute getGdprReportHistory_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectIdentifier <em>Subject Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subject Identifier</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectIdentifier()
+	 * @see #getGdprReportHistory()
+	 * @generated
+	 */
+	EAttribute getGdprReportHistory_SubjectIdentifier();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectName <em>Subject Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -647,17 +658,6 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	 * @generated
 	 */
 	EAttribute getGdprReportHistory_SubjectName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Subject Fingerprint</em>'.
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint()
-	 * @see #getGdprReportHistory()
-	 * @generated
-	 */
-	EAttribute getGdprReportHistory_SubjectFingerprint();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRebuiltAt <em>Rebuilt At</em>}'.
@@ -1213,20 +1213,20 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		EAttribute GDPR_REPORT_HISTORY__NAME = eINSTANCE.getGdprReportHistory_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Subject Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GDPR_REPORT_HISTORY__SUBJECT_IDENTIFIER = eINSTANCE.getGdprReportHistory_SubjectIdentifier();
+
+		/**
 		 * The meta object literal for the '<em><b>Subject Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GDPR_REPORT_HISTORY__SUBJECT_NAME = eINSTANCE.getGdprReportHistory_SubjectName();
-
-		/**
-		 * The meta object literal for the '<em><b>Subject Fingerprint</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GDPR_REPORT_HISTORY__SUBJECT_FINGERPRINT = eINSTANCE.getGdprReportHistory_SubjectFingerprint();
 
 		/**
 		 * The meta object literal for the '<em><b>Rebuilt At</b></em>' attribute feature.

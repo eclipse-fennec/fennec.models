@@ -30,8 +30,8 @@ import org.osgi.annotation.versioning.ProviderType;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectIdentifier <em>Subject Identifier</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectName <em>Subject Name</em>}</li>
- *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRebuiltAt <em>Rebuilt At</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRevisionCount <em>Revision Count</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getRevisions <em>Revisions</em>}</li>
@@ -73,11 +73,36 @@ public interface GdprReportHistory extends EObject {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Subject Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The subject identifier this history is about. This can be a nsURI for EPackages, a unique name for qvt compiled units and so on.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject Identifier</em>' attribute.
+	 * @see #setSubjectIdentifier(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_SubjectIdentifier()
+	 * @model
+	 * @generated
+	 */
+	String getSubjectIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectIdentifier <em>Subject Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject Identifier</em>' attribute.
+	 * @see #getSubjectIdentifier()
+	 * @generated
+	 */
+	void setSubjectIdentifier(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Subject Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Name of the reviewed EPackage, as it appears in the model.
+	 * Name of the reviewed subject
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject Name</em>' attribute.
 	 * @see #setSubjectName(String)
@@ -96,31 +121,6 @@ public interface GdprReportHistory extends EObject {
 	 * @generated
 	 */
 	void setSubjectName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Subject Fingerprint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The subject revision this history is about, when the history is keyed per fingerprint. 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject Fingerprint</em>' attribute.
-	 * @see #setSubjectFingerprint(String)
-	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getGdprReportHistory_SubjectFingerprint()
-	 * @model
-	 * @generated
-	 */
-	String getSubjectFingerprint();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.GdprReportHistory#getSubjectFingerprint <em>Subject Fingerprint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject Fingerprint</em>' attribute.
-	 * @see #getSubjectFingerprint()
-	 * @generated
-	 */
-	void setSubjectFingerprint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Rebuilt At</b></em>' attribute.
