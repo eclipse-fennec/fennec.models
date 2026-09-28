@@ -1415,7 +1415,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getGdprRequestStatus_EndedAt(), ecorePackage.getEString(), "endedAt", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_Message(), ecorePackage.getEString(), "message", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_ContinuationCount(), ecorePackage.getEInt(), "continuationCount", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGdprRequestStatus_OutputTokens(), ecorePackage.getEInt(), "outputTokens", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGdprRequestStatus_OutputTokens(), ecorePackage.getEIntegerObject(), "outputTokens", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGdprRequestStatus_Language(), ecorePackage.getEString(), "language", null, 0, 1, GdprRequestStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageSubjectEClass, PackageSubject.class, "PackageSubject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

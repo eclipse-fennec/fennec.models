@@ -39,7 +39,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:e18b13dbf86f4d11a13cb09ff1e8c9183459a9e8782202934b455076e8b383c7", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
+@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:eb94a1c88c3f8bce9253e947ea368bedf5750295921d51cf74981f1af89a4869", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
 public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
