@@ -282,12 +282,12 @@ public interface GdprRequestStatus extends EObject {
 	 * Tokens generated across the run, where the provider reports them. The only record of what an individual review cost.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Output Tokens</em>' attribute.
-	 * @see #setOutputTokens(int)
+	 * @see #setOutputTokens(Integer)
 	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getGdprRequestStatus_OutputTokens()
 	 * @model
 	 * @generated
 	 */
-	int getOutputTokens();
+	Integer getOutputTokens();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.GdprRequestStatus#getOutputTokens <em>Output Tokens</em>}' attribute.
@@ -297,7 +297,7 @@ public interface GdprRequestStatus extends EObject {
 	 * @see #getOutputTokens()
 	 * @generated
 	 */
-	void setOutputTokens(int value);
+	void setOutputTokens(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute.

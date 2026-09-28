@@ -233,7 +233,7 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int OUTPUT_TOKENS_EDEFAULT = 0;
+	protected static final Integer OUTPUT_TOKENS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getOutputTokens() <em>Output Tokens</em>}' attribute.
@@ -243,7 +243,7 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected int outputTokens = OUTPUT_TOKENS_EDEFAULT;
+	protected Integer outputTokens = OUTPUT_TOKENS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
@@ -497,7 +497,7 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public int getOutputTokens() {
+	public Integer getOutputTokens() {
 		return outputTokens;
 	}
 
@@ -507,8 +507,8 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setOutputTokens(int newOutputTokens) {
-		int oldOutputTokens = outputTokens;
+	public void setOutputTokens(Integer newOutputTokens) {
+		Integer oldOutputTokens = outputTokens;
 		outputTokens = newOutputTokens;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS, oldOutputTokens, outputTokens));
@@ -688,7 +688,7 @@ public class GdprRequestStatusImpl extends MinimalEObjectImpl.Container implemen
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__CONTINUATION_COUNT:
 				return continuationCount != CONTINUATION_COUNT_EDEFAULT;
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__OUTPUT_TOKENS:
-				return outputTokens != OUTPUT_TOKENS_EDEFAULT;
+				return OUTPUT_TOKENS_EDEFAULT == null ? outputTokens != null : !OUTPUT_TOKENS_EDEFAULT.equals(outputTokens);
 			case GDPRReportPackage.GDPR_REQUEST_STATUS__LANGUAGE:
 				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
 		}
