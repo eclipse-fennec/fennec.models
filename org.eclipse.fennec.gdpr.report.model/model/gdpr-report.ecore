@@ -216,6 +216,17 @@
         <details key="documentation" value="The id of the model.atlas Diagnostic this finding was raised as, so that a later review of the same artefact updates that diagnostic instead of raising a second one for the same problem. Diagnostic ids are deterministic - derived from the producer, the code and the target, the producer here being the GDPR review - so the same finding about the same element keeps its id across re-validations and this reference survives without a matching step. It holds the id alone: a diagnostic is addressed from outside by scope, registry, stage, objectId and id, and the first four are those of the object this report is about. Leave it unset on a finding that no diagnostic was raised for."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolution" eType="#//FindingResolution"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The decision a person took on this finding: resolved, knowingly accepted, or explicitly re-opened, together with its justification and who took it when. Unset means no decision has been taken yet, which reads the same as OPEN - so a report written before this feature existed stays valid. A review never sets it; only a person does."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctionNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why a person changed the assessment itself - category, relevanceLevel or confidence - in the revision that carries this finding. Kept apart from resolution.justification because correcting the assessment and deciding what to do about it are separate acts: a person may correct a category and leave the finding open. Who made the correction and when is not repeated here; it is the generatedBy and generatedAt of the report revision, whose origin is HUMAN. Empty on a finding nobody corrected."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CombinationFinding" eSuperTypes="#//Finding">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -701,6 +712,55 @@
     <eLiterals name="OPAQUE" value="4">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value passes through something the analyser does not follow: a blackbox operation, an imported library, a late resolution or an intermediate property. Record the flow as opaque rather than dropping it - silence would be read as 'nothing happens here'."/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FindingResolution">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The decision of a person, typically the data protection officer, on one finding. Under GDPR accountability (Art. 5(2)) a decision has to be traceable: who decided what, when and why - so all four are required."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//ResolutionStatus">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What was decided."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="justification" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why it was decided so, in the words of the person deciding. Required for every status: a resolution without a reason cannot be audited, and an accepted risk without one cannot be defended."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedBy" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Identity of the person who decided, in the same form as GdprReport.generatedBy for a human revision."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedAt" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When it was decided, as an ISO-8601 UTC instant like generatedAt, e.g. 2026-09-09T14:20:00Z. Kept on the decision rather than taken from the revision, because a decision carried unchanged into a later revision must keep the time it was actually taken."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ResolutionStatus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="What a person decided about a finding."/>
+    </eAnnotations>
+    <eLiterals name="OPEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Not settled. Equivalent to an unset resolution, and recorded explicitly only when an earlier decision is withdrawn, so that the withdrawal carries its own justification."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="RESOLVED" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The cause was removed, e.g. the attribute was generalised or deleted. A later review of the changed subject should no longer raise the finding."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ACCEPTED" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The risk is knowingly kept. The finding still holds; the justification is the record of why keeping it was judged acceptable."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>

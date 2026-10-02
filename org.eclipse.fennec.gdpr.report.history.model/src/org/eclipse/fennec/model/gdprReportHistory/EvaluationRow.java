@@ -45,6 +45,11 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getCitations <em>Citations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getChangeKind <em>Change Kind</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionStatus <em>Resolution Status</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionJustification <em>Resolution Justification</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedBy <em>Decided By</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedAt <em>Decided At</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getCorrectionNote <em>Correction Note</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow()
@@ -457,5 +462,130 @@ public interface EvaluationRow extends EObject {
 	 * @generated
 	 */
 	void setPurpose(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Resolution Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * What a person decided about the finding, as the literal name of the report's ResolutionStatus, e.g. ACCEPTED. Empty when the finding carries no resolution, which means it is still open. Diffed, so the revision in which a decision was taken or withdrawn appears in the change sheet.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resolution Status</em>' attribute.
+	 * @see #setResolutionStatus(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow_ResolutionStatus()
+	 * @model
+	 * @generated
+	 */
+	String getResolutionStatus();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionStatus <em>Resolution Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolution Status</em>' attribute.
+	 * @see #getResolutionStatus()
+	 * @generated
+	 */
+	void setResolutionStatus(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Resolution Justification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Why it was decided so, copied verbatim from FindingResolution.justification. Carried in full for the same reason as rationale. Diffed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resolution Justification</em>' attribute.
+	 * @see #setResolutionJustification(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow_ResolutionJustification()
+	 * @model
+	 * @generated
+	 */
+	String getResolutionJustification();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionJustification <em>Resolution Justification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolution Justification</em>' attribute.
+	 * @see #getResolutionJustification()
+	 * @generated
+	 */
+	void setResolutionJustification(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Decided By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Who took the decision, copied from FindingResolution.decidedBy. Not diffed on its own: it changes only together with the status or the justification, and the change row already names the author in changedBy.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decided By</em>' attribute.
+	 * @see #setDecidedBy(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow_DecidedBy()
+	 * @model
+	 * @generated
+	 */
+	String getDecidedBy();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedBy <em>Decided By</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decided By</em>' attribute.
+	 * @see #getDecidedBy()
+	 * @generated
+	 */
+	void setDecidedBy(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Decided At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the decision was taken, copied from FindingResolution.decidedAt as an ISO-8601 UTC instant. May be earlier than the revision's generatedAt when a decision was carried over unchanged. Not diffed, like decidedBy.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decided At</em>' attribute.
+	 * @see #setDecidedAt(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow_DecidedAt()
+	 * @model
+	 * @generated
+	 */
+	String getDecidedAt();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedAt <em>Decided At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decided At</em>' attribute.
+	 * @see #getDecidedAt()
+	 * @generated
+	 */
+	void setDecidedAt(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Correction Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Why a person corrected category, relevanceLevel or confidence, copied verbatim from Finding.correctionNote. Diffed, so it appears in the change sheet next to the corrected values.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Correction Note</em>' attribute.
+	 * @see #setCorrectionNote(String)
+	 * @see org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage#getEvaluationRow_CorrectionNote()
+	 * @model
+	 * @generated
+	 */
+	String getCorrectionNote();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getCorrectionNote <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Correction Note</em>' attribute.
+	 * @see #getCorrectionNote()
+	 * @generated
+	 */
+	void setCorrectionNote(String value);
 
 } // EvaluationRow

@@ -28,6 +28,7 @@ import org.eclipse.fennec.model.gdprReport.Evaluation;
 import org.eclipse.fennec.model.gdprReport.Evidence;
 import org.eclipse.fennec.model.gdprReport.FeatureEvaluation;
 import org.eclipse.fennec.model.gdprReport.Finding;
+import org.eclipse.fennec.model.gdprReport.FindingResolution;
 import org.eclipse.fennec.model.gdprReport.FlowEvaluation;
 import org.eclipse.fennec.model.gdprReport.FlowKind;
 import org.eclipse.fennec.model.gdprReport.GDPRReportFactory;
@@ -39,6 +40,7 @@ import org.eclipse.fennec.model.gdprReport.LegalCorpusRef;
 import org.eclipse.fennec.model.gdprReport.PackageSubject;
 import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
 import org.eclipse.fennec.model.gdprReport.RequestStatusType;
+import org.eclipse.fennec.model.gdprReport.ResolutionStatus;
 import org.eclipse.fennec.model.gdprReport.Subject;
 import org.eclipse.fennec.model.gdprReport.TransformationSubject;
 
@@ -145,6 +147,13 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass findingResolutionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dataCategoryEEnum = null;
 
 	/**
@@ -195,6 +204,13 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	private EEnum flowKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum resolutionStatusEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -644,6 +660,26 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	@Override
 	public EAttribute getFinding_DiagnosticId() {
 		return (EAttribute)findingEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFinding_Resolution() {
+		return (EReference)findingEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFinding_CorrectionNote() {
+		return (EAttribute)findingEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1102,6 +1138,56 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EClass getFindingResolution() {
+		return findingResolutionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFindingResolution_Status() {
+		return (EAttribute)findingResolutionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFindingResolution_Justification() {
+		return (EAttribute)findingResolutionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFindingResolution_DecidedBy() {
+		return (EAttribute)findingResolutionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFindingResolution_DecidedAt() {
+		return (EAttribute)findingResolutionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDataCategory() {
 		return dataCategoryEEnum;
 	}
@@ -1182,6 +1268,16 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 	 * @generated
 	 */
 	@Override
+	public EEnum getResolutionStatus() {
+		return resolutionStatusEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GDPRReportFactory getGDPRReportFactory() {
 		return (GDPRReportFactory)getEFactoryInstance();
 	}
@@ -1249,6 +1345,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(findingEClass, FINDING__RECOMMENDATION);
 		createEReference(findingEClass, FINDING__EVIDENCE);
 		createEAttribute(findingEClass, FINDING__DIAGNOSTIC_ID);
+		createEReference(findingEClass, FINDING__RESOLUTION);
+		createEAttribute(findingEClass, FINDING__CORRECTION_NOTE);
 
 		combinationFindingEClass = createEClass(COMBINATION_FINDING);
 		createEAttribute(combinationFindingEClass, COMBINATION_FINDING__COMBINATION_KIND);
@@ -1302,6 +1400,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__RELEVANCE_LEVEL);
 		createEAttribute(flowEvaluationEClass, FLOW_EVALUATION__PURPOSE);
 
+		findingResolutionEClass = createEClass(FINDING_RESOLUTION);
+		createEAttribute(findingResolutionEClass, FINDING_RESOLUTION__STATUS);
+		createEAttribute(findingResolutionEClass, FINDING_RESOLUTION__JUSTIFICATION);
+		createEAttribute(findingResolutionEClass, FINDING_RESOLUTION__DECIDED_BY);
+		createEAttribute(findingResolutionEClass, FINDING_RESOLUTION__DECIDED_AT);
+
 		// Create enums
 		dataCategoryEEnum = createEEnum(DATA_CATEGORY);
 		relevanceLevelTypeEEnum = createEEnum(RELEVANCE_LEVEL_TYPE);
@@ -1311,6 +1415,7 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		requestStatusTypeEEnum = createEEnum(REQUEST_STATUS_TYPE);
 		gdprReportOriginEEnum = createEEnum(GDPR_REPORT_ORIGIN);
 		flowKindEEnum = createEEnum(FLOW_KIND);
+		resolutionStatusEEnum = createEEnum(RESOLUTION_STATUS);
 	}
 
 	/**
@@ -1393,6 +1498,8 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getFinding_Recommendation(), ecorePackage.getEString(), "recommendation", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFinding_Evidence(), this.getEvidence(), null, "evidence", null, 1, -1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFinding_DiagnosticId(), ecorePackage.getEString(), "diagnosticId", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFinding_Resolution(), this.getFindingResolution(), null, "resolution", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFinding_CorrectionNote(), ecorePackage.getEString(), "correctionNote", null, 0, 1, Finding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(combinationFindingEClass, CombinationFinding.class, "CombinationFinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCombinationFinding_CombinationKind(), this.getCombinationKind(), "combinationKind", null, 0, 1, CombinationFinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1445,6 +1552,12 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		initEAttribute(getFlowEvaluation_FlowKind(), this.getFlowKind(), "flowKind", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlowEvaluation_RelevanceLevel(), this.getRelevanceLevelType(), "relevanceLevel", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlowEvaluation_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, FlowEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(findingResolutionEClass, FindingResolution.class, "FindingResolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFindingResolution_Status(), this.getResolutionStatus(), "status", null, 1, 1, FindingResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFindingResolution_Justification(), ecorePackage.getEString(), "justification", null, 1, 1, FindingResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFindingResolution_DecidedBy(), ecorePackage.getEString(), "decidedBy", null, 1, 1, FindingResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFindingResolution_DecidedAt(), ecorePackage.getEString(), "decidedAt", null, 1, 1, FindingResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataCategoryEEnum, DataCategory.class, "DataCategory");
@@ -1507,6 +1620,11 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		addEEnumLiteral(flowKindEEnum, FlowKind.CONCATENATION);
 		addEEnumLiteral(flowKindEEnum, FlowKind.AGGREGATION);
 		addEEnumLiteral(flowKindEEnum, FlowKind.OPAQUE);
+
+		initEEnum(resolutionStatusEEnum, ResolutionStatus.class, "ResolutionStatus");
+		addEEnumLiteral(resolutionStatusEEnum, ResolutionStatus.OPEN);
+		addEEnumLiteral(resolutionStatusEEnum, ResolutionStatus.RESOLVED);
+		addEEnumLiteral(resolutionStatusEEnum, ResolutionStatus.ACCEPTED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1785,6 +1903,18 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "The id of the model.atlas Diagnostic this finding was raised as, so that a later review of the same artefact updates that diagnostic instead of raising a second one for the same problem. Diagnostic ids are deterministic - derived from the producer, the code and the target, the producer here being the GDPR review - so the same finding about the same element keeps its id across re-validations and this reference survives without a matching step. It holds the id alone: a diagnostic is addressed from outside by scope, registry, stage, objectId and id, and the first four are those of the object this report is about. Leave it unset on a finding that no diagnostic was raised for."
+		   });
+		addAnnotation
+		  (getFinding_Resolution(),
+		   source,
+		   new String[] {
+			   "documentation", "The decision a person took on this finding: resolved, knowingly accepted, or explicitly re-opened, together with its justification and who took it when. Unset means no decision has been taken yet, which reads the same as OPEN - so a report written before this feature existed stays valid. A review never sets it; only a person does."
+		   });
+		addAnnotation
+		  (getFinding_CorrectionNote(),
+		   source,
+		   new String[] {
+			   "documentation", "Why a person changed the assessment itself - category, relevanceLevel or confidence - in the revision that carries this finding. Kept apart from resolution.justification because correcting the assessment and deciding what to do about it are separate acts: a person may correct a category and leave the finding open. Who made the correction and when is not repeated here; it is the generatedBy and generatedAt of the report revision, whose origin is HUMAN. Empty on a finding nobody corrected."
 		   });
 		addAnnotation
 		  (combinationFindingEClass,
@@ -2355,6 +2485,60 @@ public class GDPRReportPackageImpl extends EPackageImpl implements GDPRReportPac
 		   source,
 		   new String[] {
 			   "documentation", "The value passes through something the analyser does not follow: a blackbox operation, an imported library, a late resolution or an intermediate property. Record the flow as opaque rather than dropping it - silence would be read as \'nothing happens here\'."
+		   });
+		addAnnotation
+		  (findingResolutionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The decision of a person, typically the data protection officer, on one finding. Under GDPR accountability (Art. 5(2)) a decision has to be traceable: who decided what, when and why - so all four are required."
+		   });
+		addAnnotation
+		  (getFindingResolution_Status(),
+		   source,
+		   new String[] {
+			   "documentation", "What was decided."
+		   });
+		addAnnotation
+		  (getFindingResolution_Justification(),
+		   source,
+		   new String[] {
+			   "documentation", "Why it was decided so, in the words of the person deciding. Required for every status: a resolution without a reason cannot be audited, and an accepted risk without one cannot be defended."
+		   });
+		addAnnotation
+		  (getFindingResolution_DecidedBy(),
+		   source,
+		   new String[] {
+			   "documentation", "Identity of the person who decided, in the same form as GdprReport.generatedBy for a human revision."
+		   });
+		addAnnotation
+		  (getFindingResolution_DecidedAt(),
+		   source,
+		   new String[] {
+			   "documentation", "When it was decided, as an ISO-8601 UTC instant like generatedAt, e.g. 2026-09-09T14:20:00Z. Kept on the decision rather than taken from the revision, because a decision carried unchanged into a later revision must keep the time it was actually taken."
+		   });
+		addAnnotation
+		  (resolutionStatusEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "What a person decided about a finding."
+		   });
+		addAnnotation
+		  (resolutionStatusEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Not settled. Equivalent to an unset resolution, and recorded explicitly only when an earlier decision is withdrawn, so that the withdrawal carries its own justification."
+		   });
+		addAnnotation
+		  (resolutionStatusEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "The cause was removed, e.g. the attribute was generalised or deleted. A later review of the changed subject should no longer raise the finding."
+		   });
+		addAnnotation
+		  (resolutionStatusEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "The risk is knowingly kept. The finding still holds; the justification is the record of why keeping it was judged acceptable."
 		   });
 	}
 

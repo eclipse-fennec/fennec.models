@@ -76,6 +76,7 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 			case GDPRReportPackage.PACKAGE_SUBJECT: return createPackageSubject();
 			case GDPRReportPackage.TRANSFORMATION_SUBJECT: return createTransformationSubject();
 			case GDPRReportPackage.FLOW_EVALUATION: return createFlowEvaluation();
+			case GDPRReportPackage.FINDING_RESOLUTION: return createFindingResolution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +106,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return createGdprReportOriginFromString(eDataType, initialValue);
 			case GDPRReportPackage.FLOW_KIND:
 				return createFlowKindFromString(eDataType, initialValue);
+			case GDPRReportPackage.RESOLUTION_STATUS:
+				return createResolutionStatusFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -134,6 +137,8 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 				return convertGdprReportOriginToString(eDataType, instanceValue);
 			case GDPRReportPackage.FLOW_KIND:
 				return convertFlowKindToString(eDataType, instanceValue);
+			case GDPRReportPackage.RESOLUTION_STATUS:
+				return convertResolutionStatusToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -258,6 +263,17 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	public FlowEvaluation createFlowEvaluation() {
 		FlowEvaluationImpl flowEvaluation = new FlowEvaluationImpl();
 		return flowEvaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FindingResolution createFindingResolution() {
+		FindingResolutionImpl findingResolution = new FindingResolutionImpl();
+		return findingResolution;
 	}
 
 	/**
@@ -417,6 +433,26 @@ public class GDPRReportFactoryImpl extends EFactoryImpl implements GDPRReportFac
 	 * @generated
 	 */
 	public String convertFlowKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResolutionStatus createResolutionStatusFromString(EDataType eDataType, String initialValue) {
+		ResolutionStatus result = ResolutionStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertResolutionStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

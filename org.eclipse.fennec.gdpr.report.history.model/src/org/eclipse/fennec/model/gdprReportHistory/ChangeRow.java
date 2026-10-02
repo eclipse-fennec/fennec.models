@@ -174,7 +174,7 @@ public interface ChangeRow extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Which field differs: category, relevanceLevel, confidence, rationale, recommendation or evidence. Empty when the whole evaluation was added or removed.
+	 * Which field differs: category, relevanceLevel, confidence, rationale, recommendation, evidence, purpose, correctionNote, resolutionStatus or resolutionJustification. Empty when the whole evaluation was added or removed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Field</em>' attribute.
 	 * @see #setField(String)

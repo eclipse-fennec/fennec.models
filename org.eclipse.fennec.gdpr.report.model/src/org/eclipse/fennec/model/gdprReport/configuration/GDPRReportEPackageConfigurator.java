@@ -35,7 +35,7 @@ public class GDPRReportEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:eb94a1c88c3f8bce9253e947ea368bedf5750295921d51cf74981f1af89a4869";
+	public static final String FINGERPRINT = "fp1:23e7d0c765c70fc7f47589bf5b0809f3b77170dc3b424c4d29e9f445eda62f95";
 
 	private GDPRReportPackage ePackage;
 

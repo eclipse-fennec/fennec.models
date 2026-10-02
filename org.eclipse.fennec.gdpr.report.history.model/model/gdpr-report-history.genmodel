@@ -61,6 +61,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/citations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/changeKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/purpose"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/resolutionStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/resolutionJustification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/decidedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/decidedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//EvaluationRow/correctionNote"/>
     </genClasses>
     <genClasses ecoreClass="gdpr-report-history.ecore#//ChangeRow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report-history.ecore#//ChangeRow/revisionNumber"/>
