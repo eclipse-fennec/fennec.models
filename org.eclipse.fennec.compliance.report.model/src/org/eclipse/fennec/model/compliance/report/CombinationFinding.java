@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation.
+ * 
+ * This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *   Data In Motion Consulting - initial implementation
+ */
+package org.eclipse.fennec.model.compliance.report;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.osgi.annotation.versioning.ProviderType;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Combination Finding</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * A finding raised by the combination of several features, e.g. a quasi-identifier set. The kind of combination is a category of the context (combination-kind taxonomy).
+ * <!-- end-model-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.fennec.model.compliance.report.CombinationFinding#getFeatures <em>Features</em>}</li>
+ * </ul>
+ *
+ * @see org.eclipse.fennec.model.compliance.report.ReportPackage#getCombinationFinding()
+ * @model
+ * @generated
+ */
+@ProviderType
+public interface CombinationFinding extends Finding {
+	/**
+	 * Returns the value of the '<em><b>Features</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.fennec.model.compliance.report.Evaluation}.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.fennec.model.compliance.report.Evaluation#getPartOfCombinations <em>Part Of Combinations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The evaluations that together create the risk. At least two, and they may belong to different classifiers. In a review of a metamodel these are FeatureEvaluations; in a review of a transformation they are FlowEvaluations, which is how several fields merged into one target field are recorded as one combination. Reference existing entries rather than creating new ones. resolveProxies is false because a combination only ever points at evaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Features</em>' reference list.
+	 * @see org.eclipse.fennec.model.compliance.report.ReportPackage#getCombinationFinding_Features()
+	 * @see org.eclipse.fennec.model.compliance.report.Evaluation#getPartOfCombinations
+	 * @model opposite="partOfCombinations" resolveProxies="false" lower="2"
+	 * @generated
+	 */
+	EList<Evaluation> getFeatures();
+
+} // CombinationFinding

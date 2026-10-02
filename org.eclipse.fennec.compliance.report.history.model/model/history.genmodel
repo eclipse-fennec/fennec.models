@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#10;&#10;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#10;&#10;SPDX-License-Identifier: EPL-2.0&#10;&#10;Contributors:&#10;  Data In Motion Consulting - initial implementation" modelDirectory="/org.eclipse.fennec.compliance.report.history.model/src" modelPluginID="org.eclipse.fennec.compliance.report.history.model" modelName="History" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <foreignModel>history.ecore</foreignModel>
+  <genPackages prefix="History" basePackage="org.eclipse.fennec.model.compliance" resource="XMI" disposableProviderFactory="true" ecorePackage="history.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="history.ecore#//RevisionOrigin">
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//RevisionOrigin/UNKNOWN" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//RevisionOrigin/AI_AGENT" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//RevisionOrigin/HUMAN" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//RevisionOrigin/STATIC_ANALYSIS" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="history.ecore#//ChangeKind">
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//ChangeKind/UNCHANGED" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//ChangeKind/ADDED" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//ChangeKind/MODIFIED" />
+      <genEnumLiterals ecoreEnumLiteral="history.ecore#//ChangeKind/REMOVED" />
+    </genEnums>
+    <genClasses ecoreClass="history.ecore#//ComplianceReportHistory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/subjectIdentifier" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/subjectName" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/rebuiltAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/revisionCount" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference history.ecore#//ComplianceReportHistory/revisions" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference history.ecore#//ComplianceReportHistory/evaluations" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference history.ecore#//ComplianceReportHistory/changes" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/reportLanguage" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/subjectLanguage" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ComplianceReportHistory/contextIds" />
+    </genClasses>
+    <genClasses ecoreClass="history.ecore#//ReportRevision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/revisionNumber" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/reportId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/subjectFingerprint" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/generatedAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/generatedBy" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/origin" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/findingCount" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/changeCount" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ReportRevision/contextVersions" />
+    </genClasses>
+    <genClasses ecoreClass="history.ecore#//EvaluationRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/revisionNumber" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/elementId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/elementName" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/elementPath" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/childId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/childName" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/childPath" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/typeName" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/categories" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/relevanceLevel" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/confidence" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/rationale" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/recommendation" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/citations" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/changeKind" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/purpose" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/reviewStatus" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/resolutionJustification" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/decidedBy" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/decidedAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/correctionNote" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/contextId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/requirementIds" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/assetId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/findingOrigin" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/treatment" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/riskLevel" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/measureIds" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/treatmentNote" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/delegatedTo" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/dueDate" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//EvaluationRow/lawfulBases" />
+    </genClasses>
+    <genClasses ecoreClass="history.ecore#//ChangeRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/revisionNumber" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/changedAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/changedBy" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/elementId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/childId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/field" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/changeKind" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/oldValue" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute history.ecore#//ChangeRow/newValue" />
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

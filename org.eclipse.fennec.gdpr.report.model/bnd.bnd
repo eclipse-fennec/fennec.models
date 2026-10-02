@@ -1,3 +1,7 @@
+Bundle-Name: Fennec GDPR Report Model (deprecated)
+Bundle-Description: Deprecated, replaced by org.eclipse.fennec.compliance.report.model (eclipse-fennec/common.models#55). \
+	Kept until model.atlas and fennec-gdpr have moved to the compliance models.
+
 # sets the usually required buildpath using the bnd library, you can extend it with the normal -buildpath to your liking
 -library: enableEMF
 
