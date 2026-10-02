@@ -128,6 +128,10 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 				return createFlowEvaluationAdapter();
 			}
 			@Override
+			public Adapter caseFindingResolution(FindingResolution object) {
+				return createFindingResolutionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -326,6 +330,20 @@ public class GDPRReportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFlowEvaluationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.gdprReport.FindingResolution <em>Finding Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution
+	 * @generated
+	 */
+	public Adapter createFindingResolutionAdapter() {
 		return null;
 	}
 

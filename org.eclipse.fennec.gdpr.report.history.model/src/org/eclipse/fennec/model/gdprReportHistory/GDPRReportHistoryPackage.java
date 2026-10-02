@@ -44,7 +44,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:3b56fef8671b4bfaa7c235d230f31f52d79d51d15bbe1030e5b7cf55097c8d20", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
+@EPackage(uri = GDPRReportHistoryPackage.eNS_URI, fingerprint = "fp1:b25e2248dd5d7626f0a3bd75e3bde6d2b311ebce86d57977db718028b0773168", genModel = "/model/gdpr-report-history.genmodel", genModelSourceLocations = {"model/gdpr-report-history.genmodel","org.eclipse.fennec.gdpr.report.history.model/model/gdpr-report-history.genmodel"}, ecore = "/model/gdpr-report-history.ecore", ecoreSourceLocations = "/model/gdpr-report-history.ecore")
 public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -469,13 +469,58 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	int EVALUATION_ROW__PURPOSE = 15;
 
 	/**
+	 * The feature id for the '<em><b>Resolution Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_ROW__RESOLUTION_STATUS = 16;
+
+	/**
+	 * The feature id for the '<em><b>Resolution Justification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_ROW__RESOLUTION_JUSTIFICATION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Decided By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_ROW__DECIDED_BY = 18;
+
+	/**
+	 * The feature id for the '<em><b>Decided At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_ROW__DECIDED_AT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Correction Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION_ROW__CORRECTION_NOTE = 20;
+
+	/**
 	 * The number of structural features of the '<em>Evaluation Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION_ROW_FEATURE_COUNT = 16;
+	int EVALUATION_ROW_FEATURE_COUNT = 21;
 
 	/**
 	 * The number of operations of the '<em>Evaluation Row</em>' class.
@@ -1043,6 +1088,61 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 	EAttribute getEvaluationRow_Purpose();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionStatus <em>Resolution Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolution Status</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionStatus()
+	 * @see #getEvaluationRow()
+	 * @generated
+	 */
+	EAttribute getEvaluationRow_ResolutionStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionJustification <em>Resolution Justification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolution Justification</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getResolutionJustification()
+	 * @see #getEvaluationRow()
+	 * @generated
+	 */
+	EAttribute getEvaluationRow_ResolutionJustification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedBy <em>Decided By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decided By</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedBy()
+	 * @see #getEvaluationRow()
+	 * @generated
+	 */
+	EAttribute getEvaluationRow_DecidedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedAt <em>Decided At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decided At</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getDecidedAt()
+	 * @see #getEvaluationRow()
+	 * @generated
+	 */
+	EAttribute getEvaluationRow_DecidedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getCorrectionNote <em>Correction Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Correction Note</em>'.
+	 * @see org.eclipse.fennec.model.gdprReportHistory.EvaluationRow#getCorrectionNote()
+	 * @see #getEvaluationRow()
+	 * @generated
+	 */
+	EAttribute getEvaluationRow_CorrectionNote();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReportHistory.ChangeRow <em>Change Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1511,6 +1611,46 @@ public interface GDPRReportHistoryPackage extends org.eclipse.emf.ecore.EPackage
 		 * @generated
 		 */
 		EAttribute EVALUATION_ROW__PURPOSE = eINSTANCE.getEvaluationRow_Purpose();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolution Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION_ROW__RESOLUTION_STATUS = eINSTANCE.getEvaluationRow_ResolutionStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolution Justification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION_ROW__RESOLUTION_JUSTIFICATION = eINSTANCE.getEvaluationRow_ResolutionJustification();
+
+		/**
+		 * The meta object literal for the '<em><b>Decided By</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION_ROW__DECIDED_BY = eINSTANCE.getEvaluationRow_DecidedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Decided At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION_ROW__DECIDED_AT = eINSTANCE.getEvaluationRow_DecidedAt();
+
+		/**
+		 * The meta object literal for the '<em><b>Correction Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION_ROW__CORRECTION_NOTE = eINSTANCE.getEvaluationRow_CorrectionNote();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReportHistory.impl.ChangeRowImpl <em>Change Row</em>}' class.

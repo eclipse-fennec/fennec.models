@@ -39,7 +39,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:eb94a1c88c3f8bce9253e947ea368bedf5750295921d51cf74981f1af89a4869", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
+@EPackage(uri = GDPRReportPackage.eNS_URI, fingerprint = "fp1:23e7d0c765c70fc7f47589bf5b0809f3b77170dc3b424c4d29e9f445eda62f95", genModel = "/model/gdpr-report.genmodel", genModelSourceLocations = {"model/gdpr-report.genmodel","org.eclipse.fennec.gdpr.report.model/model/gdpr-report.genmodel"}, ecore = "/model/gdpr-report.ecore", ecoreSourceLocations = "/model/gdpr-report.ecore")
 public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -657,13 +657,31 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int FINDING__DIAGNOSTIC_ID = 9;
 
 	/**
+	 * The feature id for the '<em><b>Resolution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING__RESOLUTION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Correction Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING__CORRECTION_NOTE = 11;
+
+	/**
 	 * The number of structural features of the '<em>Finding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FINDING_FEATURE_COUNT = 10;
+	int FINDING_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Finding</em>' class.
@@ -773,6 +791,24 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @ordered
 	 */
 	int COMBINATION_FINDING__DIAGNOSTIC_ID = FINDING__DIAGNOSTIC_ID;
+
+	/**
+	 * The feature id for the '<em><b>Resolution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINATION_FINDING__RESOLUTION = FINDING__RESOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Correction Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINATION_FINDING__CORRECTION_NOTE = FINDING__CORRECTION_NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Combination Kind</b></em>' attribute.
@@ -1311,6 +1347,70 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int FLOW_EVALUATION_OPERATION_COUNT = EVALUATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.impl.FindingResolutionImpl <em>Finding Resolution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.impl.FindingResolutionImpl
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFindingResolution()
+	 * @generated
+	 */
+	int FINDING_RESOLUTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION__STATUS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Justification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION__JUSTIFICATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Decided By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION__DECIDED_BY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Decided At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION__DECIDED_AT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Finding Resolution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Finding Resolution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDING_RESOLUTION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1318,7 +1418,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getDataCategory()
 	 * @generated
 	 */
-	int DATA_CATEGORY = 13;
+	int DATA_CATEGORY = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.RelevanceLevelType <em>Relevance Level Type</em>}' enum.
@@ -1328,7 +1428,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getRelevanceLevelType()
 	 * @generated
 	 */
-	int RELEVANCE_LEVEL_TYPE = 14;
+	int RELEVANCE_LEVEL_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.ConfidenceType <em>Confidence Type</em>}' enum.
@@ -1338,7 +1438,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getConfidenceType()
 	 * @generated
 	 */
-	int CONFIDENCE_TYPE = 15;
+	int CONFIDENCE_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.DetectionSignal <em>Detection Signal</em>}' enum.
@@ -1348,7 +1448,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getDetectionSignal()
 	 * @generated
 	 */
-	int DETECTION_SIGNAL = 16;
+	int DETECTION_SIGNAL = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.CombinationKind <em>Combination Kind</em>}' enum.
@@ -1358,7 +1458,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getCombinationKind()
 	 * @generated
 	 */
-	int COMBINATION_KIND = 17;
+	int COMBINATION_KIND = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.RequestStatusType <em>Request Status Type</em>}' enum.
@@ -1368,7 +1468,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getRequestStatusType()
 	 * @generated
 	 */
-	int REQUEST_STATUS_TYPE = 18;
+	int REQUEST_STATUS_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.GdprReportOrigin <em>Gdpr Report Origin</em>}' enum.
@@ -1378,7 +1478,7 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getGdprReportOrigin()
 	 * @generated
 	 */
-	int GDPR_REPORT_ORIGIN = 19;
+	int GDPR_REPORT_ORIGIN = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.FlowKind <em>Flow Kind</em>}' enum.
@@ -1388,7 +1488,17 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFlowKind()
 	 * @generated
 	 */
-	int FLOW_KIND = 20;
+	int FLOW_KIND = 21;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.gdprReport.ResolutionStatus <em>Resolution Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.gdprReport.ResolutionStatus
+	 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getResolutionStatus()
+	 * @generated
+	 */
+	int RESOLUTION_STATUS = 22;
 
 
 	/**
@@ -1813,6 +1923,28 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EAttribute getFinding_DiagnosticId();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.fennec.model.gdprReport.Finding#getResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Resolution</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Finding#getResolution()
+	 * @see #getFinding()
+	 * @generated
+	 */
+	EReference getFinding_Resolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.Finding#getCorrectionNote <em>Correction Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Correction Note</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.Finding#getCorrectionNote()
+	 * @see #getFinding()
+	 * @generated
+	 */
+	EAttribute getFinding_CorrectionNote();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.CombinationFinding <em>Combination Finding</em>}'.
@@ -2303,6 +2435,60 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getFlowEvaluation_Purpose();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.gdprReport.FindingResolution <em>Finding Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Finding Resolution</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution
+	 * @generated
+	 */
+	EClass getFindingResolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FindingResolution#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution#getStatus()
+	 * @see #getFindingResolution()
+	 * @generated
+	 */
+	EAttribute getFindingResolution_Status();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FindingResolution#getJustification <em>Justification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Justification</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution#getJustification()
+	 * @see #getFindingResolution()
+	 * @generated
+	 */
+	EAttribute getFindingResolution_Justification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FindingResolution#getDecidedBy <em>Decided By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decided By</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution#getDecidedBy()
+	 * @see #getFindingResolution()
+	 * @generated
+	 */
+	EAttribute getFindingResolution_DecidedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.gdprReport.FindingResolution#getDecidedAt <em>Decided At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Decided At</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.FindingResolution#getDecidedAt()
+	 * @see #getFindingResolution()
+	 * @generated
+	 */
+	EAttribute getFindingResolution_DecidedAt();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2381,6 +2567,16 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EEnum getFlowKind();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.gdprReport.ResolutionStatus <em>Resolution Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Resolution Status</em>'.
+	 * @see org.eclipse.fennec.model.gdprReport.ResolutionStatus
+	 * @generated
+	 */
+	EEnum getResolutionStatus();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2728,6 +2924,22 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EAttribute FINDING__DIAGNOSTIC_ID = eINSTANCE.getFinding_DiagnosticId();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolution</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FINDING__RESOLUTION = eINSTANCE.getFinding_Resolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Correction Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING__CORRECTION_NOTE = eINSTANCE.getFinding_CorrectionNote();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.CombinationFindingImpl <em>Combination Finding</em>}' class.
@@ -3104,6 +3316,48 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute FLOW_EVALUATION__PURPOSE = eINSTANCE.getFlowEvaluation_Purpose();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.impl.FindingResolutionImpl <em>Finding Resolution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.impl.FindingResolutionImpl
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getFindingResolution()
+		 * @generated
+		 */
+		EClass FINDING_RESOLUTION = eINSTANCE.getFindingResolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING_RESOLUTION__STATUS = eINSTANCE.getFindingResolution_Status();
+
+		/**
+		 * The meta object literal for the '<em><b>Justification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING_RESOLUTION__JUSTIFICATION = eINSTANCE.getFindingResolution_Justification();
+
+		/**
+		 * The meta object literal for the '<em><b>Decided By</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING_RESOLUTION__DECIDED_BY = eINSTANCE.getFindingResolution_DecidedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Decided At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FINDING_RESOLUTION__DECIDED_AT = eINSTANCE.getFindingResolution_DecidedAt();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.DataCategory <em>Data Category</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3182,6 +3436,16 @@ public interface GDPRReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EEnum FLOW_KIND = eINSTANCE.getFlowKind();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.gdprReport.ResolutionStatus <em>Resolution Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.gdprReport.ResolutionStatus
+		 * @see org.eclipse.fennec.model.gdprReport.impl.GDPRReportPackageImpl#getResolutionStatus()
+		 * @generated
+		 */
+		EEnum RESOLUTION_STATUS = eINSTANCE.getResolutionStatus();
 
 	}
 

@@ -32,6 +32,7 @@ import org.eclipse.fennec.model.gdprReport.DataCategory;
 import org.eclipse.fennec.model.gdprReport.DetectionSignal;
 import org.eclipse.fennec.model.gdprReport.Evidence;
 import org.eclipse.fennec.model.gdprReport.Finding;
+import org.eclipse.fennec.model.gdprReport.FindingResolution;
 import org.eclipse.fennec.model.gdprReport.GDPRReportPackage;
 import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
 
@@ -53,6 +54,8 @@ import org.eclipse.fennec.model.gdprReport.RelevanceLevelType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getRecommendation <em>Recommendation</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getEvidence <em>Evidence</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getDiagnosticId <em>Diagnostic Id</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getResolution <em>Resolution</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.impl.FindingImpl#getCorrectionNote <em>Correction Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -227,6 +230,36 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 	 * @ordered
 	 */
 	protected String diagnosticId = DIAGNOSTIC_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getResolution() <em>Resolution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected FindingResolution resolution;
+
+	/**
+	 * The default value of the '{@link #getCorrectionNote() <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrectionNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CORRECTION_NOTE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCorrectionNote() <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrectionNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected String correctionNote = CORRECTION_NOTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -453,10 +486,80 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 	 * @generated
 	 */
 	@Override
+	public FindingResolution getResolution() {
+		return resolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResolution(FindingResolution newResolution, NotificationChain msgs) {
+		FindingResolution oldResolution = resolution;
+		resolution = newResolution;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GDPRReportPackage.FINDING__RESOLUTION, oldResolution, newResolution);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setResolution(FindingResolution newResolution) {
+		if (newResolution != resolution) {
+			NotificationChain msgs = null;
+			if (resolution != null)
+				msgs = ((InternalEObject)resolution).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GDPRReportPackage.FINDING__RESOLUTION, null, msgs);
+			if (newResolution != null)
+				msgs = ((InternalEObject)newResolution).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GDPRReportPackage.FINDING__RESOLUTION, null, msgs);
+			msgs = basicSetResolution(newResolution, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.FINDING__RESOLUTION, newResolution, newResolution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCorrectionNote() {
+		return correctionNote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCorrectionNote(String newCorrectionNote) {
+		String oldCorrectionNote = correctionNote;
+		correctionNote = newCorrectionNote;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportPackage.FINDING__CORRECTION_NOTE, oldCorrectionNote, correctionNote));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GDPRReportPackage.FINDING__EVIDENCE:
 				return ((InternalEList<?>)getEvidence()).basicRemove(otherEnd, msgs);
+			case GDPRReportPackage.FINDING__RESOLUTION:
+				return basicSetResolution(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -489,6 +592,10 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 				return getEvidence();
 			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
 				return getDiagnosticId();
+			case GDPRReportPackage.FINDING__RESOLUTION:
+				return getResolution();
+			case GDPRReportPackage.FINDING__CORRECTION_NOTE:
+				return getCorrectionNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -535,6 +642,12 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
 				setDiagnosticId((String)newValue);
 				return;
+			case GDPRReportPackage.FINDING__RESOLUTION:
+				setResolution((FindingResolution)newValue);
+				return;
+			case GDPRReportPackage.FINDING__CORRECTION_NOTE:
+				setCorrectionNote((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -577,6 +690,12 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
 				setDiagnosticId(DIAGNOSTIC_ID_EDEFAULT);
 				return;
+			case GDPRReportPackage.FINDING__RESOLUTION:
+				setResolution((FindingResolution)null);
+				return;
+			case GDPRReportPackage.FINDING__CORRECTION_NOTE:
+				setCorrectionNote(CORRECTION_NOTE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -609,6 +728,10 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 				return evidence != null && !evidence.isEmpty();
 			case GDPRReportPackage.FINDING__DIAGNOSTIC_ID:
 				return DIAGNOSTIC_ID_EDEFAULT == null ? diagnosticId != null : !DIAGNOSTIC_ID_EDEFAULT.equals(diagnosticId);
+			case GDPRReportPackage.FINDING__RESOLUTION:
+				return resolution != null;
+			case GDPRReportPackage.FINDING__CORRECTION_NOTE:
+				return CORRECTION_NOTE_EDEFAULT == null ? correctionNote != null : !CORRECTION_NOTE_EDEFAULT.equals(correctionNote);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -641,6 +764,8 @@ public class FindingImpl extends MinimalEObjectImpl.Container implements Finding
 		result.append(recommendation);
 		result.append(", diagnosticId: ");
 		result.append(diagnosticId);
+		result.append(", correctionNote: ");
+		result.append(correctionNote);
 		result.append(')');
 		return result.toString();
 	}

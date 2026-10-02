@@ -69,6 +69,11 @@
       <genEnumLiterals ecoreEnumLiteral="gdpr-report.ecore#//FlowKind/AGGREGATION"/>
       <genEnumLiterals ecoreEnumLiteral="gdpr-report.ecore#//FlowKind/OPAQUE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gdpr-report.ecore#//ResolutionStatus">
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report.ecore#//ResolutionStatus/OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report.ecore#//ResolutionStatus/RESOLVED"/>
+      <genEnumLiterals ecoreEnumLiteral="gdpr-report.ecore#//ResolutionStatus/ACCEPTED"/>
+    </genEnums>
     <genClasses ecoreClass="gdpr-report.ecore#//GdprReport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//GdprReport/reportId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//GdprReport/name"/>
@@ -113,6 +118,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//Finding/recommendation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report.ecore#//Finding/evidence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//Finding/diagnosticId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gdpr-report.ecore#//Finding/resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//Finding/correctionNote"/>
     </genClasses>
     <genClasses ecoreClass="gdpr-report.ecore#//CombinationFinding">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//CombinationFinding/combinationKind"/>
@@ -165,6 +172,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FlowEvaluation/flowKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FlowEvaluation/relevanceLevel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FlowEvaluation/purpose"/>
+    </genClasses>
+    <genClasses ecoreClass="gdpr-report.ecore#//FindingResolution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FindingResolution/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FindingResolution/justification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FindingResolution/decidedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gdpr-report.ecore#//FindingResolution/decidedAt"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

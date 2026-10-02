@@ -45,6 +45,11 @@ import org.eclipse.fennec.model.gdprReportHistory.GDPRReportHistoryPackage;
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getCitations <em>Citations</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getChangeKind <em>Change Kind</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getResolutionStatus <em>Resolution Status</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getResolutionJustification <em>Resolution Justification</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getDecidedBy <em>Decided By</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getDecidedAt <em>Decided At</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReportHistory.impl.EvaluationRowImpl#getCorrectionNote <em>Correction Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -369,6 +374,106 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 	 * @ordered
 	 */
 	protected String purpose = PURPOSE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResolutionStatus() <em>Resolution Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolutionStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESOLUTION_STATUS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResolutionStatus() <em>Resolution Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolutionStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resolutionStatus = RESOLUTION_STATUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResolutionJustification() <em>Resolution Justification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolutionJustification()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESOLUTION_JUSTIFICATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResolutionJustification() <em>Resolution Justification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolutionJustification()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resolutionJustification = RESOLUTION_JUSTIFICATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDecidedBy() <em>Decided By</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecidedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DECIDED_BY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDecidedBy() <em>Decided By</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecidedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected String decidedBy = DECIDED_BY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDecidedAt() <em>Decided At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecidedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DECIDED_AT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDecidedAt() <em>Decided At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecidedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected String decidedAt = DECIDED_AT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCorrectionNote() <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrectionNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CORRECTION_NOTE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCorrectionNote() <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrectionNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected String correctionNote = CORRECTION_NOTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -763,6 +868,121 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 */
 	@Override
+	public String getResolutionStatus() {
+		return resolutionStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setResolutionStatus(String newResolutionStatus) {
+		String oldResolutionStatus = resolutionStatus;
+		resolutionStatus = newResolutionStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_STATUS, oldResolutionStatus, resolutionStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getResolutionJustification() {
+		return resolutionJustification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setResolutionJustification(String newResolutionJustification) {
+		String oldResolutionJustification = resolutionJustification;
+		resolutionJustification = newResolutionJustification;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_JUSTIFICATION, oldResolutionJustification, resolutionJustification));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDecidedBy() {
+		return decidedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDecidedBy(String newDecidedBy) {
+		String oldDecidedBy = decidedBy;
+		decidedBy = newDecidedBy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_BY, oldDecidedBy, decidedBy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDecidedAt() {
+		return decidedAt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDecidedAt(String newDecidedAt) {
+		String oldDecidedAt = decidedAt;
+		decidedAt = newDecidedAt;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_AT, oldDecidedAt, decidedAt));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCorrectionNote() {
+		return correctionNote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCorrectionNote(String newCorrectionNote) {
+		String oldCorrectionNote = correctionNote;
+		correctionNote = newCorrectionNote;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GDPRReportHistoryPackage.EVALUATION_ROW__CORRECTION_NOTE, oldCorrectionNote, correctionNote));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GDPRReportHistoryPackage.EVALUATION_ROW__REVISION_NUMBER:
@@ -797,6 +1017,16 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 				return getChangeKind();
 			case GDPRReportHistoryPackage.EVALUATION_ROW__PURPOSE:
 				return getPurpose();
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_STATUS:
+				return getResolutionStatus();
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_JUSTIFICATION:
+				return getResolutionJustification();
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_BY:
+				return getDecidedBy();
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_AT:
+				return getDecidedAt();
+			case GDPRReportHistoryPackage.EVALUATION_ROW__CORRECTION_NOTE:
+				return getCorrectionNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -856,6 +1086,21 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 				return;
 			case GDPRReportHistoryPackage.EVALUATION_ROW__PURPOSE:
 				setPurpose((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_STATUS:
+				setResolutionStatus((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_JUSTIFICATION:
+				setResolutionJustification((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_BY:
+				setDecidedBy((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_AT:
+				setDecidedAt((String)newValue);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__CORRECTION_NOTE:
+				setCorrectionNote((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -917,6 +1162,21 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 			case GDPRReportHistoryPackage.EVALUATION_ROW__PURPOSE:
 				setPurpose(PURPOSE_EDEFAULT);
 				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_STATUS:
+				setResolutionStatus(RESOLUTION_STATUS_EDEFAULT);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_JUSTIFICATION:
+				setResolutionJustification(RESOLUTION_JUSTIFICATION_EDEFAULT);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_BY:
+				setDecidedBy(DECIDED_BY_EDEFAULT);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_AT:
+				setDecidedAt(DECIDED_AT_EDEFAULT);
+				return;
+			case GDPRReportHistoryPackage.EVALUATION_ROW__CORRECTION_NOTE:
+				setCorrectionNote(CORRECTION_NOTE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -961,6 +1221,16 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 				return changeKind != CHANGE_KIND_EDEFAULT;
 			case GDPRReportHistoryPackage.EVALUATION_ROW__PURPOSE:
 				return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_STATUS:
+				return RESOLUTION_STATUS_EDEFAULT == null ? resolutionStatus != null : !RESOLUTION_STATUS_EDEFAULT.equals(resolutionStatus);
+			case GDPRReportHistoryPackage.EVALUATION_ROW__RESOLUTION_JUSTIFICATION:
+				return RESOLUTION_JUSTIFICATION_EDEFAULT == null ? resolutionJustification != null : !RESOLUTION_JUSTIFICATION_EDEFAULT.equals(resolutionJustification);
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_BY:
+				return DECIDED_BY_EDEFAULT == null ? decidedBy != null : !DECIDED_BY_EDEFAULT.equals(decidedBy);
+			case GDPRReportHistoryPackage.EVALUATION_ROW__DECIDED_AT:
+				return DECIDED_AT_EDEFAULT == null ? decidedAt != null : !DECIDED_AT_EDEFAULT.equals(decidedAt);
+			case GDPRReportHistoryPackage.EVALUATION_ROW__CORRECTION_NOTE:
+				return CORRECTION_NOTE_EDEFAULT == null ? correctionNote != null : !CORRECTION_NOTE_EDEFAULT.equals(correctionNote);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1007,6 +1277,16 @@ public class EvaluationRowImpl extends MinimalEObjectImpl.Container implements E
 		result.append(changeKind);
 		result.append(", purpose: ");
 		result.append(purpose);
+		result.append(", resolutionStatus: ");
+		result.append(resolutionStatus);
+		result.append(", resolutionJustification: ");
+		result.append(resolutionJustification);
+		result.append(", decidedBy: ");
+		result.append(decidedBy);
+		result.append(", decidedAt: ");
+		result.append(decidedAt);
+		result.append(", correctionNote: ");
+		result.append(correctionNote);
 		result.append(')');
 		return result.toString();
 	}

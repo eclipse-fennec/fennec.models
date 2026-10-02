@@ -158,6 +158,12 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GDPRReportPackage.FINDING_RESOLUTION: {
+				FindingResolution findingResolution = (FindingResolution)theEObject;
+				T result = caseFindingResolution(findingResolution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -354,6 +360,21 @@ public class GDPRReportSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFlowEvaluation(FlowEvaluation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Finding Resolution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Finding Resolution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFindingResolution(FindingResolution object) {
 		return null;
 	}
 

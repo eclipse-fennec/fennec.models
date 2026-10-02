@@ -39,6 +39,8 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getRecommendation <em>Recommendation</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getEvidence <em>Evidence</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getDiagnosticId <em>Diagnostic Id</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getResolution <em>Resolution</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.gdprReport.Finding#getCorrectionNote <em>Correction Note</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFinding()
@@ -277,5 +279,55 @@ public interface Finding extends EObject {
 	 * @generated
 	 */
 	void setDiagnosticId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Resolution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The decision a person took on this finding: resolved, knowingly accepted, or explicitly re-opened, together with its justification and who took it when. Unset means no decision has been taken yet, which reads the same as OPEN - so a report written before this feature existed stays valid. A review never sets it; only a person does.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Resolution</em>' containment reference.
+	 * @see #setResolution(FindingResolution)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFinding_Resolution()
+	 * @model containment="true"
+	 * @generated
+	 */
+	FindingResolution getResolution();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.Finding#getResolution <em>Resolution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolution</em>' containment reference.
+	 * @see #getResolution()
+	 * @generated
+	 */
+	void setResolution(FindingResolution value);
+
+	/**
+	 * Returns the value of the '<em><b>Correction Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Why a person changed the assessment itself - category, relevanceLevel or confidence - in the revision that carries this finding. Kept apart from resolution.justification because correcting the assessment and deciding what to do about it are separate acts: a person may correct a category and leave the finding open. Who made the correction and when is not repeated here; it is the generatedBy and generatedAt of the report revision, whose origin is HUMAN. Empty on a finding nobody corrected.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Correction Note</em>' attribute.
+	 * @see #setCorrectionNote(String)
+	 * @see org.eclipse.fennec.model.gdprReport.GDPRReportPackage#getFinding_CorrectionNote()
+	 * @model
+	 * @generated
+	 */
+	String getCorrectionNote();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.gdprReport.Finding#getCorrectionNote <em>Correction Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Correction Note</em>' attribute.
+	 * @see #getCorrectionNote()
+	 * @generated
+	 */
+	void setCorrectionNote(String value);
 
 } // Finding

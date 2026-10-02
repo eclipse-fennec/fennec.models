@@ -217,6 +217,32 @@
         <details key="documentation" value="The reason a human gave for storing this feature, copied from FeatureEvaluation.purpose.&#xA;Empty until someone states it. Diffed like any other cell, so the revision in which a person&#xA;answered the agent's open question, and what they answered, appears in the change sheet."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolutionStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What a person decided about the finding, as the literal name of the report's ResolutionStatus, e.g. ACCEPTED. Empty when the finding carries no resolution, which means it is still open. Diffed, so the revision in which a decision was taken or withdrawn appears in the change sheet."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolutionJustification"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why it was decided so, copied verbatim from FindingResolution.justification. Carried in full for the same reason as rationale. Diffed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Who took the decision, copied from FindingResolution.decidedBy. Not diffed on its own: it changes only together with the status or the justification, and the change row already names the author in changedBy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When the decision was taken, copied from FindingResolution.decidedAt as an ISO-8601 UTC instant. May be earlier than the revision's generatedAt when a decision was carried over unchanged. Not diffed, like decidedBy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctionNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why a person corrected category, relevanceLevel or confidence, copied verbatim from Finding.correctionNote. Diffed, so it appears in the change sheet next to the corrected values."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeRow">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -251,7 +277,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Which field differs: category, relevanceLevel, confidence, rationale, recommendation or evidence. Empty when the whole evaluation was added or removed."/>
+        <details key="documentation" value="Which field differs: category, relevanceLevel, confidence, rationale, recommendation, evidence, purpose, correctionNote, resolutionStatus or resolutionJustification. Empty when the whole evaluation was added or removed."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeKind" lowerBound="1"

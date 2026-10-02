@@ -532,6 +532,56 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getEvaluationRow_ResolutionStatus() {
+		return (EAttribute)evaluationRowEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluationRow_ResolutionJustification() {
+		return (EAttribute)evaluationRowEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluationRow_DecidedBy() {
+		return (EAttribute)evaluationRowEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluationRow_DecidedAt() {
+		return (EAttribute)evaluationRowEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEvaluationRow_CorrectionNote() {
+		return (EAttribute)evaluationRowEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChangeRow() {
 		return changeRowEClass;
 	}
@@ -716,6 +766,11 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		createEAttribute(evaluationRowEClass, EVALUATION_ROW__CITATIONS);
 		createEAttribute(evaluationRowEClass, EVALUATION_ROW__CHANGE_KIND);
 		createEAttribute(evaluationRowEClass, EVALUATION_ROW__PURPOSE);
+		createEAttribute(evaluationRowEClass, EVALUATION_ROW__RESOLUTION_STATUS);
+		createEAttribute(evaluationRowEClass, EVALUATION_ROW__RESOLUTION_JUSTIFICATION);
+		createEAttribute(evaluationRowEClass, EVALUATION_ROW__DECIDED_BY);
+		createEAttribute(evaluationRowEClass, EVALUATION_ROW__DECIDED_AT);
+		createEAttribute(evaluationRowEClass, EVALUATION_ROW__CORRECTION_NOTE);
 
 		changeRowEClass = createEClass(CHANGE_ROW);
 		createEAttribute(changeRowEClass, CHANGE_ROW__REVISION_NUMBER);
@@ -804,6 +859,11 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		initEAttribute(getEvaluationRow_Citations(), ecorePackage.getEString(), "citations", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluationRow_ChangeKind(), this.getChangeKind(), "changeKind", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluationRow_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluationRow_ResolutionStatus(), ecorePackage.getEString(), "resolutionStatus", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluationRow_ResolutionJustification(), ecorePackage.getEString(), "resolutionJustification", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluationRow_DecidedBy(), ecorePackage.getEString(), "decidedBy", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluationRow_DecidedAt(), ecorePackage.getEString(), "decidedAt", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluationRow_CorrectionNote(), ecorePackage.getEString(), "correctionNote", null, 0, 1, EvaluationRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(changeRowEClass, ChangeRow.class, "ChangeRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChangeRow_RevisionNumber(), ecorePackage.getEInt(), "revisionNumber", null, 1, 1, ChangeRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1109,6 +1169,36 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 			   "documentation", "The reason a human gave for storing this feature, copied from FeatureEvaluation.purpose.\nEmpty until someone states it. Diffed like any other cell, so the revision in which a person\nanswered the agent\'s open question, and what they answered, appears in the change sheet."
 		   });
 		addAnnotation
+		  (getEvaluationRow_ResolutionStatus(),
+		   source,
+		   new String[] {
+			   "documentation", "What a person decided about the finding, as the literal name of the report\'s ResolutionStatus, e.g. ACCEPTED. Empty when the finding carries no resolution, which means it is still open. Diffed, so the revision in which a decision was taken or withdrawn appears in the change sheet."
+		   });
+		addAnnotation
+		  (getEvaluationRow_ResolutionJustification(),
+		   source,
+		   new String[] {
+			   "documentation", "Why it was decided so, copied verbatim from FindingResolution.justification. Carried in full for the same reason as rationale. Diffed."
+		   });
+		addAnnotation
+		  (getEvaluationRow_DecidedBy(),
+		   source,
+		   new String[] {
+			   "documentation", "Who took the decision, copied from FindingResolution.decidedBy. Not diffed on its own: it changes only together with the status or the justification, and the change row already names the author in changedBy."
+		   });
+		addAnnotation
+		  (getEvaluationRow_DecidedAt(),
+		   source,
+		   new String[] {
+			   "documentation", "When the decision was taken, copied from FindingResolution.decidedAt as an ISO-8601 UTC instant. May be earlier than the revision\'s generatedAt when a decision was carried over unchanged. Not diffed, like decidedBy."
+		   });
+		addAnnotation
+		  (getEvaluationRow_CorrectionNote(),
+		   source,
+		   new String[] {
+			   "documentation", "Why a person corrected category, relevanceLevel or confidence, copied verbatim from Finding.correctionNote. Diffed, so it appears in the change sheet next to the corrected values."
+		   });
+		addAnnotation
 		  (changeRowEClass,
 		   source,
 		   new String[] {
@@ -1148,7 +1238,7 @@ public class GDPRReportHistoryPackageImpl extends EPackageImpl implements GDPRRe
 		  (getChangeRow_Field(),
 		   source,
 		   new String[] {
-			   "documentation", "Which field differs: category, relevanceLevel, confidence, rationale, recommendation or evidence. Empty when the whole evaluation was added or removed."
+			   "documentation", "Which field differs: category, relevanceLevel, confidence, rationale, recommendation, evidence, purpose, correctionNote, resolutionStatus or resolutionJustification. Empty when the whole evaluation was added or removed."
 		   });
 		addAnnotation
 		  (getChangeRow_ChangeKind(),
