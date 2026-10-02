@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0" name="report" nsURI="https://org.eclipse/fennec/compliance/report/1.0.0" nsPrefix="report">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="A compliance report: the findings of one review of one subject (an EPackage, a transformation, an asset) against one or more contexts, and the decisions people took on them." />
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplianceReport">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The result of one review of one subject against one or more compliance contexts. Each revision of a review is its own report; the history model lines them up." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reportId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The unique identifier for this report" />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Human readable title of the review, e.g. 'GDPR review of clinic 1.0.0'." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generatedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When the review ran, as an ISO-8601 UTC instant, e.g. 2026-09-09T14:20:00Z." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generatedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The language model that produced this review, as the provider names it, e.g. claude-sonnet-4-6. Two models reviewing the same metamodel do not agree in every particular - measured on one 3.4KB model, two models agreed exactly on the classifiers carrying obvious personal data and differed on the ones turning on a processing purpose - so a finding cannot be weighed without knowing what produced it." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1" eType="#//Subject" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. What was reviewed, including the fingerprint that pins the exact revision: a PackageSubject for a metamodel, a TransformationSubject for a compiled transformation. Everything else the review rests on is recorded inside it." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evaluations" upperBound="-1" eType="#//Evaluation" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="One entry per thing that was examined: a ClassifierEvaluation per classifier in a metamodel review, a FlowEvaluation per source-to-target path in a transformation review. Add an entry even when nothing was found, so a reader can distinguish 'examined and clean' from 'never examined'." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="combinations" upperBound="-1" eType="#//CombinationFinding" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Findings that arise from two or more evaluations together: several features that identify a person only in combination, or several flows meeting in one target field. They are held here, not under the evaluations themselves, because a combination may span several classifiers and would otherwise need an arbitrary owner." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disclaimer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Statement of what the report is and is not. It is decision support for a data protection officer: it flags features needing human review and must not assert compliance or non-compliance." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//ReportOrigin">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The origin of the report, namely whether it was redacted by an AI agent or by a human" />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1" lowerBound="1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//ContextRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The contexts, pinned to the version the subject was checked against." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subject" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Identity of what was reviewed, precise enough to tell whether a later revision is still the same artefact. Subclassed per kind of artefact: PackageSubject for an Ecore metamodel, TransformationSubject for a compiled model transformation. A report has exactly one subject; everything else the review rests on is recorded inside that subject." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjectFingerprint" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. Fingerprint of the exact revision that was reviewed. It is the identity of the review: a review is of content, not of a location, so the same bytes reached by any route are the same subject. The scheme depends on what is under review - fp1 for an EPackage, m2x1 for a compiled transformation unit - so two fingerprints are only comparable between subjects of the same kind. Compute it; never invent or copy one." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reportId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The report that reviewed this subject, as the object id that report is stored under. Set it on a subject that is named inside another report as something that review rests on: it is the provenance of every carried-over finding, and without it a reader cannot check a quote against the review that produced it. Leave it unset on a report's own subject - the owning report already identifies itself - and leave it unset when no review of this revision exists, saying so in a finding, because an unreviewed source makes the analysis incomplete rather than clean." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassifierEvaluation" eSuperTypes="#//Evaluation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The result of examining one classifier (EClass or EEnum) of the reviewed model." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uriFragment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EMF fragment addressing the classifier in its own resource, e.g. //Patient." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureEvaluations" upperBound="-1" eType="#//FeatureEvaluation" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="One entry per structural feature examined, including features where nothing was found." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Purpose of processing of the classifier as a whole. Its features inherit it." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lawfulBases" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Lawful bases of the processing, from the lawful-basis taxonomy. Its features inherit them." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureEvaluation" eSuperTypes="#//Evaluation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The result of examining one structural feature." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uriFragment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EMF fragment addressing the feature, e.g. //Patient/street." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the feature's EType as written in the model, e.g. EString, EDate, Denomination. The type is itself a signal: a date on a birth field, or a byte array under a face field." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True when the feature's upperBound is not 1. A repeated feature can form a history or profile even when a single value would be harmless." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relevanceLevel" eType="#//RelevanceLevel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Highest relevance among this feature's findings. Set NONE when the feature was examined and nothing was found; that is different from leaving it unset." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reason for storing this particular feature. This field should be always entered by a human." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Finding">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="One assessment about a classifier or feature, always supported by at least one piece of legal evidence." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required and unique within the report, e.g. F-001. Used to refer to the finding from outside." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//ReportOrigin">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Who raised this finding. Distinguishes a finding a person added from the findings of the agent within the same revision." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Classification, e.g. the data category of the GDPR context." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//RequirementRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The requirements the finding concerns." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relevanceLevel" eType="#//RelevanceLevel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How serious the finding is if it holds. Independent of confidence: a finding can be severe but uncertain." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="#//Confidence">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How sure the assessment is. Independent of relevanceLevel. Use REQUIRES_PURPOSE_CONFIRMATION whenever the classification cannot be settled from the metamodel alone." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detectedBy" upperBound="-1" eType="#//DetectionSignal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Which signals led to this finding. Set every one that applies. A reviewer uses this to judge the finding without re-deriving it, so a name match and an enum-literal match must not look alike." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signalValues" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The concrete values behind the signal, quoted exactly, e.g. the EEnum literals observed or the documentation phrase that triggered the flag. This is what makes detectedBy checkable." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why the cited law applies to this feature, in prose. This is your reasoning and is read as interpretation, not fact." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recommendation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What could be done about it, e.g. generalise the value, record a lawful basis, remove the attribute. Optional, and never phrased as a compliance verdict." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evidence" lowerBound="1" upperBound="-1" eType="#//Evidence" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required, at least one. A finding without legal evidence is an opinion and must not be produced." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagnosticId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The id of the model.atlas Diagnostic this finding was raised as, so that a later review of the same artefact updates that diagnostic instead of raising a second one for the same problem. Diagnostic ids are deterministic - derived from the producer, the code and the target, the producer here being the GDPR review - so the same finding about the same element keeps its id across re-validations and this reference survives without a matching step. It holds the id alone: a diagnostic is addressed from outside by scope, registry, stage, objectId and id, and the first four are those of the object this report is about. Leave it unset on a finding that no diagnostic was raised for." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolution" eType="#//FindingResolution" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The decision a person took on this finding: resolved, knowingly accepted, or explicitly re-opened, together with its justification and who took it when. Unset means no decision has been taken yet, which reads the same as OPEN - so a report written before this feature existed stays valid. A review never sets it; only a person does." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctionNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why a person changed the assessment itself - category, relevanceLevel or confidence - in the revision that carries this finding. Kept apart from resolution.justification because correcting the assessment and deciding what to do about it are separate acts: a person may correct a category and leave the finding open. Who made the correction and when is not repeated here; it is the generatedBy and generatedAt of the report revision, whose origin is HUMAN. Empty on a finding nobody corrected." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CombinationFinding" eSuperTypes="#//Finding">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A finding raised by the combination of several features, e.g. a quasi-identifier set. The kind of combination is a category of the context (combination-kind taxonomy)." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" lowerBound="2" upperBound="-1" eType="#//Evaluation" resolveProxies="false" eOpposite="#//Evaluation/partOfCombinations">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The evaluations that together create the risk. At least two, and they may belong to different classifiers. In a review of a metamodel these are FeatureEvaluations; in a review of a transformation they are FlowEvaluations, which is how several fields merged into one target field are recorded as one combination. Reference existing entries rather than creating new ones. resolveProxies is false because a combination only ever points at evaluations inside its own report: EMF requires the opposite of a transient reference to be transient too unless it is not proxy resolving, and partOfCombinations has to stay transient because it is derived." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Evidence">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A quotation from the legal corpus supporting a finding. The quote is fact; the relevance is interpretation. Keeping them apart lets a reviewer check the citation without accepting the reasoning." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the context whose corpus is cited." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="corpusId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the corpus the citation belongs to. Needed because one context may hold several corpora." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="citationId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. Identifier of the quoted unit in the corpus, e.g. Art.9(2)(a), Art.4(14) or Rec.26. It must already exist in the corpus: look it up, never construct it by guessing a plausible article or paragraph number." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quote" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. The corpus unit's text, copied unchanged. Never paraphrase, shorten or tidy it. The verbatim quote is what makes the finding auditable." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verbatim" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True when quote was copied from the corpus without alteration. Set false only if the text was deliberately excerpted, and say so in relevance." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relevance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="One sentence on why this unit supports the finding. Unlike quote, this is your interpretation." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The corpus unit's own sourceRef, pointing back to the node in the source document, for tracing a suspect extraction." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RelevanceLevel">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="How serious a finding is if it holds. Says nothing about how certain it is." />
+    </eAnnotations>
+    <eLiterals name="NONE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Examined and nothing of concern found. Meaningfully different from leaving the level unset." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="LOW" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In scope but limited consequence for the data subject." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MEDIUM" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Warrants review, e.g. a quasi-identifier or an unnecessarily precise value." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="HIGH" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Special-category, criminal-conviction or directly identifying data, or a combination likely to single an individual out." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Confidence">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="How certain the assessment is. Independent of relevanceLevel." />
+    </eAnnotations>
+    <eLiterals name="LOW">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Weak signal, e.g. an ambiguous feature name with no corroboration." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MEDIUM" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reasonable inference from more than one signal, but the model could still be read differently." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="HIGH" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The model itself settles it, e.g. EEnum literals naming religious denominations." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="REQUIRES_CONFIRMATION" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The verdict depends on facts the subject does not show, e.g. the purpose of processing. A person must confirm it." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DetectionSignal">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="What in the model led to a finding. Recording it lets a reviewer weigh the finding without repeating the analysis." />
+    </eAnnotations>
+    <eLiterals name="FEATURE_NAME">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The feature's own name, e.g. email, religion, ipAddress." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FEATURE_TYPE" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The feature's type, e.g. a date on a birth field or a byte array under a face field." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MULTIPLICITY" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The feature is repeated, so values accumulate into a history or profile." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ENUM_LITERALS" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The literals of an EEnum reveal the content regardless of the feature's name. Often decisive where the name is deliberately bland; put the literals in signalValues." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="OWNING_CLASSIFIER_NAME" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The owning classifier gives the feature its meaning: name on Company is not personal data, name on Patient is." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DOCUMENTATION_ANNOTATION" value="5">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A documentation or genmodel annotation states a purpose the names do not reveal. Quote the phrase in signalValues." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CONTAINMENT_CONTEXT" value="6">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Where the feature sits in the containment hierarchy, e.g. contained by a class that is itself sensitive." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FEATURE_COMBINATION" value="7">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The finding arises from several features together rather than any one of them. Expect this on a CombinationFinding." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="TRANSFORMATION_FLOW" value="8">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The finding arises from what a transformation does with the feature rather than from the feature itself: the compiled unit was read, and the value was followed to where it is written. Expect this on a FlowEvaluation." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="HUMAN_REVIEW" value="9">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Raised by a person, not by a detection rule." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplianceRequestStatus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The record of one review request for one model revision: that it was asked for, what is carrying it out, and how it ended. It exists from the moment the request is accepted, which a ComplianceReport does not - a report is only written when a review succeeds, so a run that is still going or that failed leaves no report at all. Anything deciding whether to ask for a review has to consult this rather than the report, or a run already in flight is paid for twice and a run that failed is re-tried on every trigger forever. One instance per reviewed revision per language, keyed by subjectFingerprint and language together: a review runs in one language from start to seal, so the English and the German review of one revision are independent runs with their own batch, their own findings and their own record, and neither answers for the other." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjectFingerprint" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The revision of the subject under review, in the same form Subject records it. This is the identity of the record: the review is of content, not of a location, so the same bytes reached by any route are the same review and must not be paid for again." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="batchId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The provider-side identifier of the work. It is the only handle on a run that outlives the process that started it: without it a restart cannot tell a finished review from one still running, and cannot collect either." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The identifier of this request within the batch. Required to read the outcome back - a result is selected by it, and so is the check for whether the turn was left paused." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reportId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The id the ComplianceReport is stored under once the review succeeds. Empty until then, and stays empty for a run that never produced one." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//RequestStatusType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How the request stands. Written as SUBMITTED when the work is accepted and updated once when it ends." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submittedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When the request was accepted, as an ISO-8601 UTC instant, e.g. 2026-09-09T14:20:00Z." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When it reached a terminal status, in the same form. Empty while it is still running, which together with submittedAt is how a record abandoned by a dead process is recognised." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What to tell whoever reads the outcome: the reason for a failure, or what was recorded before a run was given up on. Meant to be read by a person deciding what to do next." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="continuationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How many times the run had to be resumed after the provider stopped it at its iteration budget. Zero is the ordinary case. A number close to the configured ceiling says the model is at the edge of what one run can review, which is worth knowing before the ceiling is reached and work is lost." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputTokens" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tokens generated across the run, where the provider reports them. The only record of what an individual review cost." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The language version of the regulation this review ran against, e.g. EN or DE - the language of its corpus, of the quotes it carries and of the report it produces. It is half the identity of the record, beside subjectFingerprint, and the model leaves it optional only because EMF has no way to say otherwise: a record that does not name its language is either filed where another language will look for it, or makes one language an unnamed default that nothing downstream can see. Both end as a review that is never submitted because something else claimed to have done it. Set it always." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextIds" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Ids of the contexts the review was requested for." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RequestStatusType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="How a review request ended, or that it has not. Only SUBMITTED is not terminal." />
+    </eAnnotations>
+    <eLiterals name="SUBMITTED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Accepted and being carried out. A second request for the same model revision must not be made while a record is in this state." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="COMPLETED" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The review finished and its report was stored. reportId names it." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="FAILED" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The review did not finish. message says why. Nothing is retried automatically: a review costs money, and a model that fails for a structural reason would otherwise be re-tried on every trigger." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="EXHAUSTED" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The run was still unfinished after the allowed number of continuations and was given up on. Whatever it had recorded was never sealed, so there is no report; raising the ceiling or reviewing a smaller model is the way forward." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReportOrigin">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="What formed the judgements a report carries. It is not provenance trivia: a finding weighs differently depending on whether a person, an agent or a program arrived at it, and a report that cannot say which cannot be weighed at all." />
+    </eAnnotations>
+    <eLiterals name="UNKNOWN" />
+    <eLiterals name="AI_AGENT" value="1" />
+    <eLiterals name="HUMAN" value="2" />
+    <eLiterals name="STATIC_ANALYSIS" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Derived by a program from artefacts that were already reviewed - no agent and no person formed the judgement. A static analysis quotes no law of its own: its evidence is carried over from the review it rests on, so a finding here is only ever as good as that review." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageSubject" eSuperTypes="#//Subject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Identity of one revision of one EPackage. It is the subject of a metamodel review, and it is also how a TransformationSubject names a metamodel the unit was compiled against - the same class in both places, because what identifies a package does not change with the reason it is being named. It records what the package is, never whether anyone reviewed it: that is what reportId on Subject is for." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reviewed EPackage's name attribute." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsURI" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. The reviewed EPackage's nsURI, copied verbatim. It says which model this is; subjectFingerprint says which revision, and a carried-over finding is matched on the two together. A namespace alone is not an identity - it can hold more than one revision." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The reviewed EPackage's nsPrefix." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Evaluation" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="One thing that was examined, together with what was found on it. What that thing is depends on the review: a metamodel review examines classifiers and their features, a transformation review examines the paths along which values travel. Record an entry even when nothing was found, so a reader can tell 'examined and clean' from 'never examined'." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required and unique within the report. CombinationFinding points here, so it must be stable across reruns. For a classifier or a feature use classifier.feature, e.g. 'Patient.street'. For a flow use mapping:source-&gt;target, e.g. 'toContact:Patient.diagnosis-&gt;Contact.comment', which is derivable from the compiled unit and therefore the same on every rerun." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of what was examined, exactly as it appears in the reviewed artefact: a classifier or feature name in a metamodel review, a readable label for the path in a transformation review." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="findings" upperBound="-1" eType="#//Finding" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Findings about this one evaluation on its own - the classifier rather than any of its features, the feature itself, or this single flow. Findings that only arise from several evaluations together belong in a CombinationFinding." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partOfCombinations" upperBound="-1" eType="#//CombinationFinding" transient="true" derived="true" eOpposite="#//CombinationFinding/features">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Derived: EMF maintains this from CombinationFinding.features. Do not set it directly; add the evaluation to the combination instead." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformationSubject" eSuperTypes="#//Subject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Identity of a reviewed model transformation: which compiled unit was examined, and which revisions of which metamodels it was compiled against, split by whether the unit reads them or writes them. subjectFingerprint here is the m2x1 fingerprint of the compiled unit; it covers a compiled program rather than an EPackage, so it is never comparable with a package fingerprint. A transformation is reviewed for what it does to data that the metamodel reviews already classified, so the packages it names are not decoration - they are where the findings come from." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required. The unit's qualified name as the transformation declares it, e.g. clinic2contacts." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The transformation language the unit was compiled from, e.g. qvto. A later analyser for another language writes its own value here rather than a second subject type." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceFingerprint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Fingerprint of the source text the unit was compiled from (m2x1 scheme), for tracing a report back to the file a developer edited." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePackages" upperBound="-1" eType="#//PackageSubject" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The metamodels this unit reads, each pinned to the exact revision: an entry's subjectFingerprint is the key of the review whose findings this report carries over, and its reportId points at that review. Take these from the compiled unit's own manifest, never from the source text: the manifest records what the compiler actually resolved. A model the unit declares inout belongs here and in targetPackages both, as two entries with the same nsURI and fingerprint. List a package even when no review of it exists, and say so in a finding - an unreviewed source makes the analysis incomplete rather than clean." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPackages" upperBound="-1" eType="#//PackageSubject" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The metamodels this unit writes, recorded exactly as sourcePackages is, and taken from the same manifest. A target model's own review, where there is one, may disagree with what the flows put into it - that disagreement is a finding, not an error. A model the unit declares inout belongs here and in sourcePackages both." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowEvaluation" eSuperTypes="#//Evaluation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The result of examining one path along which a transformation moves a value: one source feature reaching one target feature, in one mapping. A metamodel review asks what a field holds; a transformation review asks where what it holds ends up, so the unit of evaluation is the pair rather than the field. Several sources reaching the same target field are several FlowEvaluations, tied together by one CombinationFinding." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mapping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the mapping or helper the assignment sits in, e.g. toContact. A transformation has no line numbers to quote once compiled, so this is the coarsest address a developer can act on." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="nsURI of the metamodel the source feature belongs to. Two source models can carry the same fragment, so the fragment alone does not identify a feature." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceFeature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EMF fragment of the feature that is read, e.g. //Patient/diagnosis. It matches the uriFragment of a FeatureEvaluation in that metamodel's own review, which is how a finding here inherits its category and its evidence." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="nsURI of the metamodel the target feature belongs to." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetFeature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EMF fragment of the feature that is written, e.g. //Contact/comment." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowKind" eType="#//FlowKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How the value travels. It is part of the assessment, not decoration: a value copied into a typed field keeps its classification, while the same value concatenated into free text does not." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relevanceLevel" eType="#//RelevanceLevel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Highest relevance among this flow's findings. Set NONE when the flow was examined and nothing was found; that is different from leaving it unset." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why this value is carried into the target model. A purpose stated for the source field does not answer it: the transformation is a new processing, and this field is where a human answers for it. Always entered by a human." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FlowKind">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="How a transformation moves a value from a source feature to a target feature. Choose the most specific value the compiled unit supports." />
+    </eAnnotations>
+    <eLiterals name="DIRECT">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The source feature is assigned to the target feature unchanged. The target holds the same data and inherits the source's classification." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="EXPRESSION" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The value is computed from the source feature, but from that feature alone, e.g. trimmed, cased or reformatted. Still the same data unless the expression is shown to remove the link to the person." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="CONCATENATION" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The value is joined with others into one string. The target field can no longer be classified, minimised or erased per source field, which is usually the point of the finding rather than a detail of it." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="AGGREGATION" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The value is folded over a collection, e.g. counted, summed or joined across many objects. The result may say less about one person - or more, if the fold is a profile." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="OPAQUE" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The value passes through something the analyser does not follow: a blackbox operation, an imported library, a late resolution or an intermediate property. Record the flow as opaque rather than dropping it - silence would be read as 'nothing happens here'." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FindingResolution">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="What a person decided about a finding: whether it was reviewed and how its risk is treated (ISO 27005 / ISO 31000). Whether the cause was removed is not decided here; the next review of the changed subject shows it by no longer raising the finding." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1" eType="#//ReviewStatus">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether a person has classified the finding." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="treatment" eType="#//RiskTreatment">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How the risk is treated. Required once REVIEWED." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="riskAssessment" eType="#//RiskAssessment" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The risk assessment the treatment is based on." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measureIds" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Ids of the inventory measures that treat the finding (MITIGATE)." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="treatmentNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What is done when it is not a measure, e.g. for AVOID: the field is generalised." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delegatedTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="To whom the risk is transferred or delegated (TRANSFER)." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Until when the treatment is done, as ISO-8601 date (MITIGATE, TRANSFER)." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="justification" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why the person decided so." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedBy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Who decided." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decidedAt" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When, as ISO-8601 date-time." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssetSubject" eSuperTypes="#//Subject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An asset of a compliance inventory as subject of a review, e.g. for a Grundschutz check." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inventoryId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the inventory." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assetId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the asset within the inventory." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Display name of the asset at review time." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ControlResult">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Result of checking one requirement." />
+    </eAnnotations>
+    <eLiterals name="NOT_ASSESSED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Not checked yet." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="SATISFIED" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Satisfied." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="PARTIALLY_SATISFIED" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Partly satisfied." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="NOT_SATISFIED" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Not satisfied." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="NOT_APPLICABLE" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Does not apply to the subject." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlEvaluation" eSuperTypes="#//Evaluation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Evaluation of one requirement for the subject, for control-based contexts." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" lowerBound="1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//RequirementRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The requirement checked." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" eType="#//ControlResult">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result of the check." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measureIds" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Ids of the inventory measures the check relied on." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReviewStatus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Whether a person has classified a finding." />
+    </eAnnotations>
+    <eLiterals name="OPEN">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Not classified. Recorded explicitly only when an earlier decision is withdrawn." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="REVIEWED" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Classified by a person; treatment and risk assessment are set." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RiskTreatment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Risk treatment options of ISO 27005 / ISO 31000." />
+    </eAnnotations>
+    <eLiterals name="ACCEPT">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The risk is accepted." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MITIGATE" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The risk is reduced by measures or a change of the subject." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="AVOID" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The cause is removed, e.g. the processing or the field is dropped." />
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="TRANSFER" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Someone else bears or decides the risk." />
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RiskAssessment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Likelihood times severity gives the risk level, on the scales of a risk methodology of the inventory. The risk level is stated, not derived, so a person can deviate from the matrix." />
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodologyId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the risk methodology." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="likelihood" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the likelihood level." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the severity level." />
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="riskLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Id of the resulting risk level." />
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

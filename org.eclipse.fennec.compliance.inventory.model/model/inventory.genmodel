@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#10;&#10;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#10;&#10;SPDX-License-Identifier: EPL-2.0&#10;&#10;Contributors:&#10;  Data In Motion Consulting - initial implementation" modelDirectory="/org.eclipse.fennec.compliance.inventory.model/src" modelPluginID="org.eclipse.fennec.compliance.inventory.model" modelName="Inventory" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true" usedGenPackages="../../org.eclipse.fennec.compliance.context.model/model/context.genmodel#//context" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <foreignModel>inventory.ecore</foreignModel>
+  <genPackages prefix="Inventory" basePackage="org.eclipse.fennec.model.compliance" resource="XMI" disposableProviderFactory="true" ecorePackage="inventory.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//AssetRelationKind">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//AssetRelationKind/DEPENDS_ON" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//AssetRelationKind/RUNS_ON" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//AssetRelationKind/CONNECTS_TO" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//AssetRelationKind/PART_OF" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//ProtectionLevel">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionLevel/NORMAL" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionLevel/HIGH" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionLevel/VERY_HIGH" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//ProtectionNeedDerivation">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionNeedDerivation/ASSESSED" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionNeedDerivation/MAXIMUM_PRINCIPLE" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionNeedDerivation/CUMULATION" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ProtectionNeedDerivation/DISTRIBUTION" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//MeasureKind">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//MeasureKind/TECHNICAL" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//MeasureKind/ORGANISATIONAL" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//ImplementationStatus">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ImplementationStatus/PLANNED" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ImplementationStatus/PARTIAL" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ImplementationStatus/IMPLEMENTED" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//ImplementationStatus/NOT_IMPLEMENTED" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//CoverageKind">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//CoverageKind/DIRECT" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//CoverageKind/DERIVED" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//CoverageKind/CONFIRMED" />
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//SourceKind">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/SERVICE_SPEC" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/DEPLOYMENT" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/EPACKAGE" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/TRANSFORMATION" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/REPORT" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/DOCUMENT" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/DATASET" />
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/OTHER" />
+    </genEnums>
+    <genClasses ecoreClass="inventory.ecore#//Inventory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Inventory/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Inventory/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Inventory/description" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Inventory/scope" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Inventory/owner" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/contexts" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/assets" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/measures" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/applicabilities" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/processingActivities" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/riskMethodologies" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Inventory/aspects" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//Aspect" image="false" />
+    <genClasses ecoreClass="inventory.ecore#//Asset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Asset/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Asset/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Asset/description" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Asset/owner" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Asset/categories" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Asset/protectionNeeds" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Asset/relations" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Asset/sources" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Asset/aspects" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//AssetRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//AssetRelation/kind" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//AssetRelation/target" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//AssetRelation/rationale" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//ProtectionNeedAssessment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/confidentiality" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/integrity" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/availability" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/derivation" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//ProtectionNeedAssessment/derivedFrom" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/rationale" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/assessedBy" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProtectionNeedAssessment/assessedAt" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//Measure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/title" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/description" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/kind" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Measure/categories" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Measure/satisfies" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//Measure/appliesTo" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/status" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/responsible" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/reviewedAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//Measure/dueDate" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Measure/evidence" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//Measure/aspects" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RequirementApplicability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RequirementApplicability/requirement" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/applicable" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/justification" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/status" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RequirementApplicability/measures" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/coverage" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RequirementApplicability/derivedFrom" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RequirementApplicability/assets" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/decidedBy" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RequirementApplicability/decidedAt" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//ProcessingActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/purpose" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/controller" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/lawfulBases" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/dataCategories" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/dataSubjects" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/recipients" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/thirdCountryTransfers" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/retention" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/models" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/assets" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/measures" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/aspects" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//SourceRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/kind" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/format" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/uri" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/fingerprint" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/name" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RiskMethodology">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskMethodology/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskMethodology/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskMethodology/description" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMethodology/likelihood" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMethodology/severity" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMethodology/risk" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMethodology/matrix" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RiskScale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskScale/name" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskScale/levels" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RiskLevel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskLevel/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskLevel/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskLevel/rank" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RiskLevel/description" />
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RiskMatrixCell">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMatrixCell/likelihood" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMatrixCell/severity" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RiskMatrixCell/risk" />
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
