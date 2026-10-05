@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.fennec.model.compliance.context.ContextPackage;
 
+import org.eclipse.fennec.model.compliance.corpus.CorpusPackage;
+
 import org.eclipse.fennec.model.compliance.report.AssetSubject;
 import org.eclipse.fennec.model.compliance.report.ClassifierEvaluation;
 import org.eclipse.fennec.model.compliance.report.CombinationFinding;
@@ -278,6 +280,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 
 		// Initialize simple dependencies
 		ContextPackage.eINSTANCE.eClass();
+		CorpusPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theReportPackage.createPackageContents();
@@ -401,6 +404,16 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	@Override
 	public EReference getComplianceReport_Contexts() {
 		return (EReference)complianceReportEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getComplianceReport_Language() {
+		return (EAttribute)complianceReportEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1533,6 +1546,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEAttribute(complianceReportEClass, COMPLIANCE_REPORT__DISCLAIMER);
 		createEAttribute(complianceReportEClass, COMPLIANCE_REPORT__ORIGIN);
 		createEReference(complianceReportEClass, COMPLIANCE_REPORT__CONTEXTS);
+		createEAttribute(complianceReportEClass, COMPLIANCE_REPORT__LANGUAGE);
 
 		subjectEClass = createEClass(SUBJECT);
 		createEAttribute(subjectEClass, SUBJECT__SUBJECT_FINGERPRINT);
@@ -1713,6 +1727,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEAttribute(getComplianceReport_Disclaimer(), ecorePackage.getEString(), "disclaimer", null, 0, 1, ComplianceReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComplianceReport_Origin(), this.getReportOrigin(), "origin", null, 0, 1, ComplianceReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComplianceReport_Contexts(), theContextPackage.getContextRef(), null, "contexts", null, 1, -1, ComplianceReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplianceReport_Language(), ecorePackage.getEString(), "language", null, 0, 1, ComplianceReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subjectEClass, Subject.class, "Subject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSubject_SubjectFingerprint(), ecorePackage.getEString(), "subjectFingerprint", null, 1, 1, Subject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1977,6 +1992,12 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The contexts, pinned to the version the subject was checked against."
+		   });
+		addAnnotation
+		  (getComplianceReport_Language(),
+		   source,
+		   new String[] {
+			   "documentation", "The language the report is written in. That may differ from the language of the corpus (e.g. a report can be written with the prose text in English but have the evidences for the findings from a German corpus, and so those evidences in German)"
 		   });
 		addAnnotation
 		  (subjectEClass,

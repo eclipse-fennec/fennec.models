@@ -1,193 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#10;&#10;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#10;&#10;SPDX-License-Identifier: EPL-2.0&#10;&#10;Contributors:&#10;  Data In Motion Consulting - initial implementation" modelDirectory="/org.eclipse.fennec.compliance.report.model/src" modelPluginID="org.eclipse.fennec.compliance.report.model" modelName="Report" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true" usedGenPackages="../../org.eclipse.fennec.compliance.context.model/model/context.genmodel#//context" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.compliance.report.model/src" modelPluginID="org.eclipse.fennec.compliance.report.model"
+    modelName="Report" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.fennec.compliance.context.model/model/context.genmodel#//context ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.genmodel#//corpus"
+    operationReflection="true" importOrganizing="true" oSGiCompatible="true">
   <foreignModel>report.ecore</foreignModel>
-  <genPackages prefix="Report" basePackage="org.eclipse.fennec.model.compliance" resource="XMI" disposableProviderFactory="true" ecorePackage="report.ecore#/">
+  <genPackages prefix="Report" basePackage="org.eclipse.fennec.model.compliance" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="report.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//RelevanceLevel">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/NONE" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/LOW" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/MEDIUM" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/HIGH" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/LOW"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/MEDIUM"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RelevanceLevel/HIGH"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//Confidence">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/LOW" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/MEDIUM" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/HIGH" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/REQUIRES_CONFIRMATION" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/LOW"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/MEDIUM"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/HIGH"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//Confidence/REQUIRES_CONFIRMATION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//DetectionSignal">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_NAME" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_TYPE" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/MULTIPLICITY" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/ENUM_LITERALS" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/OWNING_CLASSIFIER_NAME" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/DOCUMENTATION_ANNOTATION" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/CONTAINMENT_CONTEXT" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_COMBINATION" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/TRANSFORMATION_FLOW" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/HUMAN_REVIEW" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_NAME"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_TYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/MULTIPLICITY"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/ENUM_LITERALS"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/OWNING_CLASSIFIER_NAME"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/DOCUMENTATION_ANNOTATION"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/CONTAINMENT_CONTEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/FEATURE_COMBINATION"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/TRANSFORMATION_FLOW"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//DetectionSignal/HUMAN_REVIEW"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//RequestStatusType">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/SUBMITTED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/COMPLETED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/FAILED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/EXHAUSTED" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/SUBMITTED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/COMPLETED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/FAILED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/EXHAUSTED"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//ReportOrigin">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/UNKNOWN" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/AI_AGENT" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/HUMAN" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/STATIC_ANALYSIS" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/AI_AGENT"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/HUMAN"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/STATIC_ANALYSIS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//FlowKind">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/DIRECT" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/EXPRESSION" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/CONCATENATION" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/AGGREGATION" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/OPAQUE" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/DIRECT"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/EXPRESSION"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/CONCATENATION"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/AGGREGATION"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//FlowKind/OPAQUE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//ControlResult">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_ASSESSED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/SATISFIED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/PARTIALLY_SATISFIED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_SATISFIED" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_APPLICABLE" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_ASSESSED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/SATISFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/PARTIALLY_SATISFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_SATISFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ControlResult/NOT_APPLICABLE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//ReviewStatus">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReviewStatus/OPEN" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReviewStatus/REVIEWED" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReviewStatus/OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReviewStatus/REVIEWED"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//RiskTreatment">
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/ACCEPT" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/MITIGATE" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/AVOID" />
-      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/TRANSFER" />
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/ACCEPT"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/MITIGATE"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/AVOID"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RiskTreatment/TRANSFER"/>
     </genEnums>
     <genClasses ecoreClass="report.ecore#//ComplianceReport">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/reportId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/name" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/generatedAt" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/generatedBy" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/subject" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/evaluations" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/combinations" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/disclaimer" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/origin" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/contexts" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/reportId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/generatedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/generatedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/subject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/evaluations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/combinations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/disclaimer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ComplianceReport/contexts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceReport/language"/>
     </genClasses>
-    <genClasses ecoreClass="report.ecore#//Subject" image="false">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Subject/subjectFingerprint" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Subject/reportId" />
+    <genClasses image="false" ecoreClass="report.ecore#//Subject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Subject/subjectFingerprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Subject/reportId"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//ClassifierEvaluation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ClassifierEvaluation/uriFragment" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ClassifierEvaluation/featureEvaluations" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ClassifierEvaluation/purpose" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ClassifierEvaluation/lawfulBases" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ClassifierEvaluation/uriFragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ClassifierEvaluation/featureEvaluations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ClassifierEvaluation/purpose"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ClassifierEvaluation/lawfulBases"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//FeatureEvaluation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/uriFragment" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/typeName" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/many" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/relevanceLevel" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/purpose" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/uriFragment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/relevanceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FeatureEvaluation/purpose"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//Finding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/id" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/origin" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/categories" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/requirements" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/relevanceLevel" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/confidence" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/detectedBy" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/signalValues" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/rationale" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/recommendation" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/evidence" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/diagnosticId" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/resolution" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/correctionNote" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/categories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/requirements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/relevanceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/detectedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/signalValues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/rationale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/recommendation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/evidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/diagnosticId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Finding/resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Finding/correctionNote"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//CombinationFinding">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference report.ecore#//CombinationFinding/features" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference report.ecore#//CombinationFinding/features"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//Evidence">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/contextId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/corpusId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/citationId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/quote" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/verbatim" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/relevance" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/sourceRef" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/contextId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/corpusId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/citationId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/quote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/verbatim"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/relevance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evidence/sourceRef"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//ComplianceRequestStatus">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/subjectFingerprint" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/batchId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/customId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/reportId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/status" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/submittedAt" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/endedAt" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/message" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/continuationCount" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/outputTokens" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/language" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/contextIds" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/subjectFingerprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/batchId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/customId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/reportId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/submittedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/endedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/continuationCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/outputTokens"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ComplianceRequestStatus/contextIds"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//PackageSubject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/name" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/nsURI" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/nsPrefix" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/nsURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//PackageSubject/nsPrefix"/>
     </genClasses>
-    <genClasses ecoreClass="report.ecore#//Evaluation" image="false">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evaluation/id" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evaluation/name" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Evaluation/findings" />
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference report.ecore#//Evaluation/partOfCombinations" />
+    <genClasses image="false" ecoreClass="report.ecore#//Evaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evaluation/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//Evaluation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//Evaluation/findings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference report.ecore#//Evaluation/partOfCombinations"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//TransformationSubject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/qualifiedName" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/language" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/sourceFingerprint" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//TransformationSubject/sourcePackages" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//TransformationSubject/targetPackages" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/qualifiedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//TransformationSubject/sourceFingerprint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//TransformationSubject/sourcePackages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//TransformationSubject/targetPackages"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//FlowEvaluation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/mapping" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/sourceNsURI" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/sourceFeature" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/targetNsURI" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/targetFeature" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/flowKind" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/relevanceLevel" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/purpose" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/mapping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/sourceNsURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/sourceFeature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/targetNsURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/targetFeature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/flowKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/relevanceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FlowEvaluation/purpose"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//FindingResolution">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/status" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/treatment" />
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//FindingResolution/riskAssessment" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/measureIds" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/treatmentNote" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/delegatedTo" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/dueDate" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/justification" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/decidedBy" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/decidedAt" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/treatment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//FindingResolution/riskAssessment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/measureIds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/treatmentNote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/delegatedTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/dueDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/justification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/decidedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//FindingResolution/decidedAt"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//AssetSubject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/inventoryId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/assetId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/assetName" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/inventoryId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/assetId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//AssetSubject/assetName"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//ControlEvaluation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ControlEvaluation/requirement" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ControlEvaluation/result" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ControlEvaluation/measureIds" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference report.ecore#//ControlEvaluation/requirement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ControlEvaluation/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//ControlEvaluation/measureIds"/>
     </genClasses>
     <genClasses ecoreClass="report.ecore#//RiskAssessment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/methodologyId" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/likelihood" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/severity" />
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/riskLevel" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/methodologyId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/likelihood"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute report.ecore#//RiskAssessment/riskLevel"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
