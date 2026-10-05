@@ -41,6 +41,22 @@
       <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//CoverageKind/DERIVED"/>
       <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//CoverageKind/CONFIRMED"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//RetentionTrigger">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/COLLECTION"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/END_OF_PURPOSE"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/END_OF_CONTRACT"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/ACCOUNT_DELETION"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/END_OF_CALENDAR_YEAR"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/EVENT"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionTrigger/INDEFINITE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//RetentionAction">
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionAction/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionAction/ANONYMISE"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionAction/PSEUDONYMISE"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionAction/RESTRICT"/>
+      <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//RetentionAction/ARCHIVE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="inventory.ecore#//SourceKind">
       <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/SERVICE_SPEC"/>
       <genEnumLiterals ecoreEnumLiteral="inventory.ecore#//SourceKind/DEPLOYMENT"/>
@@ -130,10 +146,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/recipients"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/thirdCountryTransfers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//ProcessingActivity/retention"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/retentionRules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/models"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/assets"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/measures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//ProcessingActivity/aspects"/>
+    </genClasses>
+    <genClasses ecoreClass="inventory.ecore#//RetentionRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference inventory.ecore#//RetentionRule/dataCategories"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/trigger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/triggerDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/legalReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//RetentionRule/justification"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RetentionRule/assets"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference inventory.ecore#//RetentionRule/enforcedBy"/>
     </genClasses>
     <genClasses ecoreClass="inventory.ecore#//SourceRef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute inventory.ecore#//SourceRef/kind"/>

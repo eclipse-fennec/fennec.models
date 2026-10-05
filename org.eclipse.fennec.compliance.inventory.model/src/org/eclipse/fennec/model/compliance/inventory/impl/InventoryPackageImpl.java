@@ -38,6 +38,9 @@ import org.eclipse.fennec.model.compliance.inventory.ProtectionLevel;
 import org.eclipse.fennec.model.compliance.inventory.ProtectionNeedAssessment;
 import org.eclipse.fennec.model.compliance.inventory.ProtectionNeedDerivation;
 import org.eclipse.fennec.model.compliance.inventory.RequirementApplicability;
+import org.eclipse.fennec.model.compliance.inventory.RetentionAction;
+import org.eclipse.fennec.model.compliance.inventory.RetentionRule;
+import org.eclipse.fennec.model.compliance.inventory.RetentionTrigger;
 import org.eclipse.fennec.model.compliance.inventory.RiskLevel;
 import org.eclipse.fennec.model.compliance.inventory.RiskMatrixCell;
 import org.eclipse.fennec.model.compliance.inventory.RiskMethodology;
@@ -107,6 +110,13 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	private EClass processingActivityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass retentionRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,6 +194,20 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	private EEnum coverageKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum retentionTriggerEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum retentionActionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -992,7 +1016,7 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getProcessingActivity_Models() {
+	public EReference getProcessingActivity_RetentionRules() {
 		return (EReference)processingActivityEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1002,7 +1026,7 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getProcessingActivity_Assets() {
+	public EReference getProcessingActivity_Models() {
 		return (EReference)processingActivityEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1012,7 +1036,7 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getProcessingActivity_Measures() {
+	public EReference getProcessingActivity_Assets() {
 		return (EReference)processingActivityEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -1022,8 +1046,128 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getProcessingActivity_Aspects() {
+	public EReference getProcessingActivity_Measures() {
 		return (EReference)processingActivityEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProcessingActivity_Aspects() {
+		return (EReference)processingActivityEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRetentionRule() {
+		return retentionRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_Id() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRetentionRule_DataCategories() {
+		return (EReference)retentionRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_Period() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_Trigger() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_TriggerDescription() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_Action() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_LegalReference() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRetentionRule_Justification() {
+		return (EAttribute)retentionRuleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRetentionRule_Assets() {
+		return (EReference)retentionRuleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRetentionRule_EnforcedBy() {
+		return (EReference)retentionRuleEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1352,6 +1496,26 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 	 * @generated
 	 */
 	@Override
+	public EEnum getRetentionTrigger() {
+		return retentionTriggerEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getRetentionAction() {
+		return retentionActionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getSourceKind() {
 		return sourceKindEEnum;
 	}
@@ -1465,10 +1629,23 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		createEAttribute(processingActivityEClass, PROCESSING_ACTIVITY__RECIPIENTS);
 		createEAttribute(processingActivityEClass, PROCESSING_ACTIVITY__THIRD_COUNTRY_TRANSFERS);
 		createEAttribute(processingActivityEClass, PROCESSING_ACTIVITY__RETENTION);
+		createEReference(processingActivityEClass, PROCESSING_ACTIVITY__RETENTION_RULES);
 		createEReference(processingActivityEClass, PROCESSING_ACTIVITY__MODELS);
 		createEReference(processingActivityEClass, PROCESSING_ACTIVITY__ASSETS);
 		createEReference(processingActivityEClass, PROCESSING_ACTIVITY__MEASURES);
 		createEReference(processingActivityEClass, PROCESSING_ACTIVITY__ASPECTS);
+
+		retentionRuleEClass = createEClass(RETENTION_RULE);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__ID);
+		createEReference(retentionRuleEClass, RETENTION_RULE__DATA_CATEGORIES);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__PERIOD);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__TRIGGER);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__TRIGGER_DESCRIPTION);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__ACTION);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__LEGAL_REFERENCE);
+		createEAttribute(retentionRuleEClass, RETENTION_RULE__JUSTIFICATION);
+		createEReference(retentionRuleEClass, RETENTION_RULE__ASSETS);
+		createEReference(retentionRuleEClass, RETENTION_RULE__ENFORCED_BY);
 
 		sourceRefEClass = createEClass(SOURCE_REF);
 		createEAttribute(sourceRefEClass, SOURCE_REF__KIND);
@@ -1508,6 +1685,8 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		measureKindEEnum = createEEnum(MEASURE_KIND);
 		implementationStatusEEnum = createEEnum(IMPLEMENTATION_STATUS);
 		coverageKindEEnum = createEEnum(COVERAGE_KIND);
+		retentionTriggerEEnum = createEEnum(RETENTION_TRIGGER);
+		retentionActionEEnum = createEEnum(RETENTION_ACTION);
 		sourceKindEEnum = createEEnum(SOURCE_KIND);
 	}
 
@@ -1624,10 +1803,23 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		initEAttribute(getProcessingActivity_Recipients(), ecorePackage.getEString(), "recipients", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingActivity_ThirdCountryTransfers(), ecorePackage.getEString(), "thirdCountryTransfers", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessingActivity_Retention(), ecorePackage.getEString(), "retention", null, 0, 1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcessingActivity_RetentionRules(), this.getRetentionRule(), null, "retentionRules", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingActivity_Models(), this.getSourceRef(), null, "models", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingActivity_Assets(), this.getAsset(), null, "assets", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingActivity_Measures(), this.getMeasure(), null, "measures", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessingActivity_Aspects(), this.getAspect(), null, "aspects", null, 0, -1, ProcessingActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(retentionRuleEClass, RetentionRule.class, "RetentionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRetentionRule_Id(), ecorePackage.getEString(), "id", null, 1, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRetentionRule_DataCategories(), theContextPackage.getCategoryRef(), null, "dataCategories", null, 0, -1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_Period(), ecorePackage.getEString(), "period", null, 0, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_Trigger(), this.getRetentionTrigger(), "trigger", null, 1, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_TriggerDescription(), ecorePackage.getEString(), "triggerDescription", null, 0, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_Action(), this.getRetentionAction(), "action", null, 1, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_LegalReference(), ecorePackage.getEString(), "legalReference", null, 0, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRetentionRule_Justification(), ecorePackage.getEString(), "justification", null, 0, 1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRetentionRule_Assets(), this.getAsset(), null, "assets", null, 0, -1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRetentionRule_EnforcedBy(), this.getMeasure(), null, "enforcedBy", null, 0, -1, RetentionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceRefEClass, SourceRef.class, "SourceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSourceRef_Kind(), this.getSourceKind(), "kind", null, 1, 1, SourceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1692,6 +1884,22 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		addEEnumLiteral(coverageKindEEnum, CoverageKind.DIRECT);
 		addEEnumLiteral(coverageKindEEnum, CoverageKind.DERIVED);
 		addEEnumLiteral(coverageKindEEnum, CoverageKind.CONFIRMED);
+
+		initEEnum(retentionTriggerEEnum, RetentionTrigger.class, "RetentionTrigger");
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.COLLECTION);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.END_OF_PURPOSE);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.END_OF_CONTRACT);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.ACCOUNT_DELETION);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.END_OF_CALENDAR_YEAR);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.EVENT);
+		addEEnumLiteral(retentionTriggerEEnum, RetentionTrigger.INDEFINITE);
+
+		initEEnum(retentionActionEEnum, RetentionAction.class, "RetentionAction");
+		addEEnumLiteral(retentionActionEEnum, RetentionAction.DELETE);
+		addEEnumLiteral(retentionActionEEnum, RetentionAction.ANONYMISE);
+		addEEnumLiteral(retentionActionEEnum, RetentionAction.PSEUDONYMISE);
+		addEEnumLiteral(retentionActionEEnum, RetentionAction.RESTRICT);
+		addEEnumLiteral(retentionActionEEnum, RetentionAction.ARCHIVE);
 
 		initEEnum(sourceKindEEnum, SourceKind.class, "SourceKind");
 		addEEnumLiteral(sourceKindEEnum, SourceKind.SERVICE_SPEC);
@@ -2317,7 +2525,13 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		  (getProcessingActivity_Retention(),
 		   source,
 		   new String[] {
-			   "documentation", "Retention periods."
+			   "documentation", "Retention periods as a human-readable summary. The checkable form is retentionRules."
+		   });
+		addAnnotation
+		  (getProcessingActivity_RetentionRules(),
+		   source,
+		   new String[] {
+			   "documentation", "Structured retention rules, one per group of data categories with the same period."
 		   });
 		addAnnotation
 		  (getProcessingActivity_Models(),
@@ -2342,6 +2556,156 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 		   source,
 		   new String[] {
 			   "documentation", "Context-specific extensions, e.g. a DPIA."
+		   });
+		addAnnotation
+		  (retentionRuleEClass,
+		   source,
+		   new String[] {
+			   "documentation", "One retention rule of a processing activity: how long which data is kept, when the period starts, what happens at its end, and which measure enforces it. Makes storage limitation (GDPR Art. 5(1)(e)) and erasure (Art. 17) checkable."
+		   });
+		addAnnotation
+		  (getRetentionRule_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Identifier, unique within the inventory. EMF ID: unique within the whole inventory resource, also across assets, measures, processing activities and other retention rules; a prefix such as ret: avoids collisions."
+		   });
+		addAnnotation
+		  (getRetentionRule_DataCategories(),
+		   source,
+		   new String[] {
+			   "documentation", "Which data the rule covers, from the data-category taxonomy of the GDPR context. Empty means all data of the processing activity."
+		   });
+		addAnnotation
+		  (getRetentionRule_Period(),
+		   source,
+		   new String[] {
+			   "documentation", "Retention period as an ISO 8601 duration, e.g. P30D, P24M, P10Y; maps to java.time.Period or Duration. Empty only with trigger INDEFINITE. The format is checked by validation, not by the model."
+		   });
+		addAnnotation
+		  (getRetentionRule_Trigger(),
+		   source,
+		   new String[] {
+			   "documentation", "When the period starts."
+		   });
+		addAnnotation
+		  (getRetentionRule_TriggerDescription(),
+		   source,
+		   new String[] {
+			   "documentation", "The concrete event that starts the period, for trigger EVENT."
+		   });
+		addAnnotation
+		  (getRetentionRule_Action(),
+		   source,
+		   new String[] {
+			   "documentation", "What happens to the data when the period ends."
+		   });
+		addAnnotation
+		  (getRetentionRule_LegalReference(),
+		   source,
+		   new String[] {
+			   "documentation", "Legal basis for the period, e.g. \"\u00a7 257 HGB\", \"\u00a7 147 AO\", \"Art. 17(3)(b) GDPR\". Free text, because these laws are not contexts."
+		   });
+		addAnnotation
+		  (getRetentionRule_Justification(),
+		   source,
+		   new String[] {
+			   "documentation", "Why the period is necessary. Required in practice for trigger INDEFINITE."
+		   });
+		addAnnotation
+		  (getRetentionRule_Assets(),
+		   source,
+		   new String[] {
+			   "documentation", "Where the data covered by the rule is stored."
+		   });
+		addAnnotation
+		  (getRetentionRule_EnforcedBy(),
+		   source,
+		   new String[] {
+			   "documentation", "The measures (TOMs) that implement the action, e.g. a deletion job. A rule without one is reported as a finding."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "When the retention period of a rule starts."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts when the data is collected."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts when the purpose of the processing is fulfilled."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts when the contract with the data subject ends."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts when the account of the data subject is deleted."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts at the end of the calendar year in which the data was created, as for statutory retention under HGB and AO."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(5),
+		   source,
+		   new String[] {
+			   "documentation", "The period starts with another event, described in triggerDescription."
+		   });
+		addAnnotation
+		  (retentionTriggerEEnum.getELiterals().get(6),
+		   source,
+		   new String[] {
+			   "documentation", "The data is kept without a time limit. Requires a justification."
+		   });
+		addAnnotation
+		  (retentionActionEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "What happens to the data when the retention period ends."
+		   });
+		addAnnotation
+		  (retentionActionEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "The data is deleted (Art. 17)."
+		   });
+		addAnnotation
+		  (retentionActionEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "The data is anonymised, so it is no longer personal data."
+		   });
+		addAnnotation
+		  (retentionActionEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "The data is pseudonymised (Art. 4(5))."
+		   });
+		addAnnotation
+		  (retentionActionEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "Processing is restricted (Art. 18)."
+		   });
+		addAnnotation
+		  (retentionActionEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "The data is moved to an archive with restricted access."
 		   });
 		addAnnotation
 		  (sourceKindEEnum,

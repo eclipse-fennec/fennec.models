@@ -122,6 +122,12 @@ public class InventorySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InventoryPackage.RETENTION_RULE: {
+				RetentionRule retentionRule = (RetentionRule)theEObject;
+				T result = caseRetentionRule(retentionRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case InventoryPackage.SOURCE_REF: {
 				SourceRef sourceRef = (SourceRef)theEObject;
 				T result = caseSourceRef(sourceRef);
@@ -273,6 +279,21 @@ public class InventorySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProcessingActivity(ProcessingActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Retention Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Retention Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRetentionRule(RetentionRule object) {
 		return null;
 	}
 
