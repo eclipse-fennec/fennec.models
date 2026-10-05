@@ -72,6 +72,7 @@ public class InventoryFactoryImpl extends EFactoryImpl implements InventoryFacto
 			case InventoryPackage.MEASURE: return createMeasure();
 			case InventoryPackage.REQUIREMENT_APPLICABILITY: return createRequirementApplicability();
 			case InventoryPackage.PROCESSING_ACTIVITY: return createProcessingActivity();
+			case InventoryPackage.RETENTION_RULE: return createRetentionRule();
 			case InventoryPackage.SOURCE_REF: return createSourceRef();
 			case InventoryPackage.RISK_METHODOLOGY: return createRiskMethodology();
 			case InventoryPackage.RISK_SCALE: return createRiskScale();
@@ -102,6 +103,10 @@ public class InventoryFactoryImpl extends EFactoryImpl implements InventoryFacto
 				return createImplementationStatusFromString(eDataType, initialValue);
 			case InventoryPackage.COVERAGE_KIND:
 				return createCoverageKindFromString(eDataType, initialValue);
+			case InventoryPackage.RETENTION_TRIGGER:
+				return createRetentionTriggerFromString(eDataType, initialValue);
+			case InventoryPackage.RETENTION_ACTION:
+				return createRetentionActionFromString(eDataType, initialValue);
 			case InventoryPackage.SOURCE_KIND:
 				return createSourceKindFromString(eDataType, initialValue);
 			default:
@@ -129,6 +134,10 @@ public class InventoryFactoryImpl extends EFactoryImpl implements InventoryFacto
 				return convertImplementationStatusToString(eDataType, instanceValue);
 			case InventoryPackage.COVERAGE_KIND:
 				return convertCoverageKindToString(eDataType, instanceValue);
+			case InventoryPackage.RETENTION_TRIGGER:
+				return convertRetentionTriggerToString(eDataType, instanceValue);
+			case InventoryPackage.RETENTION_ACTION:
+				return convertRetentionActionToString(eDataType, instanceValue);
 			case InventoryPackage.SOURCE_KIND:
 				return convertSourceKindToString(eDataType, instanceValue);
 			default:
@@ -211,6 +220,17 @@ public class InventoryFactoryImpl extends EFactoryImpl implements InventoryFacto
 	public ProcessingActivity createProcessingActivity() {
 		ProcessingActivityImpl processingActivity = new ProcessingActivityImpl();
 		return processingActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RetentionRule createRetentionRule() {
+		RetentionRuleImpl retentionRule = new RetentionRuleImpl();
+		return retentionRule;
 	}
 
 	/**
@@ -385,6 +405,46 @@ public class InventoryFactoryImpl extends EFactoryImpl implements InventoryFacto
 	 * @generated
 	 */
 	public String convertCoverageKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RetentionTrigger createRetentionTriggerFromString(EDataType eDataType, String initialValue) {
+		RetentionTrigger result = RetentionTrigger.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRetentionTriggerToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RetentionAction createRetentionActionFromString(EDataType eDataType, String initialValue) {
+		RetentionAction result = RetentionAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRetentionActionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

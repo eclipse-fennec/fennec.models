@@ -108,6 +108,10 @@ public class InventoryAdapterFactory extends AdapterFactoryImpl {
 				return createProcessingActivityAdapter();
 			}
 			@Override
+			public Adapter caseRetentionRule(RetentionRule object) {
+				return createRetentionRuleAdapter();
+			}
+			@Override
 			public Adapter caseSourceRef(SourceRef object) {
 				return createSourceRefAdapter();
 			}
@@ -256,6 +260,20 @@ public class InventoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProcessingActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule <em>Retention Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule
+	 * @generated
+	 */
+	public Adapter createRetentionRuleAdapter() {
 		return null;
 	}
 

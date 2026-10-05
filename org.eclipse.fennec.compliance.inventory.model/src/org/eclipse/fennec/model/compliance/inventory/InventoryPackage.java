@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = InventoryPackage.eNS_URI, fingerprint = "fp1:8498e5f1573230603dde2a0f1f38a46efccfb14af28e19eaf75857a02a3112d2", genModel = "/model/inventory.genmodel", genModelSourceLocations = {"model/inventory.genmodel","org.eclipse.fennec.compliance.inventory.model/model/inventory.genmodel"}, ecore = "/model/inventory.ecore", ecoreSourceLocations = "/model/inventory.ecore")
+@EPackage(uri = InventoryPackage.eNS_URI, fingerprint = "fp1:0622ae001ad8c5beba6d478dc4b96ed6a463d0e23d6d2a1df049918fdee10713", genModel = "/model/inventory.genmodel", genModelSourceLocations = {"model/inventory.genmodel","org.eclipse.fennec.compliance.inventory.model/model/inventory.genmodel"}, ecore = "/model/inventory.ecore", ecoreSourceLocations = "/model/inventory.ecore")
 public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -866,13 +866,22 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	int PROCESSING_ACTIVITY__RETENTION = 9;
 
 	/**
+	 * The feature id for the '<em><b>Retention Rules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_ACTIVITY__RETENTION_RULES = 10;
+
+	/**
 	 * The feature id for the '<em><b>Models</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_ACTIVITY__MODELS = 10;
+	int PROCESSING_ACTIVITY__MODELS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Assets</b></em>' reference list.
@@ -881,7 +890,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_ACTIVITY__ASSETS = 11;
+	int PROCESSING_ACTIVITY__ASSETS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Measures</b></em>' reference list.
@@ -890,7 +899,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_ACTIVITY__MEASURES = 12;
+	int PROCESSING_ACTIVITY__MEASURES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Aspects</b></em>' containment reference list.
@@ -899,7 +908,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_ACTIVITY__ASPECTS = 13;
+	int PROCESSING_ACTIVITY__ASPECTS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Processing Activity</em>' class.
@@ -908,7 +917,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_ACTIVITY_FEATURE_COUNT = 14;
+	int PROCESSING_ACTIVITY_FEATURE_COUNT = 15;
 
 	/**
 	 * The number of operations of the '<em>Processing Activity</em>' class.
@@ -920,6 +929,124 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	int PROCESSING_ACTIVITY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.impl.RetentionRuleImpl <em>Retention Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.compliance.inventory.impl.RetentionRuleImpl
+	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionRule()
+	 * @generated
+	 */
+	int RETENTION_RULE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__DATA_CATEGORIES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__PERIOD = 2;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__TRIGGER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Trigger Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__TRIGGER_DESCRIPTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__ACTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Legal Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__LEGAL_REFERENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Justification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__JUSTIFICATION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Assets</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__ASSETS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Enforced By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE__ENFORCED_BY = 9;
+
+	/**
+	 * The number of structural features of the '<em>Retention Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE_FEATURE_COUNT = 10;
+
+	/**
+	 * The number of operations of the '<em>Retention Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETENTION_RULE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.impl.SourceRefImpl <em>Source Ref</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,7 +1054,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getSourceRef()
 	 * @generated
 	 */
-	int SOURCE_REF = 8;
+	int SOURCE_REF = 9;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1000,7 +1127,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRiskMethodology()
 	 * @generated
 	 */
-	int RISK_METHODOLOGY = 9;
+	int RISK_METHODOLOGY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1091,7 +1218,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRiskScale()
 	 * @generated
 	 */
-	int RISK_SCALE = 10;
+	int RISK_SCALE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1137,7 +1264,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRiskLevel()
 	 * @generated
 	 */
-	int RISK_LEVEL = 11;
+	int RISK_LEVEL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1201,7 +1328,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRiskMatrixCell()
 	 * @generated
 	 */
-	int RISK_MATRIX_CELL = 12;
+	int RISK_MATRIX_CELL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Likelihood</b></em>' reference.
@@ -1256,7 +1383,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getAssetRelationKind()
 	 * @generated
 	 */
-	int ASSET_RELATION_KIND = 13;
+	int ASSET_RELATION_KIND = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.ProtectionLevel <em>Protection Level</em>}' enum.
@@ -1266,7 +1393,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getProtectionLevel()
 	 * @generated
 	 */
-	int PROTECTION_LEVEL = 14;
+	int PROTECTION_LEVEL = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.ProtectionNeedDerivation <em>Protection Need Derivation</em>}' enum.
@@ -1276,7 +1403,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getProtectionNeedDerivation()
 	 * @generated
 	 */
-	int PROTECTION_NEED_DERIVATION = 15;
+	int PROTECTION_NEED_DERIVATION = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.MeasureKind <em>Measure Kind</em>}' enum.
@@ -1286,7 +1413,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getMeasureKind()
 	 * @generated
 	 */
-	int MEASURE_KIND = 16;
+	int MEASURE_KIND = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.ImplementationStatus <em>Implementation Status</em>}' enum.
@@ -1296,7 +1423,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getImplementationStatus()
 	 * @generated
 	 */
-	int IMPLEMENTATION_STATUS = 17;
+	int IMPLEMENTATION_STATUS = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.CoverageKind <em>Coverage Kind</em>}' enum.
@@ -1306,7 +1433,27 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getCoverageKind()
 	 * @generated
 	 */
-	int COVERAGE_KIND = 18;
+	int COVERAGE_KIND = 19;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.RetentionTrigger <em>Retention Trigger</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionTrigger
+	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionTrigger()
+	 * @generated
+	 */
+	int RETENTION_TRIGGER = 20;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.RetentionAction <em>Retention Action</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionAction
+	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionAction()
+	 * @generated
+	 */
+	int RETENTION_ACTION = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.model.compliance.inventory.SourceKind <em>Source Kind</em>}' enum.
@@ -1316,7 +1463,7 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getSourceKind()
 	 * @generated
 	 */
-	int SOURCE_KIND = 19;
+	int SOURCE_KIND = 22;
 
 
 	/**
@@ -2115,6 +2262,17 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getProcessingActivity_Retention();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getRetentionRules <em>Retention Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Retention Rules</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getRetentionRules()
+	 * @see #getProcessingActivity()
+	 * @generated
+	 */
+	EReference getProcessingActivity_RetentionRules();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getModels <em>Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2157,6 +2315,126 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EReference getProcessingActivity_Aspects();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule <em>Retention Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Retention Rule</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule
+	 * @generated
+	 */
+	EClass getRetentionRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getId()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_Id();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getDataCategories <em>Data Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Categories</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getDataCategories()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EReference getRetentionRule_DataCategories();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getPeriod <em>Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Period</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getPeriod()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_Period();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trigger</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getTrigger()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_Trigger();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getTriggerDescription <em>Trigger Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trigger Description</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getTriggerDescription()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_TriggerDescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getAction()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_Action();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getLegalReference <em>Legal Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Legal Reference</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getLegalReference()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_LegalReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getJustification <em>Justification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Justification</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getJustification()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EAttribute getRetentionRule_Justification();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getAssets <em>Assets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Assets</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getAssets()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EReference getRetentionRule_Assets();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.model.compliance.inventory.RetentionRule#getEnforcedBy <em>Enforced By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Enforced By</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionRule#getEnforcedBy()
+	 * @see #getRetentionRule()
+	 * @generated
+	 */
+	EReference getRetentionRule_EnforcedBy();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.compliance.inventory.SourceRef <em>Source Ref</em>}'.
@@ -2498,6 +2776,26 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EEnum getCoverageKind();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.compliance.inventory.RetentionTrigger <em>Retention Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Retention Trigger</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionTrigger
+	 * @generated
+	 */
+	EEnum getRetentionTrigger();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.compliance.inventory.RetentionAction <em>Retention Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Retention Action</em>'.
+	 * @see org.eclipse.fennec.model.compliance.inventory.RetentionAction
+	 * @generated
+	 */
+	EEnum getRetentionAction();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.fennec.model.compliance.inventory.SourceKind <em>Source Kind</em>}'.
@@ -3133,6 +3431,14 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute PROCESSING_ACTIVITY__RETENTION = eINSTANCE.getProcessingActivity_Retention();
 
 		/**
+		 * The meta object literal for the '<em><b>Retention Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESSING_ACTIVITY__RETENTION_RULES = eINSTANCE.getProcessingActivity_RetentionRules();
+
+		/**
 		 * The meta object literal for the '<em><b>Models</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3163,6 +3469,96 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EReference PROCESSING_ACTIVITY__ASPECTS = eINSTANCE.getProcessingActivity_Aspects();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.inventory.impl.RetentionRuleImpl <em>Retention Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.compliance.inventory.impl.RetentionRuleImpl
+		 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionRule()
+		 * @generated
+		 */
+		EClass RETENTION_RULE = eINSTANCE.getRetentionRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__ID = eINSTANCE.getRetentionRule_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETENTION_RULE__DATA_CATEGORIES = eINSTANCE.getRetentionRule_DataCategories();
+
+		/**
+		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__PERIOD = eINSTANCE.getRetentionRule_Period();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__TRIGGER = eINSTANCE.getRetentionRule_Trigger();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__TRIGGER_DESCRIPTION = eINSTANCE.getRetentionRule_TriggerDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__ACTION = eINSTANCE.getRetentionRule_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Legal Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__LEGAL_REFERENCE = eINSTANCE.getRetentionRule_LegalReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Justification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETENTION_RULE__JUSTIFICATION = eINSTANCE.getRetentionRule_Justification();
+
+		/**
+		 * The meta object literal for the '<em><b>Assets</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETENTION_RULE__ASSETS = eINSTANCE.getRetentionRule_Assets();
+
+		/**
+		 * The meta object literal for the '<em><b>Enforced By</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETENTION_RULE__ENFORCED_BY = eINSTANCE.getRetentionRule_EnforcedBy();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.inventory.impl.SourceRefImpl <em>Source Ref</em>}' class.
@@ -3441,6 +3837,26 @@ public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EEnum COVERAGE_KIND = eINSTANCE.getCoverageKind();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.inventory.RetentionTrigger <em>Retention Trigger</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.compliance.inventory.RetentionTrigger
+		 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionTrigger()
+		 * @generated
+		 */
+		EEnum RETENTION_TRIGGER = eINSTANCE.getRetentionTrigger();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.inventory.RetentionAction <em>Retention Action</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.compliance.inventory.RetentionAction
+		 * @see org.eclipse.fennec.model.compliance.inventory.impl.InventoryPackageImpl#getRetentionAction()
+		 * @generated
+		 */
+		EEnum RETENTION_ACTION = eINSTANCE.getRetentionAction();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.inventory.SourceKind <em>Source Kind</em>}' enum.

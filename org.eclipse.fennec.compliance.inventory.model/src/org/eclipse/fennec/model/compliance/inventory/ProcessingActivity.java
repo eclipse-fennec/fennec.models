@@ -41,6 +41,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getThirdCountryTransfers <em>Third Country Transfers</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getRetention <em>Retention</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getRetentionRules <em>Retention Rules</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getModels <em>Models</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getAssets <em>Assets</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.ProcessingActivity#getMeasures <em>Measures</em>}</li>
@@ -233,7 +234,7 @@ public interface ProcessingActivity extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Retention periods.
+	 * Retention periods as a human-readable summary. The checkable form is retentionRules.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Retention</em>' attribute.
 	 * @see #setRetention(String)
@@ -252,6 +253,21 @@ public interface ProcessingActivity extends EObject {
 	 * @generated
 	 */
 	void setRetention(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Retention Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.fennec.model.compliance.inventory.RetentionRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Structured retention rules, one per group of data categories with the same period.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Retention Rules</em>' containment reference list.
+	 * @see org.eclipse.fennec.model.compliance.inventory.InventoryPackage#getProcessingActivity_RetentionRules()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RetentionRule> getRetentionRules();
 
 	/**
 	 * Returns the value of the '<em><b>Models</b></em>' containment reference list.

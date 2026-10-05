@@ -96,6 +96,15 @@ public interface InventoryFactory extends EFactory {
 	ProcessingActivity createProcessingActivity();
 
 	/**
+	 * Returns a new object of class '<em>Retention Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Retention Rule</em>'.
+	 * @generated
+	 */
+	RetentionRule createRetentionRule();
+
+	/**
 	 * Returns a new object of class '<em>Source Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

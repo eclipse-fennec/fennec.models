@@ -35,6 +35,7 @@ import org.eclipse.fennec.model.compliance.inventory.Asset;
 import org.eclipse.fennec.model.compliance.inventory.InventoryPackage;
 import org.eclipse.fennec.model.compliance.inventory.Measure;
 import org.eclipse.fennec.model.compliance.inventory.ProcessingActivity;
+import org.eclipse.fennec.model.compliance.inventory.RetentionRule;
 import org.eclipse.fennec.model.compliance.inventory.SourceRef;
 
 /**
@@ -55,6 +56,7 @@ import org.eclipse.fennec.model.compliance.inventory.SourceRef;
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getThirdCountryTransfers <em>Third Country Transfers</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getRetention <em>Retention</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getRetentionRules <em>Retention Rules</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getModels <em>Models</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getAssets <em>Assets</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.inventory.impl.ProcessingActivityImpl#getMeasures <em>Measures</em>}</li>
@@ -213,6 +215,16 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected String retention = RETENTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRetentionRules() <em>Retention Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRetentionRules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RetentionRule> retentionRules;
 
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' containment reference list.
@@ -459,6 +471,19 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
+	public EList<RetentionRule> getRetentionRules() {
+		if (retentionRules == null) {
+			retentionRules = new EObjectContainmentEList<RetentionRule>(RetentionRule.class, this, InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES);
+		}
+		return retentionRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<SourceRef> getModels() {
 		if (models == null) {
 			models = new EObjectContainmentEList<SourceRef>(SourceRef.class, this, InventoryPackage.PROCESSING_ACTIVITY__MODELS);
@@ -517,6 +542,8 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 				return ((InternalEList<?>)getLawfulBases()).basicRemove(otherEnd, msgs);
 			case InventoryPackage.PROCESSING_ACTIVITY__DATA_CATEGORIES:
 				return ((InternalEList<?>)getDataCategories()).basicRemove(otherEnd, msgs);
+			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES:
+				return ((InternalEList<?>)getRetentionRules()).basicRemove(otherEnd, msgs);
 			case InventoryPackage.PROCESSING_ACTIVITY__MODELS:
 				return ((InternalEList<?>)getModels()).basicRemove(otherEnd, msgs);
 			case InventoryPackage.PROCESSING_ACTIVITY__ASPECTS:
@@ -553,6 +580,8 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 				return getThirdCountryTransfers();
 			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION:
 				return getRetention();
+			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES:
+				return getRetentionRules();
 			case InventoryPackage.PROCESSING_ACTIVITY__MODELS:
 				return getModels();
 			case InventoryPackage.PROCESSING_ACTIVITY__ASSETS:
@@ -608,6 +637,10 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 				return;
 			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION:
 				setRetention((String)newValue);
+				return;
+			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES:
+				getRetentionRules().clear();
+				getRetentionRules().addAll((Collection<? extends RetentionRule>)newValue);
 				return;
 			case InventoryPackage.PROCESSING_ACTIVITY__MODELS:
 				getModels().clear();
@@ -667,6 +700,9 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION:
 				setRetention(RETENTION_EDEFAULT);
 				return;
+			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES:
+				getRetentionRules().clear();
+				return;
 			case InventoryPackage.PROCESSING_ACTIVITY__MODELS:
 				getModels().clear();
 				return;
@@ -711,6 +747,8 @@ public class ProcessingActivityImpl extends MinimalEObjectImpl.Container impleme
 				return thirdCountryTransfers != null && !thirdCountryTransfers.isEmpty();
 			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION:
 				return RETENTION_EDEFAULT == null ? retention != null : !RETENTION_EDEFAULT.equals(retention);
+			case InventoryPackage.PROCESSING_ACTIVITY__RETENTION_RULES:
+				return retentionRules != null && !retentionRules.isEmpty();
 			case InventoryPackage.PROCESSING_ACTIVITY__MODELS:
 				return models != null && !models.isEmpty();
 			case InventoryPackage.PROCESSING_ACTIVITY__ASSETS:

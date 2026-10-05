@@ -537,7 +537,13 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retention" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Retention periods."/>
+        <details key="documentation" value="Retention periods as a human-readable summary. The checkable form is retentionRules."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="retentionRules" upperBound="-1"
+        eType="#//RetentionRule" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Structured retention rules, one per group of data categories with the same period."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
@@ -564,6 +570,135 @@
         <details key="documentation" value="Context-specific extensions, e.g. a DPIA."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RetentionRule">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="One retention rule of a processing activity: how long which data is kept, when the period starts, what happens at its end, and which measure enforces it. Makes storage limitation (GDPR Art. 5(1)(e)) and erasure (Art. 17) checkable."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Identifier, unique within the inventory. EMF ID: unique within the whole inventory resource, also across assets, measures, processing activities and other retention rules; a prefix such as ret: avoids collisions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataCategories" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Which data the rule covers, from the data-category taxonomy of the GDPR context. Empty means all data of the processing activity."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retention period as an ISO 8601 duration, e.g. P30D, P24M, P10Y; maps to java.time.Period or Duration. Empty only with trigger INDEFINITE. The format is checked by validation, not by the model."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1" eType="#//RetentionTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When the period starts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The concrete event that starts the period, for trigger EVENT."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" lowerBound="1" eType="#//RetentionAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What happens to the data when the period ends."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legalReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Legal basis for the period, e.g. &quot;§ 257 HGB&quot;, &quot;§ 147 AO&quot;, &quot;Art. 17(3)(b) GDPR&quot;. Free text, because these laws are not contexts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="justification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Why the period is necessary. Required in practice for trigger INDEFINITE."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assets" upperBound="-1"
+        eType="#//Asset">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Where the data covered by the rule is stored."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enforcedBy" upperBound="-1"
+        eType="#//Measure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The measures (TOMs) that implement the action, e.g. a deletion job. A rule without one is reported as a finding."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RetentionTrigger">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="When the retention period of a rule starts."/>
+    </eAnnotations>
+    <eLiterals name="COLLECTION">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts when the data is collected."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="END_OF_PURPOSE" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts when the purpose of the processing is fulfilled."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="END_OF_CONTRACT" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts when the contract with the data subject ends."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ACCOUNT_DELETION" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts when the account of the data subject is deleted."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="END_OF_CALENDAR_YEAR" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts at the end of the calendar year in which the data was created, as for statutory retention under HGB and AO."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="EVENT" value="5">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period starts with another event, described in triggerDescription."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="INDEFINITE" value="6">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data is kept without a time limit. Requires a justification."/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RetentionAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="What happens to the data when the retention period ends."/>
+    </eAnnotations>
+    <eLiterals name="DELETE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data is deleted (Art. 17)."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ANONYMISE" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data is anonymised, so it is no longer personal data."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="PSEUDONYMISE" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data is pseudonymised (Art. 4(5))."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="RESTRICT" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Processing is restricted (Art. 18)."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ARCHIVE" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data is moved to an archive with restricted access."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SourceKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
