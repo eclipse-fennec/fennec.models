@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = ReportPackage.eNS_URI, fingerprint = "fp1:49cbf831a6ed44be3444a3005cc9e5103e4214bf14941fafc150284ebbd7c5a7", genModel = "/model/report.genmodel", genModelSourceLocations = {"model/report.genmodel","org.eclipse.fennec.compliance.report.model/model/report.genmodel"}, ecore = "/model/report.ecore", ecoreSourceLocations = "/model/report.ecore")
+@EPackage(uri = ReportPackage.eNS_URI, fingerprint = "fp1:1896e5bb1e1485207ad03d19d67c7d3829cf3242074d46fc28f5e342a36a4f90", genModel = "/model/report.genmodel", genModelSourceLocations = {"model/report.genmodel","org.eclipse.fennec.compliance.report.model/model/report.genmodel"}, ecore = "/model/report.ecore", ecoreSourceLocations = "/model/report.ecore")
 public interface ReportPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -175,13 +175,22 @@ public interface ReportPackage extends org.eclipse.emf.ecore.EPackage {
 	int COMPLIANCE_REPORT__CONTEXTS = 9;
 
 	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLIANCE_REPORT__LANGUAGE = 10;
+
+	/**
 	 * The number of structural features of the '<em>Compliance Report</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLIANCE_REPORT_FEATURE_COUNT = 10;
+	int COMPLIANCE_REPORT_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Compliance Report</em>' class.
@@ -1913,6 +1922,17 @@ public interface ReportPackage extends org.eclipse.emf.ecore.EPackage {
 	EReference getComplianceReport_Contexts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.eclipse.fennec.model.compliance.report.ComplianceReport#getLanguage()
+	 * @see #getComplianceReport()
+	 * @generated
+	 */
+	EAttribute getComplianceReport_Language();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.compliance.report.Subject <em>Subject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3199,6 +3219,14 @@ public interface ReportPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EReference COMPLIANCE_REPORT__CONTEXTS = eINSTANCE.getComplianceReport_Contexts();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLIANCE_REPORT__LANGUAGE = eINSTANCE.getComplianceReport_Language();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.report.impl.SubjectImpl <em>Subject</em>}' class.

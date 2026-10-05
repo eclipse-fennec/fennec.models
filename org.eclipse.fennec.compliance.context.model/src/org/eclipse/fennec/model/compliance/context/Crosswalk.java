@@ -56,7 +56,7 @@ public interface Crosswalk extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.fennec.model.compliance.context.ContextPackage#getCrosswalk_Id()
-	 * @model required="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getId();

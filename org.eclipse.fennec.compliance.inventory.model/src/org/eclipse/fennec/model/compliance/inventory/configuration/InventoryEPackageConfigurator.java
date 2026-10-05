@@ -38,7 +38,7 @@ public class InventoryEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:ab9d1ff5e4a9008aff9487ac1c7da2bcbc1cc1fa969f80e60b14ce0f3ea490f2";
+	public static final String FINGERPRINT = "fp1:8498e5f1573230603dde2a0f1f38a46efccfb14af28e19eaf75857a02a3112d2";
 
 	private InventoryPackage ePackage;
 

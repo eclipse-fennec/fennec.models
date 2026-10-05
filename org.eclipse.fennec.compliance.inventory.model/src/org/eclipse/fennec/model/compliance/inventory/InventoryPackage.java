@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = InventoryPackage.eNS_URI, fingerprint = "fp1:ab9d1ff5e4a9008aff9487ac1c7da2bcbc1cc1fa969f80e60b14ce0f3ea490f2", genModel = "/model/inventory.genmodel", genModelSourceLocations = {"model/inventory.genmodel","org.eclipse.fennec.compliance.inventory.model/model/inventory.genmodel"}, ecore = "/model/inventory.ecore", ecoreSourceLocations = "/model/inventory.ecore")
+@EPackage(uri = InventoryPackage.eNS_URI, fingerprint = "fp1:8498e5f1573230603dde2a0f1f38a46efccfb14af28e19eaf75857a02a3112d2", genModel = "/model/inventory.genmodel", genModelSourceLocations = {"model/inventory.genmodel","org.eclipse.fennec.compliance.inventory.model/model/inventory.genmodel"}, ecore = "/model/inventory.ecore", ecoreSourceLocations = "/model/inventory.ecore")
 public interface InventoryPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.

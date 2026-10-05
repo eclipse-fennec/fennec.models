@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.fennec.model.compliance.context.ContextPackage;
 
+import org.eclipse.fennec.model.compliance.corpus.CorpusPackage;
+
 import org.eclipse.fennec.model.compliance.inventory.Aspect;
 import org.eclipse.fennec.model.compliance.inventory.Asset;
 import org.eclipse.fennec.model.compliance.inventory.AssetRelation;
@@ -238,6 +240,7 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 
 		// Initialize simple dependencies
 		ContextPackage.eINSTANCE.eClass();
+		CorpusPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theInventoryPackage.createPackageContents();
@@ -1542,7 +1545,7 @@ public class InventoryPackageImpl extends EPackageImpl implements InventoryPacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inventoryEClass, Inventory.class, "Inventory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInventory_Id(), ecorePackage.getEString(), "id", null, 1, 1, Inventory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInventory_Id(), ecorePackage.getEString(), "id", null, 1, 1, Inventory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInventory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Inventory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInventory_Description(), ecorePackage.getEString(), "description", null, 0, 1, Inventory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInventory_Scope(), ecorePackage.getEString(), "scope", null, 0, 1, Inventory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

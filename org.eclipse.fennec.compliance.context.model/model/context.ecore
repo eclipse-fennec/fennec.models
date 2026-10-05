@@ -1,485 +1,517 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0" name="context" nsURI="https://org.eclipse/fennec/compliance/context/1.0.0" nsPrefix="context">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="context" nsURI="https://org.eclipse/fennec/compliance/context/1.0.0"
+    nsPrefix="context">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="A compliance context (GDPR, Grundschutz++, ISO 27001, CRA, AI Act, KRITIS, BSI TR, ...): the corpora it cites, the requirements derived from them, its taxonomies and roles. Also the crosswalks between contexts and the by-id references other models use to point into a context." />
+    <details key="documentation" value="A compliance context (GDPR, Grundschutz++, ISO 27001, CRA, AI Act, KRITIS, BSI TR, ...): the corpora it cites, the requirements derived from them, its taxonomies and roles. Also the crosswalks between contexts and the by-id references other models use to point into a context."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EEnum" name="ContextKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="What kind of regime a context represents." />
+      <details key="documentation" value="What kind of regime a context represents."/>
     </eAnnotations>
     <eLiterals name="REGULATION">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Binding law, e.g. GDPR, CRA, AI Act, KRITIS." />
+        <details key="documentation" value="Binding law, e.g. GDPR, CRA, AI Act, KRITIS."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="STANDARD" value="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A standard or certification scheme, e.g. ISO/IEC 27001, BSI IT-Grundschutz." />
+        <details key="documentation" value="A standard or certification scheme, e.g. ISO/IEC 27001, BSI IT-Grundschutz."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="TECHNICAL_GUIDELINE" value="2">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A technical guideline, e.g. a BSI TR." />
+        <details key="documentation" value="A technical guideline, e.g. a BSI TR."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="MINIMUM_STANDARD" value="3">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A minimum standard binding for an administration, e.g. under § 44 BSIG." />
+        <details key="documentation" value="A minimum standard binding for an administration, e.g. under § 44 BSIG."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="OTHER" value="4">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Anything else." />
+        <details key="documentation" value="Anything else."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Origin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Where a curated element comes from." />
+      <details key="documentation" value="Where a curated element comes from."/>
     </eAnnotations>
     <eLiterals name="SOURCE">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Taken unchanged from a machine-readable source, e.g. an OSCAL catalog or mapping." />
+        <details key="documentation" value="Taken unchanged from a machine-readable source, e.g. an OSCAL catalog or mapping."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="AI_AGENT" value="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Derived by an agent. Counts only after a person confirmed it." />
+        <details key="documentation" value="Derived by an agent. Counts only after a person confirmed it."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="HUMAN" value="2">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Written by a person." />
+        <details key="documentation" value="Written by a person."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplianceContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="One version of one compliance context. Stored as its own XMI in a model.atlas registry; reports and inventories refer to it by id and version." />
+      <details key="documentation" value="One version of one compliance context. Stored as its own XMI in a model.atlas registry; reports and inventories refer to it by id and version."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Stable identifier, e.g. gdpr, grundschutz-plusplus, iso27001, bsi-tr-03183." />
+        <details key="documentation" value="Stable identifier, e.g. gdpr, grundschutz-plusplus, iso27001, bsi-tr-03183."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Display name." />
+        <details key="documentation" value="Display name."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Version of the context. A new consolidation of a corpus is a new version." />
+        <details key="documentation" value="Version of the context. A new consolidation of a corpus is a new version."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="What the context covers." />
+        <details key="documentation" value="What the context covers."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ContextKind">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="What kind of regime this is." />
+        <details key="documentation" value="What kind of regime this is."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="jurisdiction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Where the context applies, e.g. EU, DE." />
+        <details key="documentation" value="Where the context applies, e.g. EU, DE."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceLanguage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Language of the corpus versions that requirements and categories cite, e.g. EN. Other language versions of the same work resolve the same citationIds for display." />
+        <details key="documentation" value="Language of the corpus versions that requirements and categories cite, e.g. EN. Other language versions of the same work resolve the same citationIds for display."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="licence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Licence of the context data. For a context without corpus (ISO 27001), states why." />
+        <details key="documentation" value="Licence of the context data. For a context without corpus (ISO 27001), states why."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The attribution the licences of the context and its corpora require." />
+        <details key="documentation" value="The attribution the licences of the context and its corpora require."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="corpora" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Corpus" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="corpora" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Corpus"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The texts this context cites. Empty when the text may not be redistributed; the requirements then carry our own titles and paraphrases." />
+        <details key="documentation" value="The texts this context cites. Empty when the text may not be redistributed; the requirements then carry our own titles and paraphrases."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementGroups" upperBound="-1" eType="#//RequirementGroup" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementGroups" upperBound="-1"
+        eType="#//RequirementGroup" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Structure of the requirements, e.g. the practices of Grundschutz++ or the chapters of a TR." />
+        <details key="documentation" value="Structure of the requirements, e.g. the practices of Grundschutz++ or the chapters of a TR."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1" eType="#//Requirement" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Requirement" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Requirements not held by a group." />
+        <details key="documentation" value="Requirements not held by a group."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taxonomies" upperBound="-1" eType="#//Taxonomy" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taxonomies" upperBound="-1"
+        eType="#//Taxonomy" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Classifications of this context: data categories, lawful bases, target object types, risk classes, mechanisms." />
+        <details key="documentation" value="Classifications of this context: data categories, lawful bases, target object types, risk classes, mechanisms."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1" eType="#//Role" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Roles the context names, e.g. data protection officer, CISO." />
+        <details key="documentation" value="Roles the context names, e.g. data protection officer, CISO."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementGroup">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A group of requirements." />
+      <details key="documentation" value="A group of requirements."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier of the group, unique within the context." />
+        <details key="documentation" value="Identifier of the group, unique within the context."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Title of the group." />
+        <details key="documentation" value="Title of the group."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Description of the group." />
+        <details key="documentation" value="Description of the group."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1" eType="#//RequirementGroup" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//RequirementGroup" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Nested groups." />
+        <details key="documentation" value="Nested groups."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1" eType="#//Requirement" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Requirement" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Requirements of the group." />
+        <details key="documentation" value="Requirements of the group."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="One requirement of a context: what an inventory has to satisfy. For an OSCAL catalog it maps 1:1 to a control; for legal texts and technical documents it is derived and confirmed by a person. Measures, applicability and findings refer to it by context id and requirement id." />
+      <details key="documentation" value="One requirement of a context: what an inventory has to satisfy. For an OSCAL catalog it maps 1:1 to a control; for legal texts and technical documents it is derived and confirmed by a person. Measures, applicability and findings refer to it by context id and requirement id."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier, unique within the context, e.g. KONF.1.1, A.5.1, GDPR-32-1-a. EMF ID, so references to it inside the context XMI are written by id." />
+        <details key="documentation" value="Identifier, unique within the context, e.g. KONF.1.1, A.5.1, GDPR-32-1-a. EMF ID, so references to it inside the context XMI are written by id."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Short title. For copyrighted sources (ISO 27001) our own title." />
+        <details key="documentation" value="Short title. For copyrighted sources (ISO 27001) our own title."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="statement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="What is required. For copyrighted sources a paraphrase or empty." />
+        <details key="documentation" value="What is required. For copyrighted sources a paraphrase or empty."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="guidance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="How the requirement is usually met." />
+        <details key="documentation" value="How the requirement is usually met."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Level or obligation, e.g. normal-SdT / erhoeht (Grundschutz++), MUSS / SOLL (TR)." />
+        <details key="documentation" value="Level or obligation, e.g. normal-SdT / erhoeht (Grundschutz++), MUSS / SOLL (TR)."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cites" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Citable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cites" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Citable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The corpus units this requirement is based on. Empty for a context without corpus." />
+        <details key="documentation" value="The corpus units this requirement is based on. Empty for a context without corpus."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesTo" upperBound="-1" eType="#//Category">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesTo" upperBound="-1"
+        eType="#//Category">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The categories (e.g. BSI target object types) the requirement applies to." />
+        <details key="documentation" value="The categories (e.g. BSI target object types) the requirement applies to."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Property" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Property"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Further properties, e.g. effort level." />
+        <details key="documentation" value="Further properties, e.g. effort level."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Start of validity as ISO-8601 date, if the requirement is time bound." />
+        <details key="documentation" value="Start of validity as ISO-8601 date, if the requirement is time bound."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validUntil" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="End of validity as ISO-8601 date or year, e.g. 2031 for a mechanism of TR-02102. A measure relying on it becomes a finding after that date." />
+        <details key="documentation" value="End of validity as ISO-8601 date or year, e.g. 2031 for a mechanism of TR-02102. A measure relying on it becomes a finding after that date."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//Origin">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Where the requirement comes from." />
+        <details key="documentation" value="Where the requirement comes from."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Who confirmed a derived requirement." />
+        <details key="documentation" value="Who confirmed a derived requirement."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="When it was confirmed, as ISO-8601 date-time." />
+        <details key="documentation" value="When it was confirmed, as ISO-8601 date-time."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Taxonomy">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A classification of the context, as data so it can evolve without regenerating code." />
+      <details key="documentation" value="A classification of the context, as data so it can evolve without regenerating code."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier, unique within the context, e.g. data-category, lawful-basis, target-object-type." />
+        <details key="documentation" value="Identifier, unique within the context, e.g. data-category, lawful-basis, target-object-type."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Display name." />
+        <details key="documentation" value="Display name."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="What is classified." />
+        <details key="documentation" value="What is classified."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1" eType="#//Category" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
+        eType="#//Category" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Top-level categories." />
+        <details key="documentation" value="Top-level categories."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="One category of a taxonomy, possibly with subcategories." />
+      <details key="documentation" value="One category of a taxonomy, possibly with subcategories."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier, unique within the taxonomy, e.g. SPECIAL_CATEGORY, ART6_1_A or the BSI UUID of a target object type." />
+        <details key="documentation" value="Identifier, unique within the taxonomy, e.g. SPECIAL_CATEGORY, ART6_1_A or the BSI UUID of a target object type."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Display name." />
+        <details key="documentation" value="Display name."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="What the category means." />
+        <details key="documentation" value="What the category means."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Optional kind, e.g. Technisch / Organisatorisch for BSI target object types." />
+        <details key="documentation" value="Optional kind, e.g. Technisch / Organisatorisch for BSI target object types."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cites" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Citable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cites" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Citable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The corpus units that define the category, e.g. Art.6(1)(a) for a lawful basis." />
+        <details key="documentation" value="The corpus units that define the category, e.g. Art.6(1)(a) for a lawful basis."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1" eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Property" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.ecore#//Property"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Structured attributes, e.g. key length for a TR-02102 mechanism." />
+        <details key="documentation" value="Structured attributes, e.g. key length for a TR-02102 mechanism."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Start of validity as ISO-8601 date." />
+        <details key="documentation" value="Start of validity as ISO-8601 date."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validUntil" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="End of validity as ISO-8601 date or year." />
+        <details key="documentation" value="End of validity as ISO-8601 date or year."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1" eType="#//Category" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Category" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Subcategories." />
+        <details key="documentation" value="Subcategories."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A role named by the context." />
+      <details key="documentation" value="A role named by the context."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier, unique within the context." />
+        <details key="documentation" value="Identifier, unique within the context."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Display name." />
+        <details key="documentation" value="Display name."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Responsibilities of the role." />
+        <details key="documentation" value="Responsibilities of the role."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MappingRelationship">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="How the source requirement relates to the target requirement, following the OSCAL mapping model and NIST IR 8477. Read as: source RELATIONSHIP target." />
+      <details key="documentation" value="How the source requirement relates to the target requirement, following the OSCAL mapping model and NIST IR 8477. Read as: source RELATIONSHIP target."/>
     </eAnnotations>
     <eLiterals name="EQUIVALENT">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Source and target require the same. Satisfying the source covers the target." />
+        <details key="documentation" value="Source and target require the same. Satisfying the source covers the target."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="SUBSET" value="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The source requires less than the target. Satisfying the source covers the target at most partly." />
+        <details key="documentation" value="The source requires less than the target. Satisfying the source covers the target at most partly."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="SUPERSET" value="2">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The source requires more than the target. Satisfying the source covers the target." />
+        <details key="documentation" value="The source requires more than the target. Satisfying the source covers the target."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="INTERSECTS" value="3">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Source and target overlap. Satisfying the source covers the target at most partly." />
+        <details key="documentation" value="Source and target overlap. Satisfying the source covers the target at most partly."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="NO_RELATIONSHIP" value="4">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Source and target are unrelated; recorded so the absence is explicit." />
+        <details key="documentation" value="Source and target are unrelated; recorded so the absence is explicit."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Crosswalk">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A mapping from the requirements of one context to another, e.g. ISO 27001 Annex A to Grundschutz++. Stored as its own XMI; imported from an OSCAL mapping-collection where one exists." />
+      <details key="documentation" value="A mapping from the requirements of one context to another, e.g. ISO 27001 Annex A to Grundschutz++. Stored as its own XMI; imported from an OSCAL mapping-collection where one exists."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier of the crosswalk." />
+        <details key="documentation" value="Identifier of the crosswalk."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Display name." />
+        <details key="documentation" value="Display name."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Version of the crosswalk." />
+        <details key="documentation" value="Version of the crosswalk."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Scope and method of the mapping." />
+        <details key="documentation" value="Scope and method of the mapping."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="licence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Licence of the mapping data." />
+        <details key="documentation" value="Licence of the mapping data."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribution the licence requires." />
+        <details key="documentation" value="Attribution the licence requires."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1" eType="#//ContextRef" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//ContextRef" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The context the mappings start from." />
+        <details key="documentation" value="The context the mappings start from."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1" eType="#//ContextRef" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//ContextRef" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The context the mappings point to." />
+        <details key="documentation" value="The context the mappings point to."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1" eType="#//RequirementMapping" containment="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//RequirementMapping" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The mappings." />
+        <details key="documentation" value="The mappings."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementMapping">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="One mapping between a requirement of the source context and one of the target context. Coverage derived through it counts automatically only for EQUIVALENT and SUPERSET." />
+      <details key="documentation" value="One mapping between a requirement of the source context and one of the target context. Coverage derived through it counts automatically only for EQUIVALENT and SUPERSET."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRequirementId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRequirementId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Requirement id in the source context." />
+        <details key="documentation" value="Requirement id in the source context."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRequirementId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRequirementId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Requirement id in the target context." />
+        <details key="documentation" value="Requirement id in the target context."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationship" lowerBound="1" eType="#//MappingRelationship">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationship" lowerBound="1"
+        eType="#//MappingRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="How source relates to target." />
+        <details key="documentation" value="How source relates to target."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Explanation, e.g. which aspect of the target is not covered." />
+        <details key="documentation" value="Explanation, e.g. which aspect of the target is not covered."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//Origin">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Where the mapping comes from." />
+        <details key="documentation" value="Where the mapping comes from."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Who confirmed a derived mapping." />
+        <details key="documentation" value="Who confirmed a derived mapping."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="When it was confirmed, as ISO-8601 date-time." />
+        <details key="documentation" value="When it was confirmed, as ISO-8601 date-time."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextRef">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Points at a context by id and version, without an EMF reference, so that the referring model survives a new version of the context." />
+      <details key="documentation" value="Points at a context by id and version, without an EMF reference, so that the referring model survives a new version of the context."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Id of the context." />
+        <details key="documentation" value="Id of the context."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Version of the context. Unset means the current version." />
+        <details key="documentation" value="Version of the context. Unset means the current version."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementRef" eSuperTypes="#//ContextRef">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Points at a requirement of a context by id." />
+      <details key="documentation" value="Points at a requirement of a context by id."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirementId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Id of the requirement within the context." />
+        <details key="documentation" value="Id of the requirement within the context."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryRef" eSuperTypes="#//ContextRef">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Points at a category of a context taxonomy by id." />
+      <details key="documentation" value="Points at a category of a context taxonomy by id."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taxonomyId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taxonomyId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Id of the taxonomy within the context." />
+        <details key="documentation" value="Id of the taxonomy within the context."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="categoryId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="categoryId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Id of the category within the taxonomy." />
+        <details key="documentation" value="Id of the category within the taxonomy."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

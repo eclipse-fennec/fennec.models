@@ -61,7 +61,7 @@ public interface Inventory extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.fennec.model.compliance.inventory.InventoryPackage#getInventory_Id()
-	 * @model required="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getId();

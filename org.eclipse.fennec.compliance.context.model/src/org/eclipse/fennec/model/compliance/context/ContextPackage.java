@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = ContextPackage.eNS_URI, fingerprint = "fp1:e625817f27082f644ce317171372102b1f1d6a68a54e236651d7cb2e12bb1e1a", genModel = "/model/context.genmodel", genModelSourceLocations = {"model/context.genmodel","org.eclipse.fennec.compliance.context.model/model/context.genmodel"}, ecore = "/model/context.ecore", ecoreSourceLocations = "/model/context.ecore")
+@EPackage(uri = ContextPackage.eNS_URI, fingerprint = "fp1:ad2d1f50a74ce711641af222f2df2a4313a84e8c3e58ab36e1cbdc57f801bfa5", genModel = "/model/context.genmodel", genModelSourceLocations = {"model/context.genmodel","org.eclipse.fennec.compliance.context.model/model/context.genmodel"}, ecore = "/model/context.ecore", ecoreSourceLocations = "/model/context.ecore")
 public interface ContextPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.

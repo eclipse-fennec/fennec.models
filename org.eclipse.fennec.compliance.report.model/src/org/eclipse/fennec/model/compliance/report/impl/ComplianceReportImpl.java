@@ -53,6 +53,7 @@ import org.eclipse.fennec.model.compliance.report.Subject;
  *   <li>{@link org.eclipse.fennec.model.compliance.report.impl.ComplianceReportImpl#getDisclaimer <em>Disclaimer</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.report.impl.ComplianceReportImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.report.impl.ComplianceReportImpl#getContexts <em>Contexts</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.report.impl.ComplianceReportImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -217,6 +218,26 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EList<ContextRef> contexts;
+
+	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LANGUAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String language = LANGUAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -465,6 +486,29 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	public String getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLanguage(String newLanguage) {
+		String oldLanguage = language;
+		language = newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportPackage.COMPLIANCE_REPORT__LANGUAGE, oldLanguage, language));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ReportPackage.COMPLIANCE_REPORT__SUBJECT:
@@ -507,6 +551,8 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 				return getOrigin();
 			case ReportPackage.COMPLIANCE_REPORT__CONTEXTS:
 				return getContexts();
+			case ReportPackage.COMPLIANCE_REPORT__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -553,6 +599,9 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 				getContexts().clear();
 				getContexts().addAll((Collection<? extends ContextRef>)newValue);
 				return;
+			case ReportPackage.COMPLIANCE_REPORT__LANGUAGE:
+				setLanguage((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -595,6 +644,9 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 			case ReportPackage.COMPLIANCE_REPORT__CONTEXTS:
 				getContexts().clear();
 				return;
+			case ReportPackage.COMPLIANCE_REPORT__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -627,6 +679,8 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 				return origin != ORIGIN_EDEFAULT;
 			case ReportPackage.COMPLIANCE_REPORT__CONTEXTS:
 				return contexts != null && !contexts.isEmpty();
+			case ReportPackage.COMPLIANCE_REPORT__LANGUAGE:
+				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -653,6 +707,8 @@ public class ComplianceReportImpl extends MinimalEObjectImpl.Container implement
 		result.append(disclaimer);
 		result.append(", origin: ");
 		result.append(origin);
+		result.append(", language: ");
+		result.append(language);
 		result.append(')');
 		return result.toString();
 	}

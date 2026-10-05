@@ -41,6 +41,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getDisclaimer <em>Disclaimer</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getContexts <em>Contexts</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.compliance.report.ReportPackage#getComplianceReport()
@@ -271,5 +272,30 @@ public interface ComplianceReport extends EObject {
 	 * @generated
 	 */
 	EList<ContextRef> getContexts();
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The language the report is written in. That may differ from the language of the corpus (e.g. a report can be written with the prose text in English but have the evidences for the findings from a German corpus, and so those evidences in German)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see #setLanguage(String)
+	 * @see org.eclipse.fennec.model.compliance.report.ReportPackage#getComplianceReport_Language()
+	 * @model
+	 * @generated
+	 */
+	String getLanguage();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.compliance.report.ComplianceReport#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(String value);
 
 } // ComplianceReport
