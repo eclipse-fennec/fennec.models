@@ -38,6 +38,7 @@
       <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/COMPLETED"/>
       <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/FAILED"/>
       <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/EXHAUSTED"/>
+      <genEnumLiterals ecoreEnumLiteral="report.ecore#//RequestStatusType/QUEUED"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="report.ecore#//ReportOrigin">
       <genEnumLiterals ecoreEnumLiteral="report.ecore#//ReportOrigin/UNKNOWN"/>
