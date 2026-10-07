@@ -1874,6 +1874,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.COMPLETED);
 		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.FAILED);
 		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.EXHAUSTED);
+		addEEnumLiteral(requestStatusTypeEEnum, RequestStatusType.QUEUED);
 
 		initEEnum(reportOriginEEnum, ReportOrigin.class, "ReportOrigin");
 		addEEnumLiteral(reportOriginEEnum, ReportOrigin.UNKNOWN);
@@ -2466,6 +2467,12 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		   source,
 		   new String[] {
 			   "documentation", "The run was still unfinished after the allowed number of continuations and was given up on. Whatever it had recorded was never sealed, so there is no report; raising the ceiling or reviewing a smaller model is the way forward."
+		   });
+		addAnnotation
+		  (requestStatusTypeEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "When a review had been queued, but not yet submitted. "
 		   });
 		addAnnotation
 		  (reportOriginEEnum,

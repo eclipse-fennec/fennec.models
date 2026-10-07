@@ -82,7 +82,20 @@ public enum RequestStatusType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXHAUSTED(3, "EXHAUSTED", "EXHAUSTED");
+	EXHAUSTED(3, "EXHAUSTED", "EXHAUSTED"),
+
+	/**
+	 * The '<em><b>QUEUED</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When a review had been queued, but not yet submitted. 
+	 * <!-- end-model-doc -->
+	 * @see #QUEUED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUEUED(4, "QUEUED", "QUEUED");
 
 	/**
 	 * The '<em><b>SUBMITTED</b></em>' literal value.
@@ -141,6 +154,20 @@ public enum RequestStatusType implements Enumerator {
 	public static final int EXHAUSTED_VALUE = 3;
 
 	/**
+	 * The '<em><b>QUEUED</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When a review had been queued, but not yet submitted. 
+	 * <!-- end-model-doc -->
+	 * @see #QUEUED
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUEUED_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Request Status Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +179,7 @@ public enum RequestStatusType implements Enumerator {
 			COMPLETED,
 			FAILED,
 			EXHAUSTED,
+			QUEUED,
 		};
 
 	/**
@@ -212,6 +240,7 @@ public enum RequestStatusType implements Enumerator {
 			case COMPLETED_VALUE: return COMPLETED;
 			case FAILED_VALUE: return FAILED;
 			case EXHAUSTED_VALUE: return EXHAUSTED;
+			case QUEUED_VALUE: return QUEUED;
 		}
 		return null;
 	}
