@@ -40,7 +40,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = ReportPackage.eNS_URI, fingerprint = "fp1:1896e5bb1e1485207ad03d19d67c7d3829cf3242074d46fc28f5e342a36a4f90", genModel = "/model/report.genmodel", genModelSourceLocations = {"model/report.genmodel","org.eclipse.fennec.compliance.report.model/model/report.genmodel"}, ecore = "/model/report.ecore", ecoreSourceLocations = "/model/report.ecore")
+@EPackage(uri = ReportPackage.eNS_URI, fingerprint = "fp1:18070ab8e1c84bee8ff30df4c50a341af975f5017056699e3479c594b575cc1a", genModel = "/model/report.genmodel", genModelSourceLocations = {"model/report.genmodel","org.eclipse.fennec.compliance.report.model/model/report.genmodel"}, ecore = "/model/report.ecore", ecoreSourceLocations = "/model/report.ecore")
 public interface ReportPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
