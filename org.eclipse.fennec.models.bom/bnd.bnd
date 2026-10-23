@@ -1,0 +1,9 @@
+-include: \
+	${.}/../org.eclipse.fennec.models.library/buildpath.bnd
+
+-diffignore: */pom.properties
+
+-resourceonly: true
+
+Bundle-Name: Fennec EMF Models BOM
+Bundle-Description: Maven BOM with dependencies to all Fennec-own models
