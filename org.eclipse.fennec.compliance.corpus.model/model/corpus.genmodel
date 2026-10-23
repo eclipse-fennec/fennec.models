@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#10;&#10;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#10;&#10;SPDX-License-Identifier: EPL-2.0&#10;&#10;Contributors:&#10;  Data In Motion Consulting - initial implementation" modelDirectory="/org.eclipse.fennec.compliance.corpus.model/src" modelPluginID="org.eclipse.fennec.compliance.corpus.model" modelName="Corpus" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <foreignModel>corpus.ecore</foreignModel>
+  <genPackages prefix="Corpus" basePackage="org.eclipse.fennec.model.compliance" resource="XMI" disposableProviderFactory="true" ecorePackage="corpus.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="corpus.ecore#//DivisionLevel">
+      <genEnumLiterals ecoreEnumLiteral="corpus.ecore#//DivisionLevel/CHAPTER" />
+      <genEnumLiterals ecoreEnumLiteral="corpus.ecore#//DivisionLevel/SECTION" />
+    </genEnums>
+    <genClasses ecoreClass="corpus.ecore#//LegalAct">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalAct/consolidatedDate" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalAct/formexSchema" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalAct/closingFormula" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalAct/citations" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//LegalAct/recitals" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//LegalAct/divisions" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//LegalAct/definitions" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//LegalAct/annexes" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Citable" image="false">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Citable/citationId" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//Citable/cites" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//Citable/citedBy" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//LegalUnit" image="false">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalUnit/text" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalUnit/sourceRef" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//LegalUnit/modifiedBy" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//LegalUnit/footnotes" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Recital">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Recital/number" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Article">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Article/number" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Article/heading" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Article/paragraphs" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Article/points" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Paragraph/number" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Paragraph/points" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Point/label" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Point/points" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//Point/definition" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Division">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Division/level" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Division/number" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Division/heading" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Division/divisions" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Division/articles" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Definition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Definition/term" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Definition/number" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//Definition/definedIn" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//CrossReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//CrossReference/source" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/rawText" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/targetCitationId" />
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference corpus.ecore#//CrossReference/target" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/resolved" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/relative" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/external" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//CrossReference/instrument" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Footnote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Footnote/noteId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Footnote/text" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Corpus" image="false">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/id" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/workId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/title" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/language" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/version" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/source" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/licence" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Corpus/attribution" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Corpus/crossReferences" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Annex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Annex/number" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Annex/heading" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Annex/sections" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Annex/points" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//AnnexSection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//AnnexSection/number" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//AnnexSection/heading" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//AnnexSection/sections" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//AnnexSection/points" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Property/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Property/value" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Property/ns" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Property/propertyClass" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Property/remarks" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//ControlCatalog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlCatalog/oscalVersion" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlCatalog/properties" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlCatalog/groups" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlCatalog/controls" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//ControlGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlGroup/title" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlGroup/groupClass" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlGroup/properties" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlGroup/parts" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlGroup/groups" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlGroup/controls" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//Control">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Control/title" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//Control/controlClass" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Control/properties" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Control/parameters" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Control/parts" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//Control/controls" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//ControlPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlPart/name" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlPart/title" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlPart/prose" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlPart/properties" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlPart/parts" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//ControlParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlParameter/parameterId" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlParameter/label" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlParameter/values" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//ControlParameter/guideline" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//ControlParameter/properties" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//TechnicalDocument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//TechnicalDocument/documentNumber" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//TechnicalDocument/part" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//TechnicalDocument/publisher" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//TechnicalDocument/sections" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//DocumentSection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentSection/number" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentSection/heading" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentSection/text" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//DocumentSection/sections" />
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference corpus.ecore#//DocumentSection/clauses" />
+    </genClasses>
+    <genClasses ecoreClass="corpus.ecore#//DocumentClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentClause/label" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentClause/text" />
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute corpus.ecore#//DocumentClause/obligation" />
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
