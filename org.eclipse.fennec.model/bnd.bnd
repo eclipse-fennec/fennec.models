@@ -5,19 +5,19 @@ src=${^src},src-gen-ps,src-gen-coll,src-gen-util
 
 # The code generation takes a bit of time and makes the build a bit slower.
 # It might be a good idea to put comments around it, when you don't need it
-#-generate:\
-#	model/utilities.genmodel;\
-#		generate=fennecEMF;\
-#		genmodel=model/utilities.genmodel;\
-#		output=src-gen-util,\
-#	model/collections.genmodel;\
-#		generate=fennecEMF;\
-#		genmodel=model/collections.genmodel;\
-#		output=src-gen-coll,\
-#	model/pushstream.genmodel;\
-#		generate=fennecEMF;\
-#		genmodel=model/pushstream.genmodel;\
-#		output=src-gen-ps
+-generate:\
+	model/utilities.genmodel;\
+		generate=fennecEMF;\
+		genmodel=model/utilities.genmodel;\
+		output=src-gen-util,\
+	model/collections.genmodel;\
+		generate=fennecEMF;\
+		genmodel=model/collections.genmodel;\
+		output=src-gen-coll,\
+	model/pushstream.genmodel;\
+		generate=fennecEMF;\
+		genmodel=model/pushstream.genmodel;\
+		output=src-gen-ps
 # Add this attribute to find some logging information
 #		logfile=test.log;\
 

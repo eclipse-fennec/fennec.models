@@ -1,0 +1,28 @@
+name: CI Build
+
+on:
+  push:
+    # Build-only on every branch EXCEPT main and snapshot (those release/publish via
+    # their dedicated workflows). All other branches only verify.
+    branches-ignore:
+      - main
+      - snapshot
+  pull_request:
+    branches:
+      - '*'
+
+# Least privilege by default; this workflow only reads the repository.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # License gate + Gradle build/test on the JDK matrix [21, 25]. No inputs: this
+  # repository ships only models, has no OSGi test projects (the testOSGi task
+  # resolves to SKIPPED in every module) and no bndrun export tasks, so the
+  # reusable's defaults are exactly what we need.
+  verify:
+    uses: eclipse-fennec/.github/.github/workflows/reusable-verify.yml@2a98ad6e2459556b858e1273bff2f8d87fc11a06 # v1.3.0

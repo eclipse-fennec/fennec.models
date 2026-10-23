@@ -1,0 +1,18 @@
+-resourceonly: true
+-include: ${.}/buildpath.bnd	
+mavendeps: ${sjoin;\n; ${template;-maven-dependencies;${@}}}
+
+-includeresource: \
+	template/workspace.bnd=resources/template/workspace.bnd,\
+	{template/fennecEMFModels.maven=resources/template/fennecEMFModels.maven}	
+	
+Provide-Capability: \
+	${fennec-base}
+
+fennec-base:\
+    bnd.library;\
+        bnd.library     = fennecEMFModels; \
+        path            = template
+        
+Bundle-Name: Fennec EMF Models Workspace Library
+Bundle-Description: Workspace library (fennecEMFModels) for the Fennec-own models of eclipse-fennec/fennec.models. The external standard models live in eclipse-fennec/common.models (library fennecEMFCommonModels).

@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # Keep GitHub Actions pinned-by-SHA up to date. This is what makes SHA-pinning the
+  # reusable workflows practical: Dependabot rewrites the SHA and its "# vX.Y.Z"
+  # comment together, so hardening does not mean staleness.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "build(deps)"
+
+  # Gradle: plugins and the test-scope dependencies declared in build.gradle.
+  # The model bundles' own dependencies are managed by bnd via cnf/central.mvn and
+  # each module's -buildpath, which Dependabot does not read.
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "build(deps)"
