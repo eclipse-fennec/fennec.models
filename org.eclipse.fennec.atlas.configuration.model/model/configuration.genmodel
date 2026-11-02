@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#10;&#10;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#10;&#10;SPDX-License-Identifier: EPL-2.0&#10;&#10;Contributors:&#10;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.atlas.configuration.model/src" modelPluginID="org.eclipse.fennec.atlas.configuration.model"
+    modelName="Configuration" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>configuration.ecore</foreignModel>
+  <genPackages prefix="AtlasConfig" basePackage="org.eclipse.fennec.atlas" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//JdbcDriver">
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/POSTGRESQL"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/H2"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="configuration.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/filter"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//DatabaseDataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseDataSource/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseDataSource/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseDataSource/database"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseDataSource/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseDataSource/password"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//DatabaseDataSource/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ConnectionProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ConnectionProperty/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ConnectionProperty/value"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//JdbcDataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//JdbcDataSource/driver"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//JdbcDataSource/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MongoDataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MongoDataSource/authSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MongoDataSource/flavor"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
