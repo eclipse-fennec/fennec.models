@@ -9,6 +9,7 @@ Bundle-Description: Compliance inventory: assets, protection needs, measures (TO
 -generate:\
 	model/inventory.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/inventory.genmodel;\
 		output=src
 # Add this attribute to find some logging information

@@ -9,6 +9,7 @@ Bundle-Description: Compliance contexts: requirements, taxonomies, roles, crossw
 -generate:\
 	model/context.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/context.genmodel;\
 		output=src
 # Add this attribute to find some logging information

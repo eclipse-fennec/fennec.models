@@ -9,6 +9,7 @@ Bundle-Description: Compliance report history: revisions of the reports of one s
 -generate:\
 	model/history.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/history.genmodel;\
 		output=src
 # Add this attribute to find some logging information

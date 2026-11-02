@@ -9,6 +9,7 @@ Bundle-Description: Normative texts of compliance contexts: legal acts (Formex),
 -generate:\
 	model/corpus.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/corpus.genmodel;\
 		output=src
 # Add this attribute to find some logging information

@@ -9,6 +9,7 @@ Bundle-Description: Compliance reports: findings, evidence and risk treatment of
 -generate:\
 	model/report.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/report.genmodel;\
 		output=src
 # Add this attribute to find some logging information

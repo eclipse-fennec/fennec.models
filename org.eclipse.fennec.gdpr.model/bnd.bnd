@@ -10,6 +10,7 @@ Bundle-Description: Deprecated, replaced by org.eclipse.fennec.compliance.corpus
 -generate:\
 	model/gdpr.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/gdpr.genmodel;\
 		output=src
 # Add this attribute to find some logging information

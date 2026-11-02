@@ -9,6 +9,7 @@ Bundle-Description: Configuration building blocks shared by the Fennec atlases (
 -generate:\
 	model/configuration.genmodel;\
 		generate=fennecEMF;\
+		lineEndings=lf;\
 		genmodel=model/configuration.genmodel;\
 		output=src
 # Add this attribute to find some logging information
