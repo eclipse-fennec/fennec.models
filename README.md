@@ -2,7 +2,7 @@
 
 # Eclipse Fennec Models
 
-The Fennec-own EMF models: utility models and the shared compliance models. The
+The Fennec-own EMF models: utility models, the shared atlas configuration model and the shared compliance models. The
 EMF models of external standards (OGC, W3C, OMG, HL7, XOeV, OSCAL, ...) live in
 [eclipse-fennec/common.models](https://github.com/eclipse-fennec/common.models).
 
@@ -56,6 +56,12 @@ Then enable the library:
 | Module | Description |
 |---|---|
 | `org.eclipse.fennec.model` | Fennec collection, PushStream and utility models |
+
+### Atlas Configuration
+
+| Module | Description |
+|---|---|
+| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB). Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
 
 ### Compliance
 

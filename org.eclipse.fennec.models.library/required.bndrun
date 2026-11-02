@@ -10,7 +10,8 @@
 	bnd.identity;id='org.eclipse.fennec.compliance.context.model',\
 	bnd.identity;id='org.eclipse.fennec.compliance.inventory.model',\
 	bnd.identity;id='org.eclipse.fennec.compliance.report.model',\
-	bnd.identity;id='org.eclipse.fennec.compliance.report.history.model'
+	bnd.identity;id='org.eclipse.fennec.compliance.report.history.model',\
+	bnd.identity;id='org.eclipse.fennec.atlas.configuration.model'
 -runbundles: \
 	org.eclipse.fennec.model;version=snapshot,\
 	org.eclipse.fennec.gdpr.model;version=snapshot,\
@@ -31,4 +32,5 @@
 	org.osgi.util.converter;version='[1.0.9,1.0.10)',\
 	org.osgi.util.function;version='[1.2.0,1.2.1)',\
 	org.osgi.util.promise;version='[1.3.0,1.3.1)',\
-	org.osgi.util.pushstream;version='[1.1.0,1.1.1)'
+	org.osgi.util.pushstream;version='[1.1.0,1.1.1)',\
+	org.eclipse.fennec.atlas.configuration.model;version=snapshot
