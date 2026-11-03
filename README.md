@@ -61,7 +61,8 @@ Then enable the library:
 
 | Module | Description |
 |---|---|
-| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB), data inputs (file, MongoDB) and the data provider base. Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
+| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB), data inputs (file, MongoDB) and the data provider and data service bases. Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
+| `org.eclipse.fennec.atlas.configuration.jpa.model` | JPA extension: `JPADataInput` with its eorm entity mapping; nsURI `https://eclipse.org/fennec/atlas/configuration/jpa/1.0.0`. Depends on `org.eclipse.fennec.persistence.orm` (eclipse-fennec/emf.persistence-jpa) and is therefore **not** part of the `fennecEMFModels` library or the BOM — add it to your buildpath explicitly |
 
 ### Compliance
 

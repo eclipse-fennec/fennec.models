@@ -80,6 +80,10 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 				return createDataProviderAdapter();
 			}
 			@Override
+			public Adapter caseDataService(DataService object) {
+				return createDataServiceAdapter();
+			}
+			@Override
 			public Adapter caseDataInput(DataInput object) {
 				return createDataInputAdapter();
 			}
@@ -142,6 +146,20 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataService <em>Data Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.DataService
+	 * @generated
+	 */
+	public Adapter createDataServiceAdapter() {
 		return null;
 	}
 

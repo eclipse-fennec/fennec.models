@@ -23,6 +23,7 @@ import org.eclipse.fennec.atlas.configuration.AtlasConfigPackage;
 import org.eclipse.fennec.atlas.configuration.ConnectionProperty;
 import org.eclipse.fennec.atlas.configuration.DataInput;
 import org.eclipse.fennec.atlas.configuration.DataProvider;
+import org.eclipse.fennec.atlas.configuration.DataService;
 import org.eclipse.fennec.atlas.configuration.DataSource;
 import org.eclipse.fennec.atlas.configuration.DatabaseDataSource;
 import org.eclipse.fennec.atlas.configuration.FileDataInput;
@@ -44,6 +45,13 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	private EClass dataProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +224,26 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	@Override
 	public EReference getDataProvider_DataInput() {
 		return (EReference)dataProviderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataService() {
+		return dataServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDataService_UrlContext() {
+		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -543,6 +571,9 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		createEAttribute(dataProviderEClass, DATA_PROVIDER__DESCRIPTION);
 		createEReference(dataProviderEClass, DATA_PROVIDER__DATA_INPUT);
 
+		dataServiceEClass = createEClass(DATA_SERVICE);
+		createEAttribute(dataServiceEClass, DATA_SERVICE__URL_CONTEXT);
+
 		dataInputEClass = createEClass(DATA_INPUT);
 		createEAttribute(dataInputEClass, DATA_INPUT__ID);
 		createEReference(dataInputEClass, DATA_INPUT__SUPPORTED_ECLASSES);
@@ -611,6 +642,7 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		dataServiceEClass.getESuperTypes().add(this.getDataProvider());
 		fileDataInputEClass.getESuperTypes().add(this.getDataInput());
 		mongoDataInputEClass.getESuperTypes().add(this.getDataInput());
 		databaseDataSourceEClass.getESuperTypes().add(this.getDataSource());
@@ -623,6 +655,9 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEAttribute(getDataProvider_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataProvider_Description(), ecorePackage.getEString(), "description", null, 1, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataProvider_DataInput(), this.getDataInput(), null, "dataInput", null, 0, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataServiceEClass, DataService.class, "DataService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataService_UrlContext(), ecorePackage.getEString(), "urlContext", null, 1, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataInputEClass, DataInput.class, "DataInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataInput_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -685,7 +720,7 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (this,
 		   source,
 		   new String[] {
-			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.\n- DataProvider: the common base of anything an atlas provides data through; atlas-specific subtypes add their own features (transformations, exports, ...)."
+			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.\n- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).\n\nInputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies."
 		   });
 		addAnnotation
 		  (dataProviderEClass,
@@ -716,6 +751,18 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		   source,
 		   new String[] {
 			   "documentation", "The DataInput this provider takes its data from. Atlas-specific subtypes define whether it is mandatory and how nested providers inherit it."
+		   });
+		addAnnotation
+		  (dataServiceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Abstract definition of an endpoint an atlas publishes data through. Atlas-specific subtypes define the protocol (REST, OData, OGC, ...) and what the service serves."
+		   });
+		addAnnotation
+		  (getDataService_UrlContext(),
+		   source,
+		   new String[] {
+			   "documentation", "Base URL context (path prefix) under which this service is published."
 		   });
 		addAnnotation
 		  (dataInputEClass,
