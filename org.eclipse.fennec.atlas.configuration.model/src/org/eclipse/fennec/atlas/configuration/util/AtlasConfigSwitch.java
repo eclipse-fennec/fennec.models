@@ -74,6 +74,32 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case AtlasConfigPackage.DATA_PROVIDER: {
+				DataProvider dataProvider = (DataProvider)theEObject;
+				T result = caseDataProvider(dataProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.DATA_INPUT: {
+				DataInput dataInput = (DataInput)theEObject;
+				T result = caseDataInput(dataInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.FILE_DATA_INPUT: {
+				FileDataInput fileDataInput = (FileDataInput)theEObject;
+				T result = caseFileDataInput(fileDataInput);
+				if (result == null) result = caseDataInput(fileDataInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.MONGO_DATA_INPUT: {
+				MongoDataInput mongoDataInput = (MongoDataInput)theEObject;
+				T result = caseMongoDataInput(mongoDataInput);
+				if (result == null) result = caseDataInput(mongoDataInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtlasConfigPackage.DATA_SOURCE: {
 				DataSource dataSource = (DataSource)theEObject;
 				T result = caseDataSource(dataSource);
@@ -111,6 +137,66 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataProvider(DataProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataInput(DataInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Data Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileDataInput(FileDataInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mongo Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mongo Data Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMongoDataInput(MongoDataInput object) {
+		return null;
 	}
 
 	/**

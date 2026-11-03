@@ -3,8 +3,73 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="https://eclipse.org/fennec/atlas/configuration/1.0.0"
     nsPrefix="atlasconfig">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).&#xA;&#xA;The atlas-specific configuration models reference these types instead of defining their own, so that e.g. a data source definition looks the same in every atlas."/>
+    <details key="documentation" value="Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).&#xA;&#xA;The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:&#xA;- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.&#xA;- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.&#xA;- DataProvider: the common base of anything an atlas provides data through; atlas-specific subtypes add their own features (transformations, exports, ...)."/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DataProvider" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract base for anything an atlas provides data through (e.g. a service endpoint or a dataset).&#xA;Carries the common identity (id/name/description) and the DataInput the data comes from. Atlas-specific subtypes add what they need on top (e.g. transformations, distribution exports, publications)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier of this data provider."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Human-readable name of the data provider. Derives from the model annotation by default."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description of the data provider. Derives from the model annotation by default."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataInput" eType="#//DataInput">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The DataInput this provider takes its data from. Atlas-specific subtypes define whether it is mandatory and how nested providers inherit it."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataInput" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base type for any input that can stream EObjects into an atlas, e.g. EMF files (FileDataInput) or a MongoDB database (MongoDataInput). Atlas-specific configuration models add further kinds.&#xA;&#xA;Intended as an abstract base - it is not meant to be instantiated directly."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier of this data input, used to reference it from DataProviders."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supportedEClasses" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The EClasses (model types, typically resolved against the Model Atlas) whose instances this input can provide."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileDataInput" eSuperTypes="#//DataInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="DataInput backed by EMF files as a source."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URI of the EMF resource (or a directory of EMF resources) this input loads its EObjects from."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MongoDataInput" eSuperTypes="#//DataInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="DataInput backed by a MongoDB database: the fennec Mongo persistence backend reads the collections through the BSON codec, so documents have to follow its layout (EMF id as _id, type discriminator, references as URIs). No mapping is needed - a registered EPackage is all the backend requires."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" lowerBound="1"
+        eType="#//MongoDataSource">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The MongoDB data source definition providing the database for this input."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A reusable data source definition, kept in a registry of the consuming atlas configuration so it can be shared across its users (and tenants).&#xA;&#xA;A data source is realized in exactly one of two modes:&#xA;- BIND: filter is set. The deployment configured the backend service itself (e.g. a daanse DataSource factory configuration); the filter selects it. Nothing else may be set.&#xA;- MATERIALIZE: the connection definition of the concrete subtype is set (at least host and database). The consuming atlas runtime creates the backend service from it.&#xA;Setting both, or neither, is a configuration error - the source is reported and skipped.&#xA;&#xA;Credential rule: the configuration model never carries a credential value. user and password are placeholders resolved in the consuming runtime only: $[env:NAME] for an environment variable or $[secret:NAME] for a file in the runtime's secrets directory. A literal value is rejected."/>

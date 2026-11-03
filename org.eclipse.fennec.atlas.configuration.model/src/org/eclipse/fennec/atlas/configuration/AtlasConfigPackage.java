@@ -35,14 +35,17 @@ import org.osgi.annotation.versioning.ProviderType;
  * <!-- begin-model-doc -->
  * Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).
  * 
- * The atlas-specific configuration models reference these types instead of defining their own, so that e.g. a data source definition looks the same in every atlas.
+ * The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:
+ * - DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.
+ * - DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.
+ * - DataProvider: the common base of anything an atlas provides data through; atlas-specific subtypes add their own features (transformations, exports, ...).
  * <!-- end-model-doc -->
  * @see org.eclipse.fennec.atlas.configuration.AtlasConfigFactory
  * @model kind="package"
  * @generated
  */
 @ProviderType
-@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:869600367763622424730478fc5a60860f5a7a06b0f9004a5fc8004046afd9cb", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
+@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:9933131d6fd106193d1808e5a89594b8fd6fe5b8c387d3d62d870f6729ccc7f1", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
 public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -77,6 +80,226 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	AtlasConfigPackage eINSTANCE = org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataProviderImpl <em>Data Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.DataProviderImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataProvider()
+	 * @generated
+	 */
+	int DATA_PROVIDER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER__DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Input</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER__DATA_INPUT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Data Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Data Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROVIDER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataInputImpl <em>Data Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.DataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataInput()
+	 * @generated
+	 */
+	int DATA_INPUT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_INPUT__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_INPUT__SUPPORTED_ECLASSES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_INPUT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_INPUT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl <em>File Data Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getFileDataInput()
+	 * @generated
+	 */
+	int FILE_DATA_INPUT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__ID = DATA_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__SUPPORTED_ECLASSES = DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__URI = DATA_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>File Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT_FEATURE_COUNT = DATA_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>File Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.MongoDataInputImpl <em>Mongo Data Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.MongoDataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataInput()
+	 * @generated
+	 */
+	int MONGO_DATA_INPUT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_INPUT__ID = DATA_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_INPUT__SUPPORTED_ECLASSES = DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_INPUT__DATA_SOURCE = DATA_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Mongo Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_INPUT_FEATURE_COUNT = DATA_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Mongo Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,7 +307,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataSource()
 	 * @generated
 	 */
-	int DATA_SOURCE = 0;
+	int DATA_SOURCE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -148,7 +371,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDatabaseDataSource()
 	 * @generated
 	 */
-	int DATABASE_DATA_SOURCE = 1;
+	int DATABASE_DATA_SOURCE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -266,7 +489,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getConnectionProperty()
 	 * @generated
 	 */
-	int CONNECTION_PROPERTY = 2;
+	int CONNECTION_PROPERTY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -312,7 +535,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDataSource()
 	 * @generated
 	 */
-	int JDBC_DATA_SOURCE = 3;
+	int JDBC_DATA_SOURCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -448,7 +671,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataSource()
 	 * @generated
 	 */
-	int MONGO_DATA_SOURCE = 4;
+	int MONGO_DATA_SOURCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -584,8 +807,136 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDriver()
 	 * @generated
 	 */
-	int JDBC_DRIVER = 5;
+	int JDBC_DRIVER = 9;
 
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataProvider <em>Data Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Provider</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider
+	 * @generated
+	 */
+	EClass getDataProvider();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DataProvider#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider#getId()
+	 * @see #getDataProvider()
+	 * @generated
+	 */
+	EAttribute getDataProvider_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DataProvider#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider#getName()
+	 * @see #getDataProvider()
+	 * @generated
+	 */
+	EAttribute getDataProvider_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DataProvider#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider#getDescription()
+	 * @see #getDataProvider()
+	 * @generated
+	 */
+	EAttribute getDataProvider_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.DataProvider#getDataInput <em>Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider#getDataInput()
+	 * @see #getDataProvider()
+	 * @generated
+	 */
+	EReference getDataProvider_DataInput();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataInput <em>Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataInput
+	 * @generated
+	 */
+	EClass getDataInput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DataInput#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataInput#getId()
+	 * @see #getDataInput()
+	 * @generated
+	 */
+	EAttribute getDataInput_Id();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.atlas.configuration.DataInput#getSupportedEClasses <em>Supported EClasses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Supported EClasses</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataInput#getSupportedEClasses()
+	 * @see #getDataInput()
+	 * @generated
+	 */
+	EReference getDataInput_SupportedEClasses();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.FileDataInput <em>File Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.FileDataInput
+	 * @generated
+	 */
+	EClass getFileDataInput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.FileDataInput#getUri <em>Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.FileDataInput#getUri()
+	 * @see #getFileDataInput()
+	 * @generated
+	 */
+	EAttribute getFileDataInput_Uri();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.MongoDataInput <em>Mongo Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mongo Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MongoDataInput
+	 * @generated
+	 */
+	EClass getMongoDataInput();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.MongoDataInput#getDataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Source</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MongoDataInput#getDataSource()
+	 * @see #getMongoDataInput()
+	 * @generated
+	 */
+	EReference getMongoDataInput_DataSource();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataSource <em>Data Source</em>}'.
@@ -846,6 +1197,110 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataProviderImpl <em>Data Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.DataProviderImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataProvider()
+		 * @generated
+		 */
+		EClass DATA_PROVIDER = eINSTANCE.getDataProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_PROVIDER__ID = eINSTANCE.getDataProvider_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_PROVIDER__NAME = eINSTANCE.getDataProvider_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_PROVIDER__DESCRIPTION = eINSTANCE.getDataProvider_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Input</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_PROVIDER__DATA_INPUT = eINSTANCE.getDataProvider_DataInput();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataInputImpl <em>Data Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.DataInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataInput()
+		 * @generated
+		 */
+		EClass DATA_INPUT = eINSTANCE.getDataInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_INPUT__ID = eINSTANCE.getDataInput_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Supported EClasses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_INPUT__SUPPORTED_ECLASSES = eINSTANCE.getDataInput_SupportedEClasses();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl <em>File Data Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getFileDataInput()
+		 * @generated
+		 */
+		EClass FILE_DATA_INPUT = eINSTANCE.getFileDataInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_DATA_INPUT__URI = eINSTANCE.getFileDataInput_Uri();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.MongoDataInputImpl <em>Mongo Data Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.MongoDataInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataInput()
+		 * @generated
+		 */
+		EClass MONGO_DATA_INPUT = eINSTANCE.getMongoDataInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MONGO_DATA_INPUT__DATA_SOURCE = eINSTANCE.getMongoDataInput_DataSource();
+
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.
 		 * <!-- begin-user-doc -->

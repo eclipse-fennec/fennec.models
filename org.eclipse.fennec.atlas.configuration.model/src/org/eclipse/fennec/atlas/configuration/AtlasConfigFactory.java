@@ -33,6 +33,24 @@ public interface AtlasConfigFactory extends EFactory {
 	AtlasConfigFactory eINSTANCE = org.eclipse.fennec.atlas.configuration.impl.AtlasConfigFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>File Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Data Input</em>'.
+	 * @generated
+	 */
+	FileDataInput createFileDataInput();
+
+	/**
+	 * Returns a new object of class '<em>Mongo Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mongo Data Input</em>'.
+	 * @generated
+	 */
+	MongoDataInput createMongoDataInput();
+
+	/**
 	 * Returns a new object of class '<em>Connection Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
