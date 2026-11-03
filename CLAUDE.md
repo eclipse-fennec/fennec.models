@@ -39,6 +39,7 @@ Eclipse Fennec Models — the Fennec-own EMF models as OSGi bundles: `org.eclips
 
 1. Create the module (`bnd.bnd`, `model/`), with `-generate` enabled and `Bundle-Version` set.
 2. Add it to `-runrequires` in `org.eclipse.fennec.models.library/required.bndrun` and re-resolve (see above); the BOM includes the library's buildpath.
+   - Exception: models depending on non-model bundles of other repos stay out of the library and the BOM, e.g. `org.eclipse.fennec.atlas.configuration.jpa.model` (needs `org.eclipse.fennec.persistence.orm`, which pulls the persistence bundles; the library's `-runbundles` become every consumer's buildpath, and the BOM lists plain dependencies).
 
 ## Branching & CI
 
