@@ -65,6 +65,8 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case AtlasConfigPackage.FILE_DATA_INPUT: return createFileDataInput();
+			case AtlasConfigPackage.MONGO_DATA_INPUT: return createMongoDataInput();
 			case AtlasConfigPackage.CONNECTION_PROPERTY: return createConnectionProperty();
 			case AtlasConfigPackage.JDBC_DATA_SOURCE: return createJdbcDataSource();
 			case AtlasConfigPackage.MONGO_DATA_SOURCE: return createMongoDataSource();
@@ -101,6 +103,28 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FileDataInput createFileDataInput() {
+		FileDataInputImpl fileDataInput = new FileDataInputImpl();
+		return fileDataInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MongoDataInput createMongoDataInput() {
+		MongoDataInputImpl mongoDataInput = new MongoDataInputImpl();
+		return mongoDataInput;
 	}
 
 	/**

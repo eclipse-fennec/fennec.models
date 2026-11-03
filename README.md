@@ -61,7 +61,7 @@ Then enable the library:
 
 | Module | Description |
 |---|---|
-| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB). Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
+| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB), data inputs (file, MongoDB) and the data provider base. Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
 
 ### Compliance
 

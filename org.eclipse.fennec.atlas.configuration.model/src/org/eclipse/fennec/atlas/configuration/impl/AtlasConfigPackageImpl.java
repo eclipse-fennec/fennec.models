@@ -21,10 +21,14 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.fennec.atlas.configuration.AtlasConfigFactory;
 import org.eclipse.fennec.atlas.configuration.AtlasConfigPackage;
 import org.eclipse.fennec.atlas.configuration.ConnectionProperty;
+import org.eclipse.fennec.atlas.configuration.DataInput;
+import org.eclipse.fennec.atlas.configuration.DataProvider;
 import org.eclipse.fennec.atlas.configuration.DataSource;
 import org.eclipse.fennec.atlas.configuration.DatabaseDataSource;
+import org.eclipse.fennec.atlas.configuration.FileDataInput;
 import org.eclipse.fennec.atlas.configuration.JdbcDataSource;
 import org.eclipse.fennec.atlas.configuration.JdbcDriver;
+import org.eclipse.fennec.atlas.configuration.MongoDataInput;
 import org.eclipse.fennec.atlas.configuration.MongoDataSource;
 
 /**
@@ -34,6 +38,34 @@ import org.eclipse.fennec.atlas.configuration.MongoDataSource;
  * @generated
  */
 public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileDataInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mongoDataInputEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +166,126 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AtlasConfigPackage.eNS_URI, theAtlasConfigPackage);
 		return theAtlasConfigPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataProvider() {
+		return dataProviderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDataProvider_Id() {
+		return (EAttribute)dataProviderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDataProvider_Name() {
+		return (EAttribute)dataProviderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDataProvider_Description() {
+		return (EAttribute)dataProviderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataProvider_DataInput() {
+		return (EReference)dataProviderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataInput() {
+		return dataInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDataInput_Id() {
+		return (EAttribute)dataInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataInput_SupportedEClasses() {
+		return (EReference)dataInputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getFileDataInput() {
+		return fileDataInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFileDataInput_Uri() {
+		return (EAttribute)fileDataInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMongoDataInput() {
+		return mongoDataInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMongoDataInput_DataSource() {
+		return (EReference)mongoDataInputEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -385,6 +537,22 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		isCreated = true;
 
 		// Create classes and their features
+		dataProviderEClass = createEClass(DATA_PROVIDER);
+		createEAttribute(dataProviderEClass, DATA_PROVIDER__ID);
+		createEAttribute(dataProviderEClass, DATA_PROVIDER__NAME);
+		createEAttribute(dataProviderEClass, DATA_PROVIDER__DESCRIPTION);
+		createEReference(dataProviderEClass, DATA_PROVIDER__DATA_INPUT);
+
+		dataInputEClass = createEClass(DATA_INPUT);
+		createEAttribute(dataInputEClass, DATA_INPUT__ID);
+		createEReference(dataInputEClass, DATA_INPUT__SUPPORTED_ECLASSES);
+
+		fileDataInputEClass = createEClass(FILE_DATA_INPUT);
+		createEAttribute(fileDataInputEClass, FILE_DATA_INPUT__URI);
+
+		mongoDataInputEClass = createEClass(MONGO_DATA_INPUT);
+		createEReference(mongoDataInputEClass, MONGO_DATA_INPUT__DATA_SOURCE);
+
 		dataSourceEClass = createEClass(DATA_SOURCE);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__ID);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__NAME);
@@ -443,11 +611,29 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		fileDataInputEClass.getESuperTypes().add(this.getDataInput());
+		mongoDataInputEClass.getESuperTypes().add(this.getDataInput());
 		databaseDataSourceEClass.getESuperTypes().add(this.getDataSource());
 		jdbcDataSourceEClass.getESuperTypes().add(this.getDatabaseDataSource());
 		mongoDataSourceEClass.getESuperTypes().add(this.getDatabaseDataSource());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(dataProviderEClass, DataProvider.class, "DataProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataProvider_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataProvider_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataProvider_Description(), ecorePackage.getEString(), "description", null, 1, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataProvider_DataInput(), this.getDataInput(), null, "dataInput", null, 0, 1, DataProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataInputEClass, DataInput.class, "DataInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataInput_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataInput_SupportedEClasses(), ecorePackage.getEClass(), null, "supportedEClasses", null, 0, -1, DataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fileDataInputEClass, FileDataInput.class, "FileDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFileDataInput_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, FileDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mongoDataInputEClass, MongoDataInput.class, "MongoDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMongoDataInput_DataSource(), this.getMongoDataSource(), null, "dataSource", null, 1, 1, MongoDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSource_Name(), ecorePackage.getEString(), "name", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -499,7 +685,79 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (this,
 		   source,
 		   new String[] {
-			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference these types instead of defining their own, so that e.g. a data source definition looks the same in every atlas."
+			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.\n- DataProvider: the common base of anything an atlas provides data through; atlas-specific subtypes add their own features (transformations, exports, ...)."
+		   });
+		addAnnotation
+		  (dataProviderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Abstract base for anything an atlas provides data through (e.g. a service endpoint or a dataset).\nCarries the common identity (id/name/description) and the DataInput the data comes from. Atlas-specific subtypes add what they need on top (e.g. transformations, distribution exports, publications)."
+		   });
+		addAnnotation
+		  (getDataProvider_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Unique identifier of this data provider."
+		   });
+		addAnnotation
+		  (getDataProvider_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Human-readable name of the data provider. Derives from the model annotation by default."
+		   });
+		addAnnotation
+		  (getDataProvider_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description of the data provider. Derives from the model annotation by default."
+		   });
+		addAnnotation
+		  (getDataProvider_DataInput(),
+		   source,
+		   new String[] {
+			   "documentation", "The DataInput this provider takes its data from. Atlas-specific subtypes define whether it is mandatory and how nested providers inherit it."
+		   });
+		addAnnotation
+		  (dataInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base type for any input that can stream EObjects into an atlas, e.g. EMF files (FileDataInput) or a MongoDB database (MongoDataInput). Atlas-specific configuration models add further kinds.\n\nIntended as an abstract base - it is not meant to be instantiated directly."
+		   });
+		addAnnotation
+		  (getDataInput_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Unique identifier of this data input, used to reference it from DataProviders."
+		   });
+		addAnnotation
+		  (getDataInput_SupportedEClasses(),
+		   source,
+		   new String[] {
+			   "documentation", "The EClasses (model types, typically resolved against the Model Atlas) whose instances this input can provide."
+		   });
+		addAnnotation
+		  (fileDataInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "DataInput backed by EMF files as a source."
+		   });
+		addAnnotation
+		  (getFileDataInput_Uri(),
+		   source,
+		   new String[] {
+			   "documentation", "URI of the EMF resource (or a directory of EMF resources) this input loads its EObjects from."
+		   });
+		addAnnotation
+		  (mongoDataInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "DataInput backed by a MongoDB database: the fennec Mongo persistence backend reads the collections through the BSON codec, so documents have to follow its layout (EMF id as _id, type discriminator, references as URIs). No mapping is needed - a registered EPackage is all the backend requires."
+		   });
+		addAnnotation
+		  (getMongoDataInput_DataSource(),
+		   source,
+		   new String[] {
+			   "documentation", "The MongoDB data source definition providing the database for this input."
 		   });
 		addAnnotation
 		  (dataSourceEClass,

@@ -76,6 +76,22 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	protected AtlasConfigSwitch<Adapter> modelSwitch =
 		new AtlasConfigSwitch<Adapter>() {
 			@Override
+			public Adapter caseDataProvider(DataProvider object) {
+				return createDataProviderAdapter();
+			}
+			@Override
+			public Adapter caseDataInput(DataInput object) {
+				return createDataInputAdapter();
+			}
+			@Override
+			public Adapter caseFileDataInput(FileDataInput object) {
+				return createFileDataInputAdapter();
+			}
+			@Override
+			public Adapter caseMongoDataInput(MongoDataInput object) {
+				return createMongoDataInputAdapter();
+			}
+			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
 			}
@@ -114,6 +130,62 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataProvider <em>Data Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.DataProvider
+	 * @generated
+	 */
+	public Adapter createDataProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataInput <em>Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.DataInput
+	 * @generated
+	 */
+	public Adapter createDataInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.FileDataInput <em>File Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.FileDataInput
+	 * @generated
+	 */
+	public Adapter createFileDataInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.MongoDataInput <em>Mongo Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.MongoDataInput
+	 * @generated
+	 */
+	public Adapter createMongoDataInputAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataSource <em>Data Source</em>}'.
