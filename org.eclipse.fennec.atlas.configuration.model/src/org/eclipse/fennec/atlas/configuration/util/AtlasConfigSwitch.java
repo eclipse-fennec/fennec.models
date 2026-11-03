@@ -80,6 +80,13 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AtlasConfigPackage.DATA_SERVICE: {
+				DataService dataService = (DataService)theEObject;
+				T result = caseDataService(dataService);
+				if (result == null) result = caseDataProvider(dataService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtlasConfigPackage.DATA_INPUT: {
 				DataInput dataInput = (DataInput)theEObject;
 				T result = caseDataInput(dataInput);
@@ -151,6 +158,21 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataProvider(DataProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataService(DataService object) {
 		return null;
 	}
 

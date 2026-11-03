@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="https://eclipse.org/fennec/atlas/configuration/1.0.0"
     nsPrefix="atlasconfig">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).&#xA;&#xA;The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:&#xA;- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.&#xA;- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.&#xA;- DataProvider: the common base of anything an atlas provides data through; atlas-specific subtypes add their own features (transformations, exports, ...)."/>
+    <details key="documentation" value="Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).&#xA;&#xA;The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:&#xA;- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.&#xA;- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.&#xA;- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).&#xA;&#xA;Inputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DataProvider" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -29,6 +29,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataInput" eType="#//DataInput">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The DataInput this provider takes its data from. Atlas-specific subtypes define whether it is mandatory and how nested providers inherit it."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataService" abstract="true" eSuperTypes="#//DataProvider">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract definition of an endpoint an atlas publishes data through. Atlas-specific subtypes define the protocol (REST, OData, OGC, ...) and what the service serves."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlContext" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Base URL context (path prefix) under which this service is published."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
