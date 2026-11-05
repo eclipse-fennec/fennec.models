@@ -50,7 +50,33 @@ public enum JdbcDriver implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	H2(1, "H2", "h2");
+	H2(1, "H2", "h2"),
+
+	/**
+	 * The '<em><b>MARIADB</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MariaDB. Tested in the fennec JPA persistence (flavor matrix, eclipse-fennec/emf.persistence-jpa#158). schema does not apply: the database is the catalog.
+	 * <!-- end-model-doc -->
+	 * @see #MARIADB_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MARIADB(2, "MARIADB", "mariadb"),
+
+	/**
+	 * The '<em><b>MYSQL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MySQL. Not covered by the fennec JPA persistence tests - it runs on the portable query baseline there. schema does not apply: the database is the catalog.
+	 * <!-- end-model-doc -->
+	 * @see #MYSQL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MYSQL(3, "MYSQL", "mysql");
 
 	/**
 	 * The '<em><b>POSTGRESQL</b></em>' literal value.
@@ -75,6 +101,34 @@ public enum JdbcDriver implements Enumerator {
 	public static final int H2_VALUE = 1;
 
 	/**
+	 * The '<em><b>MARIADB</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MariaDB. Tested in the fennec JPA persistence (flavor matrix, eclipse-fennec/emf.persistence-jpa#158). schema does not apply: the database is the catalog.
+	 * <!-- end-model-doc -->
+	 * @see #MARIADB
+	 * @model literal="mariadb"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MARIADB_VALUE = 2;
+
+	/**
+	 * The '<em><b>MYSQL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MySQL. Not covered by the fennec JPA persistence tests - it runs on the portable query baseline there. schema does not apply: the database is the catalog.
+	 * <!-- end-model-doc -->
+	 * @see #MYSQL
+	 * @model literal="mysql"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MYSQL_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Jdbc Driver</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,6 +138,8 @@ public enum JdbcDriver implements Enumerator {
 		new JdbcDriver[] {
 			POSTGRESQL,
 			H2,
+			MARIADB,
+			MYSQL,
 		};
 
 	/**
@@ -142,6 +198,8 @@ public enum JdbcDriver implements Enumerator {
 		switch (value) {
 			case POSTGRESQL_VALUE: return POSTGRESQL;
 			case H2_VALUE: return H2;
+			case MARIADB_VALUE: return MARIADB;
+			case MYSQL_VALUE: return MYSQL;
 		}
 		return null;
 	}

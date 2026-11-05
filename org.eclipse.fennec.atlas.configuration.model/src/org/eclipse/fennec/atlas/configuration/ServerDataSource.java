@@ -70,7 +70,7 @@ public interface ServerDataSource extends DataSource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Server port; unset = the protocol's default (5432 for PostgreSQL, 27017 for MongoDB, 1883 for MQTT).
+	 * Server port; unset = the protocol's default (5432 for PostgreSQL, 3306 for MariaDB/MySQL, 27017 for MongoDB, 1883 for MQTT).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(Integer)

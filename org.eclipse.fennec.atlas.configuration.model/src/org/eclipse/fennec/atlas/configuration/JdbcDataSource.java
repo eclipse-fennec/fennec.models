@@ -70,7 +70,7 @@ public interface JdbcDataSource extends DatabaseDataSource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Optional default schema of the connection (PostgreSQL currentSchema).
+	 * Optional default schema of the connection (PostgreSQL currentSchema). Not applicable to MariaDB/MySQL, where the database is the catalog.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Schema</em>' attribute.
 	 * @see #setSchema(String)

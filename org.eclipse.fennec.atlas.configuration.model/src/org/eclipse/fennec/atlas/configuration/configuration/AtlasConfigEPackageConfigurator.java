@@ -45,7 +45,7 @@ public class AtlasConfigEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:73dce0f622ea460cd0cefc14c14606370937e5c3d1a9e7870df13213feda2ec8";
+	public static final String FINGERPRINT = "fp1:b425d14541fcdfe5978743bab4737c6878a3a86b81990d74acc9307c4ee419e4";
 
 	private AtlasConfigPackage ePackage;
 

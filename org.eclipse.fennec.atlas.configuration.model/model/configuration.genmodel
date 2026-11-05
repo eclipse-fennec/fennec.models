@@ -11,6 +11,8 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//JdbcDriver">
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/POSTGRESQL"/>
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/H2"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/MARIADB"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//JdbcDriver/MYSQL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//PayloadFormat">
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//PayloadFormat/XMI"/>
