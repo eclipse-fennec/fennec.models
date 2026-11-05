@@ -33,6 +33,24 @@ public interface AtlasConfigFactory extends EFactory {
 	AtlasConfigFactory eINSTANCE = org.eclipse.fennec.atlas.configuration.impl.AtlasConfigFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Codec Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Codec Configuration</em>'.
+	 * @generated
+	 */
+	CodecConfiguration createCodecConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Root Type Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Root Type Rule</em>'.
+	 * @generated
+	 */
+	RootTypeRule createRootTypeRule();
+
+	/**
 	 * Returns a new object of class '<em>File Data Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +67,15 @@ public interface AtlasConfigFactory extends EFactory {
 	 * @generated
 	 */
 	MongoDataInput createMongoDataInput();
+
+	/**
+	 * Returns a new object of class '<em>Mqtt Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mqtt Data Input</em>'.
+	 * @generated
+	 */
+	MqttDataInput createMqttDataInput();
 
 	/**
 	 * Returns a new object of class '<em>Connection Property</em>'.
@@ -76,6 +103,15 @@ public interface AtlasConfigFactory extends EFactory {
 	 * @generated
 	 */
 	MongoDataSource createMongoDataSource();
+
+	/**
+	 * Returns a new object of class '<em>Mqtt Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mqtt Data Source</em>'.
+	 * @generated
+	 */
+	MqttDataSource createMqttDataSource();
 
 	/**
 	 * Returns the package supported by this factory.

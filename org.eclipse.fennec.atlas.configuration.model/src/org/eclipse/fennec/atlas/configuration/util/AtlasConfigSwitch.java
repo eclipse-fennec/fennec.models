@@ -93,9 +93,29 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AtlasConfigPackage.PAYLOAD_DATA_INPUT: {
+				PayloadDataInput payloadDataInput = (PayloadDataInput)theEObject;
+				T result = casePayloadDataInput(payloadDataInput);
+				if (result == null) result = caseDataInput(payloadDataInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.CODEC_CONFIGURATION: {
+				CodecConfiguration codecConfiguration = (CodecConfiguration)theEObject;
+				T result = caseCodecConfiguration(codecConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.ROOT_TYPE_RULE: {
+				RootTypeRule rootTypeRule = (RootTypeRule)theEObject;
+				T result = caseRootTypeRule(rootTypeRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtlasConfigPackage.FILE_DATA_INPUT: {
 				FileDataInput fileDataInput = (FileDataInput)theEObject;
 				T result = caseFileDataInput(fileDataInput);
+				if (result == null) result = casePayloadDataInput(fileDataInput);
 				if (result == null) result = caseDataInput(fileDataInput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -107,15 +127,31 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AtlasConfigPackage.MQTT_DATA_INPUT: {
+				MqttDataInput mqttDataInput = (MqttDataInput)theEObject;
+				T result = caseMqttDataInput(mqttDataInput);
+				if (result == null) result = casePayloadDataInput(mqttDataInput);
+				if (result == null) result = caseDataInput(mqttDataInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtlasConfigPackage.DATA_SOURCE: {
 				DataSource dataSource = (DataSource)theEObject;
 				T result = caseDataSource(dataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AtlasConfigPackage.SERVER_DATA_SOURCE: {
+				ServerDataSource serverDataSource = (ServerDataSource)theEObject;
+				T result = caseServerDataSource(serverDataSource);
+				if (result == null) result = caseDataSource(serverDataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtlasConfigPackage.DATABASE_DATA_SOURCE: {
 				DatabaseDataSource databaseDataSource = (DatabaseDataSource)theEObject;
 				T result = caseDatabaseDataSource(databaseDataSource);
+				if (result == null) result = caseServerDataSource(databaseDataSource);
 				if (result == null) result = caseDataSource(databaseDataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -130,6 +166,7 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 				JdbcDataSource jdbcDataSource = (JdbcDataSource)theEObject;
 				T result = caseJdbcDataSource(jdbcDataSource);
 				if (result == null) result = caseDatabaseDataSource(jdbcDataSource);
+				if (result == null) result = caseServerDataSource(jdbcDataSource);
 				if (result == null) result = caseDataSource(jdbcDataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -138,7 +175,16 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 				MongoDataSource mongoDataSource = (MongoDataSource)theEObject;
 				T result = caseMongoDataSource(mongoDataSource);
 				if (result == null) result = caseDatabaseDataSource(mongoDataSource);
+				if (result == null) result = caseServerDataSource(mongoDataSource);
 				if (result == null) result = caseDataSource(mongoDataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtlasConfigPackage.MQTT_DATA_SOURCE: {
+				MqttDataSource mqttDataSource = (MqttDataSource)theEObject;
+				T result = caseMqttDataSource(mqttDataSource);
+				if (result == null) result = caseServerDataSource(mqttDataSource);
+				if (result == null) result = caseDataSource(mqttDataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -192,6 +238,51 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Payload Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Payload Data Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePayloadDataInput(PayloadDataInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Codec Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Codec Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCodecConfiguration(CodecConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Root Type Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Root Type Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRootTypeRule(RootTypeRule object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>File Data Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -222,6 +313,21 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mqtt Data Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mqtt Data Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMqttDataInput(MqttDataInput object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Data Source</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -233,6 +339,21 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataSource(DataSource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Server Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Server Data Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServerDataSource(ServerDataSource object) {
 		return null;
 	}
 
@@ -293,6 +414,21 @@ public class AtlasConfigSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMongoDataSource(MongoDataSource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mqtt Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mqtt Data Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMqttDataSource(MqttDataSource object) {
 		return null;
 	}
 

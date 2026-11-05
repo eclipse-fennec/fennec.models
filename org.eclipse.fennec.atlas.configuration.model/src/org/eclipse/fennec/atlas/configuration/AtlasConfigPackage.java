@@ -36,8 +36,8 @@ import org.osgi.annotation.versioning.ProviderType;
  * Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).
  * 
  * The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:
- * - DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.
- * - DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.
+ * - DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.
+ * - DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.
  * - DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).
  * 
  * Inputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies.
@@ -47,7 +47,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:b410cac32928864f3cbe0a21423099a7d7b1f6f3fdb01bb02462147fe3628bbb", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
+@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:73dce0f622ea460cd0cefc14c14606370937e5c3d1a9e7870df13213feda2ec8", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
 public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -265,14 +265,14 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int DATA_INPUT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl <em>File Data Input</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.PayloadDataInputImpl <em>Payload Data Input</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl
-	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getFileDataInput()
+	 * @see org.eclipse.fennec.atlas.configuration.impl.PayloadDataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getPayloadDataInput()
 	 * @generated
 	 */
-	int FILE_DATA_INPUT = 3;
+	int PAYLOAD_DATA_INPUT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -281,7 +281,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_DATA_INPUT__ID = DATA_INPUT__ID;
+	int PAYLOAD_DATA_INPUT__ID = DATA_INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
@@ -290,7 +290,181 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_DATA_INPUT__SUPPORTED_ECLASSES = DATA_INPUT__SUPPORTED_ECLASSES;
+	int PAYLOAD_DATA_INPUT__SUPPORTED_ECLASSES = DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Codec</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYLOAD_DATA_INPUT__CODEC = DATA_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Payload Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYLOAD_DATA_INPUT_FEATURE_COUNT = DATA_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Payload Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYLOAD_DATA_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.CodecConfigurationImpl <em>Codec Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.CodecConfigurationImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getCodecConfiguration()
+	 * @generated
+	 */
+	int CODEC_CONFIGURATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION__FORMAT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Map Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION__TYPE_MAP_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Use Names From Extended Metadata</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION__USE_NAMES_FROM_EXTENDED_METADATA = 2;
+
+	/**
+	 * The feature id for the '<em><b>Root Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION__ROOT_TYPES = 3;
+
+	/**
+	 * The number of structural features of the '<em>Codec Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Codec Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODEC_CONFIGURATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.RootTypeRuleImpl <em>Root Type Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.RootTypeRuleImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getRootTypeRule()
+	 * @generated
+	 */
+	int ROOT_TYPE_RULE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Source Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_TYPE_RULE__SOURCE_PATTERN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Root Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_TYPE_RULE__ROOT_TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Root Type Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_TYPE_RULE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Root Type Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_TYPE_RULE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl <em>File Data Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getFileDataInput()
+	 * @generated
+	 */
+	int FILE_DATA_INPUT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__ID = PAYLOAD_DATA_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__SUPPORTED_ECLASSES = PAYLOAD_DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Codec</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_DATA_INPUT__CODEC = PAYLOAD_DATA_INPUT__CODEC;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -299,7 +473,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_DATA_INPUT__URI = DATA_INPUT_FEATURE_COUNT + 0;
+	int FILE_DATA_INPUT__URI = PAYLOAD_DATA_INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>File Data Input</em>' class.
@@ -308,7 +482,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_DATA_INPUT_FEATURE_COUNT = DATA_INPUT_FEATURE_COUNT + 1;
+	int FILE_DATA_INPUT_FEATURE_COUNT = PAYLOAD_DATA_INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>File Data Input</em>' class.
@@ -317,7 +491,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_DATA_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
+	int FILE_DATA_INPUT_OPERATION_COUNT = PAYLOAD_DATA_INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.MongoDataInputImpl <em>Mongo Data Input</em>}' class.
@@ -327,7 +501,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataInput()
 	 * @generated
 	 */
-	int MONGO_DATA_INPUT = 4;
+	int MONGO_DATA_INPUT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -375,6 +549,79 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int MONGO_DATA_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.MqttDataInputImpl <em>Mqtt Data Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.MqttDataInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMqttDataInput()
+	 * @generated
+	 */
+	int MQTT_DATA_INPUT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT__ID = PAYLOAD_DATA_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT__SUPPORTED_ECLASSES = PAYLOAD_DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Codec</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT__CODEC = PAYLOAD_DATA_INPUT__CODEC;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT__DATA_SOURCE = PAYLOAD_DATA_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Topics</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT__TOPICS = PAYLOAD_DATA_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mqtt Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT_FEATURE_COUNT = PAYLOAD_DATA_INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Mqtt Data Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_INPUT_OPERATION_COUNT = PAYLOAD_DATA_INPUT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -382,7 +629,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataSource()
 	 * @generated
 	 */
-	int DATA_SOURCE = 5;
+	int DATA_SOURCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -439,14 +686,14 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int DATA_SOURCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DatabaseDataSourceImpl <em>Database Data Source</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.ServerDataSourceImpl <em>Server Data Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.atlas.configuration.impl.DatabaseDataSourceImpl
-	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDatabaseDataSource()
+	 * @see org.eclipse.fennec.atlas.configuration.impl.ServerDataSourceImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getServerDataSource()
 	 * @generated
 	 */
-	int DATABASE_DATA_SOURCE = 6;
+	int SERVER_DATA_SOURCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -455,7 +702,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__ID = DATA_SOURCE__ID;
+	int SERVER_DATA_SOURCE__ID = DATA_SOURCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -464,7 +711,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__NAME = DATA_SOURCE__NAME;
+	int SERVER_DATA_SOURCE__NAME = DATA_SOURCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -473,7 +720,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__DESCRIPTION = DATA_SOURCE__DESCRIPTION;
+	int SERVER_DATA_SOURCE__DESCRIPTION = DATA_SOURCE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -482,7 +729,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__FILTER = DATA_SOURCE__FILTER;
+	int SERVER_DATA_SOURCE__FILTER = DATA_SOURCE__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -491,7 +738,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__HOST = DATA_SOURCE_FEATURE_COUNT + 0;
+	int SERVER_DATA_SOURCE__HOST = DATA_SOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -500,16 +747,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__PORT = DATA_SOURCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Database</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_DATA_SOURCE__DATABASE = DATA_SOURCE_FEATURE_COUNT + 2;
+	int SERVER_DATA_SOURCE__PORT = DATA_SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -518,7 +756,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__USER = DATA_SOURCE_FEATURE_COUNT + 3;
+	int SERVER_DATA_SOURCE__USER = DATA_SOURCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Password</b></em>' attribute.
@@ -527,7 +765,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__PASSWORD = DATA_SOURCE_FEATURE_COUNT + 4;
+	int SERVER_DATA_SOURCE__PASSWORD = DATA_SOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -536,7 +774,125 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE__PROPERTIES = DATA_SOURCE_FEATURE_COUNT + 5;
+	int SERVER_DATA_SOURCE__PROPERTIES = DATA_SOURCE_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Server Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_DATA_SOURCE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Server Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_DATA_SOURCE_OPERATION_COUNT = DATA_SOURCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DatabaseDataSourceImpl <em>Database Data Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.DatabaseDataSourceImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDatabaseDataSource()
+	 * @generated
+	 */
+	int DATABASE_DATA_SOURCE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__ID = SERVER_DATA_SOURCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__NAME = SERVER_DATA_SOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__DESCRIPTION = SERVER_DATA_SOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__FILTER = SERVER_DATA_SOURCE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__HOST = SERVER_DATA_SOURCE__HOST;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__PORT = SERVER_DATA_SOURCE__PORT;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__USER = SERVER_DATA_SOURCE__USER;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__PASSWORD = SERVER_DATA_SOURCE__PASSWORD;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__PROPERTIES = SERVER_DATA_SOURCE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Database</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_DATA_SOURCE__DATABASE = SERVER_DATA_SOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Database Data Source</em>' class.
@@ -545,7 +901,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 6;
+	int DATABASE_DATA_SOURCE_FEATURE_COUNT = SERVER_DATA_SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Database Data Source</em>' class.
@@ -554,7 +910,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_DATA_SOURCE_OPERATION_COUNT = DATA_SOURCE_OPERATION_COUNT + 0;
+	int DATABASE_DATA_SOURCE_OPERATION_COUNT = SERVER_DATA_SOURCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.ConnectionPropertyImpl <em>Connection Property</em>}' class.
@@ -564,7 +920,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getConnectionProperty()
 	 * @generated
 	 */
-	int CONNECTION_PROPERTY = 7;
+	int CONNECTION_PROPERTY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -610,7 +966,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDataSource()
 	 * @generated
 	 */
-	int JDBC_DATA_SOURCE = 8;
+	int JDBC_DATA_SOURCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -667,15 +1023,6 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int JDBC_DATA_SOURCE__PORT = DATABASE_DATA_SOURCE__PORT;
 
 	/**
-	 * The feature id for the '<em><b>Database</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JDBC_DATA_SOURCE__DATABASE = DATABASE_DATA_SOURCE__DATABASE;
-
-	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,6 +1048,15 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @ordered
 	 */
 	int JDBC_DATA_SOURCE__PROPERTIES = DATABASE_DATA_SOURCE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Database</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDBC_DATA_SOURCE__DATABASE = DATABASE_DATA_SOURCE__DATABASE;
 
 	/**
 	 * The feature id for the '<em><b>Driver</b></em>' attribute.
@@ -746,7 +1102,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataSource()
 	 * @generated
 	 */
-	int MONGO_DATA_SOURCE = 9;
+	int MONGO_DATA_SOURCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -803,15 +1159,6 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int MONGO_DATA_SOURCE__PORT = DATABASE_DATA_SOURCE__PORT;
 
 	/**
-	 * The feature id for the '<em><b>Database</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MONGO_DATA_SOURCE__DATABASE = DATABASE_DATA_SOURCE__DATABASE;
-
-	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -837,6 +1184,15 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @ordered
 	 */
 	int MONGO_DATA_SOURCE__PROPERTIES = DATABASE_DATA_SOURCE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Database</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONGO_DATA_SOURCE__DATABASE = DATABASE_DATA_SOURCE__DATABASE;
 
 	/**
 	 * The feature id for the '<em><b>Auth Source</b></em>' attribute.
@@ -875,6 +1231,124 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int MONGO_DATA_SOURCE_OPERATION_COUNT = DATABASE_DATA_SOURCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.MqttDataSourceImpl <em>Mqtt Data Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.MqttDataSourceImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMqttDataSource()
+	 * @generated
+	 */
+	int MQTT_DATA_SOURCE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__ID = SERVER_DATA_SOURCE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__NAME = SERVER_DATA_SOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__DESCRIPTION = SERVER_DATA_SOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__FILTER = SERVER_DATA_SOURCE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__HOST = SERVER_DATA_SOURCE__HOST;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__PORT = SERVER_DATA_SOURCE__PORT;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__USER = SERVER_DATA_SOURCE__USER;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__PASSWORD = SERVER_DATA_SOURCE__PASSWORD;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__PROPERTIES = SERVER_DATA_SOURCE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE__PROTOCOL = SERVER_DATA_SOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Mqtt Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE_FEATURE_COUNT = SERVER_DATA_SOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Mqtt Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_DATA_SOURCE_OPERATION_COUNT = SERVER_DATA_SOURCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.JdbcDriver <em>Jdbc Driver</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,7 +1356,17 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDriver()
 	 * @generated
 	 */
-	int JDBC_DRIVER = 10;
+	int JDBC_DRIVER = 16;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.PayloadFormat <em>Payload Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.PayloadFormat
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getPayloadFormat()
+	 * @generated
+	 */
+	int PAYLOAD_FORMAT = 17;
 
 
 	/**
@@ -993,6 +1477,113 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	EReference getDataInput_SupportedEClasses();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.PayloadDataInput <em>Payload Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Payload Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.PayloadDataInput
+	 * @generated
+	 */
+	EClass getPayloadDataInput();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.fennec.atlas.configuration.PayloadDataInput#getCodec <em>Codec</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Codec</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.PayloadDataInput#getCodec()
+	 * @see #getPayloadDataInput()
+	 * @generated
+	 */
+	EReference getPayloadDataInput_Codec();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration <em>Codec Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Codec Configuration</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration
+	 * @generated
+	 */
+	EClass getCodecConfiguration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration#getFormat()
+	 * @see #getCodecConfiguration()
+	 * @generated
+	 */
+	EAttribute getCodecConfiguration_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration#getTypeMapId <em>Type Map Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Map Id</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration#getTypeMapId()
+	 * @see #getCodecConfiguration()
+	 * @generated
+	 */
+	EAttribute getCodecConfiguration_TypeMapId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration#isUseNamesFromExtendedMetadata <em>Use Names From Extended Metadata</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Names From Extended Metadata</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration#isUseNamesFromExtendedMetadata()
+	 * @see #getCodecConfiguration()
+	 * @generated
+	 */
+	EAttribute getCodecConfiguration_UseNamesFromExtendedMetadata();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration#getRootTypes <em>Root Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Root Types</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration#getRootTypes()
+	 * @see #getCodecConfiguration()
+	 * @generated
+	 */
+	EReference getCodecConfiguration_RootTypes();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.RootTypeRule <em>Root Type Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Root Type Rule</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.RootTypeRule
+	 * @generated
+	 */
+	EClass getRootTypeRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.RootTypeRule#getSourcePattern <em>Source Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Pattern</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.RootTypeRule#getSourcePattern()
+	 * @see #getRootTypeRule()
+	 * @generated
+	 */
+	EAttribute getRootTypeRule_SourcePattern();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.RootTypeRule#getRootType <em>Root Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root Type</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.RootTypeRule#getRootType()
+	 * @see #getRootTypeRule()
+	 * @generated
+	 */
+	EReference getRootTypeRule_RootType();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.FileDataInput <em>File Data Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,6 +1624,38 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EReference getMongoDataInput_DataSource();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.MqttDataInput <em>Mqtt Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mqtt Data Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataInput
+	 * @generated
+	 */
+	EClass getMqttDataInput();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.MqttDataInput#getDataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Source</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataInput#getDataSource()
+	 * @see #getMqttDataInput()
+	 * @generated
+	 */
+	EReference getMqttDataInput_DataSource();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.fennec.atlas.configuration.MqttDataInput#getTopics <em>Topics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Topics</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataInput#getTopics()
+	 * @see #getMqttDataInput()
+	 * @generated
+	 */
+	EAttribute getMqttDataInput_Topics();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataSource <em>Data Source</em>}'.
@@ -1089,6 +1712,71 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getDataSource_Filter();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource <em>Server Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Server Data Source</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource
+	 * @generated
+	 */
+	EClass getServerDataSource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource#getHost()
+	 * @see #getServerDataSource()
+	 * @generated
+	 */
+	EAttribute getServerDataSource_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource#getPort()
+	 * @see #getServerDataSource()
+	 * @generated
+	 */
+	EAttribute getServerDataSource_Port();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource#getUser()
+	 * @see #getServerDataSource()
+	 * @generated
+	 */
+	EAttribute getServerDataSource_User();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource#getPassword <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Password</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource#getPassword()
+	 * @see #getServerDataSource()
+	 * @generated
+	 */
+	EAttribute getServerDataSource_Password();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource#getProperties()
+	 * @see #getServerDataSource()
+	 * @generated
+	 */
+	EReference getServerDataSource_Properties();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource <em>Database Data Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1097,28 +1785,6 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EClass getDatabaseDataSource();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getHost <em>Host</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Host</em>'.
-	 * @see org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getHost()
-	 * @see #getDatabaseDataSource()
-	 * @generated
-	 */
-	EAttribute getDatabaseDataSource_Host();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getPort <em>Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Port</em>'.
-	 * @see org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getPort()
-	 * @see #getDatabaseDataSource()
-	 * @generated
-	 */
-	EAttribute getDatabaseDataSource_Port();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getDatabase <em>Database</em>}'.
@@ -1130,39 +1796,6 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EAttribute getDatabaseDataSource_Database();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getUser <em>User</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>User</em>'.
-	 * @see org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getUser()
-	 * @see #getDatabaseDataSource()
-	 * @generated
-	 */
-	EAttribute getDatabaseDataSource_User();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getPassword <em>Password</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Password</em>'.
-	 * @see org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getPassword()
-	 * @see #getDatabaseDataSource()
-	 * @generated
-	 */
-	EAttribute getDatabaseDataSource_Password();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Properties</em>'.
-	 * @see org.eclipse.fennec.atlas.configuration.DatabaseDataSource#getProperties()
-	 * @see #getDatabaseDataSource()
-	 * @generated
-	 */
-	EReference getDatabaseDataSource_Properties();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.ConnectionProperty <em>Connection Property</em>}'.
@@ -1261,6 +1894,27 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getMongoDataSource_Flavor();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.MqttDataSource <em>Mqtt Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mqtt Data Source</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataSource
+	 * @generated
+	 */
+	EClass getMqttDataSource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.MqttDataSource#getProtocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Protocol</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataSource#getProtocol()
+	 * @see #getMqttDataSource()
+	 * @generated
+	 */
+	EAttribute getMqttDataSource_Protocol();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.fennec.atlas.configuration.JdbcDriver <em>Jdbc Driver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1269,6 +1923,16 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EEnum getJdbcDriver();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.fennec.atlas.configuration.PayloadFormat <em>Payload Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Payload Format</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.PayloadFormat
+	 * @generated
+	 */
+	EEnum getPayloadFormat();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1380,6 +2044,92 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		EReference DATA_INPUT__SUPPORTED_ECLASSES = eINSTANCE.getDataInput_SupportedEClasses();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.PayloadDataInputImpl <em>Payload Data Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.PayloadDataInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getPayloadDataInput()
+		 * @generated
+		 */
+		EClass PAYLOAD_DATA_INPUT = eINSTANCE.getPayloadDataInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Codec</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAYLOAD_DATA_INPUT__CODEC = eINSTANCE.getPayloadDataInput_Codec();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.CodecConfigurationImpl <em>Codec Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.CodecConfigurationImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getCodecConfiguration()
+		 * @generated
+		 */
+		EClass CODEC_CONFIGURATION = eINSTANCE.getCodecConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CODEC_CONFIGURATION__FORMAT = eINSTANCE.getCodecConfiguration_Format();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Map Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CODEC_CONFIGURATION__TYPE_MAP_ID = eINSTANCE.getCodecConfiguration_TypeMapId();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Names From Extended Metadata</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CODEC_CONFIGURATION__USE_NAMES_FROM_EXTENDED_METADATA = eINSTANCE.getCodecConfiguration_UseNamesFromExtendedMetadata();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CODEC_CONFIGURATION__ROOT_TYPES = eINSTANCE.getCodecConfiguration_RootTypes();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.RootTypeRuleImpl <em>Root Type Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.RootTypeRuleImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getRootTypeRule()
+		 * @generated
+		 */
+		EClass ROOT_TYPE_RULE = eINSTANCE.getRootTypeRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOT_TYPE_RULE__SOURCE_PATTERN = eINSTANCE.getRootTypeRule_SourcePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT_TYPE_RULE__ROOT_TYPE = eINSTANCE.getRootTypeRule_RootType();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.FileDataInputImpl <em>File Data Input</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1414,6 +2164,32 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EReference MONGO_DATA_INPUT__DATA_SOURCE = eINSTANCE.getMongoDataInput_DataSource();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.MqttDataInputImpl <em>Mqtt Data Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.MqttDataInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMqttDataInput()
+		 * @generated
+		 */
+		EClass MQTT_DATA_INPUT = eINSTANCE.getMqttDataInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MQTT_DATA_INPUT__DATA_SOURCE = eINSTANCE.getMqttDataInput_DataSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Topics</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MQTT_DATA_INPUT__TOPICS = eINSTANCE.getMqttDataInput_Topics();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.
@@ -1458,6 +2234,56 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute DATA_SOURCE__FILTER = eINSTANCE.getDataSource_Filter();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.ServerDataSourceImpl <em>Server Data Source</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.ServerDataSourceImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getServerDataSource()
+		 * @generated
+		 */
+		EClass SERVER_DATA_SOURCE = eINSTANCE.getServerDataSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_DATA_SOURCE__HOST = eINSTANCE.getServerDataSource_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_DATA_SOURCE__PORT = eINSTANCE.getServerDataSource_Port();
+
+		/**
+		 * The meta object literal for the '<em><b>User</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_DATA_SOURCE__USER = eINSTANCE.getServerDataSource_User();
+
+		/**
+		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_DATA_SOURCE__PASSWORD = eINSTANCE.getServerDataSource_Password();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVER_DATA_SOURCE__PROPERTIES = eINSTANCE.getServerDataSource_Properties();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DatabaseDataSourceImpl <em>Database Data Source</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1468,52 +2294,12 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		EClass DATABASE_DATA_SOURCE = eINSTANCE.getDatabaseDataSource();
 
 		/**
-		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATABASE_DATA_SOURCE__HOST = eINSTANCE.getDatabaseDataSource_Host();
-
-		/**
-		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATABASE_DATA_SOURCE__PORT = eINSTANCE.getDatabaseDataSource_Port();
-
-		/**
 		 * The meta object literal for the '<em><b>Database</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DATABASE_DATA_SOURCE__DATABASE = eINSTANCE.getDatabaseDataSource_Database();
-
-		/**
-		 * The meta object literal for the '<em><b>User</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATABASE_DATA_SOURCE__USER = eINSTANCE.getDatabaseDataSource_User();
-
-		/**
-		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATABASE_DATA_SOURCE__PASSWORD = eINSTANCE.getDatabaseDataSource_Password();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATABASE_DATA_SOURCE__PROPERTIES = eINSTANCE.getDatabaseDataSource_Properties();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.ConnectionPropertyImpl <em>Connection Property</em>}' class.
@@ -1594,6 +2380,24 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute MONGO_DATA_SOURCE__FLAVOR = eINSTANCE.getMongoDataSource_Flavor();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.MqttDataSourceImpl <em>Mqtt Data Source</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.MqttDataSourceImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMqttDataSource()
+		 * @generated
+		 */
+		EClass MQTT_DATA_SOURCE = eINSTANCE.getMqttDataSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MQTT_DATA_SOURCE__PROTOCOL = eINSTANCE.getMqttDataSource_Protocol();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.JdbcDriver <em>Jdbc Driver</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1602,6 +2406,16 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EEnum JDBC_DRIVER = eINSTANCE.getJdbcDriver();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.PayloadFormat <em>Payload Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.PayloadFormat
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getPayloadFormat()
+		 * @generated
+		 */
+		EEnum PAYLOAD_FORMAT = eINSTANCE.getPayloadFormat();
 
 	}
 

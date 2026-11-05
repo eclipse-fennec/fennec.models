@@ -20,7 +20,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * One driver-specific key/value setting of a DatabaseDataSource. The value is a string; the backend's metatype decides the target type.
+ * One driver-specific key/value setting of a ServerDataSource. The value is a string; the backend's metatype decides the target type.
  * <!-- end-model-doc -->
  *
  * <p>

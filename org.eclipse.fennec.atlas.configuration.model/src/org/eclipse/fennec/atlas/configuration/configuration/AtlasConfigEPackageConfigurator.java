@@ -28,8 +28,8 @@ import org.eclipse.fennec.emf.osgi.constants.EMFNamespaces;
  * Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).
  * 
  * The atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:
- * - DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.
- * - DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.
+ * - DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.
+ * - DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.
  * - DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).
  * 
  * Inputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies.
@@ -45,7 +45,7 @@ public class AtlasConfigEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:b410cac32928864f3cbe0a21423099a7d7b1f6f3fdb01bb02462147fe3628bbb";
+	public static final String FINGERPRINT = "fp1:73dce0f622ea460cd0cefc14c14606370937e5c3d1a9e7870df13213feda2ec8";
 
 	private AtlasConfigPackage ePackage;
 

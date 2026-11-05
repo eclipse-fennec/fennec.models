@@ -32,7 +32,7 @@ import org.eclipse.fennec.atlas.configuration.FileDataInput;
  *
  * @generated
  */
-public class FileDataInputImpl extends DataInputImpl implements FileDataInput {
+public class FileDataInputImpl extends PayloadDataInputImpl implements FileDataInput {
 	/**
 	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
 	 * <!-- begin-user-doc -->

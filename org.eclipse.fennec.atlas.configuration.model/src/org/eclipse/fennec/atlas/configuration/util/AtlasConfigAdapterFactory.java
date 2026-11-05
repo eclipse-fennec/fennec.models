@@ -88,6 +88,18 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 				return createDataInputAdapter();
 			}
 			@Override
+			public Adapter casePayloadDataInput(PayloadDataInput object) {
+				return createPayloadDataInputAdapter();
+			}
+			@Override
+			public Adapter caseCodecConfiguration(CodecConfiguration object) {
+				return createCodecConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseRootTypeRule(RootTypeRule object) {
+				return createRootTypeRuleAdapter();
+			}
+			@Override
 			public Adapter caseFileDataInput(FileDataInput object) {
 				return createFileDataInputAdapter();
 			}
@@ -96,8 +108,16 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 				return createMongoDataInputAdapter();
 			}
 			@Override
+			public Adapter caseMqttDataInput(MqttDataInput object) {
+				return createMqttDataInputAdapter();
+			}
+			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
+			}
+			@Override
+			public Adapter caseServerDataSource(ServerDataSource object) {
+				return createServerDataSourceAdapter();
 			}
 			@Override
 			public Adapter caseDatabaseDataSource(DatabaseDataSource object) {
@@ -114,6 +134,10 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMongoDataSource(MongoDataSource object) {
 				return createMongoDataSourceAdapter();
+			}
+			@Override
+			public Adapter caseMqttDataSource(MqttDataSource object) {
+				return createMqttDataSourceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -178,6 +202,48 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.PayloadDataInput <em>Payload Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.PayloadDataInput
+	 * @generated
+	 */
+	public Adapter createPayloadDataInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.CodecConfiguration <em>Codec Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.CodecConfiguration
+	 * @generated
+	 */
+	public Adapter createCodecConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.RootTypeRule <em>Root Type Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.RootTypeRule
+	 * @generated
+	 */
+	public Adapter createRootTypeRuleAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.FileDataInput <em>File Data Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -206,6 +272,20 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.MqttDataInput <em>Mqtt Data Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataInput
+	 * @generated
+	 */
+	public Adapter createMqttDataInputAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataSource <em>Data Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -216,6 +296,20 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.ServerDataSource <em>Server Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.ServerDataSource
+	 * @generated
+	 */
+	public Adapter createServerDataSourceAdapter() {
 		return null;
 	}
 
@@ -272,6 +366,20 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMongoDataSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.MqttDataSource <em>Mqtt Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.MqttDataSource
+	 * @generated
+	 */
+	public Adapter createMqttDataSourceAdapter() {
 		return null;
 	}
 
