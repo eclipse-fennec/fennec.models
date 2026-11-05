@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.fennec.atlas.configuration.AtlasConfigFactory;
 import org.eclipse.fennec.atlas.configuration.AtlasConfigPackage;
+import org.eclipse.fennec.atlas.configuration.CodecConfiguration;
 import org.eclipse.fennec.atlas.configuration.ConnectionProperty;
 import org.eclipse.fennec.atlas.configuration.DataInput;
 import org.eclipse.fennec.atlas.configuration.DataProvider;
@@ -31,6 +32,12 @@ import org.eclipse.fennec.atlas.configuration.JdbcDataSource;
 import org.eclipse.fennec.atlas.configuration.JdbcDriver;
 import org.eclipse.fennec.atlas.configuration.MongoDataInput;
 import org.eclipse.fennec.atlas.configuration.MongoDataSource;
+import org.eclipse.fennec.atlas.configuration.MqttDataInput;
+import org.eclipse.fennec.atlas.configuration.MqttDataSource;
+import org.eclipse.fennec.atlas.configuration.PayloadDataInput;
+import org.eclipse.fennec.atlas.configuration.PayloadFormat;
+import org.eclipse.fennec.atlas.configuration.RootTypeRule;
+import org.eclipse.fennec.atlas.configuration.ServerDataSource;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +72,27 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass payloadDataInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass codecConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rootTypeRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass fileDataInputEClass = null;
 
 	/**
@@ -79,7 +107,21 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass mqttDataInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass dataSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serverDataSourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,7 +156,21 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass mqttDataSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum jdbcDriverEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum payloadFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -282,6 +338,106 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	@Override
+	public EClass getPayloadDataInput() {
+		return payloadDataInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPayloadDataInput_Codec() {
+		return (EReference)payloadDataInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCodecConfiguration() {
+		return codecConfigurationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCodecConfiguration_Format() {
+		return (EAttribute)codecConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCodecConfiguration_TypeMapId() {
+		return (EAttribute)codecConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCodecConfiguration_UseNamesFromExtendedMetadata() {
+		return (EAttribute)codecConfigurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCodecConfiguration_RootTypes() {
+		return (EReference)codecConfigurationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRootTypeRule() {
+		return rootTypeRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRootTypeRule_SourcePattern() {
+		return (EAttribute)rootTypeRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRootTypeRule_RootType() {
+		return (EReference)rootTypeRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFileDataInput() {
 		return fileDataInputEClass;
 	}
@@ -314,6 +470,36 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	@Override
 	public EReference getMongoDataInput_DataSource() {
 		return (EReference)mongoDataInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMqttDataInput() {
+		return mqttDataInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMqttDataInput_DataSource() {
+		return (EReference)mqttDataInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMqttDataInput_Topics() {
+		return (EAttribute)mqttDataInputEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -372,6 +558,66 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	@Override
+	public EClass getServerDataSource() {
+		return serverDataSourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getServerDataSource_Host() {
+		return (EAttribute)serverDataSourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getServerDataSource_Port() {
+		return (EAttribute)serverDataSourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getServerDataSource_User() {
+		return (EAttribute)serverDataSourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getServerDataSource_Password() {
+		return (EAttribute)serverDataSourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getServerDataSource_Properties() {
+		return (EReference)serverDataSourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDatabaseDataSource() {
 		return databaseDataSourceEClass;
 	}
@@ -382,58 +628,8 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDatabaseDataSource_Host() {
-		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDatabaseDataSource_Port() {
-		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getDatabaseDataSource_Database() {
-		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDatabaseDataSource_User() {
-		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDatabaseDataSource_Password() {
-		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDatabaseDataSource_Properties() {
-		return (EReference)databaseDataSourceEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)databaseDataSourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -532,8 +728,38 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	@Override
+	public EClass getMqttDataSource() {
+		return mqttDataSourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMqttDataSource_Protocol() {
+		return (EAttribute)mqttDataSourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getJdbcDriver() {
 		return jdbcDriverEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getPayloadFormat() {
+		return payloadFormatEEnum;
 	}
 
 	/**
@@ -578,11 +804,28 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		createEAttribute(dataInputEClass, DATA_INPUT__ID);
 		createEReference(dataInputEClass, DATA_INPUT__SUPPORTED_ECLASSES);
 
+		payloadDataInputEClass = createEClass(PAYLOAD_DATA_INPUT);
+		createEReference(payloadDataInputEClass, PAYLOAD_DATA_INPUT__CODEC);
+
+		codecConfigurationEClass = createEClass(CODEC_CONFIGURATION);
+		createEAttribute(codecConfigurationEClass, CODEC_CONFIGURATION__FORMAT);
+		createEAttribute(codecConfigurationEClass, CODEC_CONFIGURATION__TYPE_MAP_ID);
+		createEAttribute(codecConfigurationEClass, CODEC_CONFIGURATION__USE_NAMES_FROM_EXTENDED_METADATA);
+		createEReference(codecConfigurationEClass, CODEC_CONFIGURATION__ROOT_TYPES);
+
+		rootTypeRuleEClass = createEClass(ROOT_TYPE_RULE);
+		createEAttribute(rootTypeRuleEClass, ROOT_TYPE_RULE__SOURCE_PATTERN);
+		createEReference(rootTypeRuleEClass, ROOT_TYPE_RULE__ROOT_TYPE);
+
 		fileDataInputEClass = createEClass(FILE_DATA_INPUT);
 		createEAttribute(fileDataInputEClass, FILE_DATA_INPUT__URI);
 
 		mongoDataInputEClass = createEClass(MONGO_DATA_INPUT);
 		createEReference(mongoDataInputEClass, MONGO_DATA_INPUT__DATA_SOURCE);
+
+		mqttDataInputEClass = createEClass(MQTT_DATA_INPUT);
+		createEReference(mqttDataInputEClass, MQTT_DATA_INPUT__DATA_SOURCE);
+		createEAttribute(mqttDataInputEClass, MQTT_DATA_INPUT__TOPICS);
 
 		dataSourceEClass = createEClass(DATA_SOURCE);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__ID);
@@ -590,13 +833,15 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		createEAttribute(dataSourceEClass, DATA_SOURCE__DESCRIPTION);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__FILTER);
 
+		serverDataSourceEClass = createEClass(SERVER_DATA_SOURCE);
+		createEAttribute(serverDataSourceEClass, SERVER_DATA_SOURCE__HOST);
+		createEAttribute(serverDataSourceEClass, SERVER_DATA_SOURCE__PORT);
+		createEAttribute(serverDataSourceEClass, SERVER_DATA_SOURCE__USER);
+		createEAttribute(serverDataSourceEClass, SERVER_DATA_SOURCE__PASSWORD);
+		createEReference(serverDataSourceEClass, SERVER_DATA_SOURCE__PROPERTIES);
+
 		databaseDataSourceEClass = createEClass(DATABASE_DATA_SOURCE);
-		createEAttribute(databaseDataSourceEClass, DATABASE_DATA_SOURCE__HOST);
-		createEAttribute(databaseDataSourceEClass, DATABASE_DATA_SOURCE__PORT);
 		createEAttribute(databaseDataSourceEClass, DATABASE_DATA_SOURCE__DATABASE);
-		createEAttribute(databaseDataSourceEClass, DATABASE_DATA_SOURCE__USER);
-		createEAttribute(databaseDataSourceEClass, DATABASE_DATA_SOURCE__PASSWORD);
-		createEReference(databaseDataSourceEClass, DATABASE_DATA_SOURCE__PROPERTIES);
 
 		connectionPropertyEClass = createEClass(CONNECTION_PROPERTY);
 		createEAttribute(connectionPropertyEClass, CONNECTION_PROPERTY__KEY);
@@ -610,8 +855,12 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		createEAttribute(mongoDataSourceEClass, MONGO_DATA_SOURCE__AUTH_SOURCE);
 		createEAttribute(mongoDataSourceEClass, MONGO_DATA_SOURCE__FLAVOR);
 
+		mqttDataSourceEClass = createEClass(MQTT_DATA_SOURCE);
+		createEAttribute(mqttDataSourceEClass, MQTT_DATA_SOURCE__PROTOCOL);
+
 		// Create enums
 		jdbcDriverEEnum = createEEnum(JDBC_DRIVER);
+		payloadFormatEEnum = createEEnum(PAYLOAD_FORMAT);
 	}
 
 	/**
@@ -643,11 +892,15 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 
 		// Add supertypes to classes
 		dataServiceEClass.getESuperTypes().add(this.getDataProvider());
-		fileDataInputEClass.getESuperTypes().add(this.getDataInput());
+		payloadDataInputEClass.getESuperTypes().add(this.getDataInput());
+		fileDataInputEClass.getESuperTypes().add(this.getPayloadDataInput());
 		mongoDataInputEClass.getESuperTypes().add(this.getDataInput());
-		databaseDataSourceEClass.getESuperTypes().add(this.getDataSource());
+		mqttDataInputEClass.getESuperTypes().add(this.getPayloadDataInput());
+		serverDataSourceEClass.getESuperTypes().add(this.getDataSource());
+		databaseDataSourceEClass.getESuperTypes().add(this.getServerDataSource());
 		jdbcDataSourceEClass.getESuperTypes().add(this.getDatabaseDataSource());
 		mongoDataSourceEClass.getESuperTypes().add(this.getDatabaseDataSource());
+		mqttDataSourceEClass.getESuperTypes().add(this.getServerDataSource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataProviderEClass, DataProvider.class, "DataProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -663,11 +916,28 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEAttribute(getDataInput_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataInput_SupportedEClasses(), ecorePackage.getEClass(), null, "supportedEClasses", null, 0, -1, DataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(payloadDataInputEClass, PayloadDataInput.class, "PayloadDataInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPayloadDataInput_Codec(), this.getCodecConfiguration(), null, "codec", null, 0, 1, PayloadDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(codecConfigurationEClass, CodecConfiguration.class, "CodecConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCodecConfiguration_Format(), this.getPayloadFormat(), "format", null, 0, 1, CodecConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCodecConfiguration_TypeMapId(), ecorePackage.getEString(), "typeMapId", null, 0, 1, CodecConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCodecConfiguration_UseNamesFromExtendedMetadata(), ecorePackage.getEBoolean(), "useNamesFromExtendedMetadata", "true", 0, 1, CodecConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCodecConfiguration_RootTypes(), this.getRootTypeRule(), null, "rootTypes", null, 0, -1, CodecConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rootTypeRuleEClass, RootTypeRule.class, "RootTypeRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRootTypeRule_SourcePattern(), ecorePackage.getEString(), "sourcePattern", null, 1, 1, RootTypeRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRootTypeRule_RootType(), ecorePackage.getEClass(), null, "rootType", null, 1, 1, RootTypeRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(fileDataInputEClass, FileDataInput.class, "FileDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileDataInput_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, FileDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mongoDataInputEClass, MongoDataInput.class, "MongoDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMongoDataInput_DataSource(), this.getMongoDataSource(), null, "dataSource", null, 1, 1, MongoDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mqttDataInputEClass, MqttDataInput.class, "MqttDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMqttDataInput_DataSource(), this.getMqttDataSource(), null, "dataSource", null, 1, 1, MqttDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMqttDataInput_Topics(), ecorePackage.getEString(), "topics", null, 1, -1, MqttDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -675,13 +945,15 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEAttribute(getDataSource_Description(), ecorePackage.getEString(), "description", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSource_Filter(), ecorePackage.getEString(), "filter", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(serverDataSourceEClass, ServerDataSource.class, "ServerDataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServerDataSource_Host(), ecorePackage.getEString(), "host", null, 0, 1, ServerDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServerDataSource_Port(), ecorePackage.getEIntegerObject(), "port", null, 0, 1, ServerDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServerDataSource_User(), ecorePackage.getEString(), "user", null, 0, 1, ServerDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServerDataSource_Password(), ecorePackage.getEString(), "password", null, 0, 1, ServerDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServerDataSource_Properties(), this.getConnectionProperty(), null, "properties", null, 0, -1, ServerDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(databaseDataSourceEClass, DatabaseDataSource.class, "DatabaseDataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatabaseDataSource_Host(), ecorePackage.getEString(), "host", null, 0, 1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDatabaseDataSource_Port(), ecorePackage.getEIntegerObject(), "port", null, 0, 1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDatabaseDataSource_Database(), ecorePackage.getEString(), "database", null, 0, 1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDatabaseDataSource_User(), ecorePackage.getEString(), "user", null, 0, 1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDatabaseDataSource_Password(), ecorePackage.getEString(), "password", null, 0, 1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabaseDataSource_Properties(), this.getConnectionProperty(), null, "properties", null, 0, -1, DatabaseDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectionPropertyEClass, ConnectionProperty.class, "ConnectionProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnectionProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, ConnectionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -695,10 +967,17 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEAttribute(getMongoDataSource_AuthSource(), ecorePackage.getEString(), "authSource", null, 0, 1, MongoDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMongoDataSource_Flavor(), ecorePackage.getEString(), "flavor", null, 0, 1, MongoDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(mqttDataSourceEClass, MqttDataSource.class, "MqttDataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMqttDataSource_Protocol(), ecorePackage.getEString(), "protocol", null, 0, 1, MqttDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(jdbcDriverEEnum, JdbcDriver.class, "JdbcDriver");
 		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.POSTGRESQL);
 		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.H2);
+
+		initEEnum(payloadFormatEEnum, PayloadFormat.class, "PayloadFormat");
+		addEEnumLiteral(payloadFormatEEnum, PayloadFormat.XMI);
+		addEEnumLiteral(payloadFormatEEnum, PayloadFormat.JSON);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -720,7 +999,7 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (this,
 		   source,
 		   new String[] {
-			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MongoDataInput): what streams EObjects into an atlas.\n- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).\n\nInputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies."
+			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.\n- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).\n\nInputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies."
 		   });
 		addAnnotation
 		  (dataProviderEClass,
@@ -783,6 +1062,72 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 			   "documentation", "The EClasses (model types, typically resolved against the Model Atlas) whose instances this input can provide."
 		   });
 		addAnnotation
+		  (payloadDataInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Abstract base for inputs that receive serialized payloads (files, messages, HTTP bodies) and turn them into EObjects through the EMF codec. The codec configuration says how; without one the input uses the codec\'s defaults (the payload has to name its own model, as XMI does).\n\nIntended as an abstract base - it is not meant to be instantiated directly."
+		   });
+		addAnnotation
+		  (getPayloadDataInput_Codec(),
+		   source,
+		   new String[] {
+			   "documentation", "How this input deserializes its payloads. Unset = the codec\'s defaults."
+		   });
+		addAnnotation
+		  (codecConfigurationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "The rules for turning a payload into EObjects with the EMF codec: format, type map, root type per source and name handling. The consuming runtime translates them into the codec\'s load options."
+		   });
+		addAnnotation
+		  (getCodecConfiguration_Format(),
+		   source,
+		   new String[] {
+			   "documentation", "The serialization format of the payloads. Unset = the input derives it per payload (e.g. from the file extension or the content type)."
+		   });
+		addAnnotation
+		  (getCodecConfiguration_TypeMapId(),
+		   source,
+		   new String[] {
+			   "documentation", "The codec\'s type-mapping registry id (codec load option codec.typeMapId). Formats that do not name their own model - JSON, unlike XMI - are typed by the codec\'s discriminator, which the models declare in eAnnotations with source http://eclipse.org/fennec/codec/typeMapping/<typeMapId>. Unset = the codec\'s defaults, so untyped JSON yields no objects unless a root type applies."
+		   });
+		addAnnotation
+		  (getCodecConfiguration_UseNamesFromExtendedMetadata(),
+		   source,
+		   new String[] {
+			   "documentation", "Whether the codec reads property names from the models\' ExtendedMetaData annotations (codec load option codec.useNamesFromExtendedMetadata) instead of the feature names. Default true: models generated from external payloads record the original names there."
+		   });
+		addAnnotation
+		  (getCodecConfiguration_RootTypes(),
+		   source,
+		   new String[] {
+			   "documentation", "The root type to read payloads as, per source. The first rule whose sourcePattern matches the payload\'s source wins; without a match the codec resolves the type itself (discriminator, or the type the payload names)."
+		   });
+		addAnnotation
+		  (rootTypeRuleEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reads the payloads of matching sources as one EClass (codec load option CODEC_ROOT_TYPE).\n\nThe rule is a fallback for payloads the codec cannot type on its own: a model whose payloads carry no discriminator value (e.g. a LoRaWAN uplink with a fresh UUID per message) can only be typed by the source it arrives from. A model that does annotate a discriminator still picks its own type."
+		   });
+		addAnnotation
+		  (getRootTypeRule_SourcePattern(),
+		   source,
+		   new String[] {
+			   "documentation", "Pattern matched against the payload\'s source - the MQTT topic, the file path, the request path - where * and # stand for any text, e.g. iotraffic/#."
+		   });
+		addAnnotation
+		  (getRootTypeRule_RootType(),
+		   source,
+		   new String[] {
+			   "documentation", "The EClass the matching payloads are read as (typically resolved against the Model Atlas)."
+		   });
+		addAnnotation
+		  (payloadFormatEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "The serialization formats a PayloadDataInput can read. The literal is the file extension that selects the EMF resource factory."
+		   });
+		addAnnotation
 		  (fileDataInputEClass,
 		   source,
 		   new String[] {
@@ -807,10 +1152,28 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 			   "documentation", "The MongoDB data source definition providing the database for this input."
 		   });
 		addAnnotation
+		  (mqttDataInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "DataInput receiving the messages of MQTT topics from a broker. The topic a message arrives on is its source, e.g. for the root type rules of the codec configuration."
+		   });
+		addAnnotation
+		  (getMqttDataInput_DataSource(),
+		   source,
+		   new String[] {
+			   "documentation", "The MQTT broker this input subscribes at."
+		   });
+		addAnnotation
+		  (getMqttDataInput_Topics(),
+		   source,
+		   new String[] {
+			   "documentation", "The topic filters this input subscribes to, in MQTT syntax (+ for one level, # for the rest), e.g. 5g/ilsa/+/config."
+		   });
+		addAnnotation
 		  (dataSourceEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A reusable data source definition, kept in a registry of the consuming atlas configuration so it can be shared across its users (and tenants).\n\nA data source is realized in exactly one of two modes:\n- BIND: filter is set. The deployment configured the backend service itself (e.g. a daanse DataSource factory configuration); the filter selects it. Nothing else may be set.\n- MATERIALIZE: the connection definition of the concrete subtype is set (at least host and database). The consuming atlas runtime creates the backend service from it.\nSetting both, or neither, is a configuration error - the source is reported and skipped.\n\nCredential rule: the configuration model never carries a credential value. user and password are placeholders resolved in the consuming runtime only: $[env:NAME] for an environment variable or $[secret:NAME] for a file in the runtime\'s secrets directory. A literal value is rejected."
+			   "documentation", "A reusable data source definition, kept in a registry of the consuming atlas configuration so it can be shared across its users (and tenants).\n\nA data source is realized in exactly one of two modes:\n- BIND: filter is set. The deployment configured the backend service itself (e.g. a daanse DataSource factory configuration); the filter selects it. Nothing else may be set.\n- MATERIALIZE: the connection definition of the concrete subtype is set (at least host, for databases also database). The consuming atlas runtime creates the backend service from it.\nSetting both, or neither, is a configuration error - the source is reported and skipped.\n\nCredential rule: the configuration model never carries a credential value. user and password are placeholders resolved in the consuming runtime only: $[env:NAME] for an environment variable or $[secret:NAME] for a file in the runtime\'s secrets directory. A literal value is rejected."
 		   });
 		addAnnotation
 		  (getDataSource_Id(),
@@ -834,25 +1197,49 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (getDataSource_Filter(),
 		   source,
 		   new String[] {
-			   "documentation", "BIND mode: OSGi target filter (LDAP-style) selecting the backend service the deployment configured - a javax.sql.DataSource for JDBC (e.g. (dataSourceName=personsDs)), a MongoDatabase for MongoDB (e.g. (mongo.database.alias=assets)). Mutually exclusive with the connection definition."
+			   "documentation", "BIND mode: OSGi target filter (LDAP-style) selecting the backend service the deployment configured - a javax.sql.DataSource for JDBC (e.g. (dataSourceName=personsDs)), a MongoDatabase for MongoDB (e.g. (mongo.database.alias=assets)), the client service for MQTT. Mutually exclusive with the connection definition."
+		   });
+		addAnnotation
+		  (serverDataSourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A data source addressed by network coordinates: the connection definition shared by all server kinds - databases, message brokers (MATERIALIZE mode). host is the minimum; subtypes add what else they require."
+		   });
+		addAnnotation
+		  (getServerDataSource_Host(),
+		   source,
+		   new String[] {
+			   "documentation", "Server host name or address. May be a $[env:NAME] placeholder."
+		   });
+		addAnnotation
+		  (getServerDataSource_Port(),
+		   source,
+		   new String[] {
+			   "documentation", "Server port; unset = the protocol\'s default (5432 for PostgreSQL, 27017 for MongoDB, 1883 for MQTT)."
+		   });
+		addAnnotation
+		  (getServerDataSource_User(),
+		   source,
+		   new String[] {
+			   "documentation", "Login user - a $[env:NAME] or $[secret:NAME] placeholder ONLY, never a literal (see DataSource). Unset for databases without authentication."
+		   });
+		addAnnotation
+		  (getServerDataSource_Password(),
+		   source,
+		   new String[] {
+			   "documentation", "Login password - a $[env:NAME] or $[secret:NAME] placeholder ONLY, never a literal (see DataSource)."
+		   });
+		addAnnotation
+		  (getServerDataSource_Properties(),
+		   source,
+		   new String[] {
+			   "documentation", "Additional driver-specific settings, passed through verbatim to the backend\'s factory configuration (e.g. sslMode=require for PostgreSQL, dbCloseDelay=-1 for H2, flavor=ferretdb for MongoDB). They cannot override the keys derived from the coordinate attributes."
 		   });
 		addAnnotation
 		  (databaseDataSourceEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A data source addressed by network coordinates: the connection definition shared by all database kinds (MATERIALIZE mode). host and database are the minimum; the rest is optional."
-		   });
-		addAnnotation
-		  (getDatabaseDataSource_Host(),
-		   source,
-		   new String[] {
-			   "documentation", "Database host name or address. May be a $[env:NAME] placeholder."
-		   });
-		addAnnotation
-		  (getDatabaseDataSource_Port(),
-		   source,
-		   new String[] {
-			   "documentation", "Database port; unset = the driver\'s default (5432 for PostgreSQL, 27017 for MongoDB)."
+			   "documentation", "The connection definition shared by all database kinds (MATERIALIZE mode). host and database are the minimum; the rest is optional."
 		   });
 		addAnnotation
 		  (getDatabaseDataSource_Database(),
@@ -861,28 +1248,10 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 			   "documentation", "Name of the database (for H2: the database identifier - a name or path)."
 		   });
 		addAnnotation
-		  (getDatabaseDataSource_User(),
-		   source,
-		   new String[] {
-			   "documentation", "Login user - a $[env:NAME] or $[secret:NAME] placeholder ONLY, never a literal (see DataSource). Unset for databases without authentication."
-		   });
-		addAnnotation
-		  (getDatabaseDataSource_Password(),
-		   source,
-		   new String[] {
-			   "documentation", "Login password - a $[env:NAME] or $[secret:NAME] placeholder ONLY, never a literal (see DataSource)."
-		   });
-		addAnnotation
-		  (getDatabaseDataSource_Properties(),
-		   source,
-		   new String[] {
-			   "documentation", "Additional driver-specific settings, passed through verbatim to the backend\'s factory configuration (e.g. sslMode=require for PostgreSQL, dbCloseDelay=-1 for H2, flavor=ferretdb for MongoDB). They cannot override the keys derived from the coordinate attributes."
-		   });
-		addAnnotation
 		  (connectionPropertyEClass,
 		   source,
 		   new String[] {
-			   "documentation", "One driver-specific key/value setting of a DatabaseDataSource. The value is a string; the backend\'s metatype decides the target type."
+			   "documentation", "One driver-specific key/value setting of a ServerDataSource. The value is a string; the backend\'s metatype decides the target type."
 		   });
 		addAnnotation
 		  (jdbcDataSourceEClass,
@@ -925,6 +1294,18 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		   source,
 		   new String[] {
 			   "documentation", "Optional server flavor behind the wire protocol as understood by the fennec Mongo backend (mongo, ferretdb, documentdb-pg); unset = mongo."
+		   });
+		addAnnotation
+		  (mqttDataSourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "An MQTT broker.\nBIND: filter selects the MQTT client service the deployment configured.\nMATERIALIZE: the consuming runtime creates the client connection from protocol/host/port/user/password/properties."
+		   });
+		addAnnotation
+		  (getMqttDataSource_Protocol(),
+		   source,
+		   new String[] {
+			   "documentation", "The transport of the broker URL: tcp, ssl, ws or wss; unset = tcp."
 		   });
 	}
 

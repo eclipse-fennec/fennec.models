@@ -24,7 +24,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * 
  * A data source is realized in exactly one of two modes:
  * - BIND: filter is set. The deployment configured the backend service itself (e.g. a daanse DataSource factory configuration); the filter selects it. Nothing else may be set.
- * - MATERIALIZE: the connection definition of the concrete subtype is set (at least host and database). The consuming atlas runtime creates the backend service from it.
+ * - MATERIALIZE: the connection definition of the concrete subtype is set (at least host, for databases also database). The consuming atlas runtime creates the backend service from it.
  * Setting both, or neither, is a configuration error - the source is reported and skipped.
  * 
  * Credential rule: the configuration model never carries a credential value. user and password are placeholders resolved in the consuming runtime only: $[env:NAME] for an environment variable or $[secret:NAME] for a file in the runtime's secrets directory. A literal value is rejected.
@@ -126,7 +126,7 @@ public interface DataSource extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * BIND mode: OSGi target filter (LDAP-style) selecting the backend service the deployment configured - a javax.sql.DataSource for JDBC (e.g. (dataSourceName=personsDs)), a MongoDatabase for MongoDB (e.g. (mongo.database.alias=assets)). Mutually exclusive with the connection definition.
+	 * BIND mode: OSGi target filter (LDAP-style) selecting the backend service the deployment configured - a javax.sql.DataSource for JDBC (e.g. (dataSourceName=personsDs)), a MongoDatabase for MongoDB (e.g. (mongo.database.alias=assets)), the client service for MQTT. Mutually exclusive with the connection definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(String)

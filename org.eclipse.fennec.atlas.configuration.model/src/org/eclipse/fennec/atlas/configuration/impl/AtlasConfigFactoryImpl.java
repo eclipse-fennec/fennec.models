@@ -65,11 +65,15 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case AtlasConfigPackage.CODEC_CONFIGURATION: return createCodecConfiguration();
+			case AtlasConfigPackage.ROOT_TYPE_RULE: return createRootTypeRule();
 			case AtlasConfigPackage.FILE_DATA_INPUT: return createFileDataInput();
 			case AtlasConfigPackage.MONGO_DATA_INPUT: return createMongoDataInput();
+			case AtlasConfigPackage.MQTT_DATA_INPUT: return createMqttDataInput();
 			case AtlasConfigPackage.CONNECTION_PROPERTY: return createConnectionProperty();
 			case AtlasConfigPackage.JDBC_DATA_SOURCE: return createJdbcDataSource();
 			case AtlasConfigPackage.MONGO_DATA_SOURCE: return createMongoDataSource();
+			case AtlasConfigPackage.MQTT_DATA_SOURCE: return createMqttDataSource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,6 +89,8 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 		switch (eDataType.getClassifierID()) {
 			case AtlasConfigPackage.JDBC_DRIVER:
 				return createJdbcDriverFromString(eDataType, initialValue);
+			case AtlasConfigPackage.PAYLOAD_FORMAT:
+				return createPayloadFormatFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,9 +106,33 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 		switch (eDataType.getClassifierID()) {
 			case AtlasConfigPackage.JDBC_DRIVER:
 				return convertJdbcDriverToString(eDataType, instanceValue);
+			case AtlasConfigPackage.PAYLOAD_FORMAT:
+				return convertPayloadFormatToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CodecConfiguration createCodecConfiguration() {
+		CodecConfigurationImpl codecConfiguration = new CodecConfigurationImpl();
+		return codecConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RootTypeRule createRootTypeRule() {
+		RootTypeRuleImpl rootTypeRule = new RootTypeRuleImpl();
+		return rootTypeRule;
 	}
 
 	/**
@@ -125,6 +155,17 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	public MongoDataInput createMongoDataInput() {
 		MongoDataInputImpl mongoDataInput = new MongoDataInputImpl();
 		return mongoDataInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MqttDataInput createMqttDataInput() {
+		MqttDataInputImpl mqttDataInput = new MqttDataInputImpl();
+		return mqttDataInput;
 	}
 
 	/**
@@ -165,6 +206,17 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public MqttDataSource createMqttDataSource() {
+		MqttDataSourceImpl mqttDataSource = new MqttDataSourceImpl();
+		return mqttDataSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JdbcDriver createJdbcDriverFromString(EDataType eDataType, String initialValue) {
 		JdbcDriver result = JdbcDriver.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -177,6 +229,26 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	 * @generated
 	 */
 	public String convertJdbcDriverToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFormat createPayloadFormatFromString(EDataType eDataType, String initialValue) {
+		PayloadFormat result = PayloadFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPayloadFormatToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
