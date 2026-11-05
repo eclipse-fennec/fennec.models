@@ -198,7 +198,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Server port; unset = the protocol's default (5432 for PostgreSQL, 27017 for MongoDB, 1883 for MQTT)."/>
+        <details key="documentation" value="Server port; unset = the protocol's default (5432 for PostgreSQL, 3306 for MariaDB/MySQL, 27017 for MongoDB, 1883 for MQTT)."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -246,7 +246,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Optional default schema of the connection (PostgreSQL currentSchema)."/>
+        <details key="documentation" value="Optional default schema of the connection (PostgreSQL currentSchema). Not applicable to MariaDB/MySQL, where the database is the catalog."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -256,6 +256,16 @@
     </eAnnotations>
     <eLiterals name="POSTGRESQL" literal="postgresql"/>
     <eLiterals name="H2" value="1" literal="h2"/>
+    <eLiterals name="MARIADB" value="2" literal="mariadb">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="MariaDB. Tested in the fennec JPA persistence (flavor matrix, eclipse-fennec/emf.persistence-jpa#158). schema does not apply: the database is the catalog."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MYSQL" value="3" literal="mysql">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="MySQL. Not covered by the fennec JPA persistence tests - it runs on the portable query baseline there. schema does not apply: the database is the catalog."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MongoDataSource" eSuperTypes="#//DatabaseDataSource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

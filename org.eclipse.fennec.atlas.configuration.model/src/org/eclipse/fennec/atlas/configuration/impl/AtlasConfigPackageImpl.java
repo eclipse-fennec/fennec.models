@@ -974,6 +974,8 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEEnum(jdbcDriverEEnum, JdbcDriver.class, "JdbcDriver");
 		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.POSTGRESQL);
 		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.H2);
+		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.MARIADB);
+		addEEnumLiteral(jdbcDriverEEnum, JdbcDriver.MYSQL);
 
 		initEEnum(payloadFormatEEnum, PayloadFormat.class, "PayloadFormat");
 		addEEnumLiteral(payloadFormatEEnum, PayloadFormat.XMI);
@@ -1215,7 +1217,7 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (getServerDataSource_Port(),
 		   source,
 		   new String[] {
-			   "documentation", "Server port; unset = the protocol\'s default (5432 for PostgreSQL, 27017 for MongoDB, 1883 for MQTT)."
+			   "documentation", "Server port; unset = the protocol\'s default (5432 for PostgreSQL, 3306 for MariaDB/MySQL, 27017 for MongoDB, 1883 for MQTT)."
 		   });
 		addAnnotation
 		  (getServerDataSource_User(),
@@ -1269,13 +1271,25 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (getJdbcDataSource_Schema(),
 		   source,
 		   new String[] {
-			   "documentation", "Optional default schema of the connection (PostgreSQL currentSchema)."
+			   "documentation", "Optional default schema of the connection (PostgreSQL currentSchema). Not applicable to MariaDB/MySQL, where the database is the catalog."
 		   });
 		addAnnotation
 		  (jdbcDriverEEnum,
 		   source,
 		   new String[] {
 			   "documentation", "The relational database kinds a JdbcDataSource can be materialized for. The literal is the daanse provider infix: daanse.jdbc.datasource.<literal>.DataSource."
+		   });
+		addAnnotation
+		  (jdbcDriverEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "MariaDB. Tested in the fennec JPA persistence (flavor matrix, eclipse-fennec/emf.persistence-jpa#158). schema does not apply: the database is the catalog."
+		   });
+		addAnnotation
+		  (jdbcDriverEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "MySQL. Not covered by the fennec JPA persistence tests - it runs on the portable query baseline there. schema does not apply: the database is the catalog."
 		   });
 		addAnnotation
 		  (mongoDataSourceEClass,

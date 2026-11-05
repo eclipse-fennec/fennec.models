@@ -47,7 +47,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:73dce0f622ea460cd0cefc14c14606370937e5c3d1a9e7870df13213feda2ec8", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
+@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:b425d14541fcdfe5978743bab4737c6878a3a86b81990d74acc9307c4ee419e4", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
 public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
