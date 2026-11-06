@@ -54,6 +54,21 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//MqttDataInput/dataSource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MqttDataInput/topics"/>
     </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ExtentTransformationInput">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ExtentTransformationInput/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ExtentTransformationInput/transformation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//ExtentTransformationInput/sourceEClasses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ExtentTransformationInput/refreshInterval"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Transformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Transformation/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Transformation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Transformation/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//DataTransformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//DataTransformation/supportedEClasses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//DataTransformation/resultEClasses"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//DataSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DataSource/name"/>

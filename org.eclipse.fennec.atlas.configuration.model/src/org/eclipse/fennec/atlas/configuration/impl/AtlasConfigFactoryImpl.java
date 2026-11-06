@@ -70,6 +70,7 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 			case AtlasConfigPackage.FILE_DATA_INPUT: return createFileDataInput();
 			case AtlasConfigPackage.MONGO_DATA_INPUT: return createMongoDataInput();
 			case AtlasConfigPackage.MQTT_DATA_INPUT: return createMqttDataInput();
+			case AtlasConfigPackage.EXTENT_TRANSFORMATION_INPUT: return createExtentTransformationInput();
 			case AtlasConfigPackage.CONNECTION_PROPERTY: return createConnectionProperty();
 			case AtlasConfigPackage.JDBC_DATA_SOURCE: return createJdbcDataSource();
 			case AtlasConfigPackage.MONGO_DATA_SOURCE: return createMongoDataSource();
@@ -166,6 +167,17 @@ public class AtlasConfigFactoryImpl extends EFactoryImpl implements AtlasConfigF
 	public MqttDataInput createMqttDataInput() {
 		MqttDataInputImpl mqttDataInput = new MqttDataInputImpl();
 		return mqttDataInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ExtentTransformationInput createExtentTransformationInput() {
+		ExtentTransformationInputImpl extentTransformationInput = new ExtentTransformationInputImpl();
+		return extentTransformationInput;
 	}
 
 	/**
