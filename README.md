@@ -61,8 +61,9 @@ Then enable the library:
 
 | Module | Description |
 |---|---|
-| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB, MQTT), data inputs (file, MQTT, MongoDB), the EMF codec configuration of payload inputs, and the data provider and data service bases. Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
-| `org.eclipse.fennec.atlas.configuration.jpa.model` | JPA extension: `JPADataInput` with its eorm entity mapping; nsURI `https://eclipse.org/fennec/atlas/configuration/jpa/1.0.0`. Depends on `org.eclipse.fennec.persistence.orm` (eclipse-fennec/emf.persistence-jpa) and is therefore **not** part of the `fennecEMFModels` library or the BOM — add it to your buildpath explicitly |
+| `org.eclipse.fennec.atlas.configuration.model` | Configuration building blocks shared by the Fennec atlases: data source definitions (JDBC, MongoDB, MQTT), data inputs (file, MQTT, MongoDB), the EMF codec configuration of payload inputs, the data provider and data service bases, and the engine-neutral transformation types (`Transformation`, `DataTransformation`) with `ExtentTransformationInput`, which serves the transformed result of a whole source extent. Extracted from the Data Atlas configuration model; nsURI `https://eclipse.org/fennec/atlas/configuration/1.0.0` |
+| `org.eclipse.fennec.atlas.configuration.jpa.model` | JPA extension: `JPADataInput` with its eorm entity mapping; nsURI `https://eclipse.org/fennec/atlas/configuration/jpa/1.0.0`. Depends on `org.eclipse.fennec.persistence.orm` (eclipse-fennec/emf.persistence-jpa) |
+| `org.eclipse.fennec.atlas.configuration.qvto.model` | QVT-O extension: `QvtoDataTransformation`, given as a compiled QVT-O AST or as the URI of a `.qvto` source; nsURI `https://eclipse.org/fennec/atlas/configuration/qvto/1.0.0`. Depends on the QVT-O model `org.eclipse.fennec.m2x.qvto.model` (eclipse-fennec/emf.m2x) |
 
 ### Compliance
 

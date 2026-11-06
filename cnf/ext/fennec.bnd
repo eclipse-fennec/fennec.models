@@ -10,7 +10,9 @@
 	fennec,\
 	fennecTest,\
 	fennecJacoco,\
-	fennecEMF
+	fennecEMF,\
+	fennecPersistence,\
+	fennecM2X
 
 # Needed because we enabled library 'fennec'
 maven-central: true

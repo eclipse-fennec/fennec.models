@@ -118,7 +118,9 @@ org.eclipse.fennec.bnd:org.eclipse.fennec.jacoco.bnd.library:0.0.9
 org.eclipse.fennec.bnd:org.eclipse.fennec.osgitest.bnd.library:0.0.9
 org.eclipse.fennec.emf:org.eclipse.fennec.emf.osgi.bnd.library.workspace:1.1.0-SNAPSHOT
 
-# eorm model (eclipse-fennec/emf.persistence-jpa), used by org.eclipse.fennec.atlas.configuration.jpa.model
-org.eclipse.fennec.persistence:org.eclipse.fennec.persistence.orm:0.1.0-SNAPSHOT
+# workspace libraries of eclipse-fennec/emf.persistence-jpa (fennecPersistence: eorm model for the JPA atlas configuration model)
+# and eclipse-fennec/emf.m2x (fennecM2X: QVT-O model for the QVT-O atlas configuration model)
+org.eclipse.fennec.persistence:org.eclipse.fennec.persistence.workspace.library:0.1.0-SNAPSHOT
+org.eclipse.fennec.m2x:org.eclipse.fennec.m2x.library.workspace:0.1.1-SNAPSHOT
 
 org.bndtools:org.bndtools.templates.osgi:7.2.0
