@@ -112,6 +112,18 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 				return createMqttDataInputAdapter();
 			}
 			@Override
+			public Adapter caseExtentTransformationInput(ExtentTransformationInput object) {
+				return createExtentTransformationInputAdapter();
+			}
+			@Override
+			public Adapter caseTransformation(Transformation object) {
+				return createTransformationAdapter();
+			}
+			@Override
+			public Adapter caseDataTransformation(DataTransformation object) {
+				return createDataTransformationAdapter();
+			}
+			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
 			}
@@ -282,6 +294,48 @@ public class AtlasConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMqttDataInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput <em>Extent Transformation Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput
+	 * @generated
+	 */
+	public Adapter createExtentTransformationInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.Transformation <em>Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.Transformation
+	 * @generated
+	 */
+	public Adapter createTransformationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.atlas.configuration.DataTransformation <em>Data Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.atlas.configuration.DataTransformation
+	 * @generated
+	 */
+	public Adapter createDataTransformationAdapter() {
 		return null;
 	}
 

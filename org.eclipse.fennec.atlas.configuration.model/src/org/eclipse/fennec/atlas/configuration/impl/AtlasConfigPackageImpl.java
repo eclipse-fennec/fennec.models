@@ -26,7 +26,9 @@ import org.eclipse.fennec.atlas.configuration.DataInput;
 import org.eclipse.fennec.atlas.configuration.DataProvider;
 import org.eclipse.fennec.atlas.configuration.DataService;
 import org.eclipse.fennec.atlas.configuration.DataSource;
+import org.eclipse.fennec.atlas.configuration.DataTransformation;
 import org.eclipse.fennec.atlas.configuration.DatabaseDataSource;
+import org.eclipse.fennec.atlas.configuration.ExtentTransformationInput;
 import org.eclipse.fennec.atlas.configuration.FileDataInput;
 import org.eclipse.fennec.atlas.configuration.JdbcDataSource;
 import org.eclipse.fennec.atlas.configuration.JdbcDriver;
@@ -38,6 +40,7 @@ import org.eclipse.fennec.atlas.configuration.PayloadDataInput;
 import org.eclipse.fennec.atlas.configuration.PayloadFormat;
 import org.eclipse.fennec.atlas.configuration.RootTypeRule;
 import org.eclipse.fennec.atlas.configuration.ServerDataSource;
+import org.eclipse.fennec.atlas.configuration.Transformation;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,6 +111,27 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	private EClass mqttDataInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass extentTransformationInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transformationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataTransformationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -508,6 +532,126 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 	 * @generated
 	 */
 	@Override
+	public EClass getExtentTransformationInput() {
+		return extentTransformationInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getExtentTransformationInput_Source() {
+		return (EReference)extentTransformationInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getExtentTransformationInput_Transformation() {
+		return (EReference)extentTransformationInputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getExtentTransformationInput_SourceEClasses() {
+		return (EReference)extentTransformationInputEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getExtentTransformationInput_RefreshInterval() {
+		return (EAttribute)extentTransformationInputEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTransformation() {
+		return transformationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformation_Id() {
+		return (EAttribute)transformationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformation_Name() {
+		return (EAttribute)transformationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransformation_Description() {
+		return (EAttribute)transformationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataTransformation() {
+		return dataTransformationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataTransformation_SupportedEClasses() {
+		return (EReference)dataTransformationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDataTransformation_ResultEClasses() {
+		return (EReference)dataTransformationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDataSource() {
 		return dataSourceEClass;
 	}
@@ -827,6 +971,21 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		createEReference(mqttDataInputEClass, MQTT_DATA_INPUT__DATA_SOURCE);
 		createEAttribute(mqttDataInputEClass, MQTT_DATA_INPUT__TOPICS);
 
+		extentTransformationInputEClass = createEClass(EXTENT_TRANSFORMATION_INPUT);
+		createEReference(extentTransformationInputEClass, EXTENT_TRANSFORMATION_INPUT__SOURCE);
+		createEReference(extentTransformationInputEClass, EXTENT_TRANSFORMATION_INPUT__TRANSFORMATION);
+		createEReference(extentTransformationInputEClass, EXTENT_TRANSFORMATION_INPUT__SOURCE_ECLASSES);
+		createEAttribute(extentTransformationInputEClass, EXTENT_TRANSFORMATION_INPUT__REFRESH_INTERVAL);
+
+		transformationEClass = createEClass(TRANSFORMATION);
+		createEAttribute(transformationEClass, TRANSFORMATION__ID);
+		createEAttribute(transformationEClass, TRANSFORMATION__NAME);
+		createEAttribute(transformationEClass, TRANSFORMATION__DESCRIPTION);
+
+		dataTransformationEClass = createEClass(DATA_TRANSFORMATION);
+		createEReference(dataTransformationEClass, DATA_TRANSFORMATION__SUPPORTED_ECLASSES);
+		createEReference(dataTransformationEClass, DATA_TRANSFORMATION__RESULT_ECLASSES);
+
 		dataSourceEClass = createEClass(DATA_SOURCE);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__ID);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__NAME);
@@ -896,6 +1055,8 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		fileDataInputEClass.getESuperTypes().add(this.getPayloadDataInput());
 		mongoDataInputEClass.getESuperTypes().add(this.getDataInput());
 		mqttDataInputEClass.getESuperTypes().add(this.getPayloadDataInput());
+		extentTransformationInputEClass.getESuperTypes().add(this.getDataInput());
+		dataTransformationEClass.getESuperTypes().add(this.getTransformation());
 		serverDataSourceEClass.getESuperTypes().add(this.getDataSource());
 		databaseDataSourceEClass.getESuperTypes().add(this.getServerDataSource());
 		jdbcDataSourceEClass.getESuperTypes().add(this.getDatabaseDataSource());
@@ -938,6 +1099,21 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		initEClass(mqttDataInputEClass, MqttDataInput.class, "MqttDataInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMqttDataInput_DataSource(), this.getMqttDataSource(), null, "dataSource", null, 1, 1, MqttDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMqttDataInput_Topics(), ecorePackage.getEString(), "topics", null, 1, -1, MqttDataInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(extentTransformationInputEClass, ExtentTransformationInput.class, "ExtentTransformationInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExtentTransformationInput_Source(), this.getDataInput(), null, "source", null, 1, 1, ExtentTransformationInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExtentTransformationInput_Transformation(), this.getDataTransformation(), null, "transformation", null, 1, 1, ExtentTransformationInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExtentTransformationInput_SourceEClasses(), ecorePackage.getEClass(), null, "sourceEClasses", null, 1, -1, ExtentTransformationInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExtentTransformationInput_RefreshInterval(), ecorePackage.getELongObject(), "refreshInterval", null, 0, 1, ExtentTransformationInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(transformationEClass, Transformation.class, "Transformation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransformation_Id(), ecorePackage.getEString(), "id", null, 1, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformation_Description(), ecorePackage.getEString(), "description", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataTransformationEClass, DataTransformation.class, "DataTransformation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTransformation_SupportedEClasses(), ecorePackage.getEClass(), null, "supportedEClasses", null, 0, -1, DataTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataTransformation_ResultEClasses(), ecorePackage.getEClass(), null, "resultEClasses", null, 0, -1, DataTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Id(), ecorePackage.getEString(), "id", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1001,7 +1177,7 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		  (this,
 		   source,
 		   new String[] {
-			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.\n- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).\n\nInputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies."
+			   "documentation", "Configuration building blocks shared by the Fennec atlases (Data Atlas, Model Atlas, Event Atlas, ...).\n\nThe atlas-specific configuration models reference or extend these types instead of defining their own, so that e.g. a data source or a data input looks the same in every atlas:\n- DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.\n- DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.\n- DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).\n- Transformation and DataTransformation: engine-neutral descriptions of a transformation; ExtentTransformationInput serves the transformed result of a whole source extent.\n\nInputs and engine bindings that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model, QvtoDataTransformation in org.eclipse.fennec.atlas.configuration.qvto.model), so this model stays free of dependencies."
 		   });
 		addAnnotation
 		  (dataProviderEClass,
@@ -1170,6 +1346,78 @@ public class AtlasConfigPackageImpl extends EPackageImpl implements AtlasConfigP
 		   source,
 		   new String[] {
 			   "documentation", "The topic filters this input subscribes to, in MQTT syntax (+ for one level, # for the rest), e.g. 5g/ilsa/+/config."
+		   });
+		addAnnotation
+		  (extentTransformationInputEClass,
+		   source,
+		   new String[] {
+			   "documentation", "DataInput serving the result of transforming a whole source extent: all instances of the sourceEClasses the source input provides are handed to the transformation in one run (n:m - no correspondence between source and result objects is assumed). The result is cached and served until refreshInterval has passed, then recomputed.\nThe inherited supportedEClasses are the served result classes.\n\nRuntime semantics, implemented by each atlas runtime: if a recomputation fails, the last good result stays served; if the first computation fails, the input stays down."
+		   });
+		addAnnotation
+		  (getExtentTransformationInput_Source(),
+		   source,
+		   new String[] {
+			   "documentation", "The DataInput providing the source extent. A reference: the input lives in a registry of the consuming atlas configuration."
+		   });
+		addAnnotation
+		  (getExtentTransformationInput_Transformation(),
+		   source,
+		   new String[] {
+			   "documentation", "The transformation run on the source extent. A reference: the transformation lives in a registry of the consuming atlas configuration."
+		   });
+		addAnnotation
+		  (getExtentTransformationInput_SourceEClasses(),
+		   source,
+		   new String[] {
+			   "documentation", "The EClasses whose instances in the source input form the input extent of the transformation."
+		   });
+		addAnnotation
+		  (getExtentTransformationInput_RefreshInterval(),
+		   source,
+		   new String[] {
+			   "documentation", "How long, in seconds, a computed result is served before it is recomputed. Unset or not positive = computed once when the input starts and never recomputed."
+		   });
+		addAnnotation
+		  (transformationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base type for a named transformation, kept in a registry of the consuming atlas configuration and referenced from where it is applied. Atlas-specific models add further kinds (e.g. transformations of incoming queries).\n\nIntended as an abstract base - it is not meant to be instantiated directly."
+		   });
+		addAnnotation
+		  (getTransformation_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Unique identifier of this transformation."
+		   });
+		addAnnotation
+		  (getTransformation_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Human-readable name of the transformation."
+		   });
+		addAnnotation
+		  (getTransformation_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Optional description: what the transformation does."
+		   });
+		addAnnotation
+		  (dataTransformationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A transformation of data from one model to another, independent of the engine that runs it. Engine bindings extend it in their own modules (e.g. QvtoDataTransformation in org.eclipse.fennec.atlas.configuration.qvto.model).\n\nNo cardinality contract: whether one source object has to map to exactly one result object (1:1) or a whole extent maps to a whole result (n:m, see ExtentTransformationInput) is a rule of the consumer that runs the transformation, not of the transformation.\n\nIntended as an abstract base - it is not meant to be instantiated directly."
+		   });
+		addAnnotation
+		  (getDataTransformation_SupportedEClasses(),
+		   source,
+		   new String[] {
+			   "documentation", "Input EClasses this transformation accepts."
+		   });
+		addAnnotation
+		  (getDataTransformation_ResultEClasses(),
+		   source,
+		   new String[] {
+			   "documentation", "Output EClasses this transformation produces."
 		   });
 		addAnnotation
 		  (dataSourceEClass,

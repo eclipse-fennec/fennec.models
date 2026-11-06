@@ -78,6 +78,15 @@ public interface AtlasConfigFactory extends EFactory {
 	MqttDataInput createMqttDataInput();
 
 	/**
+	 * Returns a new object of class '<em>Extent Transformation Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extent Transformation Input</em>'.
+	 * @generated
+	 */
+	ExtentTransformationInput createExtentTransformationInput();
+
+	/**
 	 * Returns a new object of class '<em>Connection Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -39,15 +39,16 @@ import org.osgi.annotation.versioning.ProviderType;
  * - DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.
  * - DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.
  * - DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).
+ * - Transformation and DataTransformation: engine-neutral descriptions of a transformation; ExtentTransformationInput serves the transformed result of a whole source extent.
  * 
- * Inputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies.
+ * Inputs and engine bindings that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model, QvtoDataTransformation in org.eclipse.fennec.atlas.configuration.qvto.model), so this model stays free of dependencies.
  * <!-- end-model-doc -->
  * @see org.eclipse.fennec.atlas.configuration.AtlasConfigFactory
  * @model kind="package"
  * @generated
  */
 @ProviderType
-@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:b425d14541fcdfe5978743bab4737c6878a3a86b81990d74acc9307c4ee419e4", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
+@EPackage(uri = AtlasConfigPackage.eNS_URI, fingerprint = "fp1:88529ef4d603f08ee1ad694190f433324d6f98b2155d1c5fed354ea9583dc840", genModel = "/model/configuration.genmodel", genModelSourceLocations = {"model/configuration.genmodel","org.eclipse.fennec.atlas.configuration.model/model/configuration.genmodel"}, ecore = "/model/configuration.ecore", ecoreSourceLocations = "/model/configuration.ecore")
 public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -622,6 +623,216 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	int MQTT_DATA_INPUT_OPERATION_COUNT = PAYLOAD_DATA_INPUT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.ExtentTransformationInputImpl <em>Extent Transformation Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.ExtentTransformationInputImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getExtentTransformationInput()
+	 * @generated
+	 */
+	int EXTENT_TRANSFORMATION_INPUT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__ID = DATA_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__SUPPORTED_ECLASSES = DATA_INPUT__SUPPORTED_ECLASSES;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__SOURCE = DATA_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Transformation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__TRANSFORMATION = DATA_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__SOURCE_ECLASSES = DATA_INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT__REFRESH_INTERVAL = DATA_INPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Extent Transformation Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT_FEATURE_COUNT = DATA_INPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Extent Transformation Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENT_TRANSFORMATION_INPUT_OPERATION_COUNT = DATA_INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.TransformationImpl <em>Transformation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.TransformationImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getTransformation()
+	 * @generated
+	 */
+	int TRANSFORMATION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__DESCRIPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataTransformationImpl <em>Data Transformation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.atlas.configuration.impl.DataTransformationImpl
+	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataTransformation()
+	 * @generated
+	 */
+	int DATA_TRANSFORMATION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION__ID = TRANSFORMATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION__NAME = TRANSFORMATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION__DESCRIPTION = TRANSFORMATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Supported EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION__SUPPORTED_ECLASSES = TRANSFORMATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Result EClasses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION__RESULT_ECLASSES = TRANSFORMATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Data Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION_FEATURE_COUNT = TRANSFORMATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Data Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TRANSFORMATION_OPERATION_COUNT = TRANSFORMATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -629,7 +840,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataSource()
 	 * @generated
 	 */
-	int DATA_SOURCE = 9;
+	int DATA_SOURCE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -693,7 +904,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getServerDataSource()
 	 * @generated
 	 */
-	int SERVER_DATA_SOURCE = 10;
+	int SERVER_DATA_SOURCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -802,7 +1013,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDatabaseDataSource()
 	 * @generated
 	 */
-	int DATABASE_DATA_SOURCE = 11;
+	int DATABASE_DATA_SOURCE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -920,7 +1131,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getConnectionProperty()
 	 * @generated
 	 */
-	int CONNECTION_PROPERTY = 12;
+	int CONNECTION_PROPERTY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -966,7 +1177,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDataSource()
 	 * @generated
 	 */
-	int JDBC_DATA_SOURCE = 13;
+	int JDBC_DATA_SOURCE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1102,7 +1313,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMongoDataSource()
 	 * @generated
 	 */
-	int MONGO_DATA_SOURCE = 14;
+	int MONGO_DATA_SOURCE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1238,7 +1449,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getMqttDataSource()
 	 * @generated
 	 */
-	int MQTT_DATA_SOURCE = 15;
+	int MQTT_DATA_SOURCE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1356,7 +1567,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getJdbcDriver()
 	 * @generated
 	 */
-	int JDBC_DRIVER = 16;
+	int JDBC_DRIVER = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.atlas.configuration.PayloadFormat <em>Payload Format</em>}' enum.
@@ -1366,7 +1577,7 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getPayloadFormat()
 	 * @generated
 	 */
-	int PAYLOAD_FORMAT = 17;
+	int PAYLOAD_FORMAT = 20;
 
 
 	/**
@@ -1656,6 +1867,135 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EAttribute getMqttDataInput_Topics();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput <em>Extent Transformation Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extent Transformation Input</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput
+	 * @generated
+	 */
+	EClass getExtentTransformationInput();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getSource()
+	 * @see #getExtentTransformationInput()
+	 * @generated
+	 */
+	EReference getExtentTransformationInput_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getTransformation <em>Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Transformation</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getTransformation()
+	 * @see #getExtentTransformationInput()
+	 * @generated
+	 */
+	EReference getExtentTransformationInput_Transformation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getSourceEClasses <em>Source EClasses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Source EClasses</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getSourceEClasses()
+	 * @see #getExtentTransformationInput()
+	 * @generated
+	 */
+	EReference getExtentTransformationInput_SourceEClasses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getRefreshInterval <em>Refresh Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refresh Interval</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.ExtentTransformationInput#getRefreshInterval()
+	 * @see #getExtentTransformationInput()
+	 * @generated
+	 */
+	EAttribute getExtentTransformationInput_RefreshInterval();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.Transformation <em>Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transformation</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.Transformation
+	 * @generated
+	 */
+	EClass getTransformation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.Transformation#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.Transformation#getId()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EAttribute getTransformation_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.Transformation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.Transformation#getName()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EAttribute getTransformation_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.atlas.configuration.Transformation#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.Transformation#getDescription()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EAttribute getTransformation_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataTransformation <em>Data Transformation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Transformation</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataTransformation
+	 * @generated
+	 */
+	EClass getDataTransformation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.atlas.configuration.DataTransformation#getSupportedEClasses <em>Supported EClasses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Supported EClasses</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataTransformation#getSupportedEClasses()
+	 * @see #getDataTransformation()
+	 * @generated
+	 */
+	EReference getDataTransformation_SupportedEClasses();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.fennec.atlas.configuration.DataTransformation#getResultEClasses <em>Result EClasses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Result EClasses</em>'.
+	 * @see org.eclipse.fennec.atlas.configuration.DataTransformation#getResultEClasses()
+	 * @see #getDataTransformation()
+	 * @generated
+	 */
+	EReference getDataTransformation_ResultEClasses();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.atlas.configuration.DataSource <em>Data Source</em>}'.
@@ -2190,6 +2530,108 @@ public interface AtlasConfigPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EAttribute MQTT_DATA_INPUT__TOPICS = eINSTANCE.getMqttDataInput_Topics();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.ExtentTransformationInputImpl <em>Extent Transformation Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.ExtentTransformationInputImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getExtentTransformationInput()
+		 * @generated
+		 */
+		EClass EXTENT_TRANSFORMATION_INPUT = eINSTANCE.getExtentTransformationInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTENT_TRANSFORMATION_INPUT__SOURCE = eINSTANCE.getExtentTransformationInput_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Transformation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTENT_TRANSFORMATION_INPUT__TRANSFORMATION = eINSTANCE.getExtentTransformationInput_Transformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Source EClasses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTENT_TRANSFORMATION_INPUT__SOURCE_ECLASSES = eINSTANCE.getExtentTransformationInput_SourceEClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTENT_TRANSFORMATION_INPUT__REFRESH_INTERVAL = eINSTANCE.getExtentTransformationInput_RefreshInterval();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.TransformationImpl <em>Transformation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.TransformationImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getTransformation()
+		 * @generated
+		 */
+		EClass TRANSFORMATION = eINSTANCE.getTransformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION__ID = eINSTANCE.getTransformation_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION__NAME = eINSTANCE.getTransformation_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION__DESCRIPTION = eINSTANCE.getTransformation_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataTransformationImpl <em>Data Transformation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.atlas.configuration.impl.DataTransformationImpl
+		 * @see org.eclipse.fennec.atlas.configuration.impl.AtlasConfigPackageImpl#getDataTransformation()
+		 * @generated
+		 */
+		EClass DATA_TRANSFORMATION = eINSTANCE.getDataTransformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Supported EClasses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TRANSFORMATION__SUPPORTED_ECLASSES = eINSTANCE.getDataTransformation_SupportedEClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Result EClasses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TRANSFORMATION__RESULT_ECLASSES = eINSTANCE.getDataTransformation_ResultEClasses();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.atlas.configuration.impl.DataSourceImpl <em>Data Source</em>}' class.

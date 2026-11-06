@@ -31,8 +31,9 @@ import org.eclipse.fennec.emf.osgi.constants.EMFNamespaces;
  * - DataSource (JdbcDataSource, MongoDataSource, MqttDataSource): where the data lives and how to connect to it.
  * - DataInput (FileDataInput, MqttDataInput, MongoDataInput): what streams EObjects into an atlas. Inputs receiving serialized payloads (PayloadDataInput) carry a CodecConfiguration saying how the EMF codec reads them.
  * - DataProvider and DataService: the common base of anything an atlas provides data through, and of the endpoints it publishes; atlas-specific subtypes add their own features (transformations, exports, ...).
+ * - Transformation and DataTransformation: engine-neutral descriptions of a transformation; ExtentTransformationInput serves the transformed result of a whole source extent.
  * 
- * Inputs that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model), so this model stays free of dependencies.
+ * Inputs and engine bindings that need further models live in their own modules (e.g. JPADataInput in org.eclipse.fennec.atlas.configuration.jpa.model, QvtoDataTransformation in org.eclipse.fennec.atlas.configuration.qvto.model), so this model stays free of dependencies.
  * <!-- end-model-doc -->
  * @see EPackageConfigurator
  * @generated
@@ -45,7 +46,7 @@ public class AtlasConfigEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:b425d14541fcdfe5978743bab4737c6878a3a86b81990d74acc9307c4ee419e4";
+	public static final String FINGERPRINT = "fp1:88529ef4d603f08ee1ad694190f433324d6f98b2155d1c5fed354ea9583dc840";
 
 	private AtlasConfigPackage ePackage;
 
