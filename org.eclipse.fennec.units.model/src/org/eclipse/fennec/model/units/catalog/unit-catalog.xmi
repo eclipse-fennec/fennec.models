@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<units:UnitCatalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:units="https://eclipse.org/fennec/units/1.0.0"
+    name="Eclipse Fennec units">
+  <quantityKinds name="Dimensionless" definition="http://qudt.org/vocab/quantitykind/Dimensionless">
+    <dimension/>
+  </quantityKinds>
+  <quantityKinds name="DimensionlessRatio" definition="http://qudt.org/vocab/quantitykind/DimensionlessRatio">
+    <dimension/>
+  </quantityKinds>
+  <quantityKinds name="Length" definition="http://qudt.org/vocab/quantitykind/Length">
+    <dimension length="1"/>
+  </quantityKinds>
+  <quantityKinds name="Mass" definition="http://qudt.org/vocab/quantitykind/Mass">
+    <dimension mass="1"/>
+  </quantityKinds>
+  <quantityKinds name="Time" definition="http://qudt.org/vocab/quantitykind/Time">
+    <dimension time="1"/>
+  </quantityKinds>
+  <quantityKinds name="ElectricCurrent" definition="http://qudt.org/vocab/quantitykind/ElectricCurrent">
+    <dimension electricCurrent="1"/>
+  </quantityKinds>
+  <quantityKinds name="ThermodynamicTemperature" definition="http://qudt.org/vocab/quantitykind/ThermodynamicTemperature">
+    <dimension thermodynamicTemperature="1"/>
+  </quantityKinds>
+  <quantityKinds name="AmountOfSubstance" definition="http://qudt.org/vocab/quantitykind/AmountOfSubstance">
+    <dimension amountOfSubstance="1"/>
+  </quantityKinds>
+  <quantityKinds name="LuminousIntensity" definition="http://qudt.org/vocab/quantitykind/LuminousIntensity">
+    <dimension luminousIntensity="1"/>
+  </quantityKinds>
+  <quantityKinds name="Area" definition="http://qudt.org/vocab/quantitykind/Area">
+    <dimension length="2"/>
+  </quantityKinds>
+  <quantityKinds name="Volume" definition="http://qudt.org/vocab/quantitykind/Volume">
+    <dimension length="3"/>
+  </quantityKinds>
+  <quantityKinds name="Velocity" definition="http://qudt.org/vocab/quantitykind/Velocity">
+    <dimension length="1" time="-1"/>
+  </quantityKinds>
+  <quantityKinds name="LinearVelocity" definition="http://qudt.org/vocab/quantitykind/LinearVelocity">
+    <dimension length="1" time="-1"/>
+  </quantityKinds>
+  <quantityKinds name="Acceleration" definition="http://qudt.org/vocab/quantitykind/Acceleration">
+    <dimension length="1" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="Frequency" definition="http://qudt.org/vocab/quantitykind/Frequency">
+    <dimension time="-1"/>
+  </quantityKinds>
+  <quantityKinds name="Force" definition="http://qudt.org/vocab/quantitykind/Force">
+    <dimension length="1" mass="1" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="Pressure" definition="http://qudt.org/vocab/quantitykind/Pressure">
+    <dimension length="-1" mass="1" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="Energy" definition="http://qudt.org/vocab/quantitykind/Energy">
+    <dimension length="2" mass="1" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="Power" definition="http://qudt.org/vocab/quantitykind/Power">
+    <dimension length="2" mass="1" time="-3"/>
+  </quantityKinds>
+  <quantityKinds name="ElectricCharge" definition="http://qudt.org/vocab/quantitykind/ElectricCharge">
+    <dimension time="1" electricCurrent="1"/>
+  </quantityKinds>
+  <quantityKinds name="Voltage" definition="http://qudt.org/vocab/quantitykind/Voltage">
+    <dimension length="2" mass="1" time="-3" electricCurrent="-1"/>
+  </quantityKinds>
+  <quantityKinds name="Resistance" definition="http://qudt.org/vocab/quantitykind/Resistance">
+    <dimension length="2" mass="1" time="-3" electricCurrent="-2"/>
+  </quantityKinds>
+  <quantityKinds name="Capacitance" definition="http://qudt.org/vocab/quantitykind/Capacitance">
+    <dimension length="-2" mass="-1" time="4" electricCurrent="2"/>
+  </quantityKinds>
+  <quantityKinds name="Conductance" definition="http://qudt.org/vocab/quantitykind/Conductance">
+    <dimension length="-2" mass="-1" time="3" electricCurrent="2"/>
+  </quantityKinds>
+  <quantityKinds name="ElectricConductivity" definition="http://qudt.org/vocab/quantitykind/ElectricConductivity">
+    <dimension length="-3" mass="-1" time="3" electricCurrent="2"/>
+  </quantityKinds>
+  <quantityKinds name="MagneticFlux" definition="http://qudt.org/vocab/quantitykind/MagneticFlux">
+    <dimension length="2" mass="1" time="-2" electricCurrent="-1"/>
+  </quantityKinds>
+  <quantityKinds name="MagneticFluxDensity" definition="http://qudt.org/vocab/quantitykind/MagneticFluxDensity">
+    <dimension mass="1" time="-2" electricCurrent="-1"/>
+  </quantityKinds>
+  <quantityKinds name="Inductance" definition="http://qudt.org/vocab/quantitykind/Inductance">
+    <dimension length="2" mass="1" time="-2" electricCurrent="-2"/>
+  </quantityKinds>
+  <quantityKinds name="LuminousFlux" definition="http://qudt.org/vocab/quantitykind/LuminousFlux">
+    <dimension luminousIntensity="1"/>
+  </quantityKinds>
+  <quantityKinds name="Illuminance" definition="http://qudt.org/vocab/quantitykind/Illuminance">
+    <dimension length="-2" luminousIntensity="1"/>
+  </quantityKinds>
+  <quantityKinds name="PlaneAngle" definition="http://qudt.org/vocab/quantitykind/PlaneAngle">
+    <dimension/>
+  </quantityKinds>
+  <quantityKinds name="SolidAngle" definition="http://qudt.org/vocab/quantitykind/SolidAngle">
+    <dimension/>
+  </quantityKinds>
+  <quantityKinds name="Activity" definition="http://qudt.org/vocab/quantitykind/Activity">
+    <dimension time="-1"/>
+  </quantityKinds>
+  <quantityKinds name="AbsorbedDose" definition="http://qudt.org/vocab/quantitykind/AbsorbedDose">
+    <dimension length="2" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="DoseEquivalent" definition="http://qudt.org/vocab/quantitykind/DoseEquivalent">
+    <dimension length="2" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="CatalyticActivity" definition="http://qudt.org/vocab/quantitykind/CatalyticActivity">
+    <dimension time="-1" amountOfSubstance="1"/>
+  </quantityKinds>
+  <quantityKinds name="Density" definition="http://qudt.org/vocab/quantitykind/Density">
+    <dimension length="-3" mass="1"/>
+  </quantityKinds>
+  <quantityKinds name="MassConcentration" definition="http://qudt.org/vocab/quantitykind/MassConcentration">
+    <dimension length="-3" mass="1"/>
+  </quantityKinds>
+  <quantityKinds name="AmountOfSubstanceConcentration" definition="http://qudt.org/vocab/quantitykind/AmountOfSubstanceConcentration">
+    <dimension length="-3" amountOfSubstance="1"/>
+  </quantityKinds>
+  <quantityKinds name="VolumeFlowRate" definition="http://qudt.org/vocab/quantitykind/VolumeFlowRate">
+    <dimension length="3" time="-1"/>
+  </quantityKinds>
+  <quantityKinds name="Irradiance" definition="http://qudt.org/vocab/quantitykind/Irradiance">
+    <dimension mass="1" time="-3"/>
+  </quantityKinds>
+  <quantityKinds name="RadiantExposure" definition="http://qudt.org/vocab/quantitykind/RadiantExposure">
+    <dimension mass="1" time="-2"/>
+  </quantityKinds>
+  <quantityKinds name="MassPerArea" definition="http://qudt.org/vocab/quantitykind/MassPerArea">
+    <dimension length="-2" mass="1"/>
+  </quantityKinds>
+  <units code="m" name="metre" symbol="m" definition="http://qudt.org/vocab/unit/M" quantityKind="Length"/>
+  <units code="kg" name="kilogram" symbol="kg" definition="http://qudt.org/vocab/unit/KiloGM" quantityKind="Mass"/>
+  <units code="s" name="second" symbol="s" definition="http://qudt.org/vocab/unit/SEC" quantityKind="Time"/>
+  <units code="A" name="ampere" symbol="A" definition="http://qudt.org/vocab/unit/A" quantityKind="ElectricCurrent"/>
+  <units code="K" name="kelvin" symbol="K" definition="http://qudt.org/vocab/unit/K" quantityKind="ThermodynamicTemperature"/>
+  <units code="mol" name="mole" symbol="mol" definition="http://qudt.org/vocab/unit/MOL" quantityKind="AmountOfSubstance"/>
+  <units code="cd" name="candela" symbol="cd" definition="http://qudt.org/vocab/unit/CD" quantityKind="LuminousIntensity"/>
+  <units code="rad" name="radian" symbol="rad" definition="http://qudt.org/vocab/unit/RAD" quantityKind="PlaneAngle"/>
+  <units code="sr" name="steradian" symbol="sr" definition="http://qudt.org/vocab/unit/SR" quantityKind="SolidAngle"/>
+  <units code="Hz" name="hertz" symbol="Hz" definition="http://qudt.org/vocab/unit/HZ" quantityKind="Frequency"/>
+  <units code="N" name="newton" symbol="N" definition="http://qudt.org/vocab/unit/N" quantityKind="Force"/>
+  <units code="Pa" name="pascal" symbol="Pa" definition="http://qudt.org/vocab/unit/PA" quantityKind="Pressure"/>
+  <units code="J" name="joule" symbol="J" definition="http://qudt.org/vocab/unit/J" quantityKind="Energy"/>
+  <units code="W" name="watt" symbol="W" definition="http://qudt.org/vocab/unit/W" quantityKind="Power"/>
+  <units code="C" name="coulomb" symbol="C" definition="http://qudt.org/vocab/unit/C" quantityKind="ElectricCharge"/>
+  <units code="V" name="volt" symbol="V" definition="http://qudt.org/vocab/unit/V" quantityKind="Voltage"/>
+  <units code="F" name="farad" symbol="F" definition="http://qudt.org/vocab/unit/FARAD" quantityKind="Capacitance"/>
+  <units code="Ohm" name="ohm" symbol="Ω" definition="http://qudt.org/vocab/unit/OHM" quantityKind="Resistance"/>
+  <units code="S" name="siemens" symbol="S" definition="http://qudt.org/vocab/unit/S" quantityKind="Conductance"/>
+  <units code="Wb" name="weber" symbol="Wb" definition="http://qudt.org/vocab/unit/WB" quantityKind="MagneticFlux"/>
+  <units code="T" name="tesla" symbol="T" definition="http://qudt.org/vocab/unit/T" quantityKind="MagneticFluxDensity"/>
+  <units code="H" name="henry" symbol="H" definition="http://qudt.org/vocab/unit/H" quantityKind="Inductance"/>
+  <units code="Cel" name="degree Celsius" symbol="°C" definition="http://qudt.org/vocab/unit/DEG_C" quantityKind="ThermodynamicTemperature"/>
+  <units code="lm" name="lumen" symbol="lm" definition="http://qudt.org/vocab/unit/LM" quantityKind="LuminousFlux"/>
+  <units code="lx" name="lux" symbol="lx" definition="http://qudt.org/vocab/unit/LUX" quantityKind="Illuminance"/>
+  <units code="Bq" name="becquerel" symbol="Bq" definition="http://qudt.org/vocab/unit/BQ" quantityKind="Activity"/>
+  <units code="Gy" name="gray" symbol="Gy" definition="http://qudt.org/vocab/unit/GRAY" quantityKind="AbsorbedDose"/>
+  <units code="Sv" name="sievert" symbol="Sv" definition="http://qudt.org/vocab/unit/SV" quantityKind="DoseEquivalent"/>
+  <units code="kat" name="katal" symbol="kat" definition="http://qudt.org/vocab/unit/KAT" quantityKind="CatalyticActivity"/>
+  <units code="1" name="unity" symbol="1" definition="http://qudt.org/vocab/unit/UNITLESS" quantityKind="Dimensionless"/>
+  <units code="%" name="percent" symbol="%" definition="http://qudt.org/vocab/unit/PERCENT" quantityKind="DimensionlessRatio"/>
+  <units code="[ppm]" name="parts per million" symbol="ppm" definition="http://qudt.org/vocab/unit/PPM" quantityKind="DimensionlessRatio"/>
+  <units code="[ppb]" name="parts per billion" symbol="ppb" definition="http://qudt.org/vocab/unit/PPB" quantityKind="DimensionlessRatio"/>
+  <units code="deg" name="degree" symbol="°" definition="http://qudt.org/vocab/unit/DEG" quantityKind="PlaneAngle"/>
+  <units code="mm" name="millimetre" symbol="mm" definition="http://qudt.org/vocab/unit/MilliM" quantityKind="Length"/>
+  <units code="cm" name="centimetre" symbol="cm" definition="http://qudt.org/vocab/unit/CentiM" quantityKind="Length"/>
+  <units code="km" name="kilometre" symbol="km" definition="http://qudt.org/vocab/unit/KiloM" quantityKind="Length"/>
+  <units code="m2" name="square metre" symbol="m²" definition="http://qudt.org/vocab/unit/M2" quantityKind="Area"/>
+  <units code="m3" name="cubic metre" symbol="m³" definition="http://qudt.org/vocab/unit/M3" quantityKind="Volume"/>
+  <units code="L" name="litre" symbol="L" definition="http://qudt.org/vocab/unit/L" quantityKind="Volume"/>
+  <units code="g" name="gram" symbol="g" definition="http://qudt.org/vocab/unit/GM" quantityKind="Mass"/>
+  <units code="mg" name="milligram" symbol="mg" definition="http://qudt.org/vocab/unit/MilliGM" quantityKind="Mass"/>
+  <units code="min" name="minute" symbol="min" definition="http://qudt.org/vocab/unit/MIN" quantityKind="Time"/>
+  <units code="h" name="hour" symbol="h" definition="http://qudt.org/vocab/unit/HR" quantityKind="Time"/>
+  <units code="d" name="day" symbol="d" definition="http://qudt.org/vocab/unit/DAY" quantityKind="Time"/>
+  <units code="m/s" name="metre per second" symbol="m/s" definition="http://qudt.org/vocab/unit/M-PER-SEC" quantityKind="Velocity"/>
+  <units code="km/h" name="kilometre per hour" symbol="km/h" definition="http://qudt.org/vocab/unit/KiloM-PER-HR" quantityKind="Velocity"/>
+  <units code="m/s2" name="metre per second squared" symbol="m/s²" definition="http://qudt.org/vocab/unit/M-PER-SEC2" quantityKind="Acceleration"/>
+  <units code="hPa" name="hectopascal" symbol="hPa" definition="http://qudt.org/vocab/unit/HectoPA" quantityKind="Pressure"/>
+  <units code="kPa" name="kilopascal" symbol="kPa" definition="http://qudt.org/vocab/unit/KiloPA" quantityKind="Pressure"/>
+  <units code="bar" name="bar" symbol="bar" definition="http://qudt.org/vocab/unit/BAR" quantityKind="Pressure"/>
+  <units code="mbar" name="millibar" symbol="mbar" definition="http://qudt.org/vocab/unit/MilliBAR" quantityKind="Pressure"/>
+  <units code="kJ" name="kilojoule" symbol="kJ" definition="http://qudt.org/vocab/unit/KiloJ" quantityKind="Energy"/>
+  <units code="kW" name="kilowatt" symbol="kW" definition="http://qudt.org/vocab/unit/KiloW" quantityKind="Power"/>
+  <units code="mg/L" name="milligram per litre" symbol="mg/L" definition="http://qudt.org/vocab/unit/MilliGM-PER-L" quantityKind="MassConcentration"/>
+  <units code="ug/L" name="microgram per litre" symbol="µg/L" definition="http://qudt.org/vocab/unit/MicroGM-PER-L" quantityKind="MassConcentration"/>
+  <units code="g/L" name="gram per litre" symbol="g/L" definition="http://qudt.org/vocab/unit/GM-PER-L" quantityKind="MassConcentration"/>
+  <units code="ug/m3" name="microgram per cubic metre" symbol="µg/m³" definition="http://qudt.org/vocab/unit/MicroGM-PER-M3" quantityKind="MassConcentration"/>
+  <units code="kg/m3" name="kilogram per cubic metre" symbol="kg/m³" definition="http://qudt.org/vocab/unit/KiloGM-PER-M3" quantityKind="Density"/>
+  <units code="mol/L" name="mole per litre" symbol="mol/L" definition="http://qudt.org/vocab/unit/MOL-PER-L" quantityKind="AmountOfSubstanceConcentration"/>
+  <units code="mmol/L" name="millimole per litre" symbol="mmol/L" definition="http://qudt.org/vocab/unit/MilliMOL-PER-L" quantityKind="AmountOfSubstanceConcentration"/>
+  <units code="uS/cm" name="microsiemens per centimetre" symbol="µS/cm" definition="http://qudt.org/vocab/unit/MicroS-PER-CentiM" quantityKind="ElectricConductivity"/>
+  <units code="mS/cm" name="millisiemens per centimetre" symbol="mS/cm" definition="http://qudt.org/vocab/unit/MilliS-PER-CentiM" quantityKind="ElectricConductivity"/>
+  <units code="m3/s" name="cubic metre per second" symbol="m³/s" definition="http://qudt.org/vocab/unit/M3-PER-SEC" quantityKind="VolumeFlowRate"/>
+  <units code="L/s" name="litre per second" symbol="L/s" definition="http://qudt.org/vocab/unit/L-PER-SEC" quantityKind="VolumeFlowRate"/>
+  <units code="mm/h" name="millimetre per hour" symbol="mm/h" definition="http://qudt.org/vocab/unit/MilliM-PER-HR" quantityKind="LinearVelocity"/>
+  <units code="W/m2" name="watt per square metre" symbol="W/m²" definition="http://qudt.org/vocab/unit/W-PER-M2" quantityKind="Irradiance"/>
+  <units code="J/m2" name="joule per square metre" symbol="J/m²" definition="http://qudt.org/vocab/unit/J-PER-M2" quantityKind="RadiantExposure"/>
+  <units code="kJ/m2" name="kilojoule per square metre" symbol="kJ/m²" quantityKind="RadiantExposure"/>
+  <units code="kg/m2" name="kilogram per square metre" symbol="kg/m²" definition="http://qudt.org/vocab/unit/KiloGM-PER-M2" quantityKind="MassPerArea"/>
+</units:UnitCatalog>

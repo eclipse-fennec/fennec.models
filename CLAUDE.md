@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Eclipse Fennec Models — the Fennec-own EMF models as OSGi bundles: `org.eclipse.fennec.model` (collection, PushStream and utility models), `org.eclipse.fennec.atlas.configuration.model` (configuration types shared by the atlases, e.g. data sources — extracted from data.atlas, with its JPA and QVT-O extensions), `org.eclipse.fennec.mapping.model` (generic EObject-to-EObject mapping, moved from emf.streaming) and the shared compliance models (`org.eclipse.fennec.compliance.*`, plus the deprecated `org.eclipse.fennec.gdpr.*`). Published to Maven Central under group ID `org.eclipse.fennec.models`.
+Eclipse Fennec Models — the Fennec-own EMF models as OSGi bundles: `org.eclipse.fennec.model` (collection, PushStream and utility models), `org.eclipse.fennec.atlas.configuration.model` (configuration types shared by the atlases, e.g. data sources — extracted from data.atlas, with its JPA and QVT-O extensions), `org.eclipse.fennec.mapping.model` (generic EObject-to-EObject mapping, moved from emf.streaming), `org.eclipse.fennec.units.model` (units of measurement with a catalog of common units) and the shared compliance models (`org.eclipse.fennec.compliance.*`, plus the deprecated `org.eclipse.fennec.gdpr.*`). Published to Maven Central under group ID `org.eclipse.fennec.models`.
 
 ### Relation to common.models
 
