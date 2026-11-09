@@ -44,7 +44,7 @@ public class MappingEPackageConfigurator implements EPackageConfigurator {
 	 * service property.
 	 * @generated
 	 */
-	public static final String FINGERPRINT = "fp1:b38053fbf7e1dded385f85d806b17777553928df26378b3777081737f9e37c1a";
+	public static final String FINGERPRINT = "fp1:eb21177a54b11cf1f7b1de3b9f3f0ae70a5bb03bdb71c6fa9ba54eead6714ab9";
 
 	private MappingPackage ePackage;
 

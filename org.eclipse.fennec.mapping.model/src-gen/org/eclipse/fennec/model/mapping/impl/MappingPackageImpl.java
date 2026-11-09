@@ -26,6 +26,7 @@ import org.eclipse.fennec.model.mapping.Mapping;
 import org.eclipse.fennec.model.mapping.MappingFactory;
 import org.eclipse.fennec.model.mapping.MappingPackage;
 import org.eclipse.fennec.model.mapping.Slot;
+import org.eclipse.fennec.model.mapping.UnitOfMeasurement;
 import org.eclipse.fennec.model.mapping.ValueSource;
 
 /**
@@ -62,6 +63,13 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	private EClass valueSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unitOfMeasurementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -292,6 +300,16 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getSlot_Unit() {
+		return (EReference)slotEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getValueSource() {
 		return valueSourceEClass;
 	}
@@ -372,6 +390,46 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getUnitOfMeasurement() {
+		return unitOfMeasurementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getUnitOfMeasurement_Name() {
+		return (EAttribute)unitOfMeasurementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getUnitOfMeasurement_Symbol() {
+		return (EAttribute)unitOfMeasurementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getUnitOfMeasurement_Definition() {
+		return (EAttribute)unitOfMeasurementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public MappingFactory getMappingFactory() {
 		return (MappingFactory)getEFactoryInstance();
 	}
@@ -413,6 +471,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(slotEClass, SLOT__SOURCE_CLASS);
 		createEReference(slotEClass, SLOT__VALUE);
 		createEAttribute(slotEClass, SLOT__TARGET_CONVERTER_ID);
+		createEReference(slotEClass, SLOT__UNIT);
 
 		valueSourceEClass = createEClass(VALUE_SOURCE);
 		createEReference(valueSourceEClass, VALUE_SOURCE__FEATURE_PATH);
@@ -422,6 +481,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(valueSourceEClass, VALUE_SOURCE__FUNCTION_ID);
 		createEAttribute(valueSourceEClass, VALUE_SOURCE__CONVERTER_ID);
 		createEAttribute(valueSourceEClass, VALUE_SOURCE__CONSTANT);
+
+		unitOfMeasurementEClass = createEClass(UNIT_OF_MEASUREMENT);
+		createEAttribute(unitOfMeasurementEClass, UNIT_OF_MEASUREMENT__NAME);
+		createEAttribute(unitOfMeasurementEClass, UNIT_OF_MEASUREMENT__SYMBOL);
+		createEAttribute(unitOfMeasurementEClass, UNIT_OF_MEASUREMENT__DEFINITION);
 	}
 
 	/**
@@ -476,6 +540,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEReference(getSlot_SourceClass(), ecorePackage.getEClass(), null, "sourceClass", null, 0, 1, Slot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlot_Value(), this.getValueSource(), null, "value", null, 1, 1, Slot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlot_TargetConverterId(), ecorePackage.getEString(), "targetConverterId", null, 0, 1, Slot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSlot_Unit(), this.getUnitOfMeasurement(), null, "unit", null, 0, 1, Slot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueSourceEClass, ValueSource.class, "ValueSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSource_FeaturePath(), ecorePackage.getEStructuralFeature(), null, "featurePath", null, 0, -1, ValueSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -485,6 +550,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getValueSource_FunctionId(), ecorePackage.getEString(), "functionId", null, 0, 1, ValueSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueSource_ConverterId(), ecorePackage.getEString(), "converterId", null, 0, 1, ValueSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueSource_Constant(), ecorePackage.getEString(), "constant", null, 0, 1, ValueSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unitOfMeasurementEClass, UnitOfMeasurement.class, "UnitOfMeasurement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUnitOfMeasurement_Name(), ecorePackage.getEString(), "name", null, 0, 1, UnitOfMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnitOfMeasurement_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, UnitOfMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnitOfMeasurement_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, UnitOfMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

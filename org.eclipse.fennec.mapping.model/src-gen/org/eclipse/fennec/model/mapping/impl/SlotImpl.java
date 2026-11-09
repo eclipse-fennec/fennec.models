@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.fennec.model.mapping.MappingPackage;
 import org.eclipse.fennec.model.mapping.Slot;
+import org.eclipse.fennec.model.mapping.UnitOfMeasurement;
 import org.eclipse.fennec.model.mapping.ValueSource;
 
 /**
@@ -39,6 +40,7 @@ import org.eclipse.fennec.model.mapping.ValueSource;
  *   <li>{@link org.eclipse.fennec.model.mapping.impl.SlotImpl#getSourceClass <em>Source Class</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.mapping.impl.SlotImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.mapping.impl.SlotImpl#getTargetConverterId <em>Target Converter Id</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.mapping.impl.SlotImpl#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,6 +115,16 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 	 * @ordered
 	 */
 	protected String targetConverterId = TARGET_CONVERTER_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnit()
+	 * @generated
+	 * @ordered
+	 */
+	protected UnitOfMeasurement unit;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -310,10 +322,57 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 	 * @generated
 	 */
 	@Override
+	public UnitOfMeasurement getUnit() {
+		return unit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUnit(UnitOfMeasurement newUnit, NotificationChain msgs) {
+		UnitOfMeasurement oldUnit = unit;
+		unit = newUnit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MappingPackage.SLOT__UNIT, oldUnit, newUnit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUnit(UnitOfMeasurement newUnit) {
+		if (newUnit != unit) {
+			NotificationChain msgs = null;
+			if (unit != null)
+				msgs = ((InternalEObject)unit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MappingPackage.SLOT__UNIT, null, msgs);
+			if (newUnit != null)
+				msgs = ((InternalEObject)newUnit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MappingPackage.SLOT__UNIT, null, msgs);
+			msgs = basicSetUnit(newUnit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.SLOT__UNIT, newUnit, newUnit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MappingPackage.SLOT__VALUE:
 				return basicSetValue(null, msgs);
+			case MappingPackage.SLOT__UNIT:
+				return basicSetUnit(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -338,6 +397,8 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 				return getValue();
 			case MappingPackage.SLOT__TARGET_CONVERTER_ID:
 				return getTargetConverterId();
+			case MappingPackage.SLOT__UNIT:
+				return getUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -364,6 +425,9 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 				return;
 			case MappingPackage.SLOT__TARGET_CONVERTER_ID:
 				setTargetConverterId((String)newValue);
+				return;
+			case MappingPackage.SLOT__UNIT:
+				setUnit((UnitOfMeasurement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,6 +456,9 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 			case MappingPackage.SLOT__TARGET_CONVERTER_ID:
 				setTargetConverterId(TARGET_CONVERTER_ID_EDEFAULT);
 				return;
+			case MappingPackage.SLOT__UNIT:
+				setUnit((UnitOfMeasurement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -414,6 +481,8 @@ public class SlotImpl extends MinimalEObjectImpl.Container implements Slot {
 				return value != null;
 			case MappingPackage.SLOT__TARGET_CONVERTER_ID:
 				return TARGET_CONVERTER_ID_EDEFAULT == null ? targetConverterId != null : !TARGET_CONVERTER_ID_EDEFAULT.equals(targetConverterId);
+			case MappingPackage.SLOT__UNIT:
+				return unit != null;
 		}
 		return super.eIsSet(featureID);
 	}

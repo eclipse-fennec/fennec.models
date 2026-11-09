@@ -27,6 +27,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mapping.ecore#//Slot/sourceClass"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference mapping.ecore#//Slot/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//Slot/targetConverterId"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference mapping.ecore#//Slot/unit"/>
     </genClasses>
     <genClasses ecoreClass="mapping.ecore#//ValueSource">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mapping.ecore#//ValueSource/featurePath"/>
@@ -36,6 +37,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//ValueSource/functionId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//ValueSource/converterId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//ValueSource/constant"/>
+    </genClasses>
+    <genClasses ecoreClass="mapping.ecore#//UnitOfMeasurement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//UnitOfMeasurement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//UnitOfMeasurement/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//UnitOfMeasurement/definition"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

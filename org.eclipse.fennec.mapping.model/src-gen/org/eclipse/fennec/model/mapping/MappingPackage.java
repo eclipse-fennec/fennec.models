@@ -47,7 +47,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = MappingPackage.eNS_URI, fingerprint = "fp1:b38053fbf7e1dded385f85d806b17777553928df26378b3777081737f9e37c1a", genModel = "/model/mapping.genmodel", genModelSourceLocations = {"model/mapping.genmodel","org.eclipse.fennec.mapping.model/model/mapping.genmodel"}, ecore = "/model/mapping.ecore", ecoreSourceLocations = "/model/mapping.ecore")
+@EPackage(uri = MappingPackage.eNS_URI, fingerprint = "fp1:eb21177a54b11cf1f7b1de3b9f3f0ae70a5bb03bdb71c6fa9ba54eead6714ab9", genModel = "/model/mapping.genmodel", genModelSourceLocations = {"model/mapping.genmodel","org.eclipse.fennec.mapping.model/model/mapping.genmodel"}, ecore = "/model/mapping.ecore", ecoreSourceLocations = "/model/mapping.ecore")
 public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -310,13 +310,22 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 	int SLOT__TARGET_CONVERTER_ID = 4;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__UNIT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Slot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOT_FEATURE_COUNT = 5;
+	int SLOT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Slot</em>' class.
@@ -417,6 +426,61 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @ordered
 	 */
 	int VALUE_SOURCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.fennec.model.mapping.impl.UnitOfMeasurementImpl <em>Unit Of Measurement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.fennec.model.mapping.impl.UnitOfMeasurementImpl
+	 * @see org.eclipse.fennec.model.mapping.impl.MappingPackageImpl#getUnitOfMeasurement()
+	 * @generated
+	 */
+	int UNIT_OF_MEASUREMENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_OF_MEASUREMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Symbol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_OF_MEASUREMENT__SYMBOL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_OF_MEASUREMENT__DEFINITION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Unit Of Measurement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_OF_MEASUREMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Unit Of Measurement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_OF_MEASUREMENT_OPERATION_COUNT = 0;
 
 
 	/**
@@ -593,6 +657,17 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getSlot_TargetConverterId();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.fennec.model.mapping.Slot#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Unit</em>'.
+	 * @see org.eclipse.fennec.model.mapping.Slot#getUnit()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EReference getSlot_Unit();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.mapping.ValueSource <em>Value Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +753,49 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EAttribute getValueSource_Constant();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.fennec.model.mapping.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Of Measurement</em>'.
+	 * @see org.eclipse.fennec.model.mapping.UnitOfMeasurement
+	 * @generated
+	 */
+	EClass getUnitOfMeasurement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.mapping.UnitOfMeasurement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.fennec.model.mapping.UnitOfMeasurement#getName()
+	 * @see #getUnitOfMeasurement()
+	 * @generated
+	 */
+	EAttribute getUnitOfMeasurement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.mapping.UnitOfMeasurement#getSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol</em>'.
+	 * @see org.eclipse.fennec.model.mapping.UnitOfMeasurement#getSymbol()
+	 * @see #getUnitOfMeasurement()
+	 * @generated
+	 */
+	EAttribute getUnitOfMeasurement_Symbol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.mapping.UnitOfMeasurement#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Definition</em>'.
+	 * @see org.eclipse.fennec.model.mapping.UnitOfMeasurement#getDefinition()
+	 * @see #getUnitOfMeasurement()
+	 * @generated
+	 */
+	EAttribute getUnitOfMeasurement_Definition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -837,6 +955,14 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute SLOT__TARGET_CONVERTER_ID = eINSTANCE.getSlot_TargetConverterId();
 
 		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOT__UNIT = eINSTANCE.getSlot_Unit();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.mapping.impl.ValueSourceImpl <em>Value Source</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -901,6 +1027,40 @@ public interface MappingPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EAttribute VALUE_SOURCE__CONSTANT = eINSTANCE.getValueSource_Constant();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.fennec.model.mapping.impl.UnitOfMeasurementImpl <em>Unit Of Measurement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.fennec.model.mapping.impl.UnitOfMeasurementImpl
+		 * @see org.eclipse.fennec.model.mapping.impl.MappingPackageImpl#getUnitOfMeasurement()
+		 * @generated
+		 */
+		EClass UNIT_OF_MEASUREMENT = eINSTANCE.getUnitOfMeasurement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_OF_MEASUREMENT__NAME = eINSTANCE.getUnitOfMeasurement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_OF_MEASUREMENT__SYMBOL = eINSTANCE.getUnitOfMeasurement_Symbol();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_OF_MEASUREMENT__DEFINITION = eINSTANCE.getUnitOfMeasurement_Definition();
 
 	}
 

@@ -71,6 +71,15 @@ public interface MappingFactory extends EFactory {
 	ValueSource createValueSource();
 
 	/**
+	 * Returns a new object of class '<em>Unit Of Measurement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Of Measurement</em>'.
+	 * @generated
+	 */
+	UnitOfMeasurement createUnitOfMeasurement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

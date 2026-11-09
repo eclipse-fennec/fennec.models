@@ -97,6 +97,10 @@ public class MappingAdapterFactory extends AdapterFactoryImpl {
 				return createValueSourceAdapter();
 			}
 			@Override
+			public Adapter caseUnitOfMeasurement(UnitOfMeasurement object) {
+				return createUnitOfMeasurementAdapter();
+			}
+			@Override
 			public Adapter caseTransformation(Transformation object) {
 				return createTransformationAdapter();
 			}
@@ -177,6 +181,20 @@ public class MappingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.model.mapping.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.fennec.model.mapping.UnitOfMeasurement
+	 * @generated
+	 */
+	public Adapter createUnitOfMeasurementAdapter() {
 		return null;
 	}
 

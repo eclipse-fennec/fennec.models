@@ -70,6 +70,7 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 			case MappingPackage.IDENTITY_RESOLUTION: return createIdentityResolution();
 			case MappingPackage.SLOT: return createSlot();
 			case MappingPackage.VALUE_SOURCE: return createValueSource();
+			case MappingPackage.UNIT_OF_MEASUREMENT: return createUnitOfMeasurement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -117,6 +118,17 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	public ValueSource createValueSource() {
 		ValueSourceImpl valueSource = new ValueSourceImpl();
 		return valueSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnitOfMeasurement createUnitOfMeasurement() {
+		UnitOfMeasurementImpl unitOfMeasurement = new UnitOfMeasurementImpl();
+		return unitOfMeasurement;
 	}
 
 	/**

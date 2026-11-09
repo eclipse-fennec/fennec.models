@@ -36,6 +36,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.mapping.Slot#getSourceClass <em>Source Class</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.mapping.Slot#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.mapping.Slot#getTargetConverterId <em>Target Converter Id</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.mapping.Slot#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.mapping.MappingPackage#getSlot()
@@ -168,5 +169,30 @@ public interface Slot extends EObject {
 	 * @generated
 	 */
 	void setTargetConverterId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The unit of the value written to targetFeature. Descriptive only: it does not convert the value; conversion stays with converterId, targetConverterId and expression. Unset = no unit declared by the mapping.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Unit</em>' containment reference.
+	 * @see #setUnit(UnitOfMeasurement)
+	 * @see org.eclipse.fennec.model.mapping.MappingPackage#getSlot_Unit()
+	 * @model containment="true"
+	 * @generated
+	 */
+	UnitOfMeasurement getUnit();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.mapping.Slot#getUnit <em>Unit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit</em>' containment reference.
+	 * @see #getUnit()
+	 * @generated
+	 */
+	void setUnit(UnitOfMeasurement value);
 
 } // Slot

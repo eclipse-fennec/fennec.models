@@ -87,6 +87,11 @@
         <details key="documentation" value="Converter applied when the value is written into the target, after the value was produced (and, for streaming, after it entered the stream). Unknown id = unconverted."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitOfMeasurement" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The unit of the value written to targetFeature. Descriptive only: it does not convert the value; conversion stays with converterId, targetConverterId and expression. Unset = no unit declared by the mapping."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueSource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -125,6 +130,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Literal that answers when the producer yields nothing or none is declared."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitOfMeasurement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The unit of measurement of a value, e.g. for a SensorThings Datastream or an OGC features property. Descriptive only (hint-only): it never converts a value."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Human readable name of the unit, e.g. &#x27;degree Celsius&#x27;."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Symbol of the unit, e.g. &#x27;°C&#x27;."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URI defining the unit, e.g. a UCUM reference such as &#x27;http://unitsofmeasure.org/ucum.html#para-30&#x27;."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
