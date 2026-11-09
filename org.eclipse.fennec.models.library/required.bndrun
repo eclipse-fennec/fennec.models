@@ -14,7 +14,8 @@
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.model',\
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.jpa.model',\
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.qvto.model',\
-	bnd.identity;id='org.eclipse.fennec.mapping.model'
+	bnd.identity;id='org.eclipse.fennec.mapping.model',\
+	bnd.identity;id='org.eclipse.fennec.units.model'
 -runbundles: \
 	org.eclipse.fennec.model;version=snapshot,\
 	org.eclipse.fennec.gdpr.model;version=snapshot,\
@@ -46,4 +47,5 @@
 	org.eclipse.fennec.persistence;version='[0.1.0,0.1.1)',\
 	org.eclipse.fennec.persistence.capabilities;version='[0.1.0,0.1.1)',\
 	org.eclipse.fennec.persistence.orm;version='[0.1.0,0.1.1)',\
-	org.eclipse.fennec.mapping.model;version=snapshot
+	org.eclipse.fennec.mapping.model;version=snapshot,\
+	org.eclipse.fennec.units.model;version=snapshot

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made&#xA;available under the terms of the Eclipse Public License 2.0&#xA;which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.units.model/src-gen" modelPluginID="org.eclipse.fennec.units.model"
+    modelName="Units" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>units.ecore</foreignModel>
+  <genPackages prefix="Units" basePackage="org.eclipse.fennec.model" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="units.ecore#/">
+    <genClasses ecoreClass="units.ecore#//UnitCatalog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//UnitCatalog/name"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference units.ecore#//UnitCatalog/quantityKinds"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference units.ecore#//UnitCatalog/units"/>
+    </genClasses>
+    <genClasses ecoreClass="units.ecore#//Unit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Unit/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Unit/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Unit/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Unit/definition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference units.ecore#//Unit/quantityKind"/>
+    </genClasses>
+    <genClasses ecoreClass="units.ecore#//QuantityKind">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//QuantityKind/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//QuantityKind/definition"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference units.ecore#//QuantityKind/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="units.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/mass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/electricCurrent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/thermodynamicTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/amountOfSubstance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute units.ecore#//Dimension/luminousIntensity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

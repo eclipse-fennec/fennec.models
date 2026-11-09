@@ -56,6 +56,7 @@ Then enable the library:
 | Module | Description |
 |---|---|
 | `org.eclipse.fennec.model` | Fennec collection, PushStream and utility models |
+| `org.eclipse.fennec.units.model` | Units of measurement: `Unit` (identified by its UCUM code), `QuantityKind` and its SI `Dimension`, plus a catalog of common SI, environmental and DWD units at `https://eclipse.org/fennec/units` (a unit is referenced as `https://eclipse.org/fennec/units#Cel`). `UnitCatalogs` maps that URI onto the catalog for plain Java, `UnitCatalogConfigurator` for every Fennec resource set in OSGi. No conversion data: conversion belongs to the consumer (JSR 385). nsURI `https://eclipse.org/fennec/units/1.0.0` |
 
 ### Atlas Configuration
 
