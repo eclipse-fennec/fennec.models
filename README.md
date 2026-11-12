@@ -78,6 +78,8 @@ Shared compliance models for GDPR, BSI IT-Grundschutz++, ISO/IEC 27001, CRA, EU 
 | `org.eclipse.fennec.compliance.inventory.model` | Assets, protection needs, measures (TOMs), applicability, processing activities, risk methodology |
 | `org.eclipse.fennec.compliance.report.model` | Findings, evidence and risk treatment of a review against compliance contexts |
 | `org.eclipse.fennec.compliance.report.history.model` | Revisions of the reports of one subject as flat rows |
+| `org.eclipse.fennec.compliance.deployment.model` | Containers and hosts as inventory assets (image, exposure, routes), estates of a tenant |
+| `org.eclipse.fennec.compliance.vulnerability.model` | Scan reports per artifact and asset reports with vulnerability, misconfiguration and drift findings; decisions, triage policy, update proposals |
 | `org.eclipse.fennec.gdpr.model` | **Deprecated**, replaced by `compliance.corpus.model` |
 | `org.eclipse.fennec.gdpr.report.model` | **Deprecated**, replaced by `compliance.report.model` |
 | `org.eclipse.fennec.gdpr.report.history.model` | **Deprecated**, replaced by `compliance.report.history.model` |

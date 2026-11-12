@@ -11,6 +11,8 @@
 	bnd.identity;id='org.eclipse.fennec.compliance.inventory.model',\
 	bnd.identity;id='org.eclipse.fennec.compliance.report.model',\
 	bnd.identity;id='org.eclipse.fennec.compliance.report.history.model',\
+	bnd.identity;id='org.eclipse.fennec.compliance.deployment.model',\
+	bnd.identity;id='org.eclipse.fennec.compliance.vulnerability.model',\
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.model',\
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.jpa.model',\
 	bnd.identity;id='org.eclipse.fennec.atlas.configuration.qvto.model',\
@@ -48,4 +50,6 @@
 	org.eclipse.fennec.persistence.capabilities;version='[0.1.0,0.1.1)',\
 	org.eclipse.fennec.persistence.orm;version='[0.1.0,0.1.1)',\
 	org.eclipse.fennec.mapping.model;version=snapshot,\
-	org.eclipse.fennec.units.model;version=snapshot
+	org.eclipse.fennec.units.model;version=snapshot,\
+	org.eclipse.fennec.compliance.deployment.model;version=snapshot,\
+	org.eclipse.fennec.compliance.vulnerability.model;version=snapshot
