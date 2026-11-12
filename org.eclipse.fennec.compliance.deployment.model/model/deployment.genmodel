@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2026 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Data In Motion Consulting - initial implementation"
+    modelDirectory="/org.eclipse.fennec.compliance.deployment.model/src" modelPluginID="org.eclipse.fennec.compliance.deployment.model"
+    modelName="Deployment" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" suppressGenModelAnnotations="false"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.fennec.compliance.inventory.model/model/inventory.genmodel#//inventory ../../org.eclipse.fennec.compliance.context.model/model/context.genmodel#//context ../../org.eclipse.fennec.compliance.corpus.model/model/corpus.genmodel#//corpus"
+    operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>deployment.ecore</foreignModel>
+  <genPackages prefix="Deployment" basePackage="org.eclipse.fennec.model.compliance"
+      resource="XMI" disposableProviderFactory="true" ecorePackage="deployment.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment.ecore#//ContainerRuntime">
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ContainerRuntime/OTHER"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ContainerRuntime/PODMAN_QUADLET"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ContainerRuntime/DOCKER_COMPOSE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ContainerRuntime/KUBERNETES"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment.ecore#//ManagementKind">
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ManagementKind/HAND_WRITTEN"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//ManagementKind/GENERATED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment.ecore#//Exposure">
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/INTERNAL"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/INDIRECT"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/INTERNET_AUTHENTICATED"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/HOST_PORT_PUBLIC"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//Exposure/INTERNET_PUBLIC"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment.ecore#//AuthMode">
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//AuthMode/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//AuthMode/OIDC"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//AuthMode/BASIC"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//AuthMode/KEY"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//AuthMode/OTHER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment.ecore#//BumpKind">
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//BumpKind/DIGEST"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//BumpKind/PATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//BumpKind/MINOR"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment.ecore#//BumpKind/MAJOR"/>
+    </genEnums>
+    <genClasses ecoreClass="deployment.ecore#//ImageRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/registry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/repository"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/tag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/digest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/pullPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/floating"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageRef/builtLocally"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//PortPublication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//PortPublication/hostAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//PortPublication/hostPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//PortPublication/containerPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//PortPublication/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//RouteExposure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//RouteExposure/hostname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//RouteExposure/pathPrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//RouteExposure/authMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//RouteExposure/methods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//RouteExposure/routeId"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//ContainerAsset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/runtime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/management"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/stack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/containerName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//ContainerAsset/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/stateful"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//ContainerAsset/publishedPorts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/networks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/exposure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//ContainerAsset/routes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/assetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ContainerAsset/specId"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//HostAsset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/hostname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/os"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/osVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/containerRuntime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/runtimeVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/assetType"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//EstateConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateConfiguration/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateConfiguration/tenant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//EstateConfiguration/estates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//EstateConfiguration/imageOwners"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//Estate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Estate/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Estate/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Estate/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//Estate/contextIds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment.ecore#//Estate/hosts"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//EstateHost">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/hostname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/runtime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/management"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/deploymentModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateHost/derivedFiles"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment.ecore#//ImageOwner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageOwner/imagePrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//ImageOwner/repository"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

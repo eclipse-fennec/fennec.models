@@ -1,0 +1,21 @@
+Bundle-Name: Fennec Compliance Deployment Model
+Bundle-Description: Deployment facts as inventory assets (containers, hosts, images, exposure) and the estates of a tenant
+
+-library: enableEMF
+
+-generate:\
+	model/deployment.genmodel;\
+		generate=fennecEMF;\
+		lineEndings=lf;\
+		genmodel=model/deployment.genmodel;\
+		output=src
+
+-includeresource.model: model=model
+
+Bundle-Version: 1.0.0.SNAPSHOT
+
+-buildpath: \
+	org.osgi.service.condition;version=latest,\
+	org.eclipse.fennec.compliance.corpus.model;version=snapshot,\
+	org.eclipse.fennec.compliance.context.model;version=snapshot,\
+	org.eclipse.fennec.compliance.inventory.model;version=snapshot
