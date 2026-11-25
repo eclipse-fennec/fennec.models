@@ -33,6 +33,9 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getContainerRuntime <em>Container Runtime</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getRuntimeVersion <em>Runtime Version</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getAssetType <em>Asset Type</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getKernel <em>Kernel</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending <em>Reboot Pending</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getObservedAt <em>Observed At</em>}</li>
  * </ul>
  *
  * @see org.eclipse.fennec.model.compliance.deployment.DeploymentPackage#getHostAsset()
@@ -176,5 +179,107 @@ public interface HostAsset extends Asset {
 	 * @generated
 	 */
 	void setAssetType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Kernel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kernel the host runs, as the host reported it.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Kernel</em>' attribute.
+	 * @see #setKernel(String)
+	 * @see org.eclipse.fennec.model.compliance.deployment.DeploymentPackage#getHostAsset_Kernel()
+	 * @model
+	 * @generated
+	 */
+	String getKernel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getKernel <em>Kernel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kernel</em>' attribute.
+	 * @see #getKernel()
+	 * @generated
+	 */
+	void setKernel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Reboot Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Installed updates wait for a reboot of the host; unset when the host did not report it.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reboot Pending</em>' attribute.
+	 * @see #isSetRebootPending()
+	 * @see #unsetRebootPending()
+	 * @see #setRebootPending(boolean)
+	 * @see org.eclipse.fennec.model.compliance.deployment.DeploymentPackage#getHostAsset_RebootPending()
+	 * @model unsettable="true"
+	 * @generated
+	 */
+	boolean isRebootPending();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending <em>Reboot Pending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reboot Pending</em>' attribute.
+	 * @see #isSetRebootPending()
+	 * @see #unsetRebootPending()
+	 * @see #isRebootPending()
+	 * @generated
+	 */
+	void setRebootPending(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending <em>Reboot Pending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetRebootPending()
+	 * @see #isRebootPending()
+	 * @see #setRebootPending(boolean)
+	 * @generated
+	 */
+	void unsetRebootPending();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending <em>Reboot Pending</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Reboot Pending</em>' attribute is set.
+	 * @see #unsetRebootPending()
+	 * @see #isRebootPending()
+	 * @see #setRebootPending(boolean)
+	 * @generated
+	 */
+	boolean isSetRebootPending();
+
+	/**
+	 * Returns the value of the '<em><b>Observed At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the host reported os, osVersion, kernel and rebootPending about itself, ISO 8601; unset when they were entered by hand.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Observed At</em>' attribute.
+	 * @see #setObservedAt(String)
+	 * @see org.eclipse.fennec.model.compliance.deployment.DeploymentPackage#getHostAsset_ObservedAt()
+	 * @model
+	 * @generated
+	 */
+	String getObservedAt();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getObservedAt <em>Observed At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Observed At</em>' attribute.
+	 * @see #getObservedAt()
+	 * @generated
+	 */
+	void setObservedAt(String value);
 
 } // HostAsset
