@@ -56,4 +56,5 @@
 	org.eclipse.fennec.compliance.deployment.model;version=snapshot,\
 	org.eclipse.fennec.compliance.vulnerability.model;version=snapshot,\
 	org.apache.felix.configadmin;version='[1.10.0,1.10.1)',\
-	org.apache.felix.scr;version='[2.3.0,2.3.1)'
+	org.apache.felix.scr;version='[2.3.0,2.3.1)',\
+	org.osgi.service.cm;version='[1.6.1,1.6.2)'
