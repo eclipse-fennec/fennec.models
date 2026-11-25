@@ -84,6 +84,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/containerRuntime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/runtimeVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/assetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/kernel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/rebootPending"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//HostAsset/observedAt"/>
     </genClasses>
     <genClasses ecoreClass="deployment.ecore#//EstateConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment.ecore#//EstateConfiguration/id"/>

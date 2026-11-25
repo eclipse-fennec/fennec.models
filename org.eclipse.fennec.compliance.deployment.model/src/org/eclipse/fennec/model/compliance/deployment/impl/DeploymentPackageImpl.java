@@ -617,6 +617,36 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getHostAsset_Kernel() {
+		return (EAttribute)hostAssetEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHostAsset_RebootPending() {
+		return (EAttribute)hostAssetEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHostAsset_ObservedAt() {
+		return (EAttribute)hostAssetEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEstateConfiguration() {
 		return estateConfigurationEClass;
 	}
@@ -954,6 +984,9 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		createEAttribute(hostAssetEClass, HOST_ASSET__CONTAINER_RUNTIME);
 		createEAttribute(hostAssetEClass, HOST_ASSET__RUNTIME_VERSION);
 		createEAttribute(hostAssetEClass, HOST_ASSET__ASSET_TYPE);
+		createEAttribute(hostAssetEClass, HOST_ASSET__KERNEL);
+		createEAttribute(hostAssetEClass, HOST_ASSET__REBOOT_PENDING);
+		createEAttribute(hostAssetEClass, HOST_ASSET__OBSERVED_AT);
 
 		estateConfigurationEClass = createEClass(ESTATE_CONFIGURATION);
 		createEAttribute(estateConfigurationEClass, ESTATE_CONFIGURATION__ID);
@@ -1068,6 +1101,9 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		initEAttribute(getHostAsset_ContainerRuntime(), ecorePackage.getEString(), "containerRuntime", null, 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHostAsset_RuntimeVersion(), ecorePackage.getEString(), "runtimeVersion", null, 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHostAsset_AssetType(), ecorePackage.getEString(), "assetType", "host", 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHostAsset_Kernel(), ecorePackage.getEString(), "kernel", null, 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHostAsset_RebootPending(), ecorePackage.getEBoolean(), "rebootPending", null, 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHostAsset_ObservedAt(), ecorePackage.getEString(), "observedAt", null, 0, 1, HostAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(estateConfigurationEClass, EstateConfiguration.class, "EstateConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEstateConfiguration_Id(), ecorePackage.getEString(), "id", null, 1, 1, EstateConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1328,6 +1364,24 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		   source,
 		   new String[] {
 			   "documentation", "Kind of asset for consumers that do not know this package; host."
+		   });
+		addAnnotation
+		  (getHostAsset_Kernel(),
+		   source,
+		   new String[] {
+			   "documentation", "The kernel the host runs, as the host reported it."
+		   });
+		addAnnotation
+		  (getHostAsset_RebootPending(),
+		   source,
+		   new String[] {
+			   "documentation", "Installed updates wait for a reboot of the host; unset when the host did not report it."
+		   });
+		addAnnotation
+		  (getHostAsset_ObservedAt(),
+		   source,
+		   new String[] {
+			   "documentation", "When the host reported os, osVersion, kernel and rebootPending about itself, ISO 8601; unset when they were entered by hand."
 		   });
 		addAnnotation
 		  (bumpKindEEnum,

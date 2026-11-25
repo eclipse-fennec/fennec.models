@@ -185,6 +185,21 @@
         <details key="documentation" value="Kind of asset for consumers that do not know this package; host."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kernel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The kernel the host runs, as the host reported it."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rebootPending" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Installed updates wait for a reboot of the host; unset when the host did not report it."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="observedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When the host reported os, osVersion, kernel and rebootPending about itself, ISO 8601; unset when they were entered by hand."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BumpKind">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

@@ -42,7 +42,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@EPackage(uri = DeploymentPackage.eNS_URI, fingerprint = "fp1:61c081b8adced0d4e318c3c9d0fe458f8377ce488f14e931dd64cde1c51a09fe", genModel = "/model/deployment.genmodel", genModelSourceLocations = {"model/deployment.genmodel","org.eclipse.fennec.compliance.deployment.model/model/deployment.genmodel"}, ecore = "/model/deployment.ecore", ecoreSourceLocations = "/model/deployment.ecore")
+@EPackage(uri = DeploymentPackage.eNS_URI, fingerprint = "fp1:d59ed358be05eae5521332bba19a11f37e9210f14dd15366fd64bdbd6775343d", genModel = "/model/deployment.genmodel", genModelSourceLocations = {"model/deployment.genmodel","org.eclipse.fennec.compliance.deployment.model/model/deployment.genmodel"}, ecore = "/model/deployment.ecore", ecoreSourceLocations = "/model/deployment.ecore")
 public interface DeploymentPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
@@ -676,13 +676,40 @@ public interface DeploymentPackage extends org.eclipse.emf.ecore.EPackage {
 	int HOST_ASSET__ASSET_TYPE = InventoryPackage.ASSET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Kernel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOST_ASSET__KERNEL = InventoryPackage.ASSET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Reboot Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOST_ASSET__REBOOT_PENDING = InventoryPackage.ASSET_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Observed At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOST_ASSET__OBSERVED_AT = InventoryPackage.ASSET_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Host Asset</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOST_ASSET_FEATURE_COUNT = InventoryPackage.ASSET_FEATURE_COUNT + 6;
+	int HOST_ASSET_FEATURE_COUNT = InventoryPackage.ASSET_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Host Asset</em>' class.
@@ -1454,6 +1481,39 @@ public interface DeploymentPackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getHostAsset_AssetType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getKernel <em>Kernel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kernel</em>'.
+	 * @see org.eclipse.fennec.model.compliance.deployment.HostAsset#getKernel()
+	 * @see #getHostAsset()
+	 * @generated
+	 */
+	EAttribute getHostAsset_Kernel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending <em>Reboot Pending</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reboot Pending</em>'.
+	 * @see org.eclipse.fennec.model.compliance.deployment.HostAsset#isRebootPending()
+	 * @see #getHostAsset()
+	 * @generated
+	 */
+	EAttribute getHostAsset_RebootPending();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.model.compliance.deployment.HostAsset#getObservedAt <em>Observed At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Observed At</em>'.
+	 * @see org.eclipse.fennec.model.compliance.deployment.HostAsset#getObservedAt()
+	 * @see #getHostAsset()
+	 * @generated
+	 */
+	EAttribute getHostAsset_ObservedAt();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.model.compliance.deployment.EstateConfiguration <em>Estate Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2093,6 +2153,30 @@ public interface DeploymentPackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EAttribute HOST_ASSET__ASSET_TYPE = eINSTANCE.getHostAsset_AssetType();
+
+		/**
+		 * The meta object literal for the '<em><b>Kernel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOST_ASSET__KERNEL = eINSTANCE.getHostAsset_Kernel();
+
+		/**
+		 * The meta object literal for the '<em><b>Reboot Pending</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOST_ASSET__REBOOT_PENDING = eINSTANCE.getHostAsset_RebootPending();
+
+		/**
+		 * The meta object literal for the '<em><b>Observed At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOST_ASSET__OBSERVED_AT = eINSTANCE.getHostAsset_ObservedAt();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.model.compliance.deployment.impl.EstateConfigurationImpl <em>Estate Configuration</em>}' class.

@@ -35,6 +35,9 @@ import org.eclipse.fennec.model.compliance.inventory.impl.AssetImpl;
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#getContainerRuntime <em>Container Runtime</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#getRuntimeVersion <em>Runtime Version</em>}</li>
  *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#getAssetType <em>Asset Type</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#getKernel <em>Kernel</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#isRebootPending <em>Reboot Pending</em>}</li>
+ *   <li>{@link org.eclipse.fennec.model.compliance.deployment.impl.HostAssetImpl#getObservedAt <em>Observed At</em>}</li>
  * </ul>
  *
  * @generated
@@ -159,6 +162,75 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 	 * @ordered
 	 */
 	protected String assetType = ASSET_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKernel() <em>Kernel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKernel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KERNEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKernel() <em>Kernel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKernel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String kernel = KERNEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRebootPending() <em>Reboot Pending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRebootPending()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REBOOT_PENDING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRebootPending() <em>Reboot Pending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRebootPending()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean rebootPending = REBOOT_PENDING_EDEFAULT;
+
+	/**
+	 * This is true if the Reboot Pending attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean rebootPendingESet;
+
+	/**
+	 * The default value of the '{@link #getObservedAt() <em>Observed At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OBSERVED_AT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getObservedAt() <em>Observed At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected String observedAt = OBSERVED_AT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +395,102 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 	 * @generated
 	 */
 	@Override
+	public String getKernel() {
+		return kernel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKernel(String newKernel) {
+		String oldKernel = kernel;
+		kernel = newKernel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DeploymentPackage.HOST_ASSET__KERNEL, oldKernel, kernel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isRebootPending() {
+		return rebootPending;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRebootPending(boolean newRebootPending) {
+		boolean oldRebootPending = rebootPending;
+		rebootPending = newRebootPending;
+		boolean oldRebootPendingESet = rebootPendingESet;
+		rebootPendingESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DeploymentPackage.HOST_ASSET__REBOOT_PENDING, oldRebootPending, rebootPending, !oldRebootPendingESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetRebootPending() {
+		boolean oldRebootPending = rebootPending;
+		boolean oldRebootPendingESet = rebootPendingESet;
+		rebootPending = REBOOT_PENDING_EDEFAULT;
+		rebootPendingESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, DeploymentPackage.HOST_ASSET__REBOOT_PENDING, oldRebootPending, REBOOT_PENDING_EDEFAULT, oldRebootPendingESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetRebootPending() {
+		return rebootPendingESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getObservedAt() {
+		return observedAt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setObservedAt(String newObservedAt) {
+		String oldObservedAt = observedAt;
+		observedAt = newObservedAt;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DeploymentPackage.HOST_ASSET__OBSERVED_AT, oldObservedAt, observedAt));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DeploymentPackage.HOST_ASSET__HOSTNAME:
@@ -337,6 +505,12 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 				return getRuntimeVersion();
 			case DeploymentPackage.HOST_ASSET__ASSET_TYPE:
 				return getAssetType();
+			case DeploymentPackage.HOST_ASSET__KERNEL:
+				return getKernel();
+			case DeploymentPackage.HOST_ASSET__REBOOT_PENDING:
+				return isRebootPending();
+			case DeploymentPackage.HOST_ASSET__OBSERVED_AT:
+				return getObservedAt();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -366,6 +540,15 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 				return;
 			case DeploymentPackage.HOST_ASSET__ASSET_TYPE:
 				setAssetType((String)newValue);
+				return;
+			case DeploymentPackage.HOST_ASSET__KERNEL:
+				setKernel((String)newValue);
+				return;
+			case DeploymentPackage.HOST_ASSET__REBOOT_PENDING:
+				setRebootPending((Boolean)newValue);
+				return;
+			case DeploymentPackage.HOST_ASSET__OBSERVED_AT:
+				setObservedAt((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -397,6 +580,15 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 			case DeploymentPackage.HOST_ASSET__ASSET_TYPE:
 				setAssetType(ASSET_TYPE_EDEFAULT);
 				return;
+			case DeploymentPackage.HOST_ASSET__KERNEL:
+				setKernel(KERNEL_EDEFAULT);
+				return;
+			case DeploymentPackage.HOST_ASSET__REBOOT_PENDING:
+				unsetRebootPending();
+				return;
+			case DeploymentPackage.HOST_ASSET__OBSERVED_AT:
+				setObservedAt(OBSERVED_AT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -421,6 +613,12 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 				return RUNTIME_VERSION_EDEFAULT == null ? runtimeVersion != null : !RUNTIME_VERSION_EDEFAULT.equals(runtimeVersion);
 			case DeploymentPackage.HOST_ASSET__ASSET_TYPE:
 				return ASSET_TYPE_EDEFAULT == null ? assetType != null : !ASSET_TYPE_EDEFAULT.equals(assetType);
+			case DeploymentPackage.HOST_ASSET__KERNEL:
+				return KERNEL_EDEFAULT == null ? kernel != null : !KERNEL_EDEFAULT.equals(kernel);
+			case DeploymentPackage.HOST_ASSET__REBOOT_PENDING:
+				return isSetRebootPending();
+			case DeploymentPackage.HOST_ASSET__OBSERVED_AT:
+				return OBSERVED_AT_EDEFAULT == null ? observedAt != null : !OBSERVED_AT_EDEFAULT.equals(observedAt);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -447,6 +645,12 @@ public class HostAssetImpl extends AssetImpl implements HostAsset {
 		result.append(runtimeVersion);
 		result.append(", assetType: ");
 		result.append(assetType);
+		result.append(", kernel: ");
+		result.append(kernel);
+		result.append(", rebootPending: ");
+		if (rebootPendingESet) result.append(rebootPending); else result.append("<unset>");
+		result.append(", observedAt: ");
+		result.append(observedAt);
 		result.append(')');
 		return result.toString();
 	}
