@@ -36,7 +36,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//ContextRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//ContextRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The contexts the inventory is assessed against."/>
@@ -135,7 +135,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//CategoryRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Classification, e.g. the BSI target object type."/>
@@ -344,14 +344,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//CategoryRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Classification, e.g. the GDPR Art. 32 aspects."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="satisfies" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//RequirementRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//RequirementRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Requirements the measure satisfies directly."/>
@@ -421,7 +421,7 @@
       <details key="documentation" value="Applicability and coverage of one requirement for the inventory: the row of a Statement of Applicability (ISO 27001), the result of the Grundschutz modelling, or the coverage view of a legal context."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//RequirementRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//RequirementRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The requirement."/>
@@ -455,7 +455,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="derivedFrom" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//RequirementRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//RequirementRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="For DERIVED / CONFIRMED coverage: the requirements of other contexts the coverage was derived from."/>
@@ -504,14 +504,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lawfulBases" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//CategoryRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Lawful bases, from the lawful-basis taxonomy of the GDPR context."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataCategories" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef"
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//CategoryRef"
         containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Categories of personal data."/>
@@ -582,7 +582,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataCategories" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.fennec.compliance.context.model/model/context.ecore#//CategoryRef" containment="true" resolveProxies="false">
+        eType="ecore:EClass https://org.eclipse/fennec/compliance/context/1.0.0#//CategoryRef" containment="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Which data the rule covers, from the data-category taxonomy of the GDPR context. Empty means all data of the processing activity."/>
       </eAnnotations>

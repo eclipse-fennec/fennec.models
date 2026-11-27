@@ -129,7 +129,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContainerAsset" eSuperTypes="../../org.eclipse.fennec.compliance.inventory.model/model/inventory.ecore#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerAsset" eSuperTypes="https://org.eclipse/fennec/compliance/inventory/1.0.0#//Asset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A container as an asset. The features declared here are read from the deployment model and replaced on each import; those inherited from Asset (owner, protection needs, relations) are curated and kept."/>
     </eAnnotations>
@@ -171,7 +171,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HostAsset" eSuperTypes="../../org.eclipse.fennec.compliance.inventory.model/model/inventory.ecore#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="HostAsset" eSuperTypes="https://org.eclipse/fennec/compliance/inventory/1.0.0#//Asset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A host that runs containers, as an asset."/>
     </eAnnotations>
